@@ -1,4 +1,0 @@
-{
-  "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "rm -rf .vercel/output && mkdir -p .vercel/output/static && cp -R demos .vercel/output/static/demos && printf '{\"version\":3}' > .vercel/output/config.json"
-}

@@ -1,697 +1,558 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Florăria Bloom Târgoviște — Aranjamente florale & Comenzi rapide</title>
-<meta name="description" content="Florăria Bloom Art&Flowers — aranjamente florale pentru ocazii în Târgoviște. Catalog vizual, contact rapid prin telefon și WhatsApp (demo). Comandă ușor local." />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-<style>
-:root{
-  --bg:#fffaf8;
-  --card:#ffffff;
-  --muted:#6b6b6b;
-  --accent:#8bbf9b; /* sage */
-  --accent-2:#e6706a; /* coral */
-  --soft:#f6efe9;
-  --radius:12px;
-  --max-width:1100px;
-  --glass: rgba(255,255,255,0.6);
-  --shadow: 0 6px 20px rgba(17,17,17,0.06);
-  --gap: clamp(12px, 2.5vw, 28px);
-  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  color-scheme: light;
-}
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
-  margin:0;
-  background: linear-gradient(180deg,var(--bg),#fff);
-  color:#111;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  line-height:1.45;
-  padding:16px;
-  display:flex;
-  justify-content:center;
-}
-.container{
-  width:100%;
-  max-width:var(--max-width);
-  margin:0 auto;
-}
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Florăria Bloom Târgoviște — Catalog aranjamente | Demo</title>
+  <meta name="description" content="Demo site pentru Florăria Bloom Târgoviste — prezentare vizuală a aranjamentelor, galerie foto, catalog și contacte rapide pentru comenzi din Târgoviște." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#fffaf9;
+      --muted:#6b6b6b;
+      --accent:#c76f9b; /* dusty rose */
+      --accent-2:#6ba48a; /* soft green */
+      --card:#ffffff;
+      --line: #ece7e7;
+      --glass: rgba(255,255,255,0.6);
+      --radius:14px;
+      --max-width:1100px;
+      --shadow: 0 6px 18px rgba(17,17,17,0.06);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background:linear-gradient(180deg,var(--bg) 0%, #fff 100%);
+      color:#1e1e1e;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.4;
+      -webkit-tap-highlight-color:transparent;
+    }
+    a{color:inherit; text-decoration:none}
+    .container{max-width:var(--max-width); margin:0 auto; padding:0 18px;}
+    header{
+      position:sticky; top:0; z-index:40;
+      backdrop-filter: blur(6px);
+      background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.6));
+      border-bottom:1px solid var(--line);
+    }
+    .header-inner{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px 0;}
+    .brand{font-weight:700; color:#2f2f2f; font-size:clamp(16px,2.4vw,20px); letter-spacing:0.2px}
+    nav{display:flex; gap:8px; align-items:center}
+    .nav-links{display:flex; gap:8px; align-items:center}
+    .nav-links a{
+      padding:8px 10px; border-radius:10px; color:var(--muted); font-weight:600; font-size:14px;
+    }
+    .nav-links a:focus{outline:3px solid rgba(199,111,155,0.18); outline-offset:2px}
+    .cta-header{
+      display:inline-flex; gap:8px; align-items:center;
+    }
+    .btn{
+      display:inline-flex; align-items:center; gap:8px;
+      background:var(--accent); color:white; border:none; padding:10px 14px; border-radius:12px;
+      font-weight:700; font-size:14px; box-shadow:var(--shadow); cursor:pointer;
+    }
+    .btn.ghost{background:transparent; color:var(--accent); border:1px solid var(--line); font-weight:600}
+    .menu-btn{
+      display:none; background:transparent; border:1px solid var(--line); padding:8px 10px; border-radius:10px;
+    }
 
-/* Header */
-header{
-  position:sticky;
-  top:12px;
-  z-index:40;
-  backdrop-filter: blur(6px);
-  background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
-  border-radius:14px;
-  padding:10px;
-  box-shadow:var(--shadow);
-}
-.header-inner{
-  display:flex;
-  gap:12px;
-  align-items:center;
-  justify-content:space-between;
-}
-.brand{
-  display:flex;
-  gap:12px;
-  align-items:center;
-  text-decoration:none;
-  color:inherit;
-}
-.brand h1{
-  font-family: "Playfair Display", serif;
-  font-size:clamp(16px,2.4vw,20px);
-  margin:0;
-  letter-spacing:0.2px;
-}
-nav{display:flex; gap:8px; align-items:center;}
-.nav-links{
-  display:flex;
-  gap:8px;
-  align-items:center;
-}
-.nav-links a{
-  color:var(--muted);
-  text-decoration:none;
-  padding:8px 10px;
-  border-radius:10px;
-  font-weight:600;
-  font-size:14px;
-}
-.nav-links a:focus, .nav-links a:hover{color:#111; background:var(--soft)}
-.header-actions{display:flex;gap:8px;align-items:center;}
-.cta{
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  background:var(--accent-2);
-  color:#fff;
-  padding:10px 14px;
-  border-radius:10px;
-  text-decoration:none;
-  font-weight:700;
-  font-size:14px;
-  box-shadow:0 6px 18px rgba(230,112,106,0.18);
-}
-.cta.secondary{
-  background:transparent;
-  color:var(--accent-2);
-  border:1px solid rgba(226,112,106,0.12);
-  padding:8px 12px;
-  font-weight:600;
-}
-.menu-toggle{
-  display:inline-flex;
-  background:transparent;
-  border:1px solid rgba(17,17,17,0.06);
-  padding:8px;
-  border-radius:10px;
-}
+    /* Hero */
+    .hero{
+      padding:18px 0 8px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:18px;
+      align-items:center;
+    }
+    .hero-card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.85));
+      border-radius:var(--radius);
+      padding:18px;
+      box-shadow:var(--shadow);
+      border:1px solid var(--line);
+    }
+    .hero-headline{
+      font-size:clamp(22px,5vw,36px);
+      line-height:1.03;
+      margin:0 0 8px;
+      color:#222022;
+      letter-spacing:-0.4px;
+      font-weight:700;
+    }
+    .hero-sub{color:var(--muted); margin:0 0 14px; font-size:15px}
+    .hero-ctas{display:flex; gap:10px; flex-wrap:wrap}
+    .benefits{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
+    .benefit{
+      background:linear-gradient(180deg, #fff 0%, rgba(255,255,255,0.95) 100%);
+      border:1px solid var(--line);
+      padding:8px 12px; border-radius:10px; font-size:13px; color:var(--muted);
+      display:inline-flex; align-items:center; gap:8px;
+    }
+    .hero-visual{
+      border-radius:12px; overflow:hidden; min-height:220px; display:block;
+      box-shadow: 0 8px 28px rgba(41,22,35,0.08);
+    }
+    .hero-visual img{width:100%; height:100%; display:block; object-fit:cover; object-position:center}
 
-/* Hero */
-.hero{
-  margin-top:18px;
-  background: linear-gradient(180deg, rgba(255,255,255,0.8), rgba(255,255,255,0.5));
-  border-radius:16px;
-  overflow:hidden;
-  display:grid;
-  grid-template-columns:1fr;
-  gap:16px;
-  box-shadow:var(--shadow);
-}
-@media(min-width:900px){
-  .hero{grid-template-columns: 1fr 520px; align-items:stretch;}
-}
-.hero-left{
-  padding:22px;
-  display:flex;
-  flex-direction:column;
-  gap:14px;
-  justify-content:center;
-}
-.kicker{
-  display:inline-block;
-  background:var(--accent);
-  color:#fff;
-  padding:6px 10px;
-  border-radius:999px;
-  font-weight:700;
-  font-size:13px;
-  width:max-content;
-}
-.hero h2{
-  margin:0;
-  font-family:"Playfair Display", serif;
-  font-size:clamp(20px,4.2vw,34px);
-  line-height:1.05;
-  color:#19331a;
-}
-.lead{color:var(--muted); font-size:15px}
-.hero-ctas{display:flex; gap:10px; flex-wrap:wrap;}
-.benefits{
-  display:flex;
-  gap:8px;
-  flex-wrap:wrap;
-  margin-top:4px;
-}
-.benefit{
-  background:transparent;
-  color:var(--muted);
-  border-radius:10px;
-  padding:8px 10px;
-  font-weight:600;
-  font-size:13px;
-  display:inline-flex;
-  gap:8px;
-  align-items:center;
-}
+    /* Catalog */
+    section{padding:26px 0}
+    h2.section-title{font-size:20px; margin:0 0 12px; color:#222}
+    .catalog-grid{
+      display:grid;
+      grid-template-columns: repeat(1,1fr);
+      gap:12px;
+    }
+    .product{
+      display:flex; gap:12px; background:var(--card); border-radius:12px; padding:12px; border:1px solid var(--line);
+      align-items:center;
+    }
+    .product-figure{
+      width:112px; height:88px; border-radius:10px; overflow:hidden; flex:0 0 112px; background:#f7f5f6;
+    }
+    .product-figure img{width:100%; height:100%; object-fit:cover; object-position:center}
+    .product-info h3{margin:0 0 6px; font-size:16px}
+    .product-info p{margin:0; color:var(--muted); font-size:13px}
+    .product-actions{margin-left:auto; display:flex; flex-direction:column; gap:8px}
+    .small-btn{background:var(--accent-2); color:white; padding:8px 10px; border-radius:10px; font-weight:700; font-size:13px; border:none}
 
-/* Hero image */
-.hero-media{
-  position:relative;
-  min-height:220px;
-  overflow:hidden;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-.hero-media img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  object-position:center;
-  display:block;
-}
+    /* Gallery editorial */
+    .gallery-grid{
+      display:grid;
+      grid-template-columns: repeat(6, 1fr);
+      grid-auto-rows: 90px;
+      gap:8px;
+      align-items:stretch;
+    }
+    .g-item{position:relative; overflow:hidden; border-radius:10px; border:1px solid var(--line); background:#fff}
+    .g-item img{width:100%; height:100%; object-fit:cover; display:block}
+    .g-large{grid-column:1/ span 3; grid-row:1 / span 2}
+    .g-medium{grid-column:4 / span 2; grid-row:1 / span 1}
+    .g-small-1{grid-column:4 / span 1; grid-row:2 / span 1}
+    .g-small-2{grid-column:5 / span 1; grid-row:2 / span 1}
+    .g-side{grid-column:6 / span 1; grid-row:1 / span 2}
 
-/* Catalog */
-.section{
-  margin-top:var(--gap);
-  background:linear-gradient(180deg, rgba(255,255,255,0.7), rgba(255,255,255,0.6));
-  padding:18px;
-  border-radius:14px;
-  box-shadow:var(--shadow);
-}
-.section h3{
-  margin:0 0 12px 0;
-  font-size:18px;
-  color:#19331a;
-  font-weight:700;
-  font-family:"Playfair Display", serif;
-}
-.catalog-grid{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:12px;
-}
-@media(min-width:720px){
-  .catalog-grid{grid-template-columns:repeat(2,1fr)}
-}
-.card{
-  display:flex;
-  gap:12px;
-  background:var(--card);
-  border-radius:12px;
-  padding:10px;
-  align-items:center;
-  border:1px solid rgba(17,17,17,0.04);
-}
-.card img{
-  width:120px;
-  height:90px;
-  object-fit:cover;
-  border-radius:10px;
-  flex-shrink:0;
-}
-.card-content h4{margin:0; font-size:15px; color:#14301c}
-.card-content p{margin:6px 0 0 0; color:var(--muted); font-size:14px}
-.card-actions{margin-left:auto; display:flex; gap:8px; align-items:center}
+    /* Benefits/process */
+    .process{display:grid; gap:12px}
+    .process-grid{display:flex; gap:12px; flex-wrap:wrap}
+    .step{background:linear-gradient(180deg,#fff,#fff); border-radius:12px; padding:12px; border:1px solid var(--line); flex:1 1 160px; min-width:160px}
+    .step h4{margin:0 0 6px; font-size:15px; color:#222}
+    .step p{margin:0; color:var(--muted); font-size:13px}
 
-/* Gallery */
-.gallery-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:10px;
-}
-@media(min-width:900px){
-  .gallery-grid{
-    grid-template-columns: 1fr 1fr 1fr;
-    gap:14px;
-  }
-}
-.gallery-item{
-  border-radius:12px;
-  overflow:hidden;
-  background:var(--card);
-  min-height:120px;
-  box-shadow:0 8px 20px rgba(17,17,17,0.04);
-}
-.gallery-item img{width:100%; height:100%; object-fit:cover; display:block}
+    /* Reviews simple */
+    .reviews{display:flex; gap:12px; align-items:center; flex-wrap:wrap}
+    .rating-badge{display:inline-flex; gap:8px; align-items:center; background:linear-gradient(90deg,#fff,#fff); border-radius:10px; padding:8px 10px; border:1px solid var(--line); box-shadow:var(--shadow); font-weight:700}
+    .star{width:16px;height:16px; display:inline-block}
 
-/* Process & benefits */
-.process{
-  display:flex;
-  gap:12px;
-  flex-direction:column;
-}
-@media(min-width:720px){
-  .process{flex-direction:row}
-}
-.step{
-  background:linear-gradient(180deg,#fff, #fbfaf9);
-  border-radius:12px;
-  padding:14px;
-  flex:1;
-  border:1px solid rgba(11,27,12,0.03);
-}
-.step h5{margin:0 0 6px 0; font-size:15px; color:#14301c}
-.step p{margin:0;color:var(--muted)}
+    /* Location & contact */
+    .contact-grid{display:grid; gap:12px}
+    .map-card{background:linear-gradient(180deg,#fff,#fff); border-radius:12px; padding:12px; border:1px solid var(--line); box-shadow:var(--shadow)}
+    .map-svg{width:100%; height:220px; border-radius:10px; display:block; background:linear-gradient(180deg,#fbf7f8,#fff)}
+    .contact-list{display:flex; flex-direction:column; gap:8px}
+    .contact-item{display:flex; gap:10px; align-items:center}
+    .phone{font-weight:700; color:#2b2b2b}
+    .site-link{color:var(--accent); font-weight:700}
 
-/* Location & contact */
-.location{
-  display:grid;
-  gap:12px;
-  grid-template-columns:1fr;
-}
-@media(min-width:900px){
-  .location{grid-template-columns:1fr 360px}
-}
-.map-visual{
-  background:linear-gradient(180deg,#fdfaf7,#fff);
-  border-radius:12px;
-  padding:14px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border:1px solid rgba(17,17,17,0.04);
-}
-.address-block{
-  background:var(--card);
-  border-radius:12px;
-  padding:14px;
-  border:1px solid rgba(17,17,17,0.04);
-}
-.address-block p{margin:8px 0 0 0; color:var(--muted)}
-.contact-actions{display:flex; gap:10px; margin-top:10px; flex-wrap:wrap}
-.whatsapp-demo{
-  background:#25D366;
-  color:#fff;
-  padding:10px 12px;
-  border-radius:10px;
-  text-decoration:none;
-  font-weight:700;
-  display:inline-flex;
-  gap:8px;
-  align-items:center;
-}
+    footer{border-top:1px solid var(--line); padding:18px 0; background:transparent}
+    .footer-inner{display:flex; gap:12px; align-items:flex-start; justify-content:space-between; flex-wrap:wrap}
+    .legal{color:var(--muted); font-size:13px; max-width:680px}
+    .chooseit-note{background:#fff0f4; border-left:4px solid var(--accent); padding:10px 12px; border-radius:10px; color:#3a2b35; font-weight:600}
 
-/* Reviews block */
-.reviews{
-  display:flex;
-  gap:12px;
-  align-items:center;
-  flex-wrap:wrap;
-}
-.stars{display:inline-flex; gap:6px; align-items:center}
-.star{width:18px;height:18px; display:inline-block}
+    /* Responsive */
+    @media(min-width:720px){
+      .hero-grid{grid-template-columns: 1fr 460px}
+      .hero-card{padding:28px}
+      .catalog-grid{grid-template-columns: repeat(2,1fr)}
+      .gallery-grid{grid-auto-rows: 120px}
+      .g-large{grid-column:1/ span 3; grid-row:1 / span 2}
+      .g-side{grid-column:6 / span 1; grid-row:1 / span 2}
+      .menu-btn{display:none}
+    }
+    @media(max-width:719px){
+      .nav-links{display:none}
+      .menu-btn{display:inline-flex}
+      .hero-visual{min-height:180px}
+      .gallery-grid{grid-template-columns: repeat(3,1fr); grid-auto-rows:100px}
+      .g-large{grid-column:1 / span 2; grid-row:1 / span 2}
+      .g-side{display:none}
+      .product-figure{width:96px; height:72px; flex:0 0 96px}
+    }
 
-/* Footer */
-footer{
-  margin-top:20px;
-  padding:18px;
-  border-radius:12px;
-  background:linear-gradient(180deg,#fff,#fbfbfb);
-  border:1px solid rgba(17,17,17,0.04);
-  color:var(--muted);
-  font-size:14px;
-}
-.footer-note{margin-top:10px; color:#111; font-weight:600; background:linear-gradient(90deg, rgba(255,255,255,0.6), rgba(255,255,255,0.4)); padding:10px; border-radius:10px}
+    /* Mobile menu open */
+    .mobile-menu{
+      position:fixed; inset:0; background:rgba(0,0,0,0.35); display:none; z-index:60;
+      align-items:flex-start; padding-top:68px;
+    }
+    .mobile-menu.open{display:flex}
+    .mobile-panel{background:white; width:260px; border-radius:12px; margin-left:12px; padding:12px; box-shadow:var(--shadow)}
+    .mobile-panel a{display:block; padding:10px 8px; border-radius:8px; color:#333; font-weight:700}
+    .mobile-panel .mobile-cta{margin-top:10px}
 
-/* Small utilities */
-.kv{font-weight:700; color:#14301c}
-a{color:inherit}
-input,textarea,button{font-family:inherit}
-.focusable:focus{outline:3px solid rgba(139,191,155,0.22); outline-offset:3px; border-radius:8px}
-
-/* Accessibility reduced motion */
-@media (prefers-reduced-motion: reduce){
-  *{transition:none !important}
-}
-
-/* Responsive tweaks */
-@media(max-width:520px){
-  .hero-left{padding:16px}
-  header{padding:8px}
-  .brand h1{font-size:16px}
-  .cta{padding:8px 10px}
-  .nav-links{display:none}
-  .menu-toggle{display:inline-flex}
-}
-@media(min-width:521px){
-  .menu-toggle{display:none}
-}
-
-/* Form (demo) */
-.quick-form{
-  display:flex;
-  gap:8px;
-  flex-direction:column;
-}
-.quick-form input, .quick-form select, .quick-form textarea{
-  padding:10px;
-  border-radius:10px;
-  border:1px solid rgba(17,17,17,0.06);
-  background:#fff;
-}
-.quick-form button{
-  background:var(--accent-2);
-  color:#fff;
-  padding:10px;
-  border-radius:10px;
-  border:0;
-  cursor:pointer;
-  font-weight:700;
-}
-.small{font-size:13px;color:var(--muted)}
-</style>
+    /* Accessibility */
+    a:focus, button:focus{outline:3px solid rgba(107,111,155,0.12); outline-offset:2px}
+    @media (prefers-reduced-motion: reduce){
+      *{transition:none !important}
+    }
+  </style>
 </head>
 <body>
-<div class="container" id="top">
-  <header aria-label="Navigație principală">
-    <div class="header-inner">
-      <a class="brand" href="#home">
-        <h1>Florăria Bloom — Bloom Art&amp;Flowers</h1>
-      </a>
+  <header>
+    <div class="container header-inner" >
+      <div style="display:flex;gap:12px;align-items:center">
+        <button class="menu-btn" id="menuToggle" aria-label="Deschide meniul principal" aria-expanded="false">Meniu</button>
+        <div class="brand">Floraria Bloom Targoviste - Bloom Art&Flowers</div>
+      </div>
 
-      <nav aria-label="Meniu principal">
-        <div class="nav-links" id="navLinks">
-          <a href="#home">Acasă</a>
+      <nav aria-label="Navigare principală">
+        <div class="nav-links" role="navigation" aria-hidden="false">
+          <a href="#acasa">Acasă</a>
           <a href="#catalog">Catalog</a>
           <a href="#galerie">Galerie</a>
           <a href="#contact">Contact</a>
-          <a href="#despre">Despre</a>
         </div>
 
-        <div class="header-actions">
-          <a class="cta" href="tel:+40724999719" aria-label="Sună la Florăria Bloom">Sună acum</a>
-          <button class="menu-toggle focusable" id="menuToggle" aria-expanded="false" aria-controls="navPanel" aria-label="Deschide meniul mobil">
-            ☰
-          </button>
+        <div class="cta-header">
+          <a class="btn" href="tel:+40724999719" aria-label="Sună la Floraria Bloom Targoviste">Sună acum</a>
         </div>
       </nav>
     </div>
 
-    <!-- Mobile panel -->
-    <div id="navPanel" style="display:none; margin-top:10px;" aria-hidden="true">
-      <div style="display:flex; flex-direction:column; gap:8px;">
-        <a href="#home">Acasă</a>
-        <a href="#catalog">Catalog</a>
-        <a href="#galerie">Galerie</a>
-        <a href="#contact">Contact</a>
-        <a href="#despre">Despre</a>
-        <a class="cta secondary" href="tel:+40724999719">Sună pentru comandă</a>
+    <!-- Mobile menu panel -->
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+      <div class="mobile-panel" role="dialog" aria-label="Meniu mobil">
+        <a href="#acasa" onclick="closeMenu()">Acasă</a>
+        <a href="#catalog" onclick="closeMenu()">Catalog</a>
+        <a href="#ocazii" onclick="closeMenu()">Ocazii</a>
+        <a href="#galerie" onclick="closeMenu()">Galerie</a>
+        <a href="#recenzii" onclick="closeMenu()">Recenzii</a>
+        <a href="#contact" onclick="closeMenu()">Contact</a>
+        <div class="mobile-cta" style="margin-top:10px">
+          <a class="btn" href="tel:+40724999719" style="display:inline-block;width:100%;text-align:center">Sună</a>
+        </div>
       </div>
     </div>
   </header>
 
-  <main>
-    <!-- HERO -->
-    <section id="home" class="hero" aria-label="Secțiunea principală">
-      <div class="hero-left">
-        <span class="kicker">Florărie • Târgoviște</span>
-        <h2>Aranjamente florale moderne și elegante pentru orice ocazie</h2>
-        <p class="lead">Comandă prin apel sau WhatsApp (demo). Catalog vizual pentru a găsi rapid aranjamentul potrivit — livrări locale în Târgoviște.</p>
+  <main class="container" id="acasa">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-grid">
+        <div class="hero-card">
+          <h1 id="hero-title" class="hero-headline">Aranjamente florale emotive, create pentru fiecare ocazie din Târgoviște</h1>
+          <p class="hero-sub">Catalog vizual cu selecții de buchete și cutii florale — accesează rapid produsele și contactează floristul pentru detalii și disponibilitate.</p>
 
-        <div class="hero-ctas" role="group" aria-label="Apeluri la acțiune">
-          <a class="cta" href="tel:+40724999719">Comandă prin telefon</a>
-          <a class="cta secondary" href="https://wa.me/40735217053" target="_blank" rel="noopener noreferrer" aria-label="Discuție demo pe WhatsApp">Discuție demo WhatsApp</a>
+          <div class="hero-ctas" role="group" aria-label="Acțiuni principale">
+            <a class="btn" href="#catalog">Vezi catalog</a>
+            <a class="btn ghost" href="tel:+40724999719">Sună pentru detalii</a>
+            <a class="btn" href="https://wa.me/40735217053" target="_blank" rel="noopener noreferrer" aria-label="Deschide discuție demo pe WhatsApp">Discută propunerea demo (WhatsApp)</a>
+          </div>
+
+          <div class="benefits" aria-hidden="false">
+            <div class="benefit">Imagini reale ale aranjamentelor</div>
+            <div class="benefit">Acces rapid la contact prin click-to-call</div>
+            <div class="benefit">Prezentare optimizată pentru mobil</div>
+            <div class="benefit">Catalog editorial ușor de răsfoit</div>
+          </div>
+
+          <div style="margin-top:14px; display:flex; gap:10px; align-items:center; flex-wrap:wrap">
+            <div class="rating-badge" aria-hidden="false">
+              <svg class="star" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 17.3 6.16 20l1.03-5.99L2.5 10.9l6.08-.88L12 4.5l3.42 5.52 6.08.88-4.69 3.11L17.84 20 12 17.3z" fill="#F2C94C"/></svg>
+              <span>Rating: 4.8 (Google)</span>
+            </div>
+            <div style="color:var(--muted); font-size:13px">Vizual demo — imagini reale din catalog</div>
+          </div>
         </div>
 
-        <div class="benefits" aria-hidden="false">
-          <span class="benefit">Design personalizat pentru ocazie</span>
-          <span class="benefit">Ambalare sigură pentru transport</span>
-          <span class="benefit">Consultare rapidă prin telefon</span>
-          <span class="benefit">Opțiuni platite pe comandă — detalii la telefon</span>
+        <div class="hero-visual" aria-hidden="false">
+          <img src="https://chooseit-demo-sites.vercel.app/demos/floraria-bloom-targoviste-bloom-art-si-flowers-targoviste/images/hero.webp" alt="Buchet floral luminos cu nuanțe pastel – imagine principală Florăria Bloom Târgovişte" />
         </div>
-      </div>
-
-      <div class="hero-media" aria-hidden="false">
-        <img src="https://chooseit-demo-sites.vercel.app/demos/floraria-bloom-targoviste-bloom-art-si-flowers-targoviste/images/hero.webp" alt="Buchet luminos creat de Florăria Bloom, aranjament pastelat" />
       </div>
     </section>
 
-    <!-- CATALOG / PRODUSE -->
-    <section id="catalog" class="section" aria-labelledby="catalogHeading">
-      <h3 id="catalogHeading">Catalog — selecții reprezentative</h3>
-      <p class="small">Prezentare vizuală a unor tipuri de aranjamente. Contactați echipa pentru disponibilitate și detalii privind comanda.</p>
+    <section id="catalog" aria-labelledby="catalog-title">
+      <h2 id="catalog-title" class="section-title">Catalog de aranjamente</h2>
+      <p style="margin:0 0 12px;color:var(--muted)">Selecție vizuală de opțiuni reprezentative. Contactați echipa pentru detalii despre disponibilitate și personalizare.</p>
 
-      <div class="catalog-grid" style="margin-top:12px;">
-        <article class="card" aria-labelledby="c1">
-          <img src="https://chooseit-demo-sites.vercel.app/demos/floraria-bloom-targoviste-bloom-art-si-flowers-targoviste/images/gallery-1.webp" alt="Buchet sezonier cu flori roz și accente verzi" loading="lazy" />
-          <div class="card-content">
-            <h4 id="c1">Buchete sezoniere</h4>
-            <p>Compoziții adaptate sezonului, ideale cadou sau evenimente. Opțiuni în culori pastel sau contrastante.</p>
+      <div class="catalog-grid">
+        <article class="product" aria-labelledby="p1-title">
+          <div class="product-figure">
+            <img src="https://chooseit-demo-sites.vercel.app/demos/floraria-bloom-targoviste-bloom-art-si-flowers-targoviste/images/gallery-1.webp" alt="Buchet pastel cu trandafiri și eucalipt">
           </div>
-          <div class="card-actions">
-            <a class="cta secondary" href="tel:+40724999719">Sună</a>
+          <div class="product-info">
+            <h3 id="p1-title">Buchete pastel</h3>
+            <p>Opțiuni pentru aniversări, cadouri sau momente speciale. Contactați pentru a verifica disponibilitatea și variantele de ambalaj.</p>
+          </div>
+          <div class="product-actions">
+            <a class="small-btn" href="tel:+40724999719">Sună</a>
+            <a class="small-btn" href="#galerie" style="background:transparent;color:var(--accent);border:1px solid var(--line)">Vezi galerie</a>
           </div>
         </article>
 
-        <article class="card" aria-labelledby="c2">
-          <img src="https://chooseit-demo-sites.vercel.app/demos/floraria-bloom-targoviste-bloom-art-si-flowers-targoviste/images/gallery-2.webp" alt="Aranjament floral pentru masă, tonuri calde" loading="lazy" />
-          <div class="card-content">
-            <h4 id="c2">Aranjamente pentru evenimente</h4>
-            <p>Soluții potrivite pentru nunți, botezuri sau evenimente private — detalii și opțiuni disponibile la solicitare.</p>
+        <article class="product" aria-labelledby="p2-title">
+          <div class="product-figure">
+            <img src="https://chooseit-demo-sites.vercel.app/demos/floraria-bloom-targoviste-bloom-art-si-flowers-targoviste/images/gallery-2.webp" alt="Aranjament floral în cutie, tonuri roz">
           </div>
-          <div class="card-actions">
-            <a class="cta secondary" href="#contact">Detalii</a>
+          <div class="product-info">
+            <h3 id="p2-title">Cutii & aranjamente elegante</h3>
+            <p>Prezentare pentru cadouri sau ocazii. Contactați pentru opțiuni și dimensiuni disponibile.</p>
           </div>
-        </article>
-
-        <article class="card" aria-labelledby="c3">
-          <img src="https://chooseit-demo-sites.vercel.app/demos/floraria-bloom-targoviste-bloom-art-si-flowers-targoviste/images/gallery-3.webp" alt="Buchet cadou elegant în nuanțe pastelate" loading="lazy" />
-          <div class="card-content">
-            <h4 id="c3">Buchete pentru cadouri</h4>
-            <p>Aranjamente pentru aniversări, mulțumiri sau gesturi speciale — ambalare atentă și opțiuni de personalizare.</p>
-          </div>
-          <div class="card-actions">
-            <a class="cta secondary" href="tel:+40724999719">Comandă</a>
+          <div class="product-actions">
+            <a class="small-btn" href="tel:+40724999719">Sună</a>
+            <a class="small-btn" href="#galerie" style="background:transparent;color:var(--accent);border:1px solid var(--line)">Vezi galerie</a>
           </div>
         </article>
 
-        <article class="card" aria-labelledby="c4">
-          <img src="https://chooseit-demo-sites.vercel.app/demos/floraria-bloom-targoviste-bloom-art-si-flowers-targoviste/images/gallery-4.webp" alt="Compoziție florală în vază, design contemporan" loading="lazy" />
-          <div class="card-content">
-            <h4 id="c4">Compoziții pentru casă și birou</h4>
-            <p>Aranjamente care înfrumusețează spațiul personal sau profesional — soluții pe comandă, adaptate stilului dorit.</p>
+        <article class="product" aria-labelledby="p3-title">
+          <div class="product-figure">
+            <img src="https://chooseit-demo-sites.vercel.app/demos/floraria-bloom-targoviste-bloom-art-si-flowers-targoviste/images/gallery-3.webp" alt="Aranjament floral vertical pentru eveniment">
           </div>
-          <div class="card-actions">
-            <a class="cta secondary" href="#contact">Solicită info</a>
+          <div class="product-info">
+            <h3 id="p3-title">Aranjamente pentru evenimente</h3>
+            <p>Soluții estetice pentru decor; opțiunile pot varia în funcție de disponibilitate și cerințe.</p>
+          </div>
+          <div class="product-actions">
+            <a class="small-btn" href="tel:+40724999719">Sună</a>
+            <a class="small-btn" href="#contact" style="background:transparent;color:var(--accent);border:1px solid var(--line)">Contact</a>
+          </div>
+        </article>
+
+        <article class="product" aria-labelledby="p4-title">
+          <div class="product-figure">
+            <img src="https://chooseit-demo-sites.vercel.app/demos/floraria-bloom-targoviste-bloom-art-si-flowers-targoviste/images/gallery-4.webp" alt="Plante în ghiveci și aranjamente verzi">
+          </div>
+          <div class="product-info">
+            <h3 id="p4-title">Plante și aranjamente pe birou</h3>
+            <p>Opțiuni pentru cadouri corporate sau decor de interior; contactați echipa pentru informații.</p>
+          </div>
+          <div class="product-actions">
+            <a class="small-btn" href="tel:+40724999719">Sună</a>
+            <a class="small-btn" href="#galerie" style="background:transparent;color:var(--accent);border:1px solid var(--line)">Vezi galerie</a>
           </div>
         </article>
       </div>
     </section>
 
-    <!-- Proces / Beneficii -->
-    <section class="section" aria-labelledby="processHeading" style="margin-top:var(--gap)">
-      <h3 id="processHeading">Cum comanzi în câțiva pași</h3>
-      <div class="process" style="margin-top:12px;">
+    <section id="ocazii" aria-labelledby="ocazii-title">
+      <h2 id="ocazii-title" class="section-title">Ocazii & Recomandări</h2>
+      <p style="margin:0 0 12px;color:var(--muted)">Sugestii vizuale pentru selecții sezoniere sau ocazii. Lista se actualizează periodic pe baza disponibilității produselor.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <div style="background:linear-gradient(180deg,#fff,#fff);border-radius:12px;padding:12px;border:1px solid var(--line);min-width:180px;flex:1">
+          <strong style="display:block;margin-bottom:6px">Aniversări</strong>
+          <span style="color:var(--muted)">Colecții colorate și elegante pentru zile speciale.</span>
+        </div>
+        <div style="background:linear-gradient(180deg,#fff,#fff);border-radius:12px;padding:12px;border:1px solid var(--line);min-width:180px;flex:1">
+          <strong style="display:block;margin-bottom:6px">Evenimente</strong>
+          <span style="color:var(--muted)">Aranjamente potrivite pentru decoruri de interior și exterior.</span>
+        </div>
+        <div style="background:linear-gradient(180deg,#fff,#fff);border-radius:12px;padding:12px;border:1px solid var(--line);min-width:180px;flex:1">
+          <strong style="display:block;margin-bottom:6px">Cadouri</strong>
+          <span style="color:var(--muted)">Cutii și buchete pentru gesturi personale.</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="galerie" aria-labelledby="galerie-title">
+      <h2 id="galerie-title" class="section-title">Galerie — selecție reală</h2>
+      <p style="margin:0 0 12px;color:var(--muted)">Fotografii reale ale aranjamentelor prezentate în catalogul demo.</p>
+
+      <div class="gallery-grid" aria-hidden="false">
+        <div class="g-item g-large" style="min-height:220px">
+          <img src="https://chooseit-demo-sites.vercel.app/demos/floraria-bloom-targoviste-bloom-art-si-flowers-targoviste/images/gallery-1.webp" alt="Buchet pastel din galeria Floraria Bloom" loading="lazy">
+        </div>
+        <div class="g-item g-medium">
+          <img src="https://chooseit-demo-sites.vercel.app/demos/floraria-bloom-targoviste-bloom-art-si-flowers-targoviste/images/gallery-2.webp" alt="Cutie florală roz din galeria Floraria Bloom" loading="lazy">
+        </div>
+        <div class="g-item g-small-1">
+          <img src="https://chooseit-demo-sites.vercel.app/demos/floraria-bloom-targoviste-bloom-art-si-flowers-targoviste/images/gallery-3.webp" alt="Aranjament vertical din galeria Floraria Bloom" loading="lazy">
+        </div>
+        <div class="g-item g-small-2">
+          <img src="https://chooseit-demo-sites.vercel.app/demos/floraria-bloom-targoviste-bloom-art-si-flowers-targoviste/images/gallery-4.webp" alt="Detaliu floral cu accente verzi" loading="lazy">
+        </div>
+        <div class="g-item g-side" style="min-height:220px">
+          <img src="https://chooseit-demo-sites.vercel.app/demos/floraria-bloom-targoviste-bloom-art-si-flowers-targoviste/images/gallery-5.webp" alt="Compoziție florală elegantă din galeria Floraria Bloom" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <section id="recenzii" aria-labelledby="recenzii-title">
+      <h2 id="recenzii-title" class="section-title">Informații utile</h2>
+      <p style="margin:0 0 12px;color:var(--muted)">Informațiile afișate: ratingul de pe Google este arătat ca date factuale. Nu sunt afișate recenzii text sau fragmente de recenzii în acest demo.</p>
+
+      <div class="reviews" style="margin-top:10px">
+        <div class="rating-badge" aria-hidden="false">
+          <svg class="star" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 17.3 6.16 20l1.03-5.99L2.5 10.9l6.08-.88L12 4.5l3.42 5.52 6.08.88-4.69 3.11L17.84 20 12 17.3z" fill="#F2C94C"/></svg>
+          <span>4.8 — Rating Google</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="proces" aria-labelledby="proces-title">
+      <h2 id="proces-title" class="section-title">Cum comanzi (3 pași)</h2>
+      <div class="process-grid" style="margin-top:8px">
         <div class="step" aria-hidden="false">
-          <h5>1. Alege inspirația</h5>
-          <p>Răsfoiește catalogul și galeria pentru a selecta un aranjament sau pentru a descrie preferințele tale.</p>
+          <h4>1. Răsfoiește catalogul</h4>
+          <p>Explorează secțiunile vizuale pentru a identifica aranjamentul dorit.</p>
         </div>
         <div class="step" aria-hidden="false">
-          <h5>2. Contact rapid</h5>
-          <p>Sună la numărul afișat sau deschide discuția demo pe WhatsApp pentru o consultare și confirmare.</p>
+          <h4>2. Sună pentru detalii</h4>
+          <p>Contactează telefonic echipa pentru disponibilitate, măsuri sau personalizare.</p>
         </div>
         <div class="step" aria-hidden="false">
-          <h5>3. Confirmare și livrare</h5>
-          <p>Echipa stabilește detalii privind livrarea și ambalarea. Contactați direct pentru confirmarea disponibilității.</p>
+          <h4>3. Stabiliți detaliile comenzii</h4>
+          <p>Discutați împreună opțiunile și modalitățile de preluare sau ridicare.</p>
         </div>
       </div>
     </section>
 
-    <!-- GALLERY -->
-    <section id="galerie" class="section" aria-labelledby="galleryHeading" style="margin-top:var(--gap)">
-      <h3 id="galleryHeading">Galerie — selecții din atelier</h3>
-      <p class="small">Fotografii reale cu aranjamente create în atelier. Imaginile pot servi drept inspirație pentru comanda ta.</p>
+    <section id="contact" aria-labelledby="contact-title">
+      <h2 id="contact-title" class="section-title">Contact & Locație</h2>
+      <div class="contact-grid" style="margin-top:12px">
+        <div style="display:grid;grid-template-columns:1fr;gap:12px">
+          <div class="map-card" aria-hidden="false">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+              <strong>Adresa</strong>
+              <span style="color:var(--muted);font-size:13px">Târgoviște</span>
+            </div>
+            <div style="color:var(--muted);margin-bottom:8px">Strada Grigore Alexandrescu E6 parter, Strada Poet Grigore Alexandrescu E6, parter, 130007 Târgoviște, România</div>
 
-      <div class="gallery-grid" style="margin-top:12px;">
-        <figure class="gallery-item" aria-label="Aranjament cu flori pastel">
-          <img src="https://chooseit-demo-sites.vercel.app/demos/floraria-bloom-targoviste-bloom-art-si-flowers-targoviste/images/gallery-5.webp" alt="Aranjament pastel în vază — detaliu textură florala" loading="lazy" />
-        </figure>
-        <figure class="gallery-item" aria-label="Detaliu buchet">
-          <img src="https://chooseit-demo-sites.vercel.app/demos/floraria-bloom-targoviste-bloom-art-si-flowers-targoviste/images/gallery-1.webp" alt="Detaliu buchet sezonier cu accente verzi" loading="lazy" />
-        </figure>
-        <figure class="gallery-item" aria-label="Aranjament pentru masă">
-          <img src="https://chooseit-demo-sites.vercel.app/demos/floraria-bloom-targoviste-bloom-art-si-flowers-targoviste/images/gallery-2.webp" alt="Aranjament pentru masă, tonuri calde" loading="lazy" />
-        </figure>
-        <figure class="gallery-item" aria-label="Buchet cadou">
-          <img src="https://chooseit-demo-sites.vercel.app/demos/floraria-bloom-targoviste-bloom-art-si-flowers-targoviste/images/gallery-3.webp" alt="Buchet cadou, elemente elegante" loading="lazy" />
-        </figure>
-        <figure class="gallery-item" aria-label="Compoziție contemporană">
-          <img src="https://chooseit-demo-sites.vercel.app/demos/floraria-bloom-targoviste-bloom-art-si-flowers-targoviste/images/gallery-4.webp" alt="Compoziție florală contemporană în vază" loading="lazy" />
-        </figure>
-      </div>
-    </section>
-
-    <!-- RECENZII -->
-    <section id="recenzii" class="section" aria-labelledby="reviewsHeading" style="margin-top:var(--gap)">
-      <h3 id="reviewsHeading">Evaluare</h3>
-      <div class="reviews" style="margin-top:8px;">
-        <div class="stars" aria-hidden="true">
-          <svg class="star" viewBox="0 0 24 24" fill="#F6C143" xmlns="http://www.w3.org/2000/svg"><path d="M12 .587l3.668 7.431L23.5 9.75l-5.75 5.605L19.335 24 12 19.897 4.665 24l1.585-8.645L.5 9.75l7.832-1.732L12 .587z"/></svg>
-          <strong style="font-size:18px;color:#14301c">4.8</strong>
-        </div>
-        <p class="small" style="margin:0 0 0 8px">Rating Google factual — afișat ca informație (fără fragmente de recenzii).</p>
-      </div>
-    </section>
-
-    <!-- LOCATION & CONTACT -->
-    <section id="contact" class="section" aria-labelledby="contactHeading" style="margin-top:var(--gap)">
-      <h3 id="contactHeading">Contact & Locație</h3>
-      <div class="location" style="margin-top:12px;">
-        <div class="address-block">
-          <p class="kv">Adresa</p>
-          <p>Strada Grigore Alexandrescu E6 parter, Strada Poet Grigore Alexandrescu E6, parter, 130007 Târgoviște, România</p>
-
-          <div style="margin-top:12px">
-            <p class="kv">Telefon</p>
-            <p><a href="tel:+40724999719">0724 999 719</a></p>
+            <!-- Stylized map SVG (non-interactive) -->
+            <svg class="map-svg" viewBox="0 0 600 320" role="img" aria-label="Hartă stilizată cu locația florăriei">
+              <defs>
+                <linearGradient id="g1" x1="0" x2="1">
+                  <stop offset="0" stop-color="#fff7f9"/>
+                  <stop offset="1" stop-color="#f7fff8"/>
+                </linearGradient>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#g1)"/>
+              <g fill="#e6e1e3">
+                <rect x="40" y="40" width="220" height="60" rx="8"/>
+                <rect x="300" y="40" width="240" height="60" rx="8"/>
+                <rect x="40" y="120" width="220" height="60" rx="8"/>
+                <rect x="300" y="120" width="240" height="60" rx="8"/>
+              </g>
+              <g transform="translate(280,200)">
+                <circle cx="40" cy="40" r="34" fill="#fff"/>
+                <path d="M40 12c9 0 16 7 16 16 0 14-16 28-16 28s-16-14-16-28c0-9 7-16 16-16z" fill="#c76f9b"/>
+                <circle cx="40" cy="34" r="6" fill="#fff"/>
+              </g>
+              <text x="18" y="298" fill="#6b6b6b" font-size="12">Hartă stilizată — nu este interactivă</text>
+            </svg>
           </div>
 
-          <div style="margin-top:12px">
-            <p class="kv">Program</p>
-            <p class="small">Contactați echipa pentru confirmarea programului.</p>
-          </div>
+          <div class="map-card">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+              <strong>Informații contact</strong>
+              <a class="site-link" href="http://bloomflowers.ro/" target="_blank" rel="noopener noreferrer">Site existent</a>
+            </div>
 
-          <div class="contact-actions" style="margin-top:12px">
-            <a class="cta" href="tel:+40724999719">Sună pentru comandă</a>
-            <a class="whatsapp-demo" href="https://wa.me/40735217053" target="_blank" rel="noopener noreferrer" aria-label="Deschide discuție demo pe WhatsApp">WhatsApp (discuție demo)</a>
-            <a class="cta secondary" href="http://bloomflowers.ro/" target="_blank" rel="noopener noreferrer">Vizitează site</a>
-          </div>
-        </div>
+            <div class="contact-list">
+              <div class="contact-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 16.5v3a2 2 0 0 1-2 2c-9.94 0-18-8.06-18-18A2 2 0 0 1 6 1h3a1 1 0 0 1 1 .75l1 4a1 1 0 0 1-.24.9L9.3 8.7a12.14 12.14 0 0 0 5.99 5.99l1.05-1.46a1 1 0 0 1 .9-.24l4 1A1 1 0 0 1 23 17v-0.5" fill="#6ba48a"/></svg>
+                <div>
+                  <div style="font-size:13px;color:var(--muted)">Telefon</div>
+                  <div class="phone"><a href="tel:+40724999719">+40 724 999 719</a></div>
+                </div>
+              </div>
 
-        <div class="map-visual" aria-hidden="true">
-          <!-- Decorative stylized map (non-interactive) -->
-          <svg width="100%" height="220" viewBox="0 0 400 220" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Reprezentare vizuală a locației">
-            <defs>
-              <linearGradient id="g" x1="0" x2="1">
-                <stop offset="0" stop-color="#fff"/>
-                <stop offset="1" stop-color="#f6f4ef"/>
-              </linearGradient>
-            </defs>
-            <rect width="100%" height="100%" rx="12" fill="url(#g)"/>
-            <g transform="translate(20,20)" fill="none" stroke="#e9e4df" stroke-width="2">
-              <path d="M10 40 Q80 10 160 40 T310 40" />
-              <path d="M0 90 Q60 60 150 90 T360 90" />
-              <circle cx="60" cy="40" r="6" fill="#8bbf9b" stroke="none"/>
-            </g>
-            <text x="26" y="200" fill="#6b6b6b" font-size="12">Hartă ilustrativă — nu este interactivă</text>
-          </svg>
+              <div class="contact-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 8V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2" stroke="#c76f9b" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <div>
+                  <div style="font-size:13px;color:var(--muted)">Adresă</div>
+                  <div style="font-weight:700">Strada Grigore Alexandrescu E6, parter, Târgoviște</div>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="14" rx="2" stroke="#6b6b6b" stroke-width="1.2"/></svg>
+                <div>
+                  <div style="font-size:13px;color:var(--muted)">Program</div>
+                  <div style="color:var(--muted)">Contactați echipa pentru confirmarea programului</div>
+                </div>
+              </div>
+
+              <div style="display:flex;gap:8px;margin-top:8px">
+                <a class="btn" href="tel:+40724999719" aria-label="Sună la florărie">Sună</a>
+                <a class="btn" href="https://wa.me/40735217053" target="_blank" rel="noopener noreferrer" aria-label="Discută propunerea demo pe WhatsApp">Discută propunerea demo (WhatsApp)</a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Formular de comandă (demo only) -->
-    <section class="section" aria-labelledby="quickOrderHeading" style="margin-top:var(--gap)">
-      <h3 id="quickOrderHeading">Formular de comandă rapidă (demo)</h3>
-      <p class="small">Acest formular este inclus în demo pentru a ilustra fluxul. Nu colectează sau transmite date.</p>
-      <form class="quick-form" onsubmit="return demoForm(event)" aria-label="Formular demo de comandă rapidă" novalidate>
-        <input type="text" placeholder="Nume (demo)" aria-label="Nume (demo)" />
-        <input type="tel" placeholder="Telefon (demo)" aria-label="Telefon (demo)" />
-        <select aria-label="Tip aranjament (demo)">
-          <option>Buchet sezonier</option>
-          <option>Aranjament eveniment</option>
-          <option>Compoziție pentru casă</option>
-        </select>
-        <textarea placeholder="Detalii (optional)" rows="3" aria-label="Detalii comanda (demo)"></textarea>
-        <div style="display:flex; gap:8px; flex-wrap:wrap;">
-          <button type="submit">Trimite (demo)</button>
-          <a class="cta secondary" href="tel:+40724999719">Sună pentru confirmare</a>
-        </div>
-      </form>
+    <section id="termeni" aria-labelledby="termeni-title" style="margin-bottom:18px">
+      <h2 id="termeni-title" class="section-title">Termeni & Politica de confidențialitate (sumar)</h2>
+      <p style="color:var(--muted)">Acest demo prezintă structura și conținutul vizual propus. Nu se colectează date în cadrul acestui demo. Pentru politica completă de confidențialitate și termenii serviciilor, consultați site-ul oficial sau contactați echipa.</p>
     </section>
 
-    <!-- Despre -->
-    <section id="despre" class="section" aria-labelledby="aboutHeading" style="margin-top:var(--gap)">
-      <h3 id="aboutHeading">Despre Florăria Bloom</h3>
-      <p>Bloom Art&amp;Flowers este un atelier floral din Târgoviște orientat către compoziții curate, culori armonioase și atenție la livrare. Site-ul demo pune accent pe prezentarea vizuală a aranjamentelor și pe contactul rapid pentru a facilita comenzile locale.</p>
-      <p class="small" style="margin-top:8px">Pentru comenzi reale sau întrebări legate de disponibilitate, folosiți numărul afișat sau discutați prin WhatsApp (butonul deschide o discuție demo cu Choose IT).</p>
-    </section>
-
-    <!-- Terms & Privacy -->
-    <section id="legal" class="section" aria-labelledby="legalHeading" style="margin-top:var(--gap)">
-      <h3 id="legalHeading">Termeni &amp; Politica de confidențialitate (demo)</h3>
-      <p class="small">Pagina afișează o propunere demo. Orice date introduse în formularul demo nu sunt colectate sau stocate. Pentru politici reale contactați afacerea sau administrația site-ului oficial.</p>
+    <section id="blog" aria-labelledby="blog-title" style="margin-bottom:28px">
+      <h2 id="blog-title" class="section-title">Articole & Inspirație</h2>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <article style="background:#fff;border-radius:10px;padding:12px;border:1px solid var(--line);flex:1;min-width:220px">
+          <h4 style="margin:0 0 8px">Idei de aranjamente pentru primăvară</h4>
+          <p style="margin:0;color:var(--muted)">Selecții cromatice și combinații pe care le puteți verifica în catalogul vizual.</p>
+        </article>
+        <article style="background:#fff;border-radius:10px;padding:12px;border:1px solid var(--line);flex:1;min-width:220px">
+          <h4 style="margin:0 0 8px">Ambalaje și prezentări pentru cadouri</h4>
+          <p style="margin:0;color:var(--muted)">Sugestii de prezentare pentru buchete și cutii florale.</p>
+        </article>
+      </div>
     </section>
   </main>
 
   <footer>
-    <div style="display:flex; flex-direction:column; gap:10px;">
-      <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;">
-        <div>
-          <div style="font-weight:700; color:#14301c">Florăria Bloom — Bloom Art&amp;Flowers</div>
-          <div class="small">Strada Grigore Alexandrescu E6 parter, Târgoviște</div>
-        </div>
-
-        <div style="display:flex; gap:8px; align-items:center;">
-          <a class="cta" href="tel:+40724999719">Sună</a>
-          <a class="whatsapp-demo" href="https://wa.me/40735217053" target="_blank" rel="noopener noreferrer">WhatsApp (discuție demo)</a>
+    <div class="container footer-inner">
+      <div>
+        <div class="chooseit-note">Aceasta este o propunere demo realizată de Choose IT pentru Floraria Bloom Targoviste- Bloom Art&Flowers. Nu este site-ul oficial al afacerii.</div>
+        <div style="margin-top:10px">
+          <a href="https://chooseit.ro" target="_blank" rel="noopener noreferrer" style="font-weight:700;color:var(--accent)">chooseit.ro</a>
         </div>
       </div>
 
-      <div class="footer-note" role="note">
-        Aceasta este o propunere demo realizată de <a href="https://chooseit.ro" target="_blank" rel="noopener noreferrer" style="color:#0b6b3a; text-decoration:underline;">Choose IT</a> pentru Floraria Bloom Targoviste- Bloom Art&amp;Flowers. Nu este site-ul oficial al afacerii.
+      <div style="max-width:420px">
+        <div class="legal">
+          <strong>Contact demo</strong>
+          <div style="margin-top:8px">Telefon: <a href="tel:+40724999719">+40 724 999 719</a></div>
+          <div style="margin-top:8px">Website existent: <a href="http://bloomflowers.ro/" target="_blank" rel="noopener noreferrer">bloomflowers.ro</a></div>
+          <div style="margin-top:8px;color:var(--muted);font-size:13px">Butonul WhatsApp deschide o discuție către Choose IT pentru detalii despre propunerea demo, nu către florărie.</div>
+        </div>
       </div>
     </div>
   </footer>
-</div>
 
-<script>
-  // Mobile menu toggle
-  (function(){
-    const btn = document.getElementById('menuToggle');
-    const panel = document.getElementById('navPanel');
-    btn && btn.addEventListener('click', function(){
-      const expanded = this.getAttribute('aria-expanded') === 'true';
-      this.setAttribute('aria-expanded', String(!expanded));
-      if(!expanded){
-        panel.style.display = 'block';
-        panel.setAttribute('aria-hidden','false');
-      } else {
-        panel.style.display = 'none';
-        panel.setAttribute('aria-hidden','true');
+  <script>
+    (function(){
+      var menuBtn = document.getElementById('menuToggle');
+      var mobileMenu = document.getElementById('mobileMenu');
+
+      function openMenu(){
+        mobileMenu.classList.add('open');
+        menuBtn.setAttribute('aria-expanded','true');
+        mobileMenu.setAttribute('aria-hidden','false');
       }
-    });
-  })();
+      function closeMenu(){
+        mobileMenu.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded','false');
+        mobileMenu.setAttribute('aria-hidden','true');
+      }
 
-  // Demo form handler: prevent data submission, show contact options
-  function demoForm(e){
-    e.preventDefault();
-    alert('Acesta este un demo. Formularul nu transmite date. Pentru comenzi reale, sunați la 0724 999 719 sau deschideți discuția demo pe WhatsApp.');
-    return false;
-  }
-
-  // Improve keyboard focus visibility for interactive elements
-  (function(){
-    const focusable = document.querySelectorAll('a,button,input,select,textarea');
-    focusable.forEach(el=>{
-      el.addEventListener('keydown', (ev)=>{
-        if(ev.key === 'Enter' || ev.key === ' '){
-          el.classList.add('focusable');
-        }
+      menuBtn.addEventListener('click', function(){
+        if(mobileMenu.classList.contains('open')) closeMenu(); else openMenu();
       });
-      el.addEventListener('blur', ()=> el.classList.remove('focusable'));
-    });
-  })();
-</script>
+
+      // close on outside click
+      mobileMenu.addEventListener('click', function(e){
+        if(e.target === mobileMenu) closeMenu();
+      });
+
+      // Expose closeMenu for inline onclick links
+      window.closeMenu = closeMenu;
+    })();
+  </script>
 </body>
 </html>

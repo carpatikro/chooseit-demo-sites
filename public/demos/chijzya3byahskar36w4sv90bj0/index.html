@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Autopartium ASM — Service auto | Găești (DN61) — Demo propunere</title>
+  <meta name="description" content="Propunere demo pentru Autopartium ASM (Găești). Site optimizat mobile-first pentru creșterea apelurilor și programărilor: contact clar, galerie foto și informații esențiale." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f1720;
+      --card:#0b1220;
+      --muted:#9aa6b2;
+      --accent:#ff6b21; /* CTA */
+      --accent-2:#1f6feb; /* accents */
+      --surface:#0f1725;
+      --radius:12px;
+      --glass: rgba(255,255,255,0.03);
+      --max-width:1200px;
+      --container-padding:18px;
+      color-scheme: dark;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:linear-gradient(180deg,#07101a 0%, #0b1620 100%);
+      color:#e6eef6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      font-size:clamp(15px,1.6vw,17px);
+      padding-bottom:60px;
+    }
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:var(--max-width);margin:0 auto;padding:0 clamp(16px,2.5vw,32px);}
+    header{
+      position:sticky;top:0;z-index:40;
+      backdrop-filter:blur(6px);
+      background:linear-gradient(180deg, rgba(6,10,15,0.6), rgba(6,10,15,0.4));
+      border-bottom:1px solid rgba(255,255,255,0.03);
+    }
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 0;}
+    .brand{font-weight:700;letter-spacing:0.2px;font-size:1.05rem;color:#fff}
+    .nav-links{display:flex;gap:14px;align-items:center}
+    .nav-links a{color:var(--muted);padding:8px;border-radius:8px;font-weight:600;font-size:0.95rem}
+    .nav-links a:hover, .nav-links a:focus{color:#fff;background:var(--glass);outline:2px solid transparent;box-shadow:0 0 0 3px rgba(255,107,33,0.06)}
+    .cta-row{display:flex;gap:10px;align-items:center}
+    .btn{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:10px 14px;border-radius:10px;font-weight:700;border:0;cursor:pointer;
+      background:linear-gradient(180deg,var(--accent),#f85a07);
+      color:white;font-size:0.95rem;box-shadow:0 6px 18px rgba(255,107,33,0.12);
+    }
+    .btn-outline{
+      background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted);padding:9px 12px;border-radius:10px;font-weight:700;
+    }
+    /* mobile menu */
+    .menu-btn{display:none;background:transparent;border:0;color:inherit;padding:8px;border-radius:8px}
+    nav.mobile-menu{display:none}
+    @media (max-width:880px){
+      .nav-links{display:none}
+      .menu-btn{display:inline-flex}
+      .cta-row .btn{display:none}
+      nav.mobile-menu{
+        position:fixed;inset:56px 12px auto 12px;padding:14px;background:linear-gradient(180deg,rgba(6,10,15,0.98),rgba(6,10,15,0.98));
+        border:1px solid rgba(255,255,255,0.03);border-radius:12px;display:none;flex-direction:column;gap:10px;z-index:50;
+      }
+      nav.mobile-menu.open{display:flex;animation:pop .12s ease}
+      @keyframes pop{from{transform:translateY(-6px);opacity:0}to{transform:none;opacity:1}}
+    }
+
+    main{padding-top:18px}
+    /* HERO */
+    .hero{
+      display:grid;grid-template-columns:1fr;gap:18px;align-items:center;padding:18px 0 36px;
+    }
+    .hero-inner{display:flex;flex-direction:column;gap:18px;align-items:flex-start}
+    .kicker{display:inline-block;background:rgba(255,255,255,0.04);color:var(--muted);padding:6px 10px;border-radius:999px;font-weight:600;font-size:0.85rem}
+    h1{font-size:clamp(1.45rem,4.2vw,2.05rem);margin:0;line-height:1.02;color:#fff}
+    .lead{color:var(--muted);margin-top:6px;max-width:70ch}
+    .hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px}
+    .features{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
+    .feature{
+      display:inline-flex;align-items:center;gap:10px;padding:10px 12px;background:rgba(255,255,255,0.02);border-radius:10px;color:var(--muted);font-weight:600;font-size:0.95rem;
+    }
+    .hero-media{
+      width:100%;border-radius:14px;overflow:hidden;box-shadow:0 10px 30px rgba(3,8,12,0.6);border:1px solid rgba(255,255,255,0.04);
+    }
+    .hero-media img{width:100%;height:100%;display:block;object-fit:cover;object-position:center}
+
+    /* layout for >=768 */
+    @media(min-width:760px){
+      .hero{grid-template-columns:1fr 520px;gap:28px;padding-top:28px}
+      .hero-inner{align-items:flex-start}
+    }
+
+    /* Services */
+    section#servicii{padding:24px 0}
+    .section-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
+    .section-head h2{margin:0;font-size:1.15rem}
+    .cards{display:grid;grid-template-columns:1fr;gap:12px}
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);display:flex;gap:12px;align-items:flex-start;
+    }
+    .card .icon{
+      min-width:56px;height:56px;border-radius:10px;background:linear-gradient(180deg,#0e1720, #0b1220);display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,0.03)
+    }
+    .card h3{margin:0;font-size:1rem}
+    .card p{margin:6px 0 0;color:var(--muted);font-size:0.95rem}
+    @media(min-width:880px){
+      .cards{grid-template-columns:repeat(3,1fr)}
+    }
+
+    /* About */
+    #despre{padding:20px 0;display:grid;grid-template-columns:1fr;gap:18px}
+    .about-inner{display:flex;gap:18px;align-items:center}
+    .about-media{flex:0 0 180px;border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,0.04)}
+    .about-media img{display:block;width:100%;height:100%;object-fit:cover}
+
+    @media(min-width:880px){
+      #despre{grid-template-columns:1fr 420px}
+      .about-inner{flex-direction:column}
+    }
+
+    /* Gallery */
+    #galerie{padding:22px 0}
+    .gallery-grid{display:grid;grid-template-columns:1fr;gap:10px}
+    .gal-main{border-radius:12px;overflow:hidden;min-height:200px}
+    .gal-side{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .gal-side .img{border-radius:10px;overflow:hidden}
+    .gal-main img,.gal-side img{width:100%;height:100%;object-fit:cover;display:block}
+    @media(min-width:880px){
+      .gallery-grid{grid-template-columns:2fr 1fr;gap:14px}
+      .gal-main{min-height:360px}
+    }
+
+    /* Benefits/process */
+    .process{display:grid;grid-template-columns:1fr;gap:12px;padding:18px 0}
+    .steps{display:flex;flex-direction:column;gap:12px}
+    .step{background:rgba(255,255,255,0.02);padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);display:flex;gap:12px;align-items:center}
+    .step .num{width:44px;height:44px;border-radius:10px;background:rgba(255,255,255,0.03);display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff}
+    @media(min-width:880px){ .process{grid-template-columns:1fr 1fr} }
+
+    /* Location & contact */
+    #contact{padding:20px 0;display:grid;gap:12px}
+    .contact-grid{display:grid;grid-template-columns:1fr;gap:12px}
+    .contact-card{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+    .tel{display:inline-flex;align-items:center;gap:10px;font-weight:700;color:#fff}
+    .map-illustration{
+      position:relative;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.03);
+      background:linear-gradient(180deg,#07111a,#071724);padding:16px;
+    }
+    .map-svg{width:100%;height:220px;display:block}
+    .map-actions{display:flex;gap:10px;margin-top:12px}
+    .link-btn{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:10px 12px;border-radius:10px;color:var(--muted);font-weight:700}
+    .whatsapp{background:linear-gradient(180deg,#25D366,#2BBE59);color:#072018;border-radius:10px;padding:10px 12px;font-weight:700;display:inline-flex;align-items:center;gap:8px}
+    @media(min-width:880px){ .contact-grid{grid-template-columns:1fr 360px} }
+
+    /* Footer */
+    footer{margin-top:28px;padding:18px 0;border-top:1px solid rgba(255,255,255,0.03);color:var(--muted)}
+    .footer-inner{display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+    .legal{font-size:0.95rem;color:var(--muted);background:rgba(255,255,255,0.02);padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.02)}
+    .small{font-size:0.92rem;color:var(--muted)}
+    /* focus */
+    a:focus, button:focus{outline:3px solid rgba(31,111,235,0.18);outline-offset:3px}
+    /* reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      *{transition:none!important;animation:none!important}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav-inner" role="navigation" aria-label="Navigație principală">
+      <div class="brand">Autopartium ASM</div>
+      <div style="display:flex;align-items:center;gap:12px">
+        <button class="menu-btn" id="menuToggle" aria-label="Deschide meniul" aria-expanded="false">☰</button>
+        <nav class="nav-links" aria-hidden="false">
+          <a href="#hero">Acasă</a>
+          <a href="#servicii">Servicii</a>
+          <a href="#galerie">Galerie</a>
+          <a href="#contact">Contact</a>
+          <a href="#programare">Solicită programare</a>
+        </nav>
+        <div class="cta-row">
+          <a class="btn" href="tel:0786122116" aria-label="Sună Autopartium ASM">Sună acum</a>
+          <a class="btn btn-outline" href="#programare">Solicită ofertă</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <nav class="mobile-menu" id="mobileMenu" aria-label="Meniu mobil">
+      <a href="#hero" class="mobile-link">Acasă</a>
+      <a href="#servicii" class="mobile-link">Servicii</a>
+      <a href="#galerie" class="mobile-link">Galerie</a>
+      <a href="#contact" class="mobile-link">Contact</a>
+      <a href="#programare" class="mobile-link">Solicită programare</a>
+      <a class="link-btn" href="tel:0786122116">Sună — 0786 122 116</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <section id="hero" class="hero" aria-label="Secțiunea principală">
+      <div class="hero-inner">
+        <span class="kicker">Service & diagnoză — Găești (DN61)</span>
+        <h1>Autopartium ASM — service auto orientat spre contact rapid</h1>
+        <p class="lead">Propunere demo pentru o prezentare clară a serviciilor, galerie reală și contacte vizibile — concepută pentru a crește numărul de apeluri și programări din Găești și localitățile din jur.</p>
+
+        <div class="hero-ctas">
+          <a class="btn" href="tel:0786122116">Sună 0786 122 116</a>
+          <a class="btn btn-outline" href="#programare">Solicită programare</a>
+        </div>
+
+        <div class="features" aria-hidden="false">
+          <div class="feature">Contact rapid pe telefon</div>
+          <div class="feature">Galerie înainte/după pentru lucrări</div>
+          <div class="feature">Pagina optimizată mobile-first</div>
+        </div>
+      </div>
+
+      <div class="hero-media" aria-hidden="false">
+        <img src="https://chooseit-demo-sites.vercel.app/demos/autopartium-asm-gaesti/images/hero.webp" alt="Vedere exterioră și vehicul în service - Autopartium ASM (imagine reală)" />
+      </div>
+    </section>
+
+    <section id="servicii" aria-labelledby="servicii-h" >
+      <div class="section-head">
+        <h2 id="servicii-h">Servicii — opțiuni disponibile</h2>
+        <div class="small">Contactați echipa pentru confirmarea detaliilor și disponibilității</div>
+      </div>
+
+      <div class="cards" role="list">
+        <article class="card" role="listitem" aria-label="Serviciu: Diagnoză computerizată">
+          <div class="icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 12h3l2-4 3 8 2-4 2 6 3-8" stroke="#fff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <h3>Diagnoză computerizată</h3>
+            <p>Investigații cu echipamente de diagnoză pentru identificarea defecțiunilor electronice — contactați pentru detalii despre procedură.</p>
+          </div>
+        </article>
+
+        <article class="card" role="listitem" aria-label="Serviciu: Mecanică și reparații uzuale">
+          <div class="icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M21 16v4a1 1 0 0 1-1 1h-4" stroke="#fff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <h3>Mecanică — intervenții uzuale</h3>
+            <p>Reparații frecvente și lucrări mecanice uzuale (verificați disponibilitatea serviciilor pentru modele specifice).</p>
+          </div>
+        </article>
+
+        <article class="card" role="listitem" aria-label="Serviciu: Montaj roți și echilibrare">
+          <div class="icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="#fff" stroke-width="1.4"/><path d="M2 12a10 10 0 0 0 20 0" stroke="#fff" stroke-width="1.2" stroke-linecap="round"/></svg>
+          </div>
+          <div>
+            <h3>Montaj & echilibrare roți</h3>
+            <p>Serviciu util pentru întreținerea anvelopelor — contactați pentru programările de sezon.</p>
+          </div>
+        </article>
+
+        <article class="card" role="listitem" aria-label="Serviciu: Sisteme frânare și suspensie">
+          <div class="icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h16" stroke="#fff" stroke-width="1.4" stroke-linecap="round"/></svg>
+          </div>
+          <div>
+            <h3>Frâne & suspensie — verificări</h3>
+            <p>Inspecții și lucrări pentru elementele de siguranță ale vehiculului — detalii și costuri confirmate telefonic.</p>
+          </div>
+        </article>
+
+        <article class="card" role="listitem" aria-label="Serviciu: Consultanță & ofertare">
+          <div class="icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 2v6" stroke="#fff" stroke-width="1.4" stroke-linecap="round"/><path d="M6 22v-4a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v4" stroke="#fff" stroke-width="1.2"/></svg>
+          </div>
+          <div>
+            <h3>Oferta pentru reparații</h3>
+            <p>Solicitați o estimare sau programare prin apel — echipa confirmă opțiunile disponibile și timpul estimat de lucru.</p>
+          </div>
+        </article>
+
+        <article class="card" role="listitem" aria-label="Serviciu: Verificări pregătire ITP">
+          <div class="icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M3 12h3l2-4 3 8 2-4 2 6 3-8" stroke="#fff" stroke-width="1.2"/></svg>
+          </div>
+          <div>
+            <h3>Verificări pentru ITP</h3>
+            <p>Inspecție pre-ITP și recomandări pentru eventuale remedieri — contactați pentru a verifica disponibilitatea.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="despre" aria-labelledby="despre-h">
+      <div>
+        <h2 id="despre-h">Despre Autopartium ASM</h2>
+        <p class="lead" style="margin-top:8px;color:var(--muted)">Acest demo prezintă o versiune optimizată a prezenței online pentru o unitate service situată pe DN61, în zona Gherghești / Găești. Pagina propusă prioritizează contactul rapid prin telefon, informații clare despre locație și o galerie vizuală a lucrărilor pentru a facilita decizia clienților locali.</p>
+      </div>
+
+      <div class="about-media" aria-hidden="false">
+        <img src="https://chooseit-demo-sites.vercel.app/demos/autopartium-asm-gaesti/images/gallery-1.webp" alt="Imagine din service — echipamente și vehicul (imagine reală)" loading="lazy" />
+      </div>
+    </section>
+
+    <section id="galerie" aria-labelledby="galerie-h">
+      <div class="section-head">
+        <h2 id="galerie-h">Galerie — lucrări și imagini din locație</h2>
+        <div class="small">Imagini reale furnizate — compoziție editorială pentru o prezentare clară</div>
+      </div>
+
+      <div class="gallery-grid" role="list">
+        <div class="gal-main" role="listitem">
+          <img src="https://chooseit-demo-sites.vercel.app/demos/autopartium-asm-gaesti/images/gallery-2.webp" alt="Vehicul pe elevatoare în service — imagine reală" loading="lazy">
+        </div>
+        <div class="gal-side">
+          <div class="img" role="listitem"><img src="https://chooseit-demo-sites.vercel.app/demos/autopartium-asm-gaesti/images/gallery-3.webp" alt="Zona de lucru și scule — imagine reală" loading="lazy"></div>
+          <div class="img" role="listitem"><img src="https://chooseit-demo-sites.vercel.app/demos/autopartium-asm-gaesti/images/gallery-4.webp" alt="Detaliu componentă auto în reparație — imagine reală" loading="lazy"></div>
+          <div class="img" role="listitem"><img src="https://chooseit-demo-sites.vercel.app/demos/autopartium-asm-gaesti/images/gallery-5.webp" alt="Montaj roți — imagine reală" loading="lazy"></div>
+          <div class="img" role="listitem"><img src="https://chooseit-demo-sites.vercel.app/demos/autopartium-asm-gaesti/images/gallery-1.webp" alt="Imagine generală la exteriorul service-ului — imagine reală" loading="lazy"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="process" aria-labelledby="proces-h">
+      <div>
+        <h2 id="proces-h">Proces simplu în 3 pași</h2>
+        <div class="steps" >
+          <div class="step">
+            <div class="num">1</div>
+            <div>
+              <strong>Contactați</strong>
+              <div class="small" style="color:var(--muted)">Apelați 0786 122 116 sau folosiți WhatsApp demo pentru discuții despre această propunere.</div>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="num">2</div>
+            <div>
+              <strong>Confirmare</strong>
+              <div class="small" style="color:var(--muted)">Stabiliți detaliile lucrării și disponibilitatea în funcție de model și intervenție.</div>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="num">3</div>
+            <div>
+              <strong>Programare & lucrare</strong>
+              <div class="small" style="color:var(--muted)">Aveți o fereastră clară pentru intrare în service și predare la finalizarea intervenției.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="programare" style="align-self:start">
+        <h3 style="margin-top:0">Vreți să planificați o verificare?</h3>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <a class="btn" href="tel:0786122116">Sună pentru programare</a>
+          <a class="link-btn" href="#contact">Vezi adresa</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" aria-labelledby="contact-h">
+      <h2 id="contact-h">Contact & locație</h2>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div>
+              <div class="small">Adresă</div>
+              <div style="font-weight:700;color:#fff;margin-top:6px">DN61, 137352 Gherghești, România</div>
+            </div>
+            <div>
+              <div class="small">Evaluare</div>
+              <div style="font-weight:700;color:#fff;margin-top:6px">4.4 ★</div>
+            </div>
+          </div>
+
+          <div style="margin-top:12px;display:flex;flex-direction:column;gap:10px">
+            <a class="tel" href="tel:0786122116" aria-label="Apelează Autopartium ASM">📞 0786 122 116</a>
+
+            <div class="map-illustration" role="img" aria-label="Localizare stilizată pentru Autopartium ASM">
+              <svg class="map-svg" viewBox="0 0 600 300" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <defs>
+                  <linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#072127"/><stop offset="1" stop-color="#0b1b2a"/></linearGradient>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#g)"/>
+                <g transform="translate(30,20)" fill="none" stroke="#173748" stroke-width="1.6">
+                  <path d="M0 240 C80 200 180 220 260 180 340 140 420 160 540 120"/>
+                  <path d="M0 200 C90 180 150 200 260 160 350 130 430 150 540 110"/>
+                </g>
+                <g transform="translate(420,40)">
+                  <circle cx="40" cy="80" r="28" fill="#ff6b21"/>
+                  <text x="40" y="86" font-size="16" text-anchor="middle" fill="#072018" font-weight="700">P</text>
+                </g>
+                <g transform="translate(420,40)">
+                  <text x="0" y="28" font-size="14" fill="#9fb3c1">Autopartium ASM</text>
+                  <text x="0" y="46" font-size="12" fill="#83a1ad">DN61, Gherghești</text>
+                </g>
+              </svg>
+
+              <div style="margin-top:8px;display:flex;justify-content:space-between;align-items:center">
+                <a class="link-btn" href="https://www.google.com/maps/search/?api=1&query=DN61,+137352+Gherghești,+România" target="_blank" rel="noopener noreferrer">Deschide în Google Maps</a>
+                <a class="whatsapp" href="https://wa.me/40735217053" target="_blank" rel="noopener noreferrer" aria-label="Deschide WhatsApp demo Choose IT">
+                  WhatsApp (demo)
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="contact-card" aria-labelledby="info-h">
+          <h3 id="info-h" style="margin:0 0 6px 0">Informații utile</h3>
+          <p class="small" style="margin:0 0 8px 0;color:var(--muted)">Pentru confirmarea programului și disponibilitate vă rugăm să apelați numărul afișat.</p>
+
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <a class="link-btn" href="http://www.asmgroup.ro/" target="_blank" rel="noopener noreferrer">Website existent</a>
+            <a class="link-btn" href="#galerie">Vezi galerie</a>
+          </div>
+        </aside>
+      </div>
+
+      <div style="margin-top:12px;color:var(--muted);font-size:0.95rem">
+        <strong>Notă:</strong> programul exact nu este afișat aici. Contactați echipa pentru confirmare.
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap" role="contentinfo">
+    <div class="footer-inner">
+      <div class="legal">
+        Aceasta este o propunere demo realizată de <a href="https://chooseit.ro" target="_blank" rel="noopener noreferrer" style="color:#fff;font-weight:700">Choose IT</a> pentru Autopartium ASM. Nu este site-ul oficial al afacerii.
+      </div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between;width:100%">
+        <div class="small">Adresă: DN61, 137352 Gherghești, România — Telefon: <a href="tel:0786122116" style="color:inherit;font-weight:700">0786 122 116</a></div>
+        <div class="small">Propunere demo: pagină optimizată pentru conversii locale și contact rapid.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    (function(){
+      const btn = document.getElementById('menuToggle');
+      const menu = document.getElementById('mobileMenu');
+      btn.addEventListener('click', function(){
+        const isOpen = menu.classList.toggle('open');
+        btn.setAttribute('aria-expanded', String(isOpen));
+      });
+      // close menu on link click
+      document.querySelectorAll('.mobile-menu a').forEach(a=>{
+        a.addEventListener('click', ()=> {
+          menu.classList.remove('open');
+          btn.setAttribute('aria-expanded','false');
+        });
+      });
+      // ensure anchors scroll behavior
+      document.documentElement.style.scrollBehavior = 'smooth';
+    })();
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AutoRepair",
+    "name": "Autopartium ASM",
+    "telephone": "0786122116",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "DN61, 137352 Gherghești",
+      "addressLocality": "Găești",
+      "addressCountry": "RO"
+    },
+    "url": "http://www.asmgroup.ro/"
+  }
+  </script>
+</body>
+</html>

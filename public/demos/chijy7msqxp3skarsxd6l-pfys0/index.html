@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Coroane funerare Targoviste — Coroane, jerbe și aranjamente funerare</title>
+  <meta name="description" content="Coroane funerare Târgoviște — prezentare produselor și contact rapid pentru comenzi locale. Vezi galerii, produse și sună pentru detalii." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f7f7f6;
+      --card:#ffffff;
+      --muted:#6b6b6b;
+      --accent:#5a3b3b; /* subtle burgundy */
+      --accent-2:#8c6f6f;
+      --border:rgba(15,15,15,0.06);
+      --radius:10px;
+      --shadow: 0 6px 18px rgba(20,20,20,0.06);
+      --max-width:1100px;
+      --gap:clamp(12px,2.2vw,28px);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color:#212121;
+      background:linear-gradient(180deg, var(--bg), #ffffff 60%);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      font-size:16px;
+    }
+    a{color:inherit;text-decoration:none}
+    .container{max-width:var(--max-width);margin:0 auto;padding:0 18px;}
+    header{
+      position:sticky;top:0;z-index:60;
+      background:rgba(255,255,255,0.95);
+      backdrop-filter:blur(4px);
+      border-bottom:1px solid var(--border);
+    }
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0;}
+    .brand{font-weight:600;letter-spacing:0.2px;color:#222;font-size:1rem}
+    .brand small{display:block;font-size:12px;color:var(--muted);font-weight:400}
+    nav{display:flex;gap:18px;align-items:center}
+    nav a{font-weight:500;color:var(--muted);padding:8px;border-radius:8px}
+    nav a:hover, nav a:focus{background:rgba(90,59,59,0.06);color:var(--accent)}
+    .cta-btn{
+      background:var(--accent);color:#fff;padding:9px 14px;border-radius:10px;font-weight:600;
+      box-shadow:0 6px 14px rgba(90,59,59,0.12);
+      display:inline-flex;align-items:center;gap:10px
+    }
+    .cta-btn:focus{outline:3px solid rgba(90,59,59,0.14);outline-offset:2px}
+    /* Mobile menu */
+    .menu-toggle{display:none;background:none;border:1px solid transparent;padding:8px;border-radius:8px}
+    .menu-toggle svg{display:block}
+    .mobile-nav{
+      display:none;
+      position:absolute;
+      right:18px;
+      top:64px;
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:12px;
+      box-shadow:var(--shadow);
+      padding:10px;
+      min-width:200px;
+    }
+    .mobile-nav a{display:block;padding:10px;border-radius:8px;color:var(--muted)}
+    .mobile-nav a:hover{background:rgba(90,59,59,0.04);color:var(--accent)}
+    /* Hero */
+    .hero{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:var(--gap);
+      align-items:center;
+      padding:28px 0 26px;
+    }
+    .hero-card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.86), rgba(255,255,255,0.98));
+      border-radius:14px;
+      padding:20px;
+      box-shadow:var(--shadow);
+      border:1px solid var(--border);
+      display:flex;
+      gap:20px;
+      align-items:center;
+    }
+    .hero-content{flex:1;min-width:0}
+    h1{
+      margin:0 0 8px 0;
+      font-family:Playfair Display,serif;
+      font-size:clamp(20px,4.6vw,32px);
+      color:#151515;
+      line-height:1.06;
+      letter-spacing:-0.2px;
+    }
+    p.lead{
+      margin:0 0 14px 0;
+      color:var(--muted);
+      font-size:clamp(14px,2.4vw,16px);
+    }
+    .hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+    .btn-outline{
+      padding:10px 14px;border-radius:10px;border:1px solid var(--border);
+      background:transparent;color:var(--accent-2);font-weight:600;
+    }
+    .benefits{display:flex;gap:12px;flex-wrap:wrap;margin-top:6px}
+    .benefit{
+      background:rgba(90,59,59,0.04);
+      color:var(--accent);
+      padding:8px 10px;border-radius:10px;font-weight:600;font-size:13px;
+      display:inline-flex;align-items:center;gap:8px;
+    }
+    .hero-media{
+      width:220px;height:220px;border-radius:10px;overflow:hidden;flex-shrink:0;box-shadow:0 6px 20px rgba(20,20,20,0.06)
+    }
+    .hero-media img{width:100%;height:100%;object-fit:cover;display:block}
+    /* Sections */
+    section{padding:36px 0;border-bottom:1px solid transparent}
+    .section-title{display:flex;align-items:end;justify-content:space-between;gap:12px;margin-bottom:18px}
+    .section-title h2{margin:0;font-family:Playfair Display,serif;font-size:20px}
+    .grid{display:grid;gap:var(--gap)}
+    /* Products */
+    .products-grid{grid-template-columns:repeat(1,1fr)}
+    .card{
+      background:var(--card);border-radius:12px;padding:14px;border:1px solid var(--border);box-shadow:var(--shadow);
+      display:flex;gap:12px;align-items:center;
+    }
+    .card img{width:110px;height:86px;object-fit:cover;border-radius:8px;flex-shrink:0}
+    .card h3{margin:0;font-size:16px;color:#222}
+    .card p{margin:6px 0 0 0;color:var(--muted);font-size:14px}
+    .card .meta{margin-top:8px;display:flex;gap:10px;align-items:center}
+    .pill{background:rgba(0,0,0,0.04);padding:6px 8px;border-radius:999px;font-size:13px;color:var(--muted)}
+    .product-actions{margin-left:auto;display:flex;flex-direction:column;gap:8px}
+    .link-ghost{background:transparent;border:1px solid var(--border);padding:8px 10px;border-radius:10px;font-weight:600;color:var(--accent-2)}
+    /* About */
+    .about-wrap{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+    .about-media{flex:0 0 280px;border-radius:12px;overflow:hidden;height:180px;box-shadow:var(--shadow)}
+    .about-media img{width:100%;height:100%;object-fit:cover}
+    .about-text{flex:1;min-width:0}
+    /* Gallery */
+    .gallery-grid{grid-template-columns:repeat(2,1fr)}
+    .gallery-item{height:160px;border-radius:10px;overflow:hidden;position:relative}
+    .gallery-item img{width:100%;height:100%;object-fit:cover;display:block}
+    .gallery-item .caption{position:absolute;left:10px;bottom:10px;background:rgba(0,0,0,0.45);color:white;padding:6px 8px;border-radius:8px;font-size:13px}
+    /* Reviews */
+    .reviews{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+    .rating-bubble{display:flex;align-items:center;gap:10px;background:var(--card);padding:10px 14px;border-radius:12px;border:1px solid var(--border);box-shadow:var(--shadow)}
+    .stars{display:inline-flex;gap:4px;color:gold}
+    /* Process */
+    .process{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .step{background:linear-gradient(180deg, #fff, rgba(255,255,255,0.98));padding:14px;border-radius:12px;border:1px solid var(--border);box-shadow:var(--shadow)}
+    .step h4{margin:0 0 6px 0}
+    .muted{color:var(--muted);font-size:14px}
+    /* Location */
+    .location{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+    .map-mock{width:320px;height:180px;border-radius:12px;overflow:hidden;background:linear-gradient(180deg,#e9e9e8,#f5f5f5);border:1px solid var(--border);display:flex;align-items:center;justify-content:center}
+    .addr{font-weight:600}
+    /* Contact block */
+    .contact-block{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+    .call-btn{background:#1b6b4c;color:white;padding:12px 14px;border-radius:12px;font-weight:700;display:inline-flex;align-items:center;gap:10px}
+    .wh-btn{background:#25D366;color:#042; padding:10px 12px;border-radius:12px;font-weight:700;display:inline-flex;align-items:center;gap:10px;color:white}
+    .ext-link{font-size:14px;color:var(--muted)}
+    /* Footer */
+    footer{padding:24px 0;background:#fff;border-top:1px solid var(--border);margin-top:28px}
+    .footer-note{font-size:13px;color:var(--muted)}
+    .chooseit{margin-top:10px;background:linear-gradient(180deg,#fff,#fbfbfb);padding:12px;border-radius:8px;border:1px solid var(--border);color:#222}
+    /* Sticky CTA bar mobile */
+    .sticky-cta{
+      position:fixed;left:12px;right:12px;bottom:14px;z-index:80;
+      display:flex;gap:10px;align-items:center;justify-content:center;
+      background:transparent;
+    }
+    .sticky-inner{display:flex;gap:10px;align-items:center;background:var(--card);padding:10px;border-radius:14px;box-shadow:0 10px 30px rgba(20,20,20,0.12);border:1px solid var(--border)}
+    .sticky-inner a{display:inline-flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;font-weight:700}
+    .sticky-inner .call{background:var(--accent);color:white}
+    .sticky-inner .wa{background:#25D366;color:white}
+    /* Modal for lightbox */
+    .lightbox{position:fixed;inset:0;background:rgba(10,10,10,0.78);display:none;align-items:center;justify-content:center;padding:20px;z-index:200}
+    .lightbox.open{display:flex}
+    .lightbox img{max-width:100%;max-height:90vh;border-radius:8px;box-shadow:0 18px 50px rgba(0,0,0,0.5)}
+    .close-lb{position:absolute;top:18px;right:18px;background:rgba(255,255,255,0.9);border-radius:10px;padding:8px}
+    /* Responsive */
+    @media(min-width:740px){
+      .hero{grid-template-columns:1fr}
+      .hero-card{padding:28px}
+      .hero-media{width:300px;height:260px}
+      .products-grid{grid-template-columns:repeat(2,1fr)}
+      .gallery-grid{grid-template-columns:repeat(3,1fr)}
+      .process{grid-template-columns:repeat(3,1fr)}
+    }
+    @media(min-width:1100px){
+      header .container{max-width:1200px}
+      .hero{grid-template-columns:1fr}
+      .hero-card{display:flex}
+      .products-grid{grid-template-columns:repeat(3,1fr)}
+      .gallery-grid{grid-template-columns:repeat(4,1fr)}
+    }
+    @media(max-width:720px){
+      nav{display:none}
+      .menu-toggle{display:inline-flex}
+      .mobile-nav{right:12px;top:60px}
+      .hero-media{display:none}
+      .about-media{display:none}
+      .gallery-item{height:120px}
+      .map-mock{width:100%;height:140px}
+      .products-grid{grid-template-columns:1fr}
+      .process{grid-template-columns:1fr}
+      .sticky-cta{left:10px;right:10px}
+    }
+    /* Focus styles */
+    :focus{outline:3px solid rgba(90,59,59,0.12);outline-offset:3px}
+    @media (prefers-reduced-motion: reduce){
+      *{transition:none!important}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav-inner">
+      <div class="brand" aria-hidden="false">
+        Coroane funerare Targoviste
+        <small>Aranjamente funerare • Târgoviște</small>
+      </div>
+
+      <nav aria-label="Meniu principal">
+        <a href="#acasa">Acasă</a>
+        <a href="#produse">Produse</a>
+        <a href="#galerie">Galerie</a>
+        <a href="#recenzii">Recenzii</a>
+        <a href="#contact">Contact</a>
+        <a class="cta-btn" href="#contact">Sună pentru comandă</a>
+      </nav>
+
+      <button class="menu-toggle" aria-controls="mobile-menu" aria-expanded="false" aria-label="Meniu mobil">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+          <path d="M4 7h16M4 12h16M4 17h16" stroke="#222" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+      <div id="mobile-menu" class="mobile-nav" role="menu" aria-hidden="true">
+        <a href="#acasa" role="menuitem">Acasă</a>
+        <a href="#produse" role="menuitem">Produse</a>
+        <a href="#galerie" role="menuitem">Galerie</a>
+        <a href="#recenzii" role="menuitem">Recenzii</a>
+        <a href="#contact" role="menuitem">Contact</a>
+        <a href="#faq" role="menuitem">Întrebări frecvente</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="acasa">
+    <div class="container">
+      <section class="hero" aria-labelledby="hero-heading">
+        <div class="hero-card" role="region" aria-label="Introducere Coroane funerare Targoviste">
+          <div class="hero-content">
+            <h1 id="hero-heading">Coroane funerare, jerbe și aranjamente pentru Târgoviște</h1>
+            <p class="lead">Prezentare respectuoasă a produselor pentru comenzi rapide în municipiul Târgoviște. Contact clar și opțiuni afișate online.</p>
+
+            <div class="hero-ctas">
+              <a class="cta-btn" href="tel:+40790130541" aria-label="Sună la Coroane funerare Targoviste">Sună: 0790 130 541</a>
+              <a class="btn-outline" href="#produse">Vezi produse</a>
+              <a class="btn-outline" href="http://www.coroanefuneraretargoviste.ro/" target="_blank" rel="noopener noreferrer">Catalog online</a>
+            </div>
+
+            <div class="benefits" role="list" aria-label="Beneficii">
+              <span class="benefit" role="listitem">Produse afișate cu preț</span>
+              <span class="benefit" role="listitem">Comandă rapidă prin apel</span>
+              <span class="benefit" role="listitem">Galerie foto reală</span>
+            </div>
+          </div>
+
+          <div class="hero-media" aria-hidden="false">
+            <img src="https://chooseit-demo-sites.vercel.app/demos/coroane-funerare-targoviste-targoviste/images/hero.webp" alt="Coroană funerară din crizanteme - Coroane funerare Târgoviște">
+          </div>
+        </div>
+      </section>
+
+      <section id="produse" aria-labelledby="prod-title">
+        <div class="section-title">
+          <h2 id="prod-title">Produse — selecție din ofertă</h2>
+          <div class="ext-link"><a href="http://www.coroanefuneraretargoviste.ro/" target="_blank" rel="noopener noreferrer">Vezi catalog complet »</a></div>
+        </div>
+
+        <div class="grid products-grid">
+          <!-- Card 1 -->
+          <article class="card" aria-labelledby="p1">
+            <img src="https://chooseit-demo-sites.vercel.app/demos/coroane-funerare-targoviste-targoviste/images/gallery-1.webp" alt="Buchet funerar din garoafe roșii">
+            <div>
+              <h3 id="p1">Buchet funerar din garoafe roșii</h3>
+              <p class="muted">Opțiune frecvent afișată pe site; prețuri și buton CUMPARA disponibile în catalog.</p>
+              <div class="meta">
+                <span class="pill">Buchete funerare</span>
+              </div>
+            </div>
+            <div class="product-actions">
+              <a class="link-ghost" href="http://www.coroanefuneraretargoviste.ro/" target="_blank" rel="noopener noreferrer">Vezi pe site</a>
+              <a class="btn-outline" href="tel:+40790130541">Sună</a>
+            </div>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="card" aria-labelledby="p2">
+            <img src="https://chooseit-demo-sites.vercel.app/demos/coroane-funerare-targoviste-targoviste/images/gallery-2.webp" alt="Coroana funerară rotundă din crizanteme albe">
+            <div>
+              <h3 id="p2">Coroană rotundă din crizanteme albe</h3>
+              <p class="muted">Coroană clasică prezentată în paginile produselor; consultați catalogul pentru variante și prețuri.</p>
+              <div class="meta">
+                <span class="pill">Coroane funerare</span>
+              </div>
+            </div>
+            <div class="product-actions">
+              <a class="link-ghost" href="http://www.coroanefuneraretargoviste.ro/" target="_blank" rel="noopener noreferrer">Vezi detalii</a>
+              <a class="btn-outline" href="tel:+40790130541">Sună</a>
+            </div>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="card" aria-labelledby="p3">
+            <img src="https://chooseit-demo-sites.vercel.app/demos/coroane-funerare-targoviste-targoviste/images/gallery-3.webp" alt="Jerbă funerară din trandafiri și garoafe">
+            <div>
+              <h3 id="p3">Jerbă funerară din trandafiri și garoafe</h3>
+              <p class="muted">Jerbe și aranjamente — opțiuni afișate în catalogul online cu buton CUMPARA.</p>
+              <div class="meta">
+                <span class="pill">Jerbe funerare</span>
+              </div>
+            </div>
+            <div class="product-actions">
+              <a class="link-ghost" href="http://www.coroanefuneraretargoviste.ro/" target="_blank" rel="noopener noreferrer">Vezi preț</a>
+              <a class="btn-outline" href="tel:+40790130541">Sună</a>
+            </div>
+          </article>
+
+          <!-- Card 4 -->
+          <article class="card" aria-labelledby="p4">
+            <img src="https://chooseit-demo-sites.vercel.app/demos/coroane-funerare-targoviste-targoviste/images/gallery-4.webp" alt="Coroană funerară mare din crizanteme și trandafiri">
+            <div>
+              <h3 id="p4">Coroană funerară mare</h3>
+              <p class="muted">Opțiuni mari pentru ceremonii — consultați catalogul pentru disponibilitate și dimensiuni.</p>
+              <div class="meta">
+                <span class="pill">Coroane funerare mari</span>
+              </div>
+            </div>
+            <div class="product-actions">
+              <a class="link-ghost" href="http://www.coroanefuneraretargoviste.ro/" target="_blank" rel="noopener noreferrer">Vezi variante</a>
+              <a class="btn-outline" href="tel:+40790130541">Sună</a>
+            </div>
+          </article>
+
+          <!-- Card 5 -->
+          <article class="card" aria-labelledby="p5">
+            <img src="https://chooseit-demo-sites.vercel.app/demos/coroane-funerare-targoviste-targoviste/images/gallery-5.webp" alt="Cos funerar din trandafiri și crizanteme">
+            <div>
+              <h3 id="p5">Coș funerar</h3>
+              <p class="muted">Coșuri și aranjamente pentru depunere — detalii și opțiuni pe catalogul online.</p>
+              <div class="meta">
+                <span class="pill">Coșuri funerare</span>
+              </div>
+            </div>
+            <div class="product-actions">
+              <a class="link-ghost" href="http://www.coroanefuneraretargoviste.ro/" target="_blank" rel="noopener noreferrer">Vezi pe site</a>
+              <a class="btn-outline" href="tel:+40790130541">Sună</a>
+            </div>
+          </article>
+
+          <!-- Card 6: editorial -->
+          <article class="card" aria-labelledby="p6">
+            <img src="https://chooseit-demo-sites.vercel.app/demos/coroane-funerare-targoviste-targoviste/images/gallery-1.webp" alt="Inimă funerară din trandafiri și crizanteme">
+            <div>
+              <h3 id="p6">Inimi funerare</h3>
+              <p class="muted">Modele variate pentru omagii personale; opțiunile de personalizare pot fi verificate telefonic.</p>
+              <div class="meta">
+                <span class="pill">Inimi funerare</span>
+              </div>
+            </div>
+            <div class="product-actions">
+              <a class="link-ghost" href="http://www.coroanefuneraretargoviste.ro/" target="_blank" rel="noopener noreferrer">Explorați</a>
+              <a class="btn-outline" href="tel:+40790130541">Sună</a>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <section id="despre" aria-labelledby="about-title">
+        <div class="section-title">
+          <h2 id="about-title">Despre</h2>
+          <div class="ext-link">Zona deservită: Mun. Târgoviște, Jud. Dâmbovița</div>
+        </div>
+
+        <div class="about-wrap">
+          <div class="about-text">
+            <p class="muted">Coroane funerare Targoviste afișează pe site o gamă variată de aranjamente funerare — coroane, jerbe, buchete, coșuri și inimi. Catalogul include produse cu prețuri și buton de cumpărare, iar opțiunile pot fi consultate online.</p>
+            <p class="muted">Scopul acestei pagini demo este să faciliteze contactul rapid: apel direct, consultare ofertă și verificare opțiuni disponibile pentru comanda în Târgoviște.</p>
+            <p><strong>Notă:</strong> Pentru detalii despre livrare, personalizare sau program, contactați echipa la numărul afișat.</p>
+          </div>
+
+          <div class="about-media" aria-hidden="true">
+            <img src="https://chooseit-demo-sites.vercel.app/demos/coroane-funerare-targoviste-targoviste/images/gallery-2.webp" alt="Detaliu aranjament funerar">
+          </div>
+        </div>
+      </section>
+
+      <section id="galerie" aria-labelledby="gal-title">
+        <div class="section-title">
+          <h2 id="gal-title">Galerie foto</h2>
+          <div class="ext-link"><a href="http://www.coroanefuneraretargoviste.ro/" target="_blank" rel="noopener noreferrer">Galerie completă »</a></div>
+        </div>
+
+        <div class="grid gallery-grid">
+          <div class="gallery-item" tabindex="0" data-src="https://chooseit-demo-sites.vercel.app/demos/coroane-funerare-targoviste-targoviste/images/gallery-1.webp" aria-label="Deschide imaginea 1">
+            <img src="https://chooseit-demo-sites.vercel.app/demos/coroane-funerare-targoviste-targoviste/images/gallery-1.webp" alt="Buchet funerar din garoafe roșii" loading="lazy">
+            <div class="caption">Buchet din garoafe</div>
+          </div>
+
+          <div class="gallery-item" tabindex="0" data-src="https://chooseit-demo-sites.vercel.app/demos/coroane-funerare-targoviste-targoviste/images/gallery-2.webp" aria-label="Deschide imaginea 2">
+            <img src="https://chooseit-demo-sites.vercel.app/demos/coroane-funerare-targoviste-targoviste/images/gallery-2.webp" alt="Coroană rotundă din crizanteme albe" loading="lazy">
+            <div class="caption">Coroană rotundă</div>
+          </div>
+
+          <div class="gallery-item" tabindex="0" data-src="https://chooseit-demo-sites.vercel.app/demos/coroane-funerare-targoviste-targoviste/images/gallery-3.webp" aria-label="Deschide imaginea 3">
+            <img src="https://chooseit-demo-sites.vercel.app/demos/coroane-funerare-targoviste-targoviste/images/gallery-3.webp" alt="Jerbă funerară din trandafiri și garoafe" loading="lazy">
+            <div class="caption">Jerbă funerară</div>
+          </div>
+
+          <div class="gallery-item" tabindex="0" data-src="https://chooseit-demo-sites.vercel.app/demos/coroane-funerare-targoviste-targoviste/images/gallery-4.webp" aria-label="Deschide imaginea 4">
+            <img src="https://chooseit-demo-sites.vercel.app/demos/coroane-funerare-targoviste-targoviste/images/gallery-4.webp" alt="Coroană funerară mare" loading="lazy">
+            <div class="caption">Coroană mare</div>
+          </div>
+
+          <div class="gallery-item" tabindex="0" data-src="https://chooseit-demo-sites.vercel.app/demos/coroane-funerare-targoviste-targoviste/images/gallery-5.webp" aria-label="Deschide imaginea 5">
+            <img src="https://chooseit-demo-sites.vercel.app/demos/coroane-funerare-targoviste-targoviste/images/gallery-5.webp" alt="Coș funerar din trandafiri și crizanteme" loading="lazy">
+            <div class="caption">Coș funerar</div>
+          </div>
+
+          <div class="gallery-item" tabindex="0" data-src="https://chooseit-demo-sites.vercel.app/demos/coroane-funerare-targoviste-targoviste/images/hero.webp" aria-label="Deschide imaginea 6">
+            <img src="https://chooseit-demo-sites.vercel.app/demos/coroane-funerare-targoviste-targoviste/images/hero.webp" alt="Coroană funerară - imagine principală" loading="lazy">
+            <div class="caption">Coroană - detaliu</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="recenzii" aria-labelledby="rev-title">
+        <div class="section-title">
+          <h2 id="rev-title">Recenzii</h2>
+          <div class="ext-link"><a href="http://www.coroanefuneraretargoviste.ro/" target="_blank" rel="noopener noreferrer">Vezi recenziile pe site extern</a></div>
+        </div>
+
+        <div class="reviews">
+          <div class="rating-bubble" aria-hidden="false">
+            <div class="stars" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="gold" aria-hidden="true"><path d="M12 .587l3.668 7.431L23.5 9.748l-5.666 5.523L19.334 24 12 19.897 4.666 24l1.5-8.729L.5 9.748l7.832-1.73z"/></svg>
+              <strong style="font-size:16px">5.0</strong>
+            </div>
+            <div class="muted">Bazat pe 111 recenzii (date afișate ca informație)</div>
+          </div>
+
+          <div class="muted">Recenziile sunt afișate doar ca informație factuală; nu includem texte sau citate individuale în această propunere demo.</div>
+        </div>
+      </section>
+
+      <section id="proces" aria-labelledby="proc-title">
+        <div class="section-title">
+          <h2 id="proc-title">Proces simplificat pentru comandă</h2>
+        </div>
+
+        <div class="process" role="list">
+          <div class="step" role="listitem">
+            <h4>1. Contact rapid</h4>
+            <p class="muted">Sunați la 0790 130 541 sau folosiți butonul WhatsApp din pagină pentru clarificări privind modelul dorit.</p>
+          </div>
+
+          <div class="step" role="listitem">
+            <h4>2. Alegere produs</h4>
+            <p class="muted">Selectați modelul din catalog sau comunicați detaliile telefonic. Produsele afișate includ prețuri și buton CUMPARA pe site.</p>
+          </div>
+
+          <div class="step" role="listitem">
+            <h4>3. Confirmare</h4>
+            <p class="muted">Verificați împreună cu echipa detalii despre livrare sau ridicare; opțiunile privind livrarea pot fi confirmate telefonic.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="locatie" aria-labelledby="loc-title">
+        <div class="section-title">
+          <h2 id="loc-title">Locație</h2>
+        </div>
+
+        <div class="location">
+          <div class="map-mock" aria-hidden="true">
+            <!-- Simple stylized map-like SVG -->
+            <svg width="100%" height="100%" viewBox="0 0 400 240" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="g" x1="0" x2="1">
+                  <stop offset="0" stop-color="#efefef"/>
+                  <stop offset="1" stop-color="#f9f9f9"/>
+                </linearGradient>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#g)"/>
+              <g transform="translate(40,30)" fill="#c9c9c9">
+                <rect x="0" y="120" width="320" height="18" rx="4"></rect>
+                <circle cx="260" cy="60" r="42" fill="#ddd"></circle>
+                <rect x="60" y="40" width="140" height="80" rx="8" fill="#eee"></rect>
+                <text x="24" y="16" font-size="12" fill="#b0b0b0">Harta ilustrativă</text>
+              </g>
+              <g>
+                <path d="M278 68c0 23-19 42-42 42s-42-19-42-42 42-68 42-68 42 45 42 68z" fill="#8c6f6f"/>
+                <text x="210" y="74" fill="#fff" font-size="12" font-family="Inter">Târgoviște</text>
+              </g>
+            </svg>
+          </div>
+
+          <div>
+            <div class="addr">Bulevardul Mircea cel Bătrân 6A, 130007 Târgoviște</div>
+            <p class="muted">Pentru confirmarea programului, contactați echipa telefonic.</p>
+            <p class="muted">Zone deservite: Mun. Târgoviște, Jud. Dâmbovița</p>
+            <p class="muted">Notă: harta de mai sus este ilustrație stilizată și nu înlocuiește o hartă interactivă oficială.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" aria-labelledby="contact-title">
+        <div class="section-title">
+          <h2 id="contact-title">Contact</h2>
+        </div>
+
+        <div class="contact-block">
+          <div>
+            <div class="muted">Telefon</div>
+            <div style="font-weight:700;font-size:18px;margin:6px 0"><a href="tel:+40790130541">0790 130 541</a></div>
+            <div class="muted">Adresă</div>
+            <div style="margin:6px 0">Bulevardul Mircea cel Bătrân 6A, 130007 Târgoviște</div>
+            <div style="margin-top:10px">
+              <a class="call-btn" href="tel:+40790130541" aria-label="Sună la Coroane funerare Targoviste">Sună acum</a>
+              <a class="wh-btn" href="https://wa.me/40735217053" target="_blank" rel="noopener noreferrer" aria-label="Deschide WhatsApp demo Choose IT">WhatsApp (demo Choose IT)</a>
+            </div>
+            <div style="margin-top:10px" class="muted">Butonul WhatsApp deschide o discuție demo gestionată prin Choose IT, nu este numărul direct al afacerii.</div>
+          </div>
+
+          <div style="margin-left:auto;min-width:220px">
+            <div class="muted">Site oficial</div>
+            <div style="margin:6px 0"><a href="http://www.coroanefuneraretargoviste.ro/" target="_blank" rel="noopener noreferrer">www.coroanefuneraretargoviste.ro</a></div>
+
+            <div style="margin-top:14px">
+              <div class="muted">Apel rapid</div>
+              <div style="margin-top:6px">
+                <a class="cta-btn" href="tel:+40790130541">Sună: 0790 130 541</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" aria-labelledby="faq-title">
+        <div class="section-title">
+          <h2 id="faq-title">Întrebări frecvente</h2>
+        </div>
+
+        <div class="grid" style="gap:10px">
+          <div style="background:var(--card);padding:14px;border-radius:10px;border:1px solid var(--border);box-shadow:var(--shadow)">
+            <strong>Pot comanda online?</strong>
+            <p class="muted">Site-ul afișează produse cu prețuri și buton CUMPARA; pentru confirmarea stocului sau opțiunilor, folosiți catalogul sau contactați telefonic.</p>
+          </div>
+
+          <div style="background:var(--card);padding:14px;border-radius:10px;border:1px solid var(--border);box-shadow:var(--shadow)">
+            <strong>Oferiți livrare?</strong>
+            <p class="muted">Opțiunile legate de livrare apar în contul/site-ul de comandă; vă rugăm să contactați echipa pentru detalii specifice despre livrare sau ridicare.</p>
+          </div>
+
+          <div style="background:var(--card);padding:14px;border-radius:10px;border:1px solid var(--border);box-shadow:var(--shadow)">
+            <strong>Se pot personaliza coroanele?</strong>
+            <p class="muted">Personalizările pot fi disponibile pentru anumite modele — contactați echipa pentru a verifica posibilitățile și prețurile.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <div class="sticky-cta" aria-hidden="false">
+    <div class="sticky-inner">
+      <a class="call call-btn" href="tel:+40790130541" aria-label="Apel rapid">📞 Sună</a>
+      <a class="wa" href="https://wa.me/40735217053" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp demo Choose IT">💬 WhatsApp (demo)</a>
+      <a class="cta-btn" href="#produse" aria-label="Vezi produse">Vezi produse</a>
+    </div>
+  </div>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-label="Vizualizare imagine">
+    <button class="close-lb" aria-label="Închide imaginea">✕</button>
+    <img src="" alt="">
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="footer-note">
+        Aceasta este o propunere demo realizată de Choose IT pentru Coroane funerare Targoviste. Nu este site-ul oficial al afacerii.
+      </div>
+
+      <div class="chooseit" style="margin-top:10px">
+        <a href="https://chooseit.ro" target="_blank" rel="noopener noreferrer" style="font-weight:700;color:var(--accent)">Choose IT</a> — demo & propunere de prezență online. <span style="display:block;margin-top:6px;color:var(--muted)">Elementele paginii sunt concepute pentru a ilustra o propunere de site și includ linkuri către resurse publice.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    (function(){
+      const btn = document.querySelector('.menu-toggle');
+      const menu = document.getElementById('mobile-menu');
+      btn.addEventListener('click', function(){
+        const expanded = this.getAttribute('aria-expanded') === 'true';
+        this.setAttribute('aria-expanded', String(!expanded));
+        menu.style.display = expanded ? 'none' : 'block';
+        menu.setAttribute('aria-hidden', String(expanded));
+      });
+      // Close menu on outside click
+      document.addEventListener('click', function(e){
+        if(!btn.contains(e.target) && !menu.contains(e.target)){
+          btn.setAttribute('aria-expanded','false');
+          menu.style.display = 'none';
+          menu.setAttribute('aria-hidden','true');
+        }
+      });
+    })();
+
+    // Simple lightbox for gallery images
+    (function(){
+      const items = document.querySelectorAll('.gallery-item');
+      const lb = document.getElementById('lightbox');
+      const lbImg = lb.querySelector('img');
+      const closeBtn = lb.querySelector('.close-lb');
+
+      function open(src, alt){
+        lbImg.src = src;
+        lbImg.alt = alt || '';
+        lb.classList.add('open');
+        lb.setAttribute('aria-hidden','false');
+        document.body.style.overflow = 'hidden';
+      }
+      function close(){
+        lb.classList.remove('open');
+        lbImg.src = '';
+        lb.setAttribute('aria-hidden','true');
+        document.body.style.overflow = '';
+      }
+
+      items.forEach(it=>{
+        it.addEventListener('click', ()=>{
+          open(it.dataset.src, it.querySelector('img').alt);
+        });
+        it.addEventListener('keydown', (e)=>{
+          if(e.key === 'Enter' || e.key === ' '){
+            e.preventDefault();
+            open(it.dataset.src, it.querySelector('img').alt);
+          }
+        });
+      });
+
+      closeBtn.addEventListener('click', close);
+      lb.addEventListener('click', function(e){
+        if(e.target === lb) close();
+      });
+      document.addEventListener('keydown', function(e){
+        if(e.key === 'Escape') close();
+      });
+    })();
+  </script>
+</body>
+</html>

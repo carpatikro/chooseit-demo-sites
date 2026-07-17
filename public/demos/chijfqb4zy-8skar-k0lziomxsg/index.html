@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Visage Piteşti - Beauty Experts | Salon în Centrul Piteștiului</title>
+  <meta name="description" content="Visage Pitești - salon de înfrumusețare în Centru, Pitești. Tratamente faciale, machiaj, coafură, manichiură, pedichiură și produse selectate. Sună pentru programare." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#fbf9f7;
+      --card:#ffffff;
+      --muted:#6b6b6b;
+      --text:#222;
+      --accent:#d66b6b; /* warm rose */
+      --accent-2:#f3b7b7;
+      --shadow: 0 6px 18px rgba(35,35,35,0.08);
+      --radius:12px;
+      --glass: rgba(255,255,255,0.6);
+      --max-width:1200px;
+      --container-padding:clamp(16px,4vw,40px);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+      background:linear-gradient(180deg,var(--bg),#fff);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      font-size:clamp(14px,1.6vw,16px);
+    }
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:var(--max-width);margin:0 auto;padding:0 var(--container-padding)}
+    header{
+      position:sticky;top:0;z-index:60;
+      backdrop-filter: blur(6px);
+      background:linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.75));
+      border-bottom:1px solid rgba(34,34,34,0.04);
+    }
+    .nav{
+      display:flex;align-items:center;justify-content:space-between;gap:16px;
+      padding:10px 0;
+    }
+    .brand{
+      display:flex;align-items:center;gap:12px;font-weight:600;
+    }
+    .brand h1{font-family:Playfair Display, serif;font-size:1.05rem;margin:0;color:var(--text)}
+    nav ul{display:flex;gap:14px;align-items:center;margin:0;padding:0;list-style:none}
+    nav a{color:var(--muted);padding:8px 10px;border-radius:8px;font-weight:600;font-size:0.95rem}
+    nav a:hover, nav a:focus{color:var(--text);background:var(--glass)}
+    .cta-wrap{display:flex;gap:10px;align-items:center}
+    .btn{
+      display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;
+      background:var(--accent);color:#fff;font-weight:700;border:0;cursor:pointer;font-size:0.95rem;
+      box-shadow:var(--shadow);
+    }
+    .btn.secondary{
+      background:transparent;color:var(--accent);border:1px solid rgba(214,107,107,0.14);font-weight:700;
+    }
+    .menu-btn{display:none;background:transparent;border:0;padding:8px;border-radius:8px}
+    .menu-icon{width:22px;height:2px;background:var(--text);display:block;position:relative}
+    .menu-icon::before,.menu-icon::after{content:"";position:absolute;left:0;width:22px;height:2px;background:var(--text)}
+    .menu-icon::before{top:-7px}
+    .menu-icon::after{top:7px}
+
+    /* HERO */
+    .hero{display:grid;grid-template-columns:1fr;gap:18px;align-items:center;padding:28px 0}
+    .hero-inner{display:flex;flex-direction:column;gap:18px;align-items:flex-start}
+    .kicker{display:inline-block;background:linear-gradient(90deg,var(--accent-2),#ffecec);padding:6px 10px;border-radius:999px;font-weight:600;color:var(--accent);font-size:0.85rem}
+    .hero h2{font-family:Playfair Display, serif;font-size:clamp(1.6rem,4.2vw,2.4rem);margin:0;color:var(--text);line-height:1.02}
+    .hero p.lead{margin:0;color:var(--muted);max-width:56ch}
+    .hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
+    .benefits{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+    .pill{background:#fff;border:1px solid rgba(34,34,34,0.06);padding:8px 10px;border-radius:10px;color:var(--muted);font-weight:600;font-size:0.9rem;box-shadow:var(--shadow);}
+
+    .hero-media{
+      width:100%;border-radius:14px;overflow:hidden;background:#eee;box-shadow:var(--shadow);
+      display:flex;align-items:center;justify-content:center;
+    }
+    .hero-media img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+
+    /* layout for larger screens */
+    @media(min-width:900px){
+      .hero{grid-template-columns:1fr 480px;gap:28px;align-items:center}
+      .hero-inner{padding-right:8px}
+      .hero-media{height:420px}
+    }
+
+    section{padding:40px 0;border-bottom:1px solid rgba(34,34,34,0.03)}
+    .section-title{display:flex;align-items:baseline;gap:12px;margin-bottom:18px}
+    .section-title h3{margin:0;font-size:1.15rem;font-family:Playfair Display, serif}
+    .muted{color:var(--muted)}
+
+    /* Services */
+    .services{display:grid;grid-template-columns:1fr;gap:14px}
+    .service-card{
+      display:flex;gap:14px;align-items:flex-start;padding:16px;background:var(--card);border-radius:12px;box-shadow:var(--shadow);
+    }
+    .icon{
+      min-width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,var(--accent-2),#fff);display:flex;align-items:center;justify-content:center;
+    }
+    .service-card h4{margin:0 0 6px 0}
+    .service-card p{margin:0;color:var(--muted);font-size:0.96rem}
+    .service-grid{display:grid;grid-template-columns:1fr;gap:12px}
+    @media(min-width:720px){
+      .services{grid-template-columns:repeat(2,1fr)}
+      .service-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media(min-width:1100px){
+      .services{grid-template-columns:repeat(3,1fr)}
+      .service-grid{grid-template-columns:repeat(3,1fr)}
+    }
+
+    /* About */
+    .about{display:grid;grid-template-columns:1fr;gap:18px;align-items:center}
+    .about-card{display:flex;gap:18px;align-items:center;background:var(--card);padding:18px;border-radius:12px;box-shadow:var(--shadow)}
+    .about-media{width:40%;min-width:180px;border-radius:8px;overflow:hidden}
+    .about-media img{width:100%;height:100%;object-fit:cover}
+
+    @media(min-width:900px){
+      .about{grid-template-columns:1fr 420px}
+      .about-card{flex-direction:column;align-items:flex-start;padding:24px}
+      .about-media{width:100%;min-width:unset}
+    }
+
+    /* Gallery */
+    .gallery-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+    .gallery-grid .large{grid-column:span 2;grid-row:span 1;height:360px;border-radius:12px;overflow:hidden}
+    .gallery-item{height:180px;border-radius:12px;overflow:hidden}
+    .gallery-item img{width:100%;height:100%;object-fit:cover}
+    @media(min-width:720px){
+      .gallery-grid{grid-template-columns:2fr 1fr 1fr;grid-auto-rows:180px}
+      .gallery-grid .large{grid-row:span 2;height:100%}
+      .gallery-item{height:100%}
+    }
+
+    /* Reviews */
+    .reviews-card{display:flex;gap:18px;align-items:center;padding:18px;background:var(--card);border-radius:12px;box-shadow:var(--shadow)}
+    .rating-badge{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:12px 16px;border-radius:12px;background:linear-gradient(180deg,#fff,#fff);box-shadow:0 6px 18px rgba(214,107,107,0.07)}
+    .rating-badge strong{font-size:1.3rem;color:var(--accent)}
+    .rating-badge span{color:var(--muted);font-weight:600}
+
+    /* FAQ */
+    .faq dt{font-weight:700;margin-top:12px}
+    .faq dd{margin:6px 0 12px 0;color:var(--muted)}
+
+    /* Contact */
+    .contact-grid{display:grid;grid-template-columns:1fr;gap:12px}
+    .contact-card{display:flex;flex-direction:column;gap:10px;padding:16px;background:var(--card);border-radius:12px;box-shadow:var(--shadow)}
+    .map-mock{height:200px;border-radius:10px;overflow:hidden;background:linear-gradient(180deg,#f6f2f0,#efe8e6);display:flex;align-items:center;justify-content:center;border:1px solid rgba(34,34,34,0.03)}
+    .contact-row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+    .small{font-size:0.95rem;color:var(--muted)}
+
+    /* Footer */
+    footer{padding:28px 0;background:#fff}
+    .footer-inner{display:flex;flex-direction:column;gap:12px;align-items:center;text-align:center}
+    .chooseit{background:#fff;padding:12px;border-radius:10px;border:1px solid rgba(34,34,34,0.04);max-width:960px}
+
+    /* responsive nav */
+    @media(max-width:899px){
+      nav ul{display:none}
+      .menu-btn{display:inline-flex}
+      .mobile-menu{display:none;background:#fff;padding:12px;border-top:1px solid rgba(34,34,34,0.04)}
+      .mobile-menu.open{display:block}
+      .hero-media{order:3}
+    }
+
+    /* focus */
+    :focus{outline:3px solid color-mix(in srgb, var(--accent) 20%, transparent)}
+    button:focus, a:focus{outline-offset:3px;border-radius:10px}
+
+    /* modal (lightbox) */
+    .modal{position:fixed;inset:0;background:rgba(6,6,6,0.6);display:flex;align-items:center;justify-content:center;padding:20px;z-index:120;opacity:0;pointer-events:none;transition:opacity .18s ease}
+    .modal.open{opacity:1;pointer-events:auto}
+    .modal-content{max-width:1000px;width:100%;border-radius:12px;overflow:hidden;background:#111}
+    .modal-content img{width:100%;height:auto;display:block}
+    .close-modal{position:absolute;right:18px;top:18px;background:rgba(255,255,255,0.9);border:0;padding:8px;border-radius:8px;cursor:pointer}
+
+    @media (prefers-reduced-motion: reduce){
+      *{transition:none!important}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <div class="brand" aria-hidden="false">
+        <h1>Visage Piteşti - Beauty Experts</h1>
+      </div>
+
+      <nav aria-label="Meniu principal">
+        <ul>
+          <li><a href="#servicii">Servicii</a></li>
+          <li><a href="#galerie">Galerie</a></li>
+          <li><a href="#despre">Despre</a></li>
+          <li><a href="#recenzii">Recenzii</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="cta-wrap">
+        <a class="btn" href="tel:+40747492356" aria-label="Sună pentru programare">Sună pentru programare</a>
+        <button class="menu-btn" aria-label="Deschide meniul" aria-expanded="false" id="menuToggle">
+          <span class="menu-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-menu wrap" id="mobileMenu" hidden>
+      <div style="display:flex;flex-direction:column;gap:6px;padding:12px 0">
+        <a href="#servicii">Servicii</a>
+        <a href="#galerie">Galerie</a>
+        <a href="#despre">Despre</a>
+        <a href="#recenzii">Recenzii</a>
+        <a href="#contact">Contact</a>
+        <a href="http://www.salon-visage.ro/" target="_blank" rel="noopener noreferrer">Website actual</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="wrap hero" aria-label="Introducere">
+      <div class="hero-inner">
+        <span class="kicker">Salon în Centru, Pitești</span>
+        <h2>Frumusețe cu atenție la detalii — machiaj, tratamente faciale și coafuri pentru orice ocazie</h2>
+        <p class="lead">Visage Pitești oferă o selecție de servicii profesionale de cosmetică, machiaj și coafură, alături de produse atent alese pentru întreținerea frumuseții tale.</p>
+
+        <div class="hero-ctas">
+          <a class="btn" href="tel:+40747492356">Sună pentru programare</a>
+          <a class="btn secondary" href="#servicii">Vezi serviciile</a>
+        </div>
+
+        <div class="benefits" aria-hidden="false">
+          <div class="pill">Tratamente faciale și anti-aging</div>
+          <div class="pill">Machiaj profesionist și extensii gene</div>
+          <div class="pill">Coafură, vopsit și extensii păr</div>
+          <div class="pill">Manichiură, pedichiură și îngrijire corporală</div>
+        </div>
+
+        <div style="display:flex;gap:12px;align-items:center;margin-top:8px">
+          <div class="rating-badge" style="flex-direction:row;padding:8px 12px;border-radius:999px">
+            <strong style="color:var(--accent);margin-right:8px">4.5</strong>
+            <span style="color:var(--muted)">din 181 recenzii (Google)</span>
+          </div>
+          <a class="small" href="http://www.salon-visage.ro/" target="_blank" rel="noopener noreferrer">Website oficial (detalii și servicii)</a>
+        </div>
+      </div>
+
+      <figure class="hero-media" aria-hidden="false">
+        <img src="https://chooseit-demo-sites.vercel.app/demos/visage-pitesti-beauty-experts-pitesti/images/hero.webp" alt="Interior salon Visage Pitești - zona recepție și spațiu tratamente" />
+      </figure>
+    </section>
+
+    <section id="servicii" class="wrap" aria-labelledby="serviciiTitle">
+      <div class="section-title">
+        <h3 id="serviciiTitle">Servicii - opțiuni reprezentative</h3>
+        <span class="muted">Servicii care pot include opțiuni confirmate din oferta salonului</span>
+      </div>
+
+      <div class="services" role="list">
+        <article class="service-card" role="listitem" aria-labelledby="s1">
+          <div class="icon" aria-hidden="true">
+            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M12 2c3.866 0 7 3.134 7 7 0 4-7 11-7 11s-7-7-7-11c0-3.866 3.134-7 7-7z" fill="#fff" opacity="0.12"/>
+              <path d="M12 6a2 2 0 100 4 2 2 0 000-4z" fill="#d66b6b"/>
+            </svg>
+          </div>
+          <div>
+            <h4 id="s1">Tratamente faciale & anti-aging</h4>
+            <p>Tratamente care pot include hidratare, anti-acnee, anti-pigmentare, lifting și NOUL HYDRADERM. Contactați salonul pentru recomandări personalizate.</p>
+          </div>
+        </article>
+
+        <article class="service-card" role="listitem" aria-labelledby="s2">
+          <div class="icon" aria-hidden="true">
+            <svg width="34" height="34" viewBox="0 0 24 24" fill="none">
+              <rect x="3" y="3" width="18" height="18" rx="4" fill="#fff" opacity="0.12"/>
+              <path d="M7 12h10" stroke="#d66b6b" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <h4 id="s2">Machiaj & extensii gene</h4>
+            <p>Machiaj natural sau pentru evenimente și extensii gene (smocuri). > Consultați echipa pentru disponibilitate și stiluri.</p>
+          </div>
+        </article>
+
+        <article class="service-card" role="listitem" aria-labelledby="s3">
+          <div class="icon" aria-hidden="true">
+            <svg width="34" height="34" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="8" r="3" fill="#fff" opacity="0.12"/>
+              <path d="M5 20c1-3 6-4 7-4s6 .7 8 4" stroke="#d66b6b" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <h4 id="s3">Coafor & colorare</h4>
+            <p>Servicii de coafură, tuns, decolorare, vopsit și extensii păr. Produse selectate pentru păr sănătos și strălucitor.</p>
+          </div>
+        </article>
+
+        <article class="service-card" role="listitem" aria-labelledby="s4">
+          <div class="icon" aria-hidden="true">
+            <svg width="34" height="34" viewBox="0 0 24 24" fill="none">
+              <rect x="4" y="4" width="16" height="16" rx="3" fill="#fff" opacity="0.12"/>
+              <path d="M8 12h8M8 16h5" stroke="#d66b6b" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <h4 id="s4">Mâini & picioare</h4>
+            <p>Manichiură clasică, semipermanentă, pedichiură SPA, tratamente Peclavus pentru picioare și îngrijire a unghiilor.</p>
+          </div>
+        </article>
+
+        <article class="service-card" role="listitem" aria-labelledby="s5">
+          <div class="icon" aria-hidden="true">
+            <svg width="34" height="34" viewBox="0 0 24 24" fill="none">
+              <path d="M12 3v18" stroke="#d66b6b" stroke-width="1.6" stroke-linecap="round"/>
+              <path d="M5 12h14" stroke="#d66b6b" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <h4 id="s5">Tratamente corporale & remodelare</h4>
+            <p>Opțiuni pentru detoxifiere, anticelulitic, drenaj limfatic și relaxare SPA. Discutați cu echipa pentru pachete și disponibilitate.</p>
+          </div>
+        </article>
+
+        <article class="service-card" role="listitem" aria-labelledby="s6">
+          <div class="icon" aria-hidden="true">
+            <svg width="34" height="34" viewBox="0 0 24 24" fill="none">
+              <rect x="3" y="3" width="18" height="18" rx="6" fill="#fff" opacity="0.12"/>
+              <path d="M9 12h6" stroke="#d66b6b" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <h4 id="s6">Epilare & îngrijire</h4>
+            <p>Epilare facială și corporală, autobronzant și tratamente pentru picioare ușoare. Verificați disponibilitatea serviciilor telefonic.</p>
+          </div>
+        </article>
+      </div>
+
+      <div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+        <a class="btn" href="#contact">Planifică o vizită</a>
+        <a class="btn secondary" href="http://www.salon-visage.ro/" target="_blank" rel="noopener noreferrer">Vezi lista completă de servicii</a>
+      </div>
+    </section>
+
+    <section id="despre" class="wrap" aria-labelledby="despreTitle">
+      <div class="section-title">
+        <h3 id="despreTitle">Despre Visage Pitești</h3>
+        <span class="muted">Experiență orientată spre rezultate vizibile și confort pentru client</span>
+      </div>
+
+      <div class="about">
+        <div>
+          <div class="about-card">
+            <div style="flex:1">
+              <h4>Profesionalism și atenție la detaliu</h4>
+              <p class="muted">Bine ai venit la Visage, salonul de înfrumusețare unde experții noștri în frumusețe te vor face să te simți precum o vedetă. Serviciile includ cosmetică, machiaj (inclusiv pentru nunți), coafură și tratamente pentru mâini și picioare. Produsele folosite sunt selectate de specialiști pentru rezultate durabile.</p>
+
+              <ul style="margin:12px 0 0 16px;color:var(--muted)">
+                <li>Opțiuni de programare: programează o vizită telefonic</li>
+                <li>Voucher cadou disponibil (verifică detalii la salon)</li>
+                <li>Zone deservite: Pitești (Centru)</li>
+              </ul>
+            </div>
+
+            <div style="min-width:120px;display:flex;align-items:center;justify-content:center">
+              <a class="btn secondary" href="#contact">Contact & Programări</a>
+            </div>
+          </div>
+
+          <p class="small muted" style="margin-top:8px">Notă: Orele de funcționare pot fi confirmate contactând direct salonul.</p>
+        </div>
+
+        <div class="about-media" aria-hidden="false">
+          <img src="https://chooseit-demo-sites.vercel.app/demos/visage-pitesti-beauty-experts-pitesti/images/gallery-1.webp" alt="Detaliu interior salon Visage - ambient & zona de tratamente" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <section id="galerie" class="wrap" aria-labelledby="galerieTitle">
+      <div class="section-title">
+        <h3 id="galerieTitle">Galerie foto</h3>
+        <span class="muted">O selecție din spațiul și lucrările salonului</span>
+      </div>
+
+      <div class="gallery-grid" aria-hidden="false">
+        <div class="large gallery-item" tabindex="0" role="button" data-src="https://chooseit-demo-sites.vercel.app/demos/visage-pitesti-beauty-experts-pitesti/images/gallery-2.webp" aria-label="Deschide imaginea mare 1">
+          <img src="https://chooseit-demo-sites.vercel.app/demos/visage-pitesti-beauty-experts-pitesti/images/gallery-2.webp" alt="Coafură pentru eveniment realizată la Visage Pitești" loading="lazy" />
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" data-src="https://chooseit-demo-sites.vercel.app/demos/visage-pitesti-beauty-experts-pitesti/images/gallery-3.webp" aria-label="Deschide imaginea 2">
+          <img src="https://chooseit-demo-sites.vercel.app/demos/visage-pitesti-beauty-experts-pitesti/images/gallery-3.webp" alt="Machiaj de seară realizat la salon" loading="lazy" />
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" data-src="https://chooseit-demo-sites.vercel.app/demos/visage-pitesti-beauty-experts-pitesti/images/gallery-4.webp" aria-label="Deschide imaginea 3">
+          <img src="https://chooseit-demo-sites.vercel.app/demos/visage-pitesti-beauty-experts-pitesti/images/gallery-4.webp" alt="Manichiură și unghii semipermanente" loading="lazy" />
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" data-src="https://chooseit-demo-sites.vercel.app/demos/visage-pitesti-beauty-experts-pitesti/images/gallery-5.webp" aria-label="Deschide imaginea 4">
+          <img src="https://chooseit-demo-sites.vercel.app/demos/visage-pitesti-beauty-experts-pitesti/images/gallery-5.webp" alt="Zona de relaxare și tratamente" loading="lazy" />
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" data-src="https://chooseit-demo-sites.vercel.app/demos/visage-pitesti-beauty-experts-pitesti/images/gallery-1.webp" aria-label="Deschide imaginea 5">
+          <img src="https://chooseit-demo-sites.vercel.app/demos/visage-pitesti-beauty-experts-pitesti/images/gallery-1.webp" alt="Produse selectate pentru îngrijirea picioarelor și unghiilor" loading="lazy" />
+        </div>
+      </div>
+
+      <p class="small muted" style="margin-top:12px">Imagini reprezentative din activitatea salonului. Pentru referințe suplimentare, contactați salonul sau vizitați website-ul oficial.</p>
+    </section>
+
+    <section id="recenzii" class="wrap" aria-labelledby="recenziiTitle">
+      <div class="section-title">
+        <h3 id="recenziiTitle">Recenzii & încredere locală</h3>
+        <span class="muted">Ratingul afișat reflectă scorul public disponibil (Google)</span>
+      </div>
+
+      <div class="reviews-card" role="region" aria-label="Rating Google">
+        <div class="rating-badge" aria-hidden="false" style="border-radius:10px;padding:14px 16px">
+          <strong>4.5</strong>
+          <span style="font-size:0.95rem;color:var(--muted)">din 181 recenzii</span>
+        </div>
+
+        <div style="flex:1">
+          <h4 style="margin:0">Aprecierea clienților</h4>
+          <p class="muted" style="margin:8px 0 0">Acest rating este afișat pentru a oferi potențialilor clienți un element suplimentar de încredere. Pentru a citi recenziile originale, vă rugăm să verificați lista de recenzii Google asociate salonului.</p>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end">
+          <a class="btn" href="#contact">Contact pentru programare</a>
+          <a class="btn secondary" href="http://www.salon-visage.ro/" target="_blank" rel="noopener noreferrer">Vizitează website</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="wrap" aria-labelledby="faqTitle">
+      <div class="section-title">
+        <h3 id="faqTitle">Întrebări frecvente</h3>
+        <span class="muted">Răspunsuri scurte pentru clienți</span>
+      </div>
+
+      <dl class="faq">
+        <dt>Cum pot face o programare?</dt>
+        <dd>Cel mai rapid prin apel la numărul afișat sau discutând cu echipa în secțiunea Contact. Programările se confirmă telefonic.</dd>
+
+        <dt>Pot cumpăra un voucher cadou?</dt>
+        <dd>Da, salonul oferă opțiunea de voucher. Contactați echipa pentru detalii despre pachete și disponibilitate.</dd>
+
+        <dt>Ce produse folosiți?</dt>
+        <dd>Salonul promovează produse selectate de specialiști, inclusiv linii pentru păr sănătos și produse Peclavus pentru picioare și unghii.</dd>
+      </dl>
+    </section>
+
+    <section id="contact" class="wrap" aria-labelledby="contactTitle">
+      <div class="section-title">
+        <h3 id="contactTitle">Contact & locație</h3>
+        <span class="muted">Centru, lângă Zinca Golescu</span>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-card" role="region" aria-label="Informații contact">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
+            <div>
+              <h4 style="margin:0 0 6px 0">Visage Piteşti - Beauty Experts</h4>
+              <div class="small muted">Strada Unirii 8, lângă Zinca Golescu, 110013 Pitești, România</div>
+            </div>
+
+            <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end">
+              <a class="btn" href="tel:+40747492356" aria-label="Sună Visage Pitești">Sună: 0747 492 356</a>
+              <a class="btn secondary" href="http://www.salon-visage.ro/" target="_blank" rel="noopener noreferrer">Website oficial</a>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:10px;align-items:center">
+            <a class="btn" href="#servicii">Vezi servicii</a>
+            <a class="btn secondary" href="#galerie">Vezi galerie</a>
+            <a class="btn" href="https://wa.me/40735217053" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp demo Choose IT">WhatsApp (demo Choose IT)</a>
+          </div>
+
+          <p class="small muted" style="margin-top:10px">Contact telefonic recomandat pentru confirmarea programului și a disponibilității specialiștilor.</p>
+        </div>
+
+        <div class="contact-card" aria-hidden="false">
+          <div class="map-mock" role="img" aria-label="Locație stilizată - Centru Pitești">
+            <svg width="220" height="120" viewBox="0 0 220 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="220" height="120" rx="8" fill="#fff"/>
+              <g transform="translate(10,10)" fill="none" stroke="#e9d9d8" stroke-width="1.6">
+                <path d="M0 14h200M0 40h200M0 66h200M0 92h200" opacity="0.6"/>
+              </g>
+              <circle cx="160" cy="45" r="18" fill="#d66b6b" opacity="0.95"/>
+              <text x="152" y="50" font-size="10" fill="#fff" font-family="Inter,Arial" font-weight="700">V</text>
+            </svg>
+          </div>
+
+          <p class="small muted" style="margin-top:10px">Harta de mai sus este un element vizual. Pentru indicații exacte, utilizați aplicația de hărți preferată sau contactați salonul.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="policies" class="wrap" aria-labelledby="policiesTitle">
+      <div class="section-title">
+        <h3 id="policiesTitle">Politică confidențialitate & Termeni (scurt)</h3>
+        <span class="muted">Informații generale privind utilizarea site-ului demo</span>
+      </div>
+
+      <div style="background:var(--card);padding:16px;border-radius:12px;box-shadow:var(--shadow)">
+        <p class="muted" style="margin:0">Acest demo nu colectează date personale. Orice trimitere de date către Visage Pitești se realizează direct prin canalele oficiale ale salonului. Pentru politica completă de confidențialitate și termeni, consultați site-ul oficial al salonului sau discutați cu reprezentanții salonului.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <div class="chooseit" role="note" aria-live="polite">
+        <strong>Atenție:</strong> Aceasta este o propunere demo realizată de Choose IT pentru Visage Piteşti - Beauty Experts. Nu este site-ul oficial al afacerii.
+        <div style="margin-top:8px"><a href="https://chooseit.ro" target="_blank" rel="noopener noreferrer" style="color:var(--accent);font-weight:700">https://chooseit.ro</a></div>
+      </div>
+
+      <div style="font-size:0.95rem;color:var(--muted)">© Visage Piteşti — Demo de prezentare. Informațiile afișate includ date confirmate de pe website-ul existent și elemente vizuale pentru prezentarea ofertei.</div>
+    </div>
+  </footer>
+
+  <!-- Lightbox modal -->
+  <div id="lightbox" class="modal" role="dialog" aria-hidden="true" aria-label="Vizualizare imagine">
+    <div class="modal-content" role="document">
+      <button class="close-modal" id="closeModal" aria-label="Închide imaginea">Închide</button>
+      <img id="lightboxImg" src="" alt="" />
+    </div>
+  </div>
+
+  <!-- Structured data - LocalBusiness (doar informații confirmate) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Visage Piteşti - Beauty Experts",
+    "telephone": "+40747492356",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Strada Unirii 8, lângă Zinca Golescu",
+      "addressLocality": "Pitești",
+      "postalCode": "110013",
+      "addressCountry": "RO"
+    },
+    "url": "http://www.salon-visage.ro/",
+    "image": "https://chooseit-demo-sites.vercel.app/demos/visage-pitesti-beauty-experts-pitesti/images/hero.webp",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.5",
+      "reviewCount": "181"
+    },
+    "service": [
+      {"@type":"Service","name":"Tratamente cosmetice (hidratare, anti-aging, anti-acnee)"},
+      {"@type":"Service","name":"Machiaj şi extensii gene"},
+      {"@type":"Service","name":"Coafor, vopsit, extensii păr"},
+      {"@type":"Service","name":"Manichiură şi pedichiură"},
+      {"@type":"Service","name":"Tratamente corporale şi relaxare SPA"},
+      {"@type":"Service","name":"Epilare şi îngrijire picioare"}
+    ],
+    "areaServed": {"@type":"City","name":"Pitești"}
+  }
+  </script>
+
+  <script>
+    // Mobile menu toggle
+    (function(){
+      const btn = document.getElementById('menuToggle');
+      const menu = document.getElementById('mobileMenu');
+      btn.addEventListener('click', function(){
+        const expanded = this.getAttribute('aria-expanded') === 'true';
+        this.setAttribute('aria-expanded', String(!expanded));
+        if(!expanded){
+          menu.hidden = false;
+          menu.classList.add('open');
+        } else {
+          menu.hidden = true;
+          menu.classList.remove('open');
+        }
+      });
+    })();
+
+    // Simple lightbox for gallery images
+    (function(){
+      const items = document.querySelectorAll('.gallery-item, .gallery-item.large, .gallery-item[role="button"], .large[role="button"]');
+      const modal = document.getElementById('lightbox');
+      const img = document.getElementById('lightboxImg');
+      const close = document.getElementById('closeModal');
+
+      function open(src, alt){
+        img.src = src;
+        img.alt = alt || '';
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden','false');
+        // trap focus minimal
+        close.focus();
+      }
+      function closeModal(){
+        modal.classList.remove('open');
+        modal.setAttribute('aria-hidden','true');
+        img.src = '';
+      }
+
+      items.forEach(el=>{
+        el.addEventListener('click', function(){
+          const src = this.getAttribute('data-src') || this.querySelector('img')?.src;
+          const alt = this.querySelector('img')?.alt || '';
+          if(src) open(src, alt);
+        });
+        el.addEventListener('keypress', function(e){
+          if(e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            this.click();
+          }
+        });
+      });
+
+      close.addEventListener('click', closeModal);
+      modal.addEventListener('click', function(e){
+        if(e.target === modal) closeModal();
+      });
+      document.addEventListener('keydown', function(e){
+        if(e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+      });
+    })();
+  </script>
+</body>
+</html>

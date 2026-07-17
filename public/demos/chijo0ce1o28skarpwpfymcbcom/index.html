@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ufuk Hair&Beauty — Salon în Pitești | Rezervări și galerie</title>
+  <meta name="description" content="Ufuk Hair&Beauty — salon de înfrumusețare în Pitești. Galerie foto, contact rapid prin apel sau Instagram și opțiuni clare pentru programări. Vezi serviciile și contactează echipa." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#fff8f6;
+      --card:#ffffff;
+      --accent:#c76b4b; /* warm terracotta */
+      --accent-600:#b25a3f;
+      --muted:#6b6b6b;
+      --strong:#222222;
+      --glass: rgba(255,255,255,0.6);
+      --radius:12px;
+      --shadow: 0 6px 20px rgba(34,34,34,0.08);
+      --max-width:1100px;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color-scheme: light;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:linear-gradient(180deg,var(--bg),#fff);
+      color:var(--strong);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      font-size:clamp(15px,1.9vw,17px);
+    }
+    a{color:inherit;text-decoration:none}
+    .container{max-width:var(--max-width);margin:0 auto;padding:0 18px;}
+    header{
+      position:sticky;top:0;z-index:40;
+      backdrop-filter: blur(6px);
+      background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,255,255,0.72));
+      border-bottom:1px solid rgba(0,0,0,0.04);
+    }
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 0;}
+    .brand{font-family:Montserrat, Inter, sans-serif;font-weight:700;font-size:1.05rem;color:var(--strong);letter-spacing:0.2px}
+    nav{display:flex;gap:10px;align-items:center}
+    .nav-links{display:none;gap:12px}
+    .nav-links a{padding:8px 10px;border-radius:8px;color:var(--muted);font-weight:600}
+    .nav-links a:hover, .nav-links a:focus{background:rgba(199,107,75,0.06);color:var(--accent-600);outline:none}
+    .cta-row{display:flex;gap:8px;align-items:center}
+    .btn{
+      display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;background:var(--accent);color:#fff;font-weight:600;
+      box-shadow:var(--shadow);border:none;cursor:pointer;font-family:inherit;font-size:0.95rem
+    }
+    .btn.secondary{background:transparent;color:var(--accent-600);border:1px solid rgba(199,107,75,0.12);padding:8px 12px}
+    .icon-call{width:16px;height:16px;display:inline-block;background:transparent;flex:0 0 16px}
+    .menu-btn{background:transparent;border:1px solid rgba(0,0,0,0.06);padding:8px;border-radius:8px;display:inline-flex;align-items:center;justify-content:center}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    /* Hero */
+    .hero{
+      display:grid;grid-template-columns:1fr;gap:18px;align-items:center;padding:20px 0 28px;
+    }
+    .hero-card{background:linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.9));border-radius:14px;padding:18px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:12px}
+    .hero-grid{display:grid;grid-template-columns:1fr;gap:14px;align-items:center}
+    .hero-media{border-radius:12px;overflow:hidden;min-height:220px;display:block}
+    .hero-media img{width:100%;height:100%;object-fit:cover;display:block}
+    h1{font-family:Montserrat, Inter, sans-serif;font-weight:700;margin:0;font-size:clamp(1.25rem,3.6vw,2rem);color:var(--strong)}
+    .lead{color:var(--muted);margin:0;font-size:clamp(0.95rem,2.2vw,1.05rem)}
+    .hero-ctas{display:flex;gap:10px;flex-wrap:wrap}
+    .benefits{display:flex;gap:10px;flex-wrap:wrap;margin-top:4px}
+    .pill{background:rgba(198,115,97,0.06);color:var(--accent-600);padding:8px 10px;border-radius:999px;font-weight:600;font-size:0.92rem}
+    /* Sections */
+    section{padding:28px 0;border-top:1px solid rgba(0,0,0,0.03)}
+    .section-title{display:flex;justify-content:space-between;align-items:end;gap:12px;margin-bottom:14px}
+    .section-title h2{margin:0;font-family:Montserrat;font-size:1.05rem}
+    .grid{display:grid;gap:14px}
+    /* Services */
+    .services-grid{grid-template-columns:repeat(1,1fr)}
+    .service-card{background:var(--card);border-radius:12px;padding:14px;box-shadow:var(--shadow);display:flex;gap:12px;align-items:center}
+    .service-img{width:84px;height:84px;border-radius:10px;overflow:hidden;flex:0 0 84px}
+    .service-img img{width:100%;height:100%;object-fit:cover}
+    .service-info h3{margin:0;font-size:1rem;font-weight:600}
+    .service-info p{margin:6px 0 0;color:var(--muted);font-size:0.95rem}
+    /* About */
+    .about-wrap{display:flex;flex-direction:column;gap:12px}
+    .about-visual{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .about-visual img{width:100%;height:160px;object-fit:cover;border-radius:12px}
+    /* Gallery */
+    .gallery-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .gallery-grid .large{grid-column:1 / -1;height:320px;border-radius:14px;overflow:hidden}
+    .gallery-grid img{width:100%;height:100%;object-fit:cover;display:block}
+    .gallery-grid .small{height:160px;border-radius:12px;overflow:hidden}
+    .gallery-note{color:var(--muted);font-size:0.95rem;margin-top:6px}
+    /* Process */
+    .process{display:flex;flex-direction:column;gap:12px}
+    .step{display:flex;gap:12px;align-items:flex-start}
+    .step .num{width:40px;height:40px;border-radius:10px;background:var(--card);display:inline-grid;place-items:center;font-weight:700;color:var(--accent-600);box-shadow:var(--shadow)}
+    .step p{margin:0;color:var(--muted)}
+    /* Location & Contact */
+    .contact-grid{display:grid;grid-template-columns:1fr;gap:12px}
+    .card{background:var(--card);padding:14px;border-radius:12px;box-shadow:var(--shadow)}
+    .map-visual{height:180px;border-radius:12px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg, #fff7f4, #fff)}
+    .map-visual svg{width:70%;height:70%;opacity:0.95}
+    .contact-row{display:flex;gap:10px;flex-wrap:wrap}
+    .contact-column{display:flex;flex-direction:column;gap:8px}
+    .phone{font-weight:700;color:var(--accent-600)}
+    .meta{color:var(--muted);font-size:0.95rem}
+    /* Footer */
+    footer{padding:20px 0;border-top:1px solid rgba(0,0,0,0.04);background:transparent}
+    .footer-inner{display:flex;flex-direction:column;gap:10px;align-items:center;justify-content:center;text-align:center;color:var(--muted)}
+    .chooseit-note{background:linear-gradient(90deg, rgba(255,255,255,0.9), rgba(255,255,255,0.95));padding:10px;border-radius:10px;color:var(--strong);max-width:var(--max-width);margin:0 auto}
+    .links-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:center}
+    /* Responsive */
+    @media(min-width:720px){
+      .nav-links{display:flex}
+      .menu-btn{display:none}
+      .hero{grid-template-columns:1fr 440px}
+      .hero-grid{padding-right:6px}
+      .hero-media{min-height:320px}
+      .services-grid{grid-template-columns:repeat(2,1fr)}
+      .about-visual img{height:220px}
+      .gallery-grid{grid-template-columns:2fr 1fr}
+      .gallery-grid .large{height:420px}
+      .contact-grid{grid-template-columns:1fr 320px}
+      .process{flex-direction:row}
+      .process .step{flex:1}
+      .cta-row{gap:12px}
+    }
+    @media(min-width:1100px){
+      .hero{grid-template-columns:1fr 520px}
+      .hero-media{min-height:420px}
+      .gallery-grid{grid-template-columns:1.6fr 1fr}
+    }
+    /* Focus */
+    a:focus, button:focus{outline:3px solid rgba(199,107,75,0.15);outline-offset:3px;border-radius:8px}
+    /* Modal */
+    .modal{position:fixed;inset:0;background:rgba(0,0,0,0.6);display:none;align-items:center;justify-content:center;padding:18px;z-index:80}
+    .modal.open{display:flex}
+    .modal img{max-width:980px;max-height:80vh;border-radius:10px;box-shadow:0 20px 40px rgba(0,0,0,0.5)}
+    .modal .close{position:absolute;top:18px;right:18px;background:rgba(255,255,255,0.9);border-radius:10px;padding:8px;cursor:pointer;border:0}
+    .gallery-item{cursor:pointer}
+    /* prefers reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      *{transition:none !important}
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BeautySalon",
+    "name":"Ufuk Hair&Beauty",
+    "telephone":"+40726613899",
+    "address":{
+      "@type":"PostalAddress",
+      "streetAddress":"Bulevardul Republicii 220c",
+      "addressLocality":"Pitești",
+      "addressCountry":"RO"
+    },
+    "url":"http://instagram.com/ufuk_hair.and.beauty",
+    "sameAs":["http://instagram.com/ufuk_hair.and.beauty"],
+    "aggregateRating":{
+      "@type":"AggregateRating",
+      "ratingValue":"4.8",
+      "reviewCount":"54"
+    }
+  }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="container nav-inner" role="navigation" aria-label="Navigație principală">
+      <div class="brand">Ufuk Hair&Beauty</div>
+      <nav aria-label="Meniu">
+        <div class="nav-links" id="navLinks">
+          <a href="#servicii">Servicii</a>
+          <a href="#galerie">Galerie</a>
+          <a href="#despre">Despre</a>
+          <a href="#preturi">Prețuri</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="cta-row">
+          <a class="btn" href="tel:+40726613899" aria-label="Sună Ufuk Hair and Beauty">
+            <span class="icon-call" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.86 19.86 0 0 1 2.09 4.18 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.72c.12.99.38 1.95.78 2.85a2 2 0 0 1-.45 2.11L8.91 10.91a16 16 0 0 0 6 6l1.23-1.23a2 2 0 0 1 2.11-.45c.9.4 1.86.66 2.85.78A2 2 0 0 1 22 16.92z" fill="#fff"/></svg>
+            </span>
+            Sună pentru programare
+          </a>
+          <button class="menu-btn" id="menuBtn" aria-label="Deschide meniul" aria-expanded="false">
+            <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="#222" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" id="top">
+    <section class="hero" aria-label="Secțiunea principală">
+      <div class="hero-grid hero-card" role="region" aria-labelledby="hero-heading">
+        <div>
+          <h1 id="hero-heading">Stil și îngrijire completă la Ufuk Hair&Beauty — Pitești</h1>
+          <p class="lead">Prezentare vizuală a lucrărilor, contact direct prin Instagram și apel. Rezervă rapid vizita în salon.</p>
+          <div class="hero-ctas" role="group" aria-label="Acțiuni principale">
+            <a class="btn" href="tel:+40726613899">Sună acum</a>
+            <a class="btn secondary" href="http://instagram.com/ufuk_hair.and.beauty" target="_blank" rel="noopener noreferrer">Vezi Instagram</a>
+          </div>
+          <div class="benefits" aria-hidden="false">
+            <span class="pill">Galerie înainte/după</span>
+            <span class="pill">Contact direct: apel & Instagram</span>
+            <span class="pill">Rezervări rapide</span>
+          </div>
+        </div>
+
+        <div class="hero-media" aria-hidden="false">
+          <!-- hero image reală (nu lazy) -->
+          <img src="https://chooseit-demo-sites.vercel.app/demos/ufuk-hair-si-beauty-pitesti/images/hero.webp" alt="Interior salon Ufuk Hair&Beauty - imagine principală" />
+        </div>
+      </div>
+    </section>
+
+    <section id="servicii" aria-labelledby="servicii-title">
+      <div class="section-title">
+        <h2 id="servicii-title">Servicii (informații orientative)</h2>
+        <div class="meta">Pentru disponibilitate și detalii contactați direct salonul</div>
+      </div>
+      <div class="grid services-grid">
+        <!-- Since serviciile nu sunt confirmate pe website, le prezentăm ca opțiuni posibile -->
+        <article class="service-card" aria-labelledby="s1">
+          <div class="service-img">
+            <img src="https://chooseit-demo-sites.vercel.app/demos/ufuk-hair-si-beauty-pitesti/images/gallery-1.webp" alt="Exemplu coafură - imagine din galerie" loading="lazy" />
+          </div>
+          <div class="service-info">
+            <h3 id="s1">Coafuri & tunsori (opțiuni)</h3>
+            <p>Opțiuni care pot include tunsori moderne, aranjare și coafat. Contactați echipa pentru confirmarea serviciilor disponibile.</p>
+          </div>
+        </article>
+
+        <article class="service-card" aria-labelledby="s2">
+          <div class="service-img">
+            <img src="https://chooseit-demo-sites.vercel.app/demos/ufuk-hair-si-beauty-pitesti/images/gallery-2.webp" alt="Exemplu colorare - imagine din galerie" loading="lazy" />
+          </div>
+          <div class="service-info">
+            <h3 id="s2">Colorări & balayage (opțiuni)</h3>
+            <p>Opțiuni pentru colorare și tehnici de luminozitate. Pentru proceduri și prețuri, discutați direct cu salonul.</p>
+          </div>
+        </article>
+
+        <article class="service-card" aria-labelledby="s3">
+          <div class="service-img">
+            <img src="https://chooseit-demo-sites.vercel.app/demos/ufuk-hair-si-beauty-pitesti/images/gallery-3.webp" alt="Tratament păr - imagine din galerie" loading="lazy" />
+          </div>
+          <div class="service-info">
+            <h3 id="s3">Tratamente & îngrijire</h3>
+            <p>Tratamente pentru hidratare și aspect. Verificați disponibilitatea și recomandările personalizate la telefon.</p>
+          </div>
+        </article>
+
+        <article class="service-card" aria-labelledby="s4">
+          <div class="service-img" style="background:linear-gradient(180deg,#fff, #fff);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--muted)">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2a4 4 0 0 0-4 4v1a4 4 0 0 0 8 0V6a4 4 0 0 0-4-4zM6 22v-2a6 6 0 0 1 12 0v2" stroke="#C76B4B" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="service-info">
+            <h3 id="s4">Consultare pentru look</h3>
+            <p>Consultație rapidă la prealabil pentru a stabili preferințele. Contactați salonul pentru programare.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="galerie" aria-labelledby="galerie-title">
+      <div class="section-title">
+        <h2 id="galerie-title">Galerie — lucrări reale din salon</h2>
+        <div class="meta">Imagini din activitatea salonului</div>
+      </div>
+
+      <div class="gallery-grid" role="list">
+        <div class="large gallery-item card" role="listitem" tabindex="0" data-src="https://chooseit-demo-sites.vercel.app/demos/ufuk-hair-si-beauty-pitesti/images/gallery-1.webp" aria-label="Deschide imagine galerie 1">
+          <img src="https://chooseit-demo-sites.vercel.app/demos/ufuk-hair-si-beauty-pitesti/images/gallery-1.webp" alt="Galerie: coafură și styling" loading="lazy" />
+        </div>
+        <div class="small gallery-item card" role="listitem" tabindex="0" data-src="https://chooseit-demo-sites.vercel.app/demos/ufuk-hair-si-beauty-pitesti/images/gallery-2.webp" aria-label="Deschide imagine galerie 2">
+          <img src="https://chooseit-demo-sites.vercel.app/demos/ufuk-hair-si-beauty-pitesti/images/gallery-2.webp" alt="Galerie: colorare păr" loading="lazy" />
+        </div>
+        <div class="small gallery-item card" role="listitem" tabindex="0" data-src="https://chooseit-demo-sites.vercel.app/demos/ufuk-hair-si-beauty-pitesti/images/gallery-3.webp" aria-label="Deschide imagine galerie 3">
+          <img src="https://chooseit-demo-sites.vercel.app/demos/ufuk-hair-si-beauty-pitesti/images/gallery-3.webp" alt="Galerie: tratament și finisaj" loading="lazy" />
+        </div>
+      </div>
+      <p class="gallery-note">Dacă doriți mai multe exemple sau imagini înainte/după, contactați salonul prin Instagram sau apel.</p>
+    </section>
+
+    <section id="despre" aria-labelledby="despre-title">
+      <div class="section-title">
+        <h2 id="despre-title">Despre Ufuk Hair&Beauty</h2>
+        <div class="meta">Prezentare scurtă</div>
+      </div>
+      <div class="about-wrap">
+        <p>Ufuk Hair&Beauty este un salon din Pitești care pune accent pe rezultate vizuale și comunicare directă cu clientul. Pagina actuală transformă vizitatorii Instagram în potențiali clienți prin contacte rapide și o galerie clară a lucrărilor.</p>
+        <div class="about-visual">
+          <img src="https://chooseit-demo-sites.vercel.app/demos/ufuk-hair-si-beauty-pitesti/images/gallery-1.webp" alt="Detaliu coafură - salon Ufuk" loading="lazy" />
+          <img src="https://chooseit-demo-sites.vercel.app/demos/ufuk-hair-si-beauty-pitesti/images/gallery-2.webp" alt="Detaliu colorare - salon Ufuk" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <section id="preturi" aria-labelledby="preturi-title">
+      <div class="section-title">
+        <h2 id="preturi-title">Prețuri & Opțiuni</h2>
+        <div class="meta">Listă disponibilă la cerere</div>
+      </div>
+      <div class="card">
+        <p>Nu există informații publice despre lista de prețuri pe pagina Instagram. Pentru o listă actualizată de prețuri și detalii despre pachete, vă rugăm să contactați salonul prin apel sau Instagram.</p>
+        <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+          <a class="btn" href="tel:+40726613899">Solicită lista de prețuri</a>
+          <a class="btn secondary" href="http://instagram.com/ufuk_hair.and.beauty" target="_blank" rel="noopener noreferrer">Deschide Instagram</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="proces" aria-labelledby="proces-title">
+      <div class="section-title">
+        <h2 id="proces-title">Proces simplu pentru programare</h2>
+        <div class="meta">Pași propuși pentru rezervare</div>
+      </div>
+      <div class="process">
+        <div class="step">
+          <div class="num">1</div>
+          <div>
+            <strong>Contact rapid</strong>
+            <p class="meta">Sună sau scrie pe Instagram pentru a cere informații și disponibilitate.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="num">2</div>
+          <div>
+            <strong>Confirmare detalii</strong>
+            <p class="meta">Stabiliți procedura și durata estimată direct cu personalul salonului.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="num">3</div>
+          <div>
+            <strong>Vizita în salon</strong>
+            <p class="meta">Planificați ziua vizitei; contactați salonul pentru orice modificare.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" aria-labelledby="contact-title">
+      <div class="section-title">
+        <h2 id="contact-title">Contact & Locație</h2>
+        <div class="meta">Modalități de a ajunge sau de a cere informații</div>
+      </div>
+
+      <div class="contact-grid">
+        <div class="card">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap">
+            <div>
+              <div style="font-weight:700;font-size:1.05rem">Ufuk Hair&Beauty</div>
+              <div class="meta" style="margin-top:6px">Adresă</div>
+              <div style="font-weight:600;margin-top:4px">Bulevardul Republicii 220c, Pitești, România</div>
+              <p class="meta" style="margin-top:8px">Program: Contactați echipa pentru confirmarea programului.</p>
+            </div>
+
+            <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end">
+              <div class="contact-column">
+                <a class="btn" href="tel:+40726613899" aria-label="Sună Ufuk Hair and Beauty">Sună: 0726 613 899</a>
+                <a class="btn secondary" href="http://instagram.com/ufuk_hair.and.beauty" target="_blank" rel="noopener noreferrer">Instagram</a>
+              </div>
+              <div style="display:flex;gap:8px">
+                <a class="btn" href="tel:+40726613899">Apel rapid</a>
+                <a class="btn secondary" href="https://wa.me/40735217053" target="_blank" rel="noopener noreferrer" aria-label="Deschide WhatsApp (demo - Choose IT)">WhatsApp (demo)</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" aria-hidden="false">
+          <div class="map-visual" role="img" aria-label="Locația salonului pe harta stilizată">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <defs>
+                <linearGradient id="g" x1="0" x2="1">
+                  <stop offset="0" stop-color="#fff2ef"/>
+                  <stop offset="1" stop-color="#fff7f5"/>
+                </linearGradient>
+              </defs>
+              <rect width="24" height="24" rx="3" fill="url(#g)"/>
+              <path d="M12 2c-2.8 0-5 2.2-5 5 0 4.4 5 11 5 11s5-6.6 5-11c0-2.8-2.2-5-5-5z" fill="#C76B4B"/>
+              <circle cx="12" cy="7" r="2" fill="#fff"/>
+            </svg>
+          </div>
+          <div style="margin-top:10px">
+            <div class="meta">Deschide locația în Google Maps:</div>
+            <a href="https://www.google.com/maps/search/?api=1&query=Bulevardul+Republicii+220c+Pitești" target="_blank" rel="noopener noreferrer" class="secondary" style="color:var(--accent-600);font-weight:600">Vezi pe hartă</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="politica" aria-labelledby="politica-title">
+      <div class="section-title">
+        <h2 id="politica-title">Politica de confidențialitate (sumară)</h2>
+        <div class="meta">Informații pentru vizitatorii demo</div>
+      </div>
+      <div class="card">
+        <p>Acest demo nu colectează date prin formulare. Pentru orice informații personale transmise către salon (de ex. prin apel sau mesaje pe Instagram), vă rugăm să consultați politica oficială comunicată direct de Ufuk Hair&Beauty prin canalele sale. Pagina de față este o propunere demo și nu stochează sau prelucrează date personale.</p>
+        <p class="meta" style="margin-top:8px">Pentru detalii complete despre confidențialitate contactați salonul pe Instagram sau telefonic.</p>
+      </div>
+    </section>
+  </main>
+
+  <div id="imgModal" class="modal" aria-hidden="true" role="dialog" aria-label="Vizualizare imagine">
+    <button class="close" id="modalClose" aria-label="Închide vizualizarea imagine">✕</button>
+    <img src="" alt="" id="modalImg" />
+  </div>
+
+  <footer>
+    <div class="container footer-inner">
+      <div class="links-row">
+        <a href="#top">Sus</a>
+        <a href="#contact">Contact</a>
+        <a href="#politica">Politica confidențialitate</a>
+      </div>
+
+      <div class="chooseit-note" role="note">
+        Aceasta este o propunere demo realizată de Choose IT pentru Ufuk Hair&Beauty. Nu este site-ul oficial al afacerii. <a href="https://chooseit.ro" target="_blank" rel="noopener noreferrer" style="color:var(--accent-600);font-weight:700;margin-left:6px">https://chooseit.ro</a>
+      </div>
+
+      <div style="color:var(--muted);font-size:0.95rem;margin-top:8px">Contact demo: WhatsApp Choose IT — <a href="https://wa.me/40735217053" target="_blank" rel="noopener noreferrer" style="color:var(--accent-600)">Deschide WhatsApp (demo)</a></div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      // Mobile menu toggle
+      const btn = document.getElementById('menuBtn');
+      const nav = document.getElementById('navLinks');
+      btn.addEventListener('click', function(){
+        const expanded = this.getAttribute('aria-expanded') === 'true';
+        this.setAttribute('aria-expanded', String(!expanded));
+        if(!expanded){
+          nav.style.display = 'flex';
+          nav.style.flexDirection = 'column';
+          nav.style.position = 'absolute';
+          nav.style.right = '18px';
+          nav.style.top = '64px';
+          nav.style.background = 'linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,255,255,0.98))';
+          nav.style.padding = '10px';
+          nav.style.borderRadius = '10px';
+          nav.style.boxShadow = 'var(--shadow)';
+        } else {
+          nav.style.display = '';
+          nav.style.position = '';
+          nav.style.top = '';
+          nav.style.right = '';
+          nav.style.background = '';
+          nav.style.padding = '';
+          nav.style.borderRadius = '';
+          nav.style.boxShadow = '';
+        }
+      });
+
+      // Gallery modal
+      const modal = document.getElementById('imgModal');
+      const modalImg = document.getElementById('modalImg');
+      const modalClose = document.getElementById('modalClose');
+      const items = document.querySelectorAll('.gallery-item');
+
+      function openModal(src, alt){
+        modalImg.src = src;
+        modalImg.alt = alt || '';
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden','false');
+        // trap focus on close
+        modalClose.focus();
+      }
+      function closeModal(){
+        modal.classList.remove('open');
+        modal.setAttribute('aria-hidden','true');
+        modalImg.src = '';
+      }
+
+      items.forEach(item=>{
+        item.addEventListener('click', function(){
+          const src = this.dataset.src || this.querySelector('img')?.src;
+          const alt = this.querySelector('img')?.alt || '';
+          if(src) openModal(src, alt);
+        });
+        item.addEventListener('keydown', function(e){
+          if(e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            this.click();
+          }
+        });
+      });
+
+      modalClose.addEventListener('click', closeModal);
+      modal.addEventListener('click', function(e){
+        if(e.target === modal) closeModal();
+      });
+      document.addEventListener('keydown', function(e){
+        if(e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+      });
+
+      // Ensure internal anchors scroll to existing IDs smoothly
+      document.querySelectorAll('a[href^="#"]').forEach(a=>{
+        a.addEventListener('click', function(e){
+          const id = this.getAttribute('href').slice(1);
+          if(!id) return;
+          const el = document.getElementById(id);
+          if(el){
+            e.preventDefault();
+            el.scrollIntoView({behavior:'smooth', block:'start'});
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

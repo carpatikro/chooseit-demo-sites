@@ -1,751 +1,1457 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Ania Roses — Aranjamente florale premium | Târgoviște</title>
-<meta name="description" content="Ania Roses - prezentare demo: aranjamente florale și opțiuni pentru comenzi locale în Târgoviște. Contact rapid prin apel sau WhatsApp (demo)." />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
-<style>
-:root{
-  --bg:#fff9f8;
-  --card:#fff;
-  --accent:#d87f95; /* warm rose */
-  --accent-2:#f7dfe4;
-  --muted:#6b6b6b;
-  --dark:#222;
-  --glass: rgba(255,255,255,0.6);
-  --radius:12px;
-  --shadow: 0 6px 18px rgba(18,18,18,0.08);
-  --max-width:1200px;
-  --gutter:20px;
-  --focus: 3px solid rgba(216,127,149,0.18);
-}
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
-  margin:0;
-  font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  background:linear-gradient(180deg,#fff 0%, #fff9f8 100%);
-  color:var(--dark);
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  line-height:1.45;
-  font-size:16px;
-}
-.container{
-  max-width:var(--max-width);
-  margin:0 auto;
-  padding:0 clamp(16px, 3vw, 40px);
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ania Roses — Florărie în Târgoviște</title>
+  <meta name="description" content="Ania Roses, florărie în Târgoviște. Telefon: 0735 106 092. Locație: Strada Negustorilor, 130023 Târgoviște.">
+  <meta name="theme-color" content="#f8f3ee">
 
-/* Header */
-.header {
-  position:sticky;
-  top:0;
-  z-index:40;
-  backdrop-filter: blur(6px);
-  background:linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.7));
-  border-bottom:1px solid rgba(0,0,0,0.04);
-}
-.header-inner{
-  display:flex;
-  align-items:center;
-  gap:18px;
-  justify-content:space-between;
-  padding:12px clamp(12px, 3vw, 20px);
-  max-width:var(--max-width);
-  margin:0 auto;
-}
-.brand{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  text-decoration:none;
-  color:var(--dark);
-}
-.brand h1{
-  margin:0;
-  font-family: "Playfair Display", serif;
-  font-weight:700;
-  font-size:clamp(18px,2.4vw,22px);
-  letter-spacing:0.2px;
-}
-.nav{
-  display:flex;
-  gap:8px;
-  align-items:center;
-}
-.nav a{
-  text-decoration:none;
-  color:var(--dark);
-  padding:8px 10px;
-  border-radius:8px;
-  font-weight:600;
-  font-size:15px;
-}
-.nav a:focus, .nav a:hover{outline:none; background:var(--accent-2)}
-.header-cta{
-  display:flex;
-  gap:10px;
-  align-items:center;
-}
-.btn{
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  border:0;
-  cursor:pointer;
-  text-decoration:none;
-  color:#fff;
-  background:var(--accent);
-  padding:10px 14px;
-  border-radius:10px;
-  font-weight:600;
-  font-size:15px;
-  box-shadow:var(--shadow);
-}
-.btn.secondary{
-  background:transparent;
-  color:var(--dark);
-  border:1px solid rgba(0,0,0,0.06);
-}
-.menu-toggle{
-  display:none;
-  background:transparent;
-  border:0;
-  padding:8px;
-  align-items:center;
-  justify-content:center;
-  border-radius:9px;
-}
-.menu-toggle:focus{outline:none; box-shadow:var(--focus)}
-/* Hero */
-.hero{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:18px;
-  align-items:center;
-  padding:28px 0 40px;
-}
-.hero-inner{
-  display:flex;
-  gap:20px;
-  align-items:center;
-  flex-direction:column-reverse;
-}
-.hero-copy{
-  width:100%;
-  max-width:680px;
-  text-align:left;
-}
-.kicker{
-  display:inline-block;
-  background:var(--accent-2);
-  color:var(--accent);
-  padding:6px 10px;
-  border-radius:999px;
-  font-weight:700;
-  font-size:13px;
-  margin-bottom:12px;
-}
-h2{
-  font-family:"Playfair Display", serif;
-  font-size:clamp(24px,5.2vw,36px);
-  margin:0 0 10px;
-  line-height:1.02;
-  color:var(--dark);
-}
-.lead{
-  margin:0 0 18px;
-  color:var(--muted);
-  font-size:16px;
-}
-.hero-actions{
-  display:flex;
-  gap:12px;
-  flex-wrap:wrap;
-  margin-bottom:16px;
-}
-.benefits{
-  display:flex;
-  gap:12px;
-  flex-wrap:wrap;
-  margin-top:6px;
-}
-.benefit{
-  background:linear-gradient(180deg, rgba(255,255,255,0.9), var(--card));
-  padding:8px 12px;
-  border-radius:10px;
-  border:1px solid rgba(0,0,0,0.04);
-  font-size:14px;
-  color:var(--muted);
-  display:inline-flex;
-  gap:8px;
-  align-items:center;
-}
-.hero-visual{
-  width:100%;
-  max-width:520px;
-  border-radius:16px;
-  overflow:hidden;
-  box-shadow: 0 10px 30px rgba(216,127,149,0.08);
-  border:1px solid rgba(0,0,0,0.03);
-}
-.hero-visual img{
-  width:100%;
-  height:100%;
-  display:block;
-  object-fit:cover;
-  object-position:center;
-  vertical-align:middle;
-}
-
-/* Sections */
-.section{
-  padding:34px 0;
-  border-top:1px solid rgba(0,0,0,0.03);
-  background:transparent;
-}
-.grid{
-  display:grid;
-  gap:18px;
-}
-.products-grid{
-  grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
-}
-.card{
-  background:var(--card);
-  padding:16px;
-  border-radius:12px;
-  box-shadow:var(--shadow);
-  border:1px solid rgba(0,0,0,0.04);
-}
-.card h3{
-  margin:0 0 8px;
-  font-size:18px;
-  color:var(--dark);
-}
-.card p{
-  margin:0;
-  color:var(--muted);
-  font-size:14px;
-}
-
-/* Gallery editorial */
-.gallery{
-  display:grid;
-  grid-template-columns: 1fr;
-  gap:12px;
-}
-.gallery-main{
-  height:320px;
-  border-radius:14px;
-  overflow:hidden;
-}
-.gallery-side{
-  display:grid;
-  grid-template-columns: 1fr 1fr;
-  gap:12px;
-}
-.gallery img{width:100%; height:100%; object-fit:cover; display:block;}
-
-/* About */
-.about{
-  display:flex;
-  gap:20px;
-  align-items:center;
-  flex-direction:column;
-}
-.about-text{max-width:720px; text-align:left;}
-.rating{
-  display:inline-flex;
-  gap:10px;
-  align-items:center;
-  background:var(--card);
-  padding:10px 12px;
-  border-radius:12px;
-  border:1px solid rgba(0,0,0,0.04);
-  box-shadow:var(--shadow);
-  font-weight:600;
-}
-
-/* Process / benefits */
-.process{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:16px;
-}
-.step{
-  background:linear-gradient(180deg,#fff,#fff);
-  padding:16px;
-  border-radius:12px;
-  border:1px solid rgba(0,0,0,0.04);
-}
-.step h4{margin:0 0 8px;font-size:16px}
-.step p{margin:0;color:var(--muted);font-size:14px}
-
-/* Location / contact block */
-.contact-grid{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:18px;
-}
-.location{
-  background:linear-gradient(180deg,#fff,#fff);
-  padding:14px;
-  border-radius:12px;
-  border:1px solid rgba(0,0,0,0.04);
-}
-.map-mock{
-  height:160px;
-  border-radius:10px;
-  background:linear-gradient(180deg, #fdeff3, #fff);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:var(--muted);
-  font-weight:600;
-  border:1px dashed rgba(216,127,149,0.12);
-  position:relative;
-  overflow:hidden;
-}
-.map-mock svg{opacity:0.9}
-.contact-actions{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
-
-/* Footer */
-footer{
-  padding:28px 0;
-  border-top:1px solid rgba(0,0,0,0.04);
-  color:var(--muted);
-  background:transparent;
-}
-.foot-note{
-  max-width:var(--max-width);
-  margin:0 auto;
-  padding:0 clamp(16px,3vw,40px);
-  display:flex;
-  gap:12px;
-  justify-content:space-between;
-  align-items:center;
-  font-size:14px;
-}
-.chooseit{
-  color:var(--muted);
-  background:linear-gradient(180deg,#fff,#fff);
-  padding:10px 12px;
-  border-radius:8px;
-  border:1px solid rgba(0,0,0,0.03);
-}
-
-/* Modal image viewer */
-.viewer{
-  position:fixed;
-  inset:0;
-  display:none;
-  align-items:center;
-  justify-content:center;
-  background:rgba(0,0,0,0.6);
-  z-index:80;
-  padding:20px;
-}
-.viewer.open{display:flex}
-.viewer img{max-width:100%; max-height:80vh; border-radius:10px; box-shadow:0 20px 50px rgba(0,0,0,0.5)}
-.viewer .close{
-  position:absolute;
-  top:18px;
-  right:18px;
-  background:rgba(255,255,255,0.9);
-  border:0;
-  padding:8px 10px;
-  border-radius:8px;
-  cursor:pointer;
-}
-
-/* Responsive */
-@media (min-width:768px){
-  .hero{padding:64px 0 56px}
-  .hero-inner{flex-direction:row; align-items:center}
-  .nav{display:flex}
-  .menu-toggle{display:none}
-  .hero-visual{max-width:560px}
-  .gallery{grid-template-columns: 1fr 420px}
-  .gallery-main{height:420px}
-  .gallery-side{grid-template-rows:1fr 1fr; gap:12px}
-  .contact-grid{grid-template-columns:1fr 320px}
-}
-@media (max-width:767px){
-  .nav{display:none}
-  .menu-toggle{display:flex}
-  .hero-visual{width:100%}
-  .brand h1{font-size:18px}
-}
-
-/* Accessibility */
-a:focus, button:focus {outline:none; box-shadow:var(--focus); border-radius:8px}
-@media (prefers-reduced-motion: reduce){
-  *{transition:none !important}
-}
-</style>
-</head>
-<body>
-<header class="header" role="banner">
-  <div class="header-inner container">
-    <a class="brand" href="#home" aria-label="Mergi la începutul paginii">
-      <h1>Ania Roses</h1>
-    </a>
-
-    <nav class="nav" role="navigation" aria-label="Navigare principală">
-      <a href="#home">Acasă</a>
-      <a href="#produse">Produse</a>
-      <a href="#galerie">Galerie</a>
-      <a href="#despre">Despre</a>
-      <a href="#contact">Contact</a>
-    </nav>
-
-    <div class="header-cta">
-      <a class="btn" href="tel:+40735106092" aria-label="Sună Ania Roses">Sună acum</a>
-      <button class="menu-toggle" aria-label="Meniu mobil" aria-expanded="false" id="menuToggle">
-        <svg width="22" height="14" viewBox="0 0 22 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <rect width="22" height="2" rx="1" fill="#222"/>
-          <rect y="6" width="22" height="2" rx="1" fill="#222"/>
-          <rect y="12" width="22" height="2" rx="1" fill="#222"/>
-        </svg>
-      </button>
-    </div>
-  </div>
-
-  <!-- Mobile menu -->
-  <div id="mobileMenu" style="display:none; padding:12px; border-top:1px solid rgba(0,0,0,0.04); background:linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,255,255,0.95));">
-    <div class="container" style="display:flex; flex-direction:column; gap:8px;">
-      <a href="#home">Acasă</a>
-      <a href="#produse">Produse</a>
-      <a href="#galerie">Galerie</a>
-      <a href="#despre">Despre</a>
-      <a href="#contact">Contact</a>
-      <div style="margin-top:6px; display:flex; gap:8px;">
-        <a class="btn" href="tel:+40735106092">Sună</a>
-        <a class="btn" href="https://wa.me/40735217053" target="_blank" rel="noopener noreferrer" aria-label="Deschide WhatsApp (demo Choose IT)">WhatsApp (demo)</a>
-      </div>
-    </div>
-  </div>
-</header>
-
-<main id="home" class="container" role="main">
-  <section class="hero" aria-labelledby="hero-title">
-    <div class="hero-inner">
-      <div class="hero-copy">
-        <span class="kicker">Florărie • Târgovişte</span>
-        <h2 id="hero-title">Buchete și aranjamente cu estetică caldă — potrivite pentru momente speciale</h2>
-        <p class="lead">Galerie vizuală și contact rapid pentru comenzi locale. Alege o variantă, sună sau cere o ofertă demo prin WhatsApp.</p>
-
-        <div class="hero-actions">
-          <a class="btn" href="tel:+40735106092" aria-label="Sună Ania Roses">Sună pentru comandă</a>
-          <a class="btn secondary" href="https://wa.me/40735217053" target="_blank" rel="noopener noreferrer" aria-label="Cere ofertă (demo Choose IT)">Cere ofertă (demo)</a>
-        </div>
-
-        <div class="benefits" aria-hidden="false">
-          <div class="benefit">Fotografii reale ale aranjamentelor</div>
-          <div class="benefit">Comandă rapidă prin apel</div>
-          <div class="benefit">Aranjamente cu accente pastelate</div>
-        </div>
-      </div>
-
-      <div class="hero-visual" role="img" aria-label="Buchet Ania Roses">
-        <img src="https://chooseit-demo-sites.vercel.app/demos/ania-roses-targoviste/images/hero.webp" alt="Buchet elegant cu trandafiri și accente pastelate - fotografie Ania Roses" />
-      </div>
-    </div>
-  </section>
-
-  <section id="produse" class="section" aria-labelledby="produse-title">
-    <div class="container">
-      <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:14px;">
-        <div>
-          <h3 id="produse-title" style="font-size:20px; margin:0 0 6px;">Opțiuni de aranjamente</h3>
-          <p style="margin:0; color:var(--muted)">Exemple de opțiuni pe care le puteți discuta cu echipa pentru disponibilitate și detalii.</p>
-        </div>
-      </div>
-
-      <div class="grid products-grid" style="margin-top:12px;">
-        <article class="card" aria-labelledby="p1">
-          <h3 id="p1">Buchete personalizate</h3>
-          <p>Combinări pentru aniversări, cadouri sau momente deosebite. Contactați pentru opțiuni și disponibilitate.</p>
-        </article>
-
-        <article class="card" aria-labelledby="p2">
-          <h3 id="p2">Aranjamente pentru evenimente</h3>
-          <p>Soluții vizuale pentru mese și decorațiuni – disponibile după discuție. Cereți detalii telefonic.</p>
-        </article>
-
-        <article class="card" aria-labelledby="p3">
-          <h3 id="p3">Cutii decorative cu flori</h3>
-          <p>Prezentări elegante pentru cadouri. Opțiunile pot varia în funcție de sezon și disponibilitate.</p>
-        </article>
-
-        <article class="card" aria-labelledby="p4">
-          <h3 id="p4">Plante de interior & decor</h3>
-          <p>Propuneri pentru spații mici sau birouri. Contact pentru a verifica stoc și opțiuni.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="galerie" class="section" aria-labelledby="galerie-title">
-    <div class="container">
-      <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:14px;">
-        <div>
-          <h3 id="galerie-title" style="font-size:20px; margin:0 0 6px;">Galerie</h3>
-          <p style="margin:0; color:var(--muted)">Fotografii reale cu aranjamente și detalii vizuale.</p>
-        </div>
-      </div>
-
-      <div class="gallery" role="list">
-        <div class="gallery-main card" role="listitem">
-          <img src="https://chooseit-demo-sites.vercel.app/demos/ania-roses-targoviste/images/gallery-1.webp" alt="Aranjament pastel - fotografie Ania Roses" loading="lazy" />
-        </div>
-
-        <div class="gallery-side" style="margin-top:12px;" aria-hidden="false">
-          <div class="card" role="listitem">
-            <img src="https://chooseit-demo-sites.vercel.app/demos/ania-roses-targoviste/images/gallery-2.webp" alt="Detaliu buchet trandafiri - fotografie Ania Roses" loading="lazy" />
-          </div>
-          <div class="card" role="listitem">
-            <img src="https://chooseit-demo-sites.vercel.app/demos/ania-roses-targoviste/images/gallery-3.webp" alt="Buchet pe masă - fotografie Ania Roses" loading="lazy" />
-          </div>
-        </div>
-
-        <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:12px;">
-          <div class="card"><img src="https://chooseit-demo-sites.vercel.app/demos/ania-roses-targoviste/images/gallery-4.webp" alt="Cutie cu flori - fotografie Ania Roses" loading="lazy" /></div>
-          <div class="card"><img src="https://chooseit-demo-sites.vercel.app/demos/ania-roses-targoviste/images/gallery-5.webp" alt="Aranjament în tonuri calde - fotografie Ania Roses" loading="lazy" /></div>
-          <div class="card"><img src="https://chooseit-demo-sites.vercel.app/demos/ania-roses-targoviste/images/gallery-1.webp" alt="Detaliu floral - fotografie Ania Roses" loading="lazy" /></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="despre" class="section" aria-labelledby="despre-title">
-    <div class="container about">
-      <div class="about-text">
-        <h3 id="despre-title" style="font-size:20px; margin:0 0 10px;">Despre Ania Roses</h3>
-        <p style="color:var(--muted); margin:0 0 12px;">Această pagină este un demo care prezintă o propunere vizuală pentru Ania Roses, florărie din Târgoviște. Scopul este creșterea conversiilor locale prin expunerea clară a aranjamentelor și contact facil pentru comenzi.</p>
-
-        <div style="display:flex; gap:12px; align-items:center; margin-top:10px;">
-          <div class="rating" aria-hidden="false">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="#f5c0cd" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.787 1.402 8.172L12 18.896 4.664 23.169l1.402-8.172L.132 9.21l8.2-1.192L12 .587z"/></svg>
-            <span style="font-size:15px;">Rating Google: 5 · 25 recenzii</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" aria-labelledby="proces-title">
-    <div class="container">
-      <h3 id="proces-title" style="font-size:20px; margin:0 0 10px;">Cum plasezi o comandă (recomandat)</h3>
-      <p style="margin:0 0 12px; color:var(--muted)">Propunere de flux pentru conversii locale — adaptabil în funcție de nevoile clientului.</p>
-
-      <div class="process" style="margin-top:12px;">
-        <div class="step">
-          <h4>1. Sună sau trimite mesaj</h4>
-          <p>Contactează direct Ania Roses la numărul afișat pentru a discuta detalii și disponibilitate.</p>
-        </div>
-
-        <div class="step">
-          <h4>2. Confirmare detalii</h4>
-          <p>Stabilește tipul aranjamentului, culoarea și detaliile de livrare/ridicare (verifică disponibilitatea).</p>
-        </div>
-
-        <div class="step">
-          <h4>3. Finalizare comandă</h4>
-          <p>Confirmarea finală prin apel sau conversație WhatsApp (butonul WhatsApp deschide un demo de conversație).</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" aria-labelledby="locatie-title">
-    <div class="container contact-grid">
-      <div class="location card">
-        <h3 id="locatie-title" style="margin:0 0 8px;">Locație</h3>
-        <p style="margin:0 0 8px; color:var(--muted)">Adresa: Strada Negustorilor, 130023 Târgoviște, România</p>
-
-        <div class="map-mock" role="img" aria-label="Hartă stilizată Târgovişte">
-          <!-- Simple SVG map-like illustration -->
-          <svg width="220" height="120" viewBox="0 0 220 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <rect x="0" y="0" width="220" height="120" rx="10" fill="#fff0f2"/>
-            <path d="M30 90 C60 60, 110 60, 140 90" stroke="#d87f95" stroke-width="3" fill="none"/>
-            <circle cx="140" cy="90" r="8" fill="#d87f95"/>
-            <circle cx="70" cy="50" r="6" fill="#ffd9e2"/>
-            <text x="20" y="20" fill="#7a7a7a" font-size="11">Târgovişte</text>
-          </svg>
-        </div>
-
-        <p style="margin:12px 0 0; color:var(--muted);">Pentru indicații exacte, deschide locația în Google Maps:</p>
-        <div style="margin-top:8px;">
-          <a href="https://www.google.com/maps/search/Strada+Negustorilor+130023+Târgovi%C8%99te+Rom%C3%A2nia" target="_blank" rel="noopener noreferrer" class="btn secondary" aria-label="Deschide Google Maps">Vezi pe hartă</a>
-        </div>
-      </div>
-
-      <aside class="card" style="display:flex; flex-direction:column; gap:12px;">
-        <div>
-          <h4 style="margin:0 0 6px;">Contact</h4>
-          <p style="margin:0; color:var(--muted)">Telefon: <a href="tel:+40735106092" style="color:var(--accent); text-decoration:none; font-weight:600;">0735 106 092</a></p>
-          <p style="margin:8px 0 0; color:var(--muted)">Website: <a href="https://aniaroses.com/" target="_blank" rel="noopener noreferrer" style="color:var(--accent); text-decoration:none;">aniaroses.com</a></p>
-        </div>
-
-        <div>
-          <h4 style="margin:0 0 6px;">Comandă / Cerere ofertă</h4>
-          <p style="margin:0 0 8px; color:var(--muted)">Pentru o ofertă rapidă deschide o conversație demo prin WhatsApp (Choose IT) sau sună pentru detalii.</p>
-          <div class="contact-actions">
-            <a class="btn" href="tel:+40735106092" aria-label="Sună Ania Roses">Sună</a>
-            <a class="btn secondary" href="https://wa.me/40735217053" target="_blank" rel="noopener noreferrer" aria-label="Deschide WhatsApp (demo Choose IT)">WhatsApp (demo)</a>
-          </div>
-        </div>
-
-        <div>
-          <h4 style="margin:0 0 6px;">Program</h4>
-          <p style="margin:0; color:var(--muted)">Contactați echipa pentru confirmarea programului.</p>
-        </div>
-      </aside>
-    </div>
-  </section>
-
-  <section id="recenzii" class="section" aria-labelledby="recenzii-title">
-    <div class="container">
-      <h3 id="recenzii-title" style="font-size:20px; margin:0 0 8px;">Recenzii & încredere</h3>
-      <p style="margin:0 0 12px; color:var(--muted)">Informații agregate din Google: rating și număr de recenzii (afişate ca informaţie factuală).</p>
-
-      <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:12px;">
-        <div class="card" style="flex:0 0 auto; display:flex; align-items:center; gap:12px;">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="#f5c0cd" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.787 1.402 8.172L12 18.896 4.664 23.169l1.402-8.172L.132 9.21l8.2-1.192L12 .587z"/></svg>
-          <div>
-            <div style="font-weight:700;">5</div>
-            <div style="font-size:13px; color:var(--muted);">25 recenzii</div>
-          </div>
-        </div>
-
-        <div class="card" style="flex:1 1 320px;">
-          <p style="margin:0; color:var(--muted)">Notă: recenziile sunt afișate ca date aggregate. Nu sunt prezentate fragmente sau citate din recenzii.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact" class="section" aria-labelledby="contact-title">
-    <div class="container">
-      <h3 id="contact-title" style="font-size:20px; margin:0 0 8px;">Contact & acțiuni rapide</h3>
-      <p style="margin:0 0 12px; color:var(--muted)">Folosiți butoanele de mai jos pentru a iniția un apel sau o conversație demo pe WhatsApp.</p>
-
-      <div style="display:flex; gap:12px; margin-top:12px; flex-wrap:wrap;">
-        <a class="btn" href="tel:+40735106092" aria-label="Sună Ania Roses">Sună 0735 106 092</a>
-        <a class="btn secondary" href="https://wa.me/40735217053" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp demo Choose IT">WhatsApp (demo Choose IT)</a>
-        <a class="btn" href="https://aniaroses.com/" target="_blank" rel="noopener noreferrer" aria-label="Vizitează site existent">Vizitează site</a>
-      </div>
-    </div>
-  </section>
-</main>
-
-<!-- Image viewer modal -->
-<div id="viewer" class="viewer" role="dialog" aria-modal="true" aria-hidden="true">
-  <button class="close" aria-label="Închide vizualizator" id="viewerClose">Închide</button>
-  <img src="" alt="" id="viewerImg" />
-</div>
-
-<footer>
-  <div class="foot-note">
-    <div>
-      <div style="font-weight:700; color:var(--dark);">Ania Roses — demo</div>
-      <div style="color:var(--muted); margin-top:6px;">Aceasta este o propunere demo realizată de Choose IT pentru Ania Roses. Nu este site-ul oficial al afacerii.</div>
-    </div>
-    <div class="chooseit">
-      <a href="https://chooseit.ro" target="_blank" rel="noopener noreferrer" style="color:var(--muted); text-decoration:underline;">https://chooseit.ro</a>
-    </div>
-  </div>
-</footer>
-
-<!-- Structured data (JSON-LD) -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Florist",
-  "name": "Ania Roses",
-  "telephone": "+40735106092",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Strada Negustorilor",
-    "postalCode": "130023",
-    "addressLocality": "Târgoviște",
-    "addressCountry": "RO"
-  },
-  "url": "https://aniaroses.com/",
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "5",
-    "reviewCount": "25"
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Florist",
+    "name": "Ania Roses",
+    "url": "https://aniaroses.com/",
+    "telephone": "+40735106092",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Strada Negustorilor",
+      "postalCode": "130023",
+      "addressLocality": "Târgoviște",
+      "addressCountry": "RO"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "reviewCount": "25"
+    },
+    "hasMap": "https://www.google.com/maps/place/?q=place_id:ChIJKaV1xj73skAREBj4yJJHaRk"
   }
-}
-</script>
+  </script>
 
-<script>
-(function(){
-  // Mobile menu toggle
-  var btn = document.getElementById('menuToggle');
-  var menu = document.getElementById('mobileMenu');
-  btn.addEventListener('click', function(){
-    var expanded = btn.getAttribute('aria-expanded') === 'true';
-    btn.setAttribute('aria-expanded', String(!expanded));
-    if(!expanded){
-      menu.style.display = 'block';
-    } else {
-      menu.style.display = 'none';
+  <style>
+    :root {
+      --cream: #f8f3ee;
+      --cream-deep: #efe4da;
+      --paper: #fffdf9;
+      --blush: #d8aaa8;
+      --blush-light: #f1dedd;
+      --rose: #a95861;
+      --rose-dark: #71383f;
+      --sage: #7f927c;
+      --sage-dark: #415441;
+      --sage-light: #dce4d9;
+      --ink: #2e2927;
+      --muted: #706764;
+      --line: rgba(65, 84, 65, 0.17);
+      --shadow: 0 25px 70px rgba(73, 50, 48, 0.12);
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: Inter, Avenir, "Segoe UI", Helvetica, Arial, sans-serif;
+      --container: min(1180px, calc(100% - 48px));
     }
-  });
 
-  // Simple gallery click-to-view (delegated)
-  var viewer = document.getElementById('viewer');
-  var viewerImg = document.getElementById('viewerImg');
-  var closeBtn = document.getElementById('viewerClose');
+    * {
+      box-sizing: border-box;
+    }
 
-  document.addEventListener('click', function(e){
-    var target = e.target.closest('img');
-    if(!target) return;
-    // Only images from gallery area should open
-    var inGallery = target.closest('.gallery') || target.closest('.hero-visual');
-    if(!inGallery) return;
-    viewerImg.src = target.src;
-    viewerImg.alt = target.alt || '';
-    viewer.classList.add('open');
-    viewer.setAttribute('aria-hidden','false');
-  });
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 100px;
+    }
 
-  function closeViewer(){
-    viewer.classList.remove('open');
-    viewer.setAttribute('aria-hidden','true');
-    viewerImg.src = '';
-    viewerImg.alt = '';
-  }
-  closeBtn.addEventListener('click', closeViewer);
-  viewer.addEventListener('click', function(e){
-    if(e.target === viewer) closeViewer();
-  });
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      background: var(--cream);
+      color: var(--ink);
+      font-family: var(--sans);
+      line-height: 1.6;
+      text-rendering: optimizeLegibility;
+    }
 
-  // Ensure all internal nav links scroll smoothly and point to existing IDs
-  document.querySelectorAll('a[href^="#"]').forEach(function(a){
-    a.addEventListener('click', function(e){
-      var id = a.getAttribute('href').slice(1);
-      var el = document.getElementById(id);
-      if(el){
-        e.preventDefault();
-        el.scrollIntoView({behavior:'smooth', block:'start'});
-        // if mobile menu open, close it
-        if(menu.style.display === 'block'){
-          menu.style.display = 'none';
-          btn.setAttribute('aria-expanded','false');
-        }
+    body.menu-open {
+      overflow: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid rgba(169, 88, 97, 0.45);
+      outline-offset: 4px;
+    }
+
+    .container {
+      width: var(--container);
+      margin-inline: auto;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      margin: 0 0 18px;
+      color: var(--sage-dark);
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      line-height: 1.3;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      width: 28px;
+      height: 1px;
+      background: currentColor;
+      content: "";
+    }
+
+    .button {
+      min-height: 52px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 13px 22px;
+      border: 1px solid transparent;
+      border-radius: 2px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      letter-spacing: 0.025em;
+      transition: transform 180ms ease, background-color 180ms ease, color 180ms ease, border-color 180ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-primary {
+      background: var(--rose-dark);
+      color: #fff;
+    }
+
+    .button-primary:hover {
+      background: #572a30;
+    }
+
+    .button-secondary {
+      border-color: rgba(46, 41, 39, 0.23);
+      background: rgba(255, 253, 249, 0.55);
+      color: var(--ink);
+    }
+
+    .button-secondary:hover {
+      border-color: var(--sage-dark);
+      background: var(--paper);
+    }
+
+    .button svg,
+    .text-link svg {
+      flex: 0 0 auto;
+    }
+
+    .site-header {
+      position: absolute;
+      z-index: 20;
+      top: 0;
+      left: 0;
+      width: 100%;
+      border-bottom: 1px solid rgba(65, 84, 65, 0.12);
+    }
+
+    .nav {
+      min-height: 86px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 13px;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      position: relative;
+      width: 34px;
+      height: 34px;
+      border: 1px solid rgba(113, 56, 63, 0.28);
+      border-radius: 50%;
+    }
+
+    .brand-mark::before,
+    .brand-mark::after {
+      position: absolute;
+      width: 10px;
+      height: 16px;
+      border-radius: 100% 0 100% 0;
+      background: var(--blush);
+      content: "";
+    }
+
+    .brand-mark::before {
+      top: 5px;
+      left: 8px;
+      transform: rotate(-23deg);
+    }
+
+    .brand-mark::after {
+      right: 7px;
+      bottom: 5px;
+      transform: rotate(157deg);
+    }
+
+    .brand-name {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      letter-spacing: 0.025em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 33px;
+    }
+
+    .nav-links a:not(.nav-call) {
+      position: relative;
+      color: #4f4845;
+      font-size: 0.86rem;
+      font-weight: 650;
+      letter-spacing: 0.03em;
+    }
+
+    .nav-links a:not(.nav-call)::after {
+      position: absolute;
+      right: 0;
+      bottom: -7px;
+      left: 0;
+      height: 1px;
+      background: var(--rose);
+      content: "";
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 180ms ease;
+    }
+
+    .nav-links a:not(.nav-call):hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .nav-call {
+      min-height: 43px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 17px;
+      background: var(--sage-dark);
+      color: #fff;
+      font-size: 0.84rem;
+      font-weight: 700;
+    }
+
+    .menu-toggle {
+      width: 44px;
+      height: 44px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(46, 41, 39, 0.2);
+      border-radius: 0;
+      background: rgba(255, 253, 249, 0.65);
+      color: var(--ink);
+      cursor: pointer;
+    }
+
+    .menu-toggle-lines,
+    .menu-toggle-lines::before,
+    .menu-toggle-lines::after {
+      width: 19px;
+      height: 1.5px;
+      display: block;
+      background: currentColor;
+      transition: transform 180ms ease, opacity 180ms ease;
+    }
+
+    .menu-toggle-lines {
+      position: relative;
+    }
+
+    .menu-toggle-lines::before,
+    .menu-toggle-lines::after {
+      position: absolute;
+      left: 0;
+      content: "";
+    }
+
+    .menu-toggle-lines::before {
+      top: -6px;
+    }
+
+    .menu-toggle-lines::after {
+      top: 6px;
+    }
+
+    .menu-toggle[aria-expanded="true"] .menu-toggle-lines {
+      background: transparent;
+    }
+
+    .menu-toggle[aria-expanded="true"] .menu-toggle-lines::before {
+      top: 0;
+      transform: rotate(45deg);
+    }
+
+    .menu-toggle[aria-expanded="true"] .menu-toggle-lines::after {
+      top: 0;
+      transform: rotate(-45deg);
+    }
+
+    .hero {
+      position: relative;
+      min-height: 780px;
+      display: flex;
+      align-items: center;
+      padding: 150px 0 80px;
+      overflow: hidden;
+      background:
+        linear-gradient(90deg, rgba(248, 243, 238, 0) 0 62%, rgba(216, 170, 168, 0.08) 62% 100%),
+        var(--cream);
+    }
+
+    .hero::before {
+      position: absolute;
+      top: -210px;
+      right: -170px;
+      width: 570px;
+      height: 570px;
+      border: 1px solid rgba(127, 146, 124, 0.18);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .hero::after {
+      position: absolute;
+      bottom: 50px;
+      left: -100px;
+      width: 270px;
+      height: 270px;
+      border: 1px solid rgba(169, 88, 97, 0.11);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: minmax(0, 0.93fr) minmax(430px, 0.87fr);
+      align-items: center;
+      gap: clamp(48px, 8vw, 110px);
+    }
+
+    .hero-copy {
+      padding: 42px 0;
+    }
+
+    .hero h1 {
+      max-width: 710px;
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(4rem, 7.4vw, 7.2rem);
+      font-weight: 400;
+      letter-spacing: -0.065em;
+      line-height: 0.86;
+    }
+
+    .hero h1 span {
+      display: block;
+      margin-left: clamp(34px, 7vw, 95px);
+      color: var(--rose-dark);
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    .hero-lead {
+      max-width: 510px;
+      margin: 34px 0 0;
+      color: var(--muted);
+      font-size: clamp(1rem, 1.5vw, 1.16rem);
+      line-height: 1.75;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 34px;
+    }
+
+    .hero-rating {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-top: 42px;
+    }
+
+    .stars {
+      display: flex;
+      gap: 3px;
+      color: var(--rose);
+      font-size: 1rem;
+      letter-spacing: 0.03em;
+    }
+
+    .rating-copy {
+      color: var(--muted);
+      font-size: 0.87rem;
+    }
+
+    .rating-copy strong {
+      color: var(--ink);
+      font-weight: 750;
+    }
+
+    .floral-frame {
+      position: relative;
+      min-height: 545px;
+      isolation: isolate;
+    }
+
+    .floral-frame::before {
+      position: absolute;
+      inset: 8% 6% 4% 16%;
+      z-index: -3;
+      border-radius: 48% 48% 8% 8%;
+      background: #ead2cf;
+      content: "";
+    }
+
+    .floral-frame::after {
+      position: absolute;
+      inset: 0 15% 9% 4%;
+      z-index: -2;
+      border: 1px solid rgba(65, 84, 65, 0.26);
+      border-radius: 49% 49% 6px 6px;
+      content: "";
+      transform: translate(16px, -8px);
+    }
+
+    .botanical-art {
+      position: absolute;
+      inset: 20px 0 0;
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+    }
+
+    .art-note {
+      position: absolute;
+      right: 0;
+      bottom: 40px;
+      width: 178px;
+      padding: 17px 18px;
+      border-left: 2px solid var(--rose);
+      background: rgba(255, 253, 249, 0.92);
+      box-shadow: 0 15px 40px rgba(65, 45, 45, 0.1);
+      color: var(--muted);
+      font-size: 0.76rem;
+      letter-spacing: 0.08em;
+      line-height: 1.55;
+      text-transform: uppercase;
+    }
+
+    .scroll-label {
+      position: absolute;
+      right: 30px;
+      bottom: 18px;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--sage-dark);
+      font-size: 0.67rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      transform: rotate(90deg);
+      transform-origin: right center;
+    }
+
+    .scroll-label::after {
+      width: 40px;
+      height: 1px;
+      background: currentColor;
+      content: "";
+    }
+
+    .intro {
+      position: relative;
+      padding: clamp(92px, 12vw, 155px) 0;
+      background: var(--paper);
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: minmax(250px, 0.65fr) minmax(0, 1.35fr);
+      gap: clamp(55px, 10vw, 140px);
+    }
+
+    .section-number {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      color: var(--sage);
+      font-family: var(--serif);
+      font-size: 0.94rem;
+      font-style: italic;
+    }
+
+    .section-number::after {
+      width: 60px;
+      height: 1px;
+      background: var(--line);
+      content: "";
+    }
+
+    .intro-content h2 {
+      max-width: 760px;
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(2.5rem, 5vw, 5rem);
+      font-weight: 400;
+      letter-spacing: -0.045em;
+      line-height: 1.04;
+    }
+
+    .intro-content h2 em {
+      color: var(--rose-dark);
+      font-weight: 400;
+    }
+
+    .intro-text {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 35px;
+      margin-top: 46px;
+      padding-top: 32px;
+      border-top: 1px solid var(--line);
+    }
+
+    .intro-text p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+    .intro-text .text-link {
+      width: fit-content;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-top: 19px;
+      color: var(--rose-dark);
+      font-weight: 700;
+    }
+
+    .facts {
+      position: relative;
+      padding: clamp(90px, 11vw, 140px) 0;
+      overflow: hidden;
+      background: var(--sage-dark);
+      color: #fff;
+    }
+
+    .facts::before {
+      position: absolute;
+      top: -140px;
+      right: -70px;
+      width: 410px;
+      height: 410px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .facts::after {
+      position: absolute;
+      right: 135px;
+      bottom: -190px;
+      width: 360px;
+      height: 360px;
+      border: 1px solid rgba(241, 222, 221, 0.14);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .facts-head {
+      position: relative;
+      z-index: 1;
+      max-width: 650px;
+      margin-bottom: 60px;
+    }
+
+    .facts .eyebrow {
+      color: var(--blush-light);
+    }
+
+    .facts h2 {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(2.5rem, 5vw, 4.7rem);
+      font-weight: 400;
+      letter-spacing: -0.045em;
+      line-height: 1;
+    }
+
+    .facts-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1.1fr 0.8fr 1.25fr;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .fact {
+      min-height: 200px;
+      padding: 31px 30px 31px 0;
+    }
+
+    .fact + .fact {
+      padding-left: 30px;
+      border-left: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .fact-label {
+      display: block;
+      margin-bottom: 30px;
+      color: rgba(255, 255, 255, 0.61);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .fact-value {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(1.45rem, 2.7vw, 2.35rem);
+      font-weight: 400;
+      line-height: 1.25;
+    }
+
+    .fact-value.rating-number {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      font-size: clamp(3.4rem, 6vw, 5.5rem);
+      line-height: 0.8;
+    }
+
+    .fact-value.rating-number small {
+      color: var(--blush-light);
+      font-family: var(--sans);
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .fact-detail {
+      margin: 12px 0 0;
+      color: rgba(255, 255, 255, 0.68);
+      font-size: 0.88rem;
+    }
+
+    .location {
+      padding: clamp(90px, 12vw, 150px) 0;
+      background: var(--cream);
+    }
+
+    .location-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(360px, 1.1fr);
+      align-items: stretch;
+      gap: clamp(45px, 8vw, 105px);
+    }
+
+    .location-copy {
+      padding: 40px 0;
+    }
+
+    .location h2 {
+      max-width: 610px;
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(2.7rem, 5.6vw, 5.5rem);
+      font-weight: 400;
+      letter-spacing: -0.055em;
+      line-height: 0.98;
+    }
+
+    .address-block {
+      margin-top: 42px;
+      padding: 24px 0 24px 24px;
+      border-left: 2px solid var(--blush);
+    }
+
+    .address-block span {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--muted);
+      font-size: 0.73rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .address-block address {
+      max-width: 450px;
+      font-family: var(--serif);
+      font-size: clamp(1.25rem, 2vw, 1.65rem);
+      font-style: normal;
+      line-height: 1.45;
+    }
+
+    .location .button {
+      margin-top: 28px;
+    }
+
+    .map-art {
+      position: relative;
+      min-height: 520px;
+      overflow: hidden;
+      border: 1px solid rgba(65, 84, 65, 0.17);
+      background:
+        linear-gradient(32deg, transparent 0 21%, rgba(127, 146, 124, 0.13) 21% 22%, transparent 22% 64%, rgba(127, 146, 124, 0.12) 64% 65%, transparent 65%),
+        linear-gradient(119deg, transparent 0 29%, rgba(169, 88, 97, 0.09) 29% 30%, transparent 30% 76%, rgba(127, 146, 124, 0.12) 76% 77%, transparent 77%),
+        linear-gradient(74deg, transparent 0 44%, rgba(127, 146, 124, 0.09) 44% 45%, transparent 45%),
+        #eee8de;
+    }
+
+    .map-art::before,
+    .map-art::after {
+      position: absolute;
+      border: 1px solid rgba(65, 84, 65, 0.11);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .map-art::before {
+      top: 43px;
+      left: 60px;
+      width: 240px;
+      height: 240px;
+    }
+
+    .map-art::after {
+      right: -80px;
+      bottom: -55px;
+      width: 290px;
+      height: 290px;
+    }
+
+    .map-marker {
+      position: absolute;
+      top: 47%;
+      left: 52%;
+      width: 64px;
+      height: 64px;
+      display: grid;
+      place-items: center;
+      border: 9px solid rgba(255, 253, 249, 0.75);
+      border-radius: 50% 50% 50% 0;
+      background: var(--rose-dark);
+      box-shadow: 0 15px 30px rgba(73, 50, 48, 0.22);
+      color: #fff;
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+
+    .map-marker svg {
+      transform: rotate(45deg);
+    }
+
+    .map-label {
+      position: absolute;
+      right: 28px;
+      bottom: 28px;
+      left: 28px;
+      padding: 23px 25px;
+      background: rgba(255, 253, 249, 0.94);
+      box-shadow: var(--shadow);
+    }
+
+    .map-label strong {
+      display: block;
+      font-family: var(--serif);
+      font-size: 1.32rem;
+      font-weight: 400;
+    }
+
+    .map-label span {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 0.87rem;
+    }
+
+    .contact {
+      position: relative;
+      padding: clamp(80px, 10vw, 125px) 0;
+      overflow: hidden;
+      background: var(--blush-light);
+    }
+
+    .contact::before {
+      position: absolute;
+      top: -150px;
+      left: -80px;
+      width: 390px;
+      height: 390px;
+      border: 1px solid rgba(113, 56, 63, 0.12);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .contact-inner {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: end;
+      gap: 50px;
+    }
+
+    .contact h2 {
+      max-width: 760px;
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(3rem, 6.5vw, 6.3rem);
+      font-weight: 400;
+      letter-spacing: -0.06em;
+      line-height: 0.94;
+    }
+
+    .contact h2 em {
+      color: var(--rose-dark);
+      font-weight: 400;
+    }
+
+    .contact-side {
+      min-width: 280px;
+      padding-bottom: 5px;
+    }
+
+    .contact-side p {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .phone-link {
+      display: inline-block;
+      border-bottom: 1px solid rgba(113, 56, 63, 0.4);
+      color: var(--rose-dark);
+      font-family: var(--serif);
+      font-size: clamp(1.8rem, 3vw, 2.65rem);
+      line-height: 1.3;
+    }
+
+    .phone-link:hover {
+      border-color: var(--rose-dark);
+    }
+
+    .site-footer {
+      padding: 34px 0;
+      background: var(--ink);
+      color: rgba(255, 255, 255, 0.74);
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .footer-brand {
+      color: #fff;
+      font-family: var(--serif);
+      font-size: 1.17rem;
+    }
+
+    .footer-meta {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      font-size: 0.81rem;
+    }
+
+    .footer-meta a:hover {
+      color: #fff;
+    }
+
+    @media (max-width: 960px) {
+      :root {
+        --container: min(100% - 38px, 760px);
+      }
+
+      .site-header {
+        position: absolute;
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+      }
+
+      .nav-links {
+        position: fixed;
+        z-index: 19;
+        top: 0;
+        right: 0;
+        width: min(88vw, 390px);
+        height: 100dvh;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 28px;
+        padding: 100px 42px 50px;
+        background: var(--paper);
+        box-shadow: -20px 0 60px rgba(46, 41, 39, 0.14);
+        transform: translateX(105%);
+        transition: transform 240ms ease;
+      }
+
+      .nav-links.is-open {
+        transform: translateX(0);
+      }
+
+      .nav-links a:not(.nav-call) {
+        font-family: var(--serif);
+        font-size: 1.7rem;
+        font-weight: 400;
+      }
+
+      .nav-call {
+        margin-top: 12px;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 135px 0 85px;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+
+      .hero-copy {
+        padding: 25px 0 5px;
+      }
+
+      .hero h1 {
+        font-size: clamp(4.4rem, 15vw, 7rem);
+      }
+
+      .floral-frame {
+        min-height: 500px;
+        width: min(100%, 570px);
+        margin: 0 auto;
+      }
+
+      .scroll-label {
+        display: none;
+      }
+
+      .intro-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .intro-content {
+        max-width: 760px;
+      }
+
+      .facts-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .fact:last-child {
+        grid-column: 1 / -1;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        border-left: 0;
+        padding-left: 0;
+      }
+
+      .location-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .location-copy {
+        padding: 0;
+      }
+
+      .map-art {
+        min-height: 470px;
+      }
+
+      .contact-inner {
+        grid-template-columns: 1fr;
+        align-items: start;
+      }
+    }
+
+    @media (max-width: 640px) {
+      :root {
+        --container: calc(100% - 32px);
+      }
+
+      html {
+        scroll-padding-top: 78px;
+      }
+
+      .nav {
+        min-height: 74px;
+      }
+
+      .brand-name {
+        font-size: 1.17rem;
+      }
+
+      .brand-mark {
+        width: 30px;
+        height: 30px;
+      }
+
+      .hero {
+        padding: 112px 0 68px;
+        background: var(--cream);
+      }
+
+      .hero h1 {
+        font-size: clamp(3.65rem, 19vw, 5.3rem);
+        letter-spacing: -0.07em;
+      }
+
+      .hero h1 span {
+        margin-left: 24px;
+      }
+
+      .hero-lead {
+        margin-top: 27px;
+        font-size: 0.98rem;
+      }
+
+      .hero-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .hero-rating {
+        align-items: flex-start;
+        gap: 11px;
+        margin-top: 31px;
+      }
+
+      .floral-frame {
+        min-height: 390px;
+        margin-top: 15px;
+      }
+
+      .floral-frame::before {
+        inset: 10% 5% 4% 12%;
+      }
+
+      .floral-frame::after {
+        inset: 2% 11% 7% 2%;
+      }
+
+      .art-note {
+        right: -5px;
+        bottom: 22px;
+        width: 154px;
+        padding: 13px 14px;
+        font-size: 0.66rem;
+      }
+
+      .intro-text {
+        grid-template-columns: 1fr;
+        gap: 22px;
+        margin-top: 33px;
+      }
+
+      .facts-head {
+        margin-bottom: 40px;
+      }
+
+      .facts-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .fact {
+        min-height: auto;
+        padding: 27px 0;
+      }
+
+      .fact + .fact,
+      .fact:last-child {
+        grid-column: auto;
+        padding: 27px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        border-left: 0;
+      }
+
+      .fact-label {
+        margin-bottom: 18px;
+      }
+
+      .map-art {
+        min-height: 430px;
+      }
+
+      .map-marker {
+        top: 42%;
+      }
+
+      .map-label {
+        right: 16px;
+        bottom: 16px;
+        left: 16px;
+        padding: 19px;
+      }
+
+      .contact-inner {
+        gap: 38px;
+      }
+
+      .contact-side {
+        min-width: 0;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .footer-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 9px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#acasa" aria-label="Ania Roses — Acasă">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-name">Ania Roses</span>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-label="Deschide meniul" aria-controls="main-navigation" aria-expanded="false">
+        <span class="menu-toggle-lines" aria-hidden="true"></span>
+      </button>
+
+      <nav class="nav-links" id="main-navigation" aria-label="Navigație principală">
+        <a href="#despre">Despre</a>
+        <a href="#informatii">Informații</a>
+        <a href="#locatie">Locație</a>
+        <a href="#contact">Contact</a>
+        <a class="nav-call" href="tel:0735106092" aria-label="Sună Ania Roses la 0735 106 092">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M7.3 3.6 9.2 8l-2.1 1.5c1.2 2.6 3.1 4.5 5.7 5.7l1.5-2.1 4.4 1.9-.3 3.1c-.1 1-1 1.8-2 1.8C9.6 19.5 4.2 14.1 3.8 7.3c-.1-1 .7-1.9 1.8-2l1.7-.2Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Sună
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="acasa">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Florărie · Târgoviște</p>
+          <h1>Ania <span>Roses</span></h1>
+          <p class="hero-lead">
+            Florărie cu locația pe Strada Negustorilor, în Târgoviște. Pentru informații, contactează-ne direct prin telefon.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button button-primary" href="tel:0735106092" aria-label="Sună Ania Roses la 0735 106 092">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M7.3 3.6 9.2 8l-2.1 1.5c1.2 2.6 3.1 4.5 5.7 5.7l1.5-2.1 4.4 1.9-.3 3.1c-.1 1-1 1.8-2 1.8C9.6 19.5 4.2 14.1 3.8 7.3c-.1-1 .7-1.9 1.8-2l1.7-.2Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Sună pentru informații
+            </a>
+            <a class="button button-secondary" href="https://www.google.com/maps/place/?q=place_id:ChIJKaV1xj73skAREBj4yJJHaRk" target="_blank" rel="noopener noreferrer">
+              Vezi locația
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M5 12h13m-5-5 5 5-5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+
+          <div class="hero-rating" aria-label="Rating Google 5 din 25 de recenzii">
+            <div class="stars" aria-hidden="true">★★★★★</div>
+            <div class="rating-copy"><strong>5,0 pe Google</strong> · 25 de recenzii</div>
+          </div>
+        </div>
+
+        <div class="floral-frame" aria-hidden="true">
+          <svg class="botanical-art" viewBox="0 0 540 570" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M265 530C270 404 291 277 379 139" stroke="#415441" stroke-width="3"/>
+            <path d="M277 530C265 410 239 285 159 161" stroke="#637761" stroke-width="2.5"/>
+            <path d="M270 525C282 405 276 264 267 100" stroke="#415441" stroke-width="2.5"/>
+            <path d="M289 449C335 387 389 343 461 314" stroke="#637761" stroke-width="2"/>
+            <path d="M246 423C210 355 158 309 95 279" stroke="#637761" stroke-width="2"/>
+
+            <path d="M325 327C361 312 384 322 391 348C357 357 334 349 325 327Z" fill="#879B82"/>
+            <path d="M352 276C360 238 380 223 407 233C402 267 383 283 352 276Z" fill="#6F866C"/>
+            <path d="M405 339C438 337 459 349 465 372C433 381 411 369 405 339Z" fill="#879B82"/>
+            <path d="M209 345C173 337 152 350 148 376C181 384 203 373 209 345Z" fill="#879B82"/>
+            <path d="M187 286C174 252 151 240 127 253C138 283 158 295 187 286Z" fill="#71876D"/>
+            <path d="M272 251C302 227 328 227 347 246C326 272 300 274 272 251Z" fill="#889D84"/>
+            <path d="M264 377C235 353 209 354 191 374C213 399 239 400 264 377Z" fill="#6E846B"/>
+
+            <g transform="translate(377 130)">
+              <ellipse cx="0" cy="-34" rx="25" ry="49" fill="#C88188" transform="rotate(2)"/>
+              <ellipse cx="34" cy="-10" rx="25" ry="49" fill="#D99EA1" transform="rotate(66 34 -10)"/>
+              <ellipse cx="20" cy="30" rx="25" ry="49" fill="#BD747D" transform="rotate(135 20 30)"/>
+              <ellipse cx="-23" cy="29" rx="25" ry="49" fill="#D9A6A5" transform="rotate(-137 -23 29)"/>
+              <ellipse cx="-35" cy="-12" rx="25" ry="49" fill="#C57F85" transform="rotate(-65 -35 -12)"/>
+              <circle cx="0" cy="2" r="27" fill="#A95861"/>
+              <circle cx="0" cy="2" r="11" fill="#71383F"/>
+            </g>
+
+            <g transform="translate(158 158) scale(.84)">
+              <ellipse cx="0" cy="-34" rx="25" ry="49" fill="#E1B4B1" transform="rotate(2)"/>
+              <ellipse cx="34" cy="-10" rx="25" ry="49" fill="#D99EA1" transform="rotate(66 34 -10)"/>
+              <ellipse cx="20" cy="30" rx="25" ry="49" fill="#C9838A" transform="rotate(135 20 30)"/>
+              <ellipse cx="-23" cy="29" rx="25" ry="49" fill="#E8C6C2" transform="rotate(-137 -23 29)"/>
+              <ellipse cx="-35" cy="-12" rx="25" ry="49" fill="#D89D9F" transform="rotate(-65 -35 -12)"/>
+              <circle cx="0" cy="2" r="27" fill="#B9666E"/>
+              <circle cx="0" cy="2" r="10" fill="#8E454E"/>
+            </g>
+
+            <g transform="translate(266 102) scale(.68)">
+              <ellipse cx="0" cy="-34" rx="25" ry="49" fill="#D9AAA7" transform="rotate(2)"/>
+              <ellipse cx="34" cy="-10" rx="25" ry="49" fill="#EDCFCA" transform="rotate(66 34 -10)"/>
+              <ellipse cx="20" cy="30" rx="25" ry="49" fill="#CC898F" transform="rotate(135 20 30)"/>
+              <ellipse cx="-23" cy="29" rx="25" ry="49" fill="#E4B8B5" transform="rotate(-137 -23 29)"/>
+              <ellipse cx="-35" cy="-12" rx="25" ry="49" fill="#D3999C" transform="rotate(-65 -35 -12)"/>
+              <circle cx="0" cy="2" r="27" fill="#A95861"/>
+              <circle cx="0" cy="2" r="10" fill="#71383F"/>
+            </g>
+
+            <path d="M203 517H338L317 565H225L203 517Z" fill="#71383F"/>
+            <path d="M216 520C249 536 291 536 326 519" stroke="#D8AAA8" stroke-width="2"/>
+          </svg>
+
+          <div class="art-note">Ania Roses<br>Strada Negustorilor<br>Târgoviște</div>
+        </div>
+      </div>
+
+      <span class="scroll-label" aria-hidden="true">Descoperă</span>
+    </section>
+
+    <section class="intro" id="despre">
+      <div class="container intro-grid">
+        <div>
+          <span class="section-number">01</span>
+        </div>
+
+        <div class="intro-content">
+          <p class="eyebrow">Despre Ania Roses</p>
+          <h2>O florărie din <em>Târgoviște</em></h2>
+
+          <div class="intro-text">
+            <p>
+              Ania Roses este o florărie localizată pe Strada Negustorilor, 130023 Târgoviște, România.
+            </p>
+            <div>
+              <p>
+                Numărul de telefon și locația din Google Maps sunt disponibile pentru contact direct și orientare.
+              </p>
+              <a class="text-link" href="tel:0735106092">
+                0735 106 092
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M5 12h13m-5-5 5 5-5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="facts" id="informatii">
+      <div class="container">
+        <div class="facts-head">
+          <p class="eyebrow">Informații verificate</p>
+          <h2>Repere utile</h2>
+        </div>
+
+        <div class="facts-grid">
+          <article class="fact">
+            <span class="fact-label">Evaluare Google</span>
+            <p class="fact-value rating-number">5,0 <small>rating</small></p>
+            <p class="fact-detail">25 de recenzii Google</p>
+          </article>
+
+          <article class="fact">
+            <span class="fact-label">Oraș</span>
+            <p class="fact-value">Târgoviște</p>
+          </article>
+
+          <article class="fact">
+            <span class="fact-label">Telefon</span>
+            <p class="fact-value">
+              <a href="tel:0735106092" aria-label="Sună la 0735 106 092">0735 106 092</a>
+            </p>
+            <p class="fact-detail">Apel direct pentru informații</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="location" id="locatie">
+      <div class="container location-grid">
+        <div class="location-copy">
+          <p class="eyebrow">Contact și locație</p>
+          <h2>Ania Roses în Târgoviște</h2>
+
+          <div class="address-block">
+            <span>Adresă</span>
+            <address>
+              Strada Negustorilor<br>
+              130023 Târgoviște, România
+            </address>
+          </div>
+
+          <a class="button button-primary" href="https://www.google.com/maps/place/?q=place_id:ChIJKaV1xj73skAREBj4yJJHaRk" target="_blank" rel="noopener noreferrer">
+            Deschide în Google Maps
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M12 21s6-5.3 6-11a6 6 0 1 0-12 0c0 5.7 6 11 6 11Z" stroke="currentColor" stroke-width="1.7"/>
+              <circle cx="12" cy="10" r="2.2" stroke="currentColor" stroke-width="1.7"/>
+            </svg>
+          </a>
+        </div>
+
+        <div class="map-art" aria-label="Reprezentare grafică a locației Ania Roses">
+          <div class="map-marker" aria-hidden="true">
+            <svg width="25" height="25" viewBox="0 0 24 24" fill="none">
+              <path d="M12 20s5-4.5 5-9.5a5 5 0 1 0-10 0C7 15.5 12 20 12 20Z" stroke="currentColor" stroke-width="1.7"/>
+              <circle cx="12" cy="10.5" r="1.8" fill="currentColor"/>
+            </svg>
+          </div>
+
+          <div class="map-label">
+            <strong>Ania Roses</strong>
+            <span>Strada Negustorilor, 130023 Târgoviște</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container contact-inner">
+        <div>
+          <p class="eyebrow">Contact direct</p>
+          <h2>Sună pentru <em>informații</em></h2>
+        </div>
+
+        <div class="contact-side">
+          <p>Telefon Ania Roses</p>
+          <a class="phone-link" href="tel:0735106092" aria-label="Sună Ania Roses la 0735 106 092">0735 106 092</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">Ania Roses</div>
+      <div class="footer-meta">
+        <span>Florărie · Târgoviște</span>
+        <a href="tel:0735106092">0735 106 092</a>
+        <a href="https://www.google.com/maps/place/?q=place_id:ChIJKaV1xj73skAREBj4yJJHaRk" target="_blank" rel="noopener noreferrer">Google Maps</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const menuButton = document.querySelector('.menu-toggle');
+    const navigation = document.querySelector('.nav-links');
+    const navigationLinks = navigation.querySelectorAll('a');
+
+    function closeMenu() {
+      menuButton.setAttribute('aria-expanded', 'false');
+      menuButton.setAttribute('aria-label', 'Deschide meniul');
+      navigation.classList.remove('is-open');
+      document.body.classList.remove('menu-open');
+    }
+
+    menuButton.addEventListener('click', function () {
+      const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
+      menuButton.setAttribute('aria-expanded', String(!isOpen));
+      menuButton.setAttribute('aria-label', isOpen ? 'Deschide meniul' : 'Închide meniul');
+      navigation.classList.toggle('is-open', !isOpen);
+      document.body.classList.toggle('menu-open', !isOpen);
+    });
+
+    navigationLinks.forEach(function (link) {
+      link.addEventListener('click', closeMenu);
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') {
+        closeMenu();
       }
     });
-  });
 
-})();
-</script>
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 960) {
+        closeMenu();
+      }
+    });
+  </script>
 </body>
 </html>

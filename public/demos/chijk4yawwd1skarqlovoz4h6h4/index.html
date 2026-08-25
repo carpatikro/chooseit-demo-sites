@@ -1,0 +1,1431 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PAB CUSTOM TUNNING | Detailing auto în Târgoviște</title>
+  <meta name="description" content="PAB CUSTOM TUNNING — detailing auto în Târgoviște. Telefon: 0768 079 999. Adresă: Strada Laminorului 4 B, Târgoviște.">
+  <meta name="theme-color" content="#0a0b0d">
+
+  <style>
+    :root {
+      --bg: #090a0c;
+      --bg-soft: #111317;
+      --panel: #15181d;
+      --panel-light: #1b1f25;
+      --text: #f4f5f7;
+      --muted: #a9afb9;
+      --line: rgba(255, 255, 255, 0.12);
+      --line-strong: rgba(255, 255, 255, 0.22);
+      --accent: #e2262f;
+      --accent-dark: #a80f17;
+      --silver: #c9ced6;
+      --max-width: 1180px;
+      --header-height: 78px;
+      --radius: 18px;
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.34);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      overflow-x: hidden;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 85% 8%, rgba(226, 38, 47, 0.08), transparent 30rem),
+        var(--bg);
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body.menu-open {
+      overflow: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid rgba(226, 38, 47, 0.75);
+      outline-offset: 4px;
+    }
+
+    .container {
+      width: min(calc(100% - 40px), var(--max-width));
+      margin-inline: auto;
+    }
+
+    .skip-link {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      z-index: 1000;
+      padding: 10px 15px;
+      color: #fff;
+      background: var(--accent);
+      transform: translateY(-160%);
+      transition: transform 0.2s ease;
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    .site-header {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 100;
+      border-bottom: 1px solid transparent;
+      transition: background 0.25s ease, border-color 0.25s ease;
+    }
+
+    .site-header.scrolled {
+      background: rgba(9, 10, 12, 0.94);
+      border-color: var(--line);
+      backdrop-filter: blur(16px);
+    }
+
+    .header-inner {
+      min-height: var(--header-height);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 850;
+      letter-spacing: -0.03em;
+    }
+
+    .brand-mark {
+      position: relative;
+      display: grid;
+      width: 43px;
+      height: 43px;
+      place-items: center;
+      border: 1px solid var(--line-strong);
+      background: #0d0f12;
+      transform: skewX(-8deg);
+      overflow: hidden;
+    }
+
+    .brand-mark::after {
+      position: absolute;
+      right: -14px;
+      bottom: -16px;
+      width: 40px;
+      height: 40px;
+      content: "";
+      background: var(--accent);
+      transform: rotate(45deg);
+    }
+
+    .brand-mark span {
+      position: relative;
+      z-index: 1;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      transform: skewX(8deg);
+    }
+
+    .brand-name {
+      font-size: 0.88rem;
+      line-height: 1.1;
+      text-transform: uppercase;
+    }
+
+    .brand-name small {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 0.63rem;
+      font-weight: 600;
+      letter-spacing: 0.17em;
+    }
+
+    .desktop-nav {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .desktop-nav a:not(.header-call) {
+      position: relative;
+      color: #d6d9df;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .desktop-nav a:not(.header-call)::after {
+      position: absolute;
+      right: 0;
+      bottom: -8px;
+      left: 0;
+      height: 2px;
+      content: "";
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.2s ease;
+    }
+
+    .desktop-nav a:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .header-call,
+    .button {
+      display: inline-flex;
+      min-height: 48px;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 0 20px;
+      border: 1px solid transparent;
+      font-size: 0.86rem;
+      font-weight: 800;
+      letter-spacing: 0.035em;
+      text-transform: uppercase;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .header-call,
+    .button-primary {
+      color: #fff;
+      background: var(--accent);
+      box-shadow: 0 10px 30px rgba(226, 38, 47, 0.2);
+    }
+
+    .header-call:hover,
+    .button-primary:hover {
+      background: #f12c36;
+      transform: translateY(-2px);
+    }
+
+    .button-secondary {
+      color: var(--text);
+      border-color: var(--line-strong);
+      background: rgba(255, 255, 255, 0.025);
+    }
+
+    .button-secondary:hover {
+      border-color: rgba(255, 255, 255, 0.5);
+      background: rgba(255, 255, 255, 0.07);
+      transform: translateY(-2px);
+    }
+
+    .button svg,
+    .header-call svg {
+      width: 18px;
+      height: 18px;
+      flex: 0 0 auto;
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 48px;
+      height: 48px;
+      padding: 0;
+      border: 1px solid var(--line);
+      color: #fff;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .menu-toggle span,
+    .menu-toggle::before,
+    .menu-toggle::after {
+      display: block;
+      width: 21px;
+      height: 2px;
+      margin: 5px auto;
+      content: "";
+      background: currentColor;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .menu-toggle[aria-expanded="true"] span {
+      opacity: 0;
+    }
+
+    .menu-toggle[aria-expanded="true"]::before {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .menu-toggle[aria-expanded="true"]::after {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .mobile-menu {
+      display: none;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 760px;
+      padding: calc(var(--header-height) + 86px) 0 88px;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .hero::before {
+      position: absolute;
+      z-index: -2;
+      top: 0;
+      right: -12%;
+      width: 65%;
+      height: 100%;
+      content: "";
+      background:
+        linear-gradient(105deg, transparent 20%, rgba(255, 255, 255, 0.025) 20.2%, transparent 20.7%),
+        repeating-linear-gradient(120deg, transparent 0 31px, rgba(255, 255, 255, 0.025) 32px, transparent 33px);
+      transform: skewX(-9deg);
+    }
+
+    .hero::after {
+      position: absolute;
+      z-index: -1;
+      right: -120px;
+      bottom: 70px;
+      width: 560px;
+      height: 2px;
+      content: "";
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      transform: rotate(-11deg);
+      box-shadow: 0 0 30px rgba(226, 38, 47, 0.5);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.06fr) minmax(360px, 0.94fr);
+      align-items: center;
+      gap: 80px;
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin: 0 0 24px;
+      color: var(--silver);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      width: 44px;
+      height: 3px;
+      content: "";
+      background: var(--accent);
+    }
+
+    h1,
+    h2,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      max-width: 760px;
+      margin-bottom: 24px;
+      font-size: clamp(3.4rem, 8vw, 7rem);
+      font-weight: 900;
+      letter-spacing: -0.075em;
+      line-height: 0.84;
+      text-transform: uppercase;
+    }
+
+    h1 .outline {
+      display: block;
+      color: transparent;
+      -webkit-text-stroke: 1.5px rgba(244, 245, 247, 0.63);
+    }
+
+    .hero-lead {
+      max-width: 540px;
+      margin-bottom: 34px;
+      color: #c1c6ce;
+      font-size: clamp(1rem, 1.7vw, 1.16rem);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 430px;
+      display: grid;
+      place-items: center;
+    }
+
+    .visual-frame {
+      position: relative;
+      width: min(100%, 450px);
+      aspect-ratio: 1 / 1;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.035), transparent 48%),
+        #0e1013;
+      box-shadow: var(--shadow);
+      transform: rotate(3deg);
+    }
+
+    .visual-frame::before {
+      position: absolute;
+      inset: 22px;
+      content: "";
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .visual-frame::after {
+      position: absolute;
+      top: -1px;
+      right: -1px;
+      width: 42%;
+      height: 7px;
+      content: "";
+      background: var(--accent);
+    }
+
+    .wheel-art {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 68%;
+      aspect-ratio: 1;
+      border: 2px solid rgba(211, 215, 222, 0.4);
+      border-radius: 50%;
+      transform: translate(-50%, -50%) rotate(-3deg);
+      box-shadow:
+        0 0 0 18px #111419,
+        0 0 0 20px rgba(255, 255, 255, 0.07),
+        0 0 60px rgba(0, 0, 0, 0.75);
+    }
+
+    .wheel-art::before,
+    .wheel-art::after {
+      position: absolute;
+      inset: 15%;
+      content: "";
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+    }
+
+    .wheel-art::after {
+      inset: 38%;
+      border: 5px solid var(--silver);
+      background: #111317;
+      box-shadow: 0 0 0 8px rgba(226, 38, 47, 0.65);
+    }
+
+    .spokes {
+      position: absolute;
+      inset: 17%;
+      border-radius: 50%;
+      background: repeating-conic-gradient(
+        from 5deg,
+        rgba(224, 227, 233, 0.72) 0deg 4deg,
+        transparent 4deg 30deg
+      );
+      mask: radial-gradient(circle, transparent 0 24%, #000 25% 70%, transparent 71%);
+      -webkit-mask: radial-gradient(circle, transparent 0 24%, #000 25% 70%, transparent 71%);
+    }
+
+    .visual-label {
+      position: absolute;
+      right: -18px;
+      bottom: 38px;
+      padding: 15px 18px;
+      border-left: 4px solid var(--accent);
+      background: #f3f4f6;
+      color: #111317;
+      box-shadow: 0 16px 30px rgba(0, 0, 0, 0.35);
+      transform: rotate(-3deg);
+    }
+
+    .visual-label strong {
+      display: block;
+      font-size: 0.88rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .visual-label span {
+      display: block;
+      margin-top: 3px;
+      color: #555d68;
+      font-size: 0.73rem;
+    }
+
+    .hero-index {
+      position: absolute;
+      top: 14px;
+      left: -30px;
+      color: rgba(255, 255, 255, 0.1);
+      font-size: 5rem;
+      font-weight: 900;
+      letter-spacing: -0.08em;
+      transform: rotate(-3deg);
+    }
+
+    .fact-strip {
+      position: relative;
+      z-index: 3;
+      margin-top: -42px;
+    }
+
+    .fact-strip-inner {
+      display: grid;
+      grid-template-columns: 1.15fr 0.8fr 0.8fr;
+      border: 1px solid var(--line);
+      background: #111317;
+      box-shadow: var(--shadow);
+    }
+
+    .fact {
+      min-height: 130px;
+      padding: 28px 30px;
+      border-right: 1px solid var(--line);
+    }
+
+    .fact:last-child {
+      border-right: 0;
+    }
+
+    .fact-label {
+      display: block;
+      margin-bottom: 11px;
+      color: #7f8792;
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .fact strong {
+      display: block;
+      font-size: clamp(1.15rem, 2vw, 1.5rem);
+      line-height: 1.25;
+    }
+
+    .rating-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .rating-number {
+      color: #fff;
+      font-size: 2.5rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .stars {
+      color: var(--accent);
+      font-size: 0.88rem;
+      letter-spacing: 0.1em;
+    }
+
+    .rating-copy {
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    section {
+      scroll-margin-top: 90px;
+    }
+
+    .profile {
+      padding: 130px 0 110px;
+    }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: 0.72fr 1.28fr;
+      gap: 100px;
+    }
+
+    .section-kicker {
+      margin: 0;
+      color: var(--accent);
+      font-size: 0.72rem;
+      font-weight: 850;
+      letter-spacing: 0.17em;
+      text-transform: uppercase;
+    }
+
+    .section-title {
+      max-width: 760px;
+      margin: 18px 0 24px;
+      font-size: clamp(2rem, 5vw, 4.2rem);
+      font-weight: 850;
+      letter-spacing: -0.055em;
+      line-height: 0.98;
+      text-transform: uppercase;
+    }
+
+    .profile-copy {
+      max-width: 690px;
+      color: #bdc2ca;
+      font-size: 1.05rem;
+    }
+
+    .profile-data {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      margin-top: 48px;
+      border-top: 1px solid var(--line);
+    }
+
+    .data-item {
+      padding: 24px 20px 0 0;
+    }
+
+    .data-item span {
+      display: block;
+      margin-bottom: 9px;
+      color: #7f8792;
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .data-item strong {
+      font-size: 1rem;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .status::before {
+      width: 8px;
+      height: 8px;
+      content: "";
+      border-radius: 50%;
+      background: #49c978;
+      box-shadow: 0 0 0 5px rgba(73, 201, 120, 0.11);
+    }
+
+    .location {
+      position: relative;
+      padding: 110px 0;
+      background: #e8e9eb;
+      color: #101216;
+      overflow: hidden;
+    }
+
+    .location::before {
+      position: absolute;
+      inset: 0;
+      content: "";
+      opacity: 0.4;
+      background:
+        linear-gradient(115deg, transparent 49.7%, rgba(19, 22, 27, 0.1) 50%, transparent 50.3%),
+        linear-gradient(25deg, transparent 49.7%, rgba(19, 22, 27, 0.07) 50%, transparent 50.3%);
+      background-size: 110px 110px, 160px 160px;
+    }
+
+    .location-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(380px, 0.8fr);
+      align-items: stretch;
+      gap: 30px;
+    }
+
+    .location-main {
+      padding: clamp(34px, 6vw, 70px);
+      background: #f7f7f8;
+      box-shadow: 0 22px 55px rgba(0, 0, 0, 0.11);
+    }
+
+    .location .section-title {
+      max-width: 660px;
+    }
+
+    .address {
+      max-width: 570px;
+      margin: 30px 0 35px;
+      color: #4d545d;
+      font-size: clamp(1.05rem, 2vw, 1.28rem);
+      font-style: normal;
+    }
+
+    .location .button-secondary {
+      color: #111317;
+      border-color: rgba(17, 19, 23, 0.25);
+    }
+
+    .location .button-secondary:hover {
+      border-color: #111317;
+      background: rgba(17, 19, 23, 0.05);
+    }
+
+    .map-art {
+      position: relative;
+      min-height: 430px;
+      display: grid;
+      place-items: center;
+      padding: 40px;
+      overflow: hidden;
+      background:
+        linear-gradient(45deg, transparent 47%, rgba(255, 255, 255, 0.08) 48% 52%, transparent 53%),
+        linear-gradient(-25deg, transparent 46%, rgba(255, 255, 255, 0.06) 47% 51%, transparent 52%),
+        #15181d;
+      background-size: 150px 150px, 220px 220px, auto;
+      color: #fff;
+    }
+
+    .map-art::before,
+    .map-art::after {
+      position: absolute;
+      content: "";
+      background: rgba(226, 38, 47, 0.75);
+      transform: rotate(-28deg);
+    }
+
+    .map-art::before {
+      width: 170%;
+      height: 12px;
+    }
+
+    .map-art::after {
+      width: 125%;
+      height: 3px;
+      transform: rotate(38deg);
+    }
+
+    .map-pin {
+      position: relative;
+      z-index: 2;
+      width: 82px;
+      height: 82px;
+      display: grid;
+      place-items: center;
+      border: 7px solid #fff;
+      border-radius: 50% 50% 50% 0;
+      background: var(--accent);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+      transform: rotate(-45deg);
+    }
+
+    .map-pin::after {
+      width: 19px;
+      height: 19px;
+      content: "";
+      border-radius: 50%;
+      background: #fff;
+    }
+
+    .map-caption {
+      position: absolute;
+      z-index: 3;
+      right: 26px;
+      bottom: 25px;
+      left: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .map-caption span {
+      color: #9ea5af;
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .map-caption strong {
+      font-size: 0.95rem;
+    }
+
+    .contact {
+      padding: 115px 0;
+      background:
+        linear-gradient(120deg, rgba(226, 38, 47, 0.1), transparent 35%),
+        var(--bg-soft);
+    }
+
+    .contact-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: end;
+      gap: 70px;
+    }
+
+    .contact .section-title {
+      max-width: 770px;
+      margin-bottom: 0;
+    }
+
+    .phone-block {
+      min-width: 330px;
+      padding: 30px;
+      border-left: 4px solid var(--accent);
+      background: rgba(255, 255, 255, 0.035);
+    }
+
+    .phone-block span {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--muted);
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .phone-number {
+      display: block;
+      margin-bottom: 22px;
+      font-size: clamp(1.7rem, 3vw, 2.35rem);
+      font-weight: 900;
+      letter-spacing: -0.045em;
+      line-height: 1;
+    }
+
+    .site-footer {
+      padding: 38px 0 95px;
+      border-top: 1px solid var(--line);
+      background: #090a0c;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .footer-copy {
+      color: #747c87;
+      font-size: 0.76rem;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+      color: #aab0b9;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    .footer-links a:hover {
+      color: #fff;
+    }
+
+    .mobile-call {
+      display: none;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    @media (max-width: 960px) {
+      .desktop-nav {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .mobile-menu {
+        position: fixed;
+        top: var(--header-height);
+        right: 0;
+        left: 0;
+        z-index: 99;
+        display: grid;
+        padding: 25px 20px 32px;
+        border-bottom: 1px solid var(--line);
+        background: #0c0e11;
+        box-shadow: 0 25px 40px rgba(0, 0, 0, 0.4);
+        transform: translateY(-130%);
+        visibility: hidden;
+        transition: transform 0.25s ease, visibility 0.25s;
+      }
+
+      .mobile-menu.open {
+        transform: translateY(0);
+        visibility: visible;
+      }
+
+      .mobile-menu a {
+        padding: 15px 5px;
+        border-bottom: 1px solid var(--line);
+        font-size: 0.9rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .mobile-menu .button {
+        margin-top: 20px;
+        border-bottom: 0;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 145px;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 65px;
+      }
+
+      .hero-copy {
+        position: relative;
+        z-index: 2;
+      }
+
+      .hero-visual {
+        width: min(100%, 540px);
+        margin-inline: auto;
+      }
+
+      .fact-strip {
+        margin-top: 0;
+      }
+
+      .fact-strip-inner {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .fact:first-child {
+        grid-column: 1 / -1;
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .section-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .location-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-inner {
+        grid-template-columns: 1fr;
+        align-items: start;
+      }
+
+      .phone-block {
+        min-width: 0;
+        width: min(100%, 500px);
+      }
+    }
+
+    @media (max-width: 640px) {
+      :root {
+        --header-height: 70px;
+      }
+
+      .container {
+        width: min(calc(100% - 30px), var(--max-width));
+      }
+
+      .brand-mark {
+        width: 39px;
+        height: 39px;
+      }
+
+      .brand-name {
+        font-size: 0.78rem;
+      }
+
+      .hero {
+        padding: 126px 0 65px;
+      }
+
+      h1 {
+        font-size: clamp(3.15rem, 17vw, 5.15rem);
+      }
+
+      .hero-lead {
+        font-size: 1rem;
+      }
+
+      .hero-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .hero-visual {
+        min-height: 315px;
+      }
+
+      .visual-frame {
+        width: min(88%, 350px);
+      }
+
+      .hero-index {
+        left: -14px;
+        font-size: 3.8rem;
+      }
+
+      .visual-label {
+        right: -12px;
+        bottom: 24px;
+      }
+
+      .fact-strip-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .fact,
+      .fact:first-child {
+        grid-column: auto;
+        min-height: 0;
+        padding: 24px;
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .fact:last-child {
+        border-bottom: 0;
+      }
+
+      .profile,
+      .location,
+      .contact {
+        padding: 85px 0;
+      }
+
+      .profile-data {
+        grid-template-columns: 1fr;
+      }
+
+      .data-item {
+        padding: 20px 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .data-item:last-child {
+        border-bottom: 0;
+      }
+
+      .location-main {
+        padding: 32px 24px;
+      }
+
+      .map-art {
+        min-height: 330px;
+      }
+
+      .map-caption {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .phone-block {
+        padding: 25px 22px;
+      }
+
+      .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .site-footer {
+        padding-bottom: 105px;
+      }
+
+      .mobile-call {
+        position: fixed;
+        right: 14px;
+        bottom: 14px;
+        left: 14px;
+        z-index: 90;
+        display: inline-flex;
+        min-height: 56px;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        color: #fff;
+        background: var(--accent);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+        font-size: 0.86rem;
+        font-weight: 850;
+        letter-spacing: 0.055em;
+        text-transform: uppercase;
+      }
+
+      .mobile-call svg {
+        width: 19px;
+        height: 19px;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AutomotiveBusiness",
+    "name": "PAB CUSTOM TUNNING",
+    "url": "https://www.pabcustomtunning.com/",
+    "telephone": "+40768079999",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Strada Laminorului 4 B",
+      "postalCode": "130034",
+      "addressLocality": "Târgoviște",
+      "addressCountry": "RO"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "reviewCount": "56"
+    }
+  }
+  </script>
+</head>
+
+<body>
+  <a class="skip-link" href="#continut">Sari la conținut</a>
+
+  <header class="site-header" id="header">
+    <div class="container header-inner">
+      <a class="brand" href="#acasa" aria-label="PAB CUSTOM TUNNING — Acasă">
+        <span class="brand-mark" aria-hidden="true"><span>PAB</span></span>
+        <span class="brand-name">
+          PAB Custom Tunning
+          <small>Detailing auto</small>
+        </span>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Navigație principală">
+        <a href="#acasa">Acasă</a>
+        <a href="#profil">Profil</a>
+        <a href="#locatie">Locație</a>
+        <a href="#contact">Contact</a>
+        <a class="header-call" href="tel:0768079999" aria-label="Sună la 0768 079 999">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M7.2 3.5 9.5 8l-2.1 1.8c1.2 2.5 3.2 4.5 5.7 5.7l1.8-2.1 4.5 2.3-.7 3.8c-.2.9-1 1.5-1.9 1.5C9.2 21 3 14.8 3 7.2c0-.9.6-1.7 1.5-1.9l2.7-.8Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+          </svg>
+          Sună
+        </a>
+      </nav>
+
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Deschide meniul">
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Navigație mobilă">
+    <a href="#acasa">Acasă</a>
+    <a href="#profil">Profil</a>
+    <a href="#locatie">Locație</a>
+    <a href="#contact">Contact</a>
+    <a class="button button-primary" href="tel:0768079999">Sună pentru informații</a>
+  </nav>
+
+  <main id="continut">
+    <section class="hero" id="acasa">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Detailing auto · Târgoviște</p>
+          <h1>
+            PAB Custom
+            <span class="outline">Tunning</span>
+          </h1>
+          <p class="hero-lead">
+            PAB CUSTOM TUNNING este un business din categoria detailing auto, cu sediul în Târgoviște.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button button-primary" href="tel:0768079999">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M7.2 3.5 9.5 8l-2.1 1.8c1.2 2.5 3.2 4.5 5.7 5.7l1.8-2.1 4.5 2.3-.7 3.8c-.2.9-1 1.5-1.9 1.5C9.2 21 3 14.8 3 7.2c0-.9.6-1.7 1.5-1.9l2.7-.8Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              </svg>
+              Sună pentru informații
+            </a>
+
+            <a class="button button-secondary" href="https://www.google.com/maps/place/?q=place_id:ChIJK4YawWD1skARQloVOZ4H6h4" target="_blank" rel="noopener noreferrer">
+              Vezi locația
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M8 16 16 8M10 8h6v6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="visual-frame">
+            <span class="hero-index">PAB</span>
+            <div class="wheel-art">
+              <div class="spokes"></div>
+            </div>
+            <div class="visual-label">
+              <strong>Târgoviște</strong>
+              <span>Strada Laminorului 4 B</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <aside class="fact-strip" aria-label="Informații principale">
+      <div class="container fact-strip-inner">
+        <div class="fact">
+          <span class="fact-label">Adresă</span>
+          <strong>Strada Laminorului 4 B<br>130034 Târgoviște</strong>
+        </div>
+
+        <div class="fact">
+          <span class="fact-label">Rating Google</span>
+          <div class="rating-row">
+            <span class="rating-number">5</span>
+            <div>
+              <div class="stars" aria-label="5 stele">★★★★★</div>
+              <div class="rating-copy">56 de recenzii Google</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="fact">
+          <span class="fact-label">Telefon</span>
+          <strong><a href="tel:0768079999">0768 079 999</a></strong>
+        </div>
+      </div>
+    </aside>
+
+    <section class="profile" id="profil">
+      <div class="container section-grid">
+        <div class="reveal">
+          <p class="section-kicker">Profil companie</p>
+        </div>
+
+        <div class="reveal">
+          <h2 class="section-title">PAB CUSTOM TUNNING, detailing auto în Târgoviște.</h2>
+          <p class="profile-copy">
+            Pentru informații, compania poate fi contactată telefonic la numărul afișat. Locația poate fi deschisă direct în Google Maps.
+          </p>
+
+          <div class="profile-data">
+            <div class="data-item">
+              <span>Categorie</span>
+              <strong>Detailing auto</strong>
+            </div>
+
+            <div class="data-item">
+              <span>Oraș</span>
+              <strong>Târgoviște</strong>
+            </div>
+
+            <div class="data-item">
+              <span>Status</span>
+              <strong class="status">Operațional</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="location" id="locatie">
+      <div class="container location-grid">
+        <div class="location-main reveal">
+          <p class="section-kicker">Locație</p>
+          <h2 class="section-title">Strada Laminorului 4 B</h2>
+
+          <address class="address">
+            Strada Laminorului 4 B, 130034 Târgoviște, România
+          </address>
+
+          <a class="button button-secondary" href="https://www.google.com/maps/place/?q=place_id:ChIJK4YawWD1skARQloVOZ4H6h4" target="_blank" rel="noopener noreferrer">
+            Deschide în Google Maps
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M8 16 16 8M10 8h6v6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+
+        <a class="map-art reveal" href="https://www.google.com/maps/place/?q=place_id:ChIJK4YawWD1skARQloVOZ4H6h4" target="_blank" rel="noopener noreferrer" aria-label="Deschide locația PAB CUSTOM TUNNING în Google Maps">
+          <span class="map-pin" aria-hidden="true"></span>
+          <span class="map-caption">
+            <span>Google Maps</span>
+            <strong>Vezi traseul</strong>
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container contact-inner">
+        <div class="reveal">
+          <p class="section-kicker">Contact</p>
+          <h2 class="section-title">Sună pentru informații.</h2>
+        </div>
+
+        <div class="phone-block reveal">
+          <span>Telefon</span>
+          <a class="phone-number" href="tel:0768079999">0768 079 999</a>
+          <a class="button button-primary" href="tel:0768079999">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M7.2 3.5 9.5 8l-2.1 1.8c1.2 2.5 3.2 4.5 5.7 5.7l1.8-2.1 4.5 2.3-.7 3.8c-.2.9-1 1.5-1.9 1.5C9.2 21 3 14.8 3 7.2c0-.9.6-1.7 1.5-1.9l2.7-.8Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+            </svg>
+            Sună acum
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <a class="brand" href="#acasa" aria-label="PAB CUSTOM TUNNING — Acasă">
+          <span class="brand-mark" aria-hidden="true"><span>PAB</span></span>
+          <span class="brand-name">
+            PAB Custom Tunning
+            <small>Detailing auto</small>
+          </span>
+        </a>
+        <p class="footer-copy">Târgoviște, România</p>
+      </div>
+
+      <div class="footer-links">
+        <a href="tel:0768079999">0768 079 999</a>
+        <a href="https://www.google.com/maps/place/?q=place_id:ChIJK4YawWD1skARQloVOZ4H6h4" target="_blank" rel="noopener noreferrer">Google Maps</a>
+      </div>
+    </div>
+  </footer>
+
+  <a class="mobile-call" href="tel:0768079999" aria-label="Sună PAB CUSTOM TUNNING la 0768 079 999">
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M7.2 3.5 9.5 8l-2.1 1.8c1.2 2.5 3.2 4.5 5.7 5.7l1.8-2.1 4.5 2.3-.7 3.8c-.2.9-1 1.5-1.9 1.5C9.2 21 3 14.8 3 7.2c0-.9.6-1.7 1.5-1.9l2.7-.8Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+    </svg>
+    Sună · 0768 079 999
+  </a>
+
+  <script>
+    const header = document.getElementById("header");
+    const menuToggle = document.querySelector(".menu-toggle");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const mobileLinks = mobileMenu.querySelectorAll("a");
+
+    function updateHeader() {
+      header.classList.toggle("scrolled", window.scrollY > 20);
+    }
+
+    function closeMenu() {
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Deschide meniul");
+      mobileMenu.classList.remove("open");
+      document.body.classList.remove("menu-open");
+    }
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+      menuToggle.setAttribute("aria-expanded", String(!isOpen));
+      menuToggle.setAttribute("aria-label", isOpen ? "Deschide meniul" : "Închide meniul");
+      mobileMenu.classList.toggle("open", !isOpen);
+      document.body.classList.toggle("menu-open", !isOpen);
+    });
+
+    mobileLinks.forEach((link) => {
+      link.addEventListener("click", closeMenu);
+    });
+
+    window.addEventListener("scroll", updateHeader, { passive: true });
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 960) closeMenu();
+    });
+
+    updateHeader();
+
+    const revealItems = document.querySelectorAll(".reveal");
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.12
+      });
+
+      revealItems.forEach((item) => observer.observe(item));
+    } else {
+      revealItems.forEach((item) => item.classList.add("visible"));
+    }
+  </script>
+</body>
+</html>

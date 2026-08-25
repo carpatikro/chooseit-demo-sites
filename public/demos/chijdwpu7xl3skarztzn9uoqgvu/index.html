@@ -1,472 +1,1410 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Florarie Târgoviște - Selenity — Aranjamente florale & Catalog</title>
-<meta name="description" content="Florarie Târgoviște - Selenity: portofoliu de aranjamente florale, galerie foto și contacte rapide. Vizitați-ne sau sunați pentru detalii despre opțiunile disponibile." />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-<style>
-:root{
-  --bg:#fff9f7;
-  --surface:#ffffff;
-  --muted:#6b6b6b;
-  --accent:#c76b8a; /* warm floral pink */
-  --accent-2:#f3dede;
-  --card-shadow: 0 6px 18px rgba(20,20,20,0.06);
-  --radius:14px;
-  --max-width:1100px;
-  --gap:20px;
-  --focus: 3px solid rgba(199,107,138,0.18);
-  --text:#1b1b1b;
-}
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
-  margin:0;
-  font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  background:linear-gradient(180deg,var(--bg),#fff);
-  color:var(--text);
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  line-height:1.45;
-  -webkit-text-size-adjust:100%;
-  padding-bottom:60px;
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Florarie Targoviste - Selenity | Florărie în Târgoviște</title>
+  <meta name="description" content="Florarie Targoviste - Selenity, florărie în Târgoviște. Telefon: 0732 204 788. Adresă: Bulevardul Independenței, bloc 8, scara C.">
+  <meta name="theme-color" content="#344c3d">
+  <style>
+    :root {
+      --ink: #25332b;
+      --forest: #344c3d;
+      --forest-dark: #23352a;
+      --sage: #9daf98;
+      --sage-light: #dce5d8;
+      --blush: #d9a9a4;
+      --blush-light: #f3dedb;
+      --cream: #f8f5ef;
+      --paper: #fffdf9;
+      --muted: #68746c;
+      --line: rgba(52, 76, 61, 0.16);
+      --shadow: 0 24px 70px rgba(39, 55, 44, 0.12);
+      --radius-large: 2rem;
+      --radius-medium: 1.25rem;
+      --container: 1180px;
+    }
 
-/* Layout */
-.container{max-width:var(--max-width);margin:0 auto;padding:20px;}
-.header-inner{display:flex;align-items:center;justify-content:space-between;gap:12px}
-.brand{font-family:Playfair Display, serif;font-size:20px;letter-spacing:0.2px;color:var(--text)}
-.nav{display:flex;gap:12px;align-items:center}
-.nav a{color:var(--text);text-decoration:none;padding:8px 10px;border-radius:10px;font-weight:600;font-size:15px}
-.nav a:hover, .nav a:focus{background:var(--accent-2)}
-.cta-btn{background:var(--accent);color:#fff;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:600;display:inline-flex;align-items:center;gap:8px}
-.cta-btn:focus{outline:none;box-shadow:var(--focus);}
+    * {
+      box-sizing: border-box;
+    }
 
-/* Mobile menu */
-.menu-btn{display:none;background:transparent;border:1px solid transparent;padding:8px;border-radius:10px}
-.menu-btn:focus{outline:none;box-shadow:var(--focus)}
-.mobile-nav{display:none;position:fixed;inset:0;background:rgba(11,9,9,0.45);backdrop-filter:blur(4px);z-index:60}
-.mobile-panel{background:var(--surface);width:85%;max-width:320px;height:100%;padding:20px;box-shadow:var(--card-shadow)}
-.mobile-panel nav{display:flex;flex-direction:column;gap:8px;margin-top:12px}
-.mobile-panel a{padding:12px;border-radius:8px;text-decoration:none;color:var(--text);background:transparent}
-.mobile-panel a:hover{background:var(--accent-2)}
-.close-mobile{margin-left:auto;background:transparent;border:0;font-size:18px}
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 6rem;
+    }
 
-/* Hero */
-.hero{
-  background:linear-gradient(180deg, rgba(255,250,249,0.5), rgba(255,255,255,0.8));
-  border-radius:18px;
-  overflow:hidden;
-  display:grid;
-  grid-template-columns:1fr;
-  gap:18px;
-  align-items:center;
-  padding:18px;
-}
-@media(min-width:900px){
-  .hero{grid-template-columns:1fr 460px;padding:28px 30px}
-}
-.hero-content{padding:8px 6px}
-.kicker{display:inline-block;background:var(--accent-2);color:var(--text);padding:6px 10px;border-radius:999px;font-size:13px;font-weight:600;margin-bottom:10px}
-.hero h1{font-family:Playfair Display, serif;font-size:clamp(22px,4.4vw,34px);margin:0 0 8px;color:#2a2a2a}
-.lead{color:var(--muted);margin:0 0 16px;font-size:15px}
-.hero-ctas{display:flex;gap:10px;flex-wrap:wrap}
-.btn-ghost{padding:10px 14px;border-radius:10px;border:1px solid rgba(30,30,30,0.08);background:transparent;font-weight:600}
-.hero-benefits{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
-.benefit{background:rgba(247,239,240,0.7);padding:8px 12px;border-radius:12px;font-size:14px;color:#374047}
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
 
-/* Hero image */
-.hero-figure{width:100%;height:320px;border-radius:12px;overflow:hidden;box-shadow:var(--card-shadow);position:relative}
-@media(min-width:900px){
-  .hero-figure{height:420px}
-}
-.hero-figure img{width:100%;height:100%;object-fit:cover;display:block}
+    body.menu-open {
+      overflow: hidden;
+    }
 
-/* Sections */
-.section{padding:34px 0;border-bottom:1px solid #f3ecec}
-.section h2{font-family:Playfair Display, serif;font-size:20px;margin:0 0 12px}
-.section p.lead-muted{color:var(--muted);margin:0 0 18px}
+    a {
+      color: inherit;
+    }
 
-/* Catalog cards */
-.grid{display:grid;grid-template-columns:1fr;gap:14px}
-@media(min-width:720px){.grid{grid-template-columns:repeat(2,1fr)}}
-@media(min-width:1100px){.grid{grid-template-columns:repeat(3,1fr)}}
-.card{background:var(--surface);border-radius:14px;overflow:hidden;box-shadow:var(--card-shadow);display:flex;flex-direction:column}
-.card img{width:100%;height:160px;object-fit:cover}
-.card-body{padding:12px;display:flex;flex-direction:column;gap:8px}
-.card h3{margin:0;font-size:16px}
-.card p{margin:0;color:var(--muted);font-size:14px}
-.card .card-cta{margin-top:auto;display:flex;gap:8px;align-items:center}
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
 
-/* About */
-.about-grid{display:grid;grid-template-columns:1fr;gap:16px;align-items:center}
-@media(min-width:900px){.about-grid{grid-template-columns:1fr 360px}}
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid var(--blush);
+      outline-offset: 4px;
+    }
 
-/* Gallery */
-.gallery{display:grid;grid-template-columns:1fr;gap:10px}
-@media(min-width:760px){.gallery{grid-template-columns:2fr 1fr;grid-auto-rows:200px}}
-.gallery .main{border-radius:12px;overflow:hidden}
-.gallery .stack{display:grid;gap:10px}
-.stack .item{border-radius:12px;overflow:hidden;height:100%}
-.gallery img{width:100%;height:100%;object-fit:cover;display:block}
+    .container {
+      width: min(calc(100% - 3rem), var(--container));
+      margin-inline: auto;
+    }
 
-/* Benefits/process */
-.steps{display:grid;grid-template-columns:1fr;gap:12px}
-@media(min-width:900px){.steps{grid-template-columns:repeat(3,1fr)}}
-.step{background:var(--surface);padding:18px;border-radius:12px;box-shadow:var(--card-shadow);text-align:center}
-.step h4{margin:0 0 8px;font-size:16px}
-.step p{margin:0;color:var(--muted);font-size:14px}
+    .skip-link {
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      z-index: 1000;
+      padding: 0.75rem 1rem;
+      color: #fff;
+      background: var(--forest-dark);
+      border-radius: 0.5rem;
+      transform: translateY(-150%);
+      transition: transform 180ms ease;
+    }
 
-/* Location card */
-.location-card{display:flex;flex-direction:column;gap:12px;background:var(--surface);padding:16px;border-radius:12px;box-shadow:var(--card-shadow)}
-.map-visual{height:160px;border-radius:10px;overflow:hidden;background:linear-gradient(180deg,#fff4f6,#fff);display:flex;align-items:center;justify-content:center;border:1px solid #f4e7e8}
-.map-visual svg{width:80%;height:auto;opacity:0.96}
+    .skip-link:focus {
+      transform: translateY(0);
+    }
 
-/* Contact strip */
-.contact-strip{display:flex;flex-direction:column;gap:10px;background:linear-gradient(90deg,#fff,#fffaf9);padding:16px;border-radius:12px;box-shadow:var(--card-shadow);align-items:center;text-align:center}
-@media(min-width:760px){.contact-strip{flex-direction:row;justify-content:space-between;text-align:left}}
-.contact-info{display:flex;flex-direction:column;gap:6px}
-.contact-info a{color:var(--text);text-decoration:none;font-weight:600}
-.contact-ctas{display:flex;gap:10px;flex-wrap:wrap}
-.whatsapp-btn{background:#25D366;color:#fff;padding:10px 12px;border-radius:10px;text-decoration:none;font-weight:700;display:inline-flex;align-items:center;gap:8px}
-.whatsapp-note{font-size:12px;color:var(--muted)}
+    .site-header {
+      position: absolute;
+      inset: 0 0 auto;
+      z-index: 50;
+      padding: 1.15rem 0;
+    }
 
-/* Footer */
-footer{padding:22px 0;text-align:center;color:var(--muted);font-size:14px}
-.footer-inner{max-width:var(--max-width);margin:0 auto;padding:8px 20px;display:flex;flex-direction:column;gap:10px;align-items:center}
-.footer-inner a{color:var(--text);font-weight:600;text-decoration:none}
-.disclaimer{background:#fff1f4;color:#3a2a30;padding:12px;border-radius:10px;max-width:var(--max-width);margin:12px auto;font-size:13px}
+    .nav-shell {
+      display: flex;
+      min-height: 4.5rem;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      padding: 0.55rem 0.7rem 0.55rem 1.25rem;
+      border: 1px solid rgba(52, 76, 61, 0.13);
+      border-radius: 999px;
+      background: rgba(255, 253, 249, 0.9);
+      box-shadow: 0 12px 35px rgba(39, 55, 44, 0.07);
+      backdrop-filter: blur(16px);
+    }
 
-/* Small details */
-.meta-rating{display:inline-flex;align-items:center;gap:8px;background:rgba(255,245,246,0.8);padding:6px 8px;border-radius:999px;font-weight:600}
-.small{font-size:13px;color:var(--muted)}
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      color: var(--forest-dark);
+      text-decoration: none;
+    }
 
-/* Accessibility & focus */
-a:focus,button:focus{outline:none;box-shadow:var(--focus)}
-[hidden]{display:none !important}
+    .brand-mark {
+      position: relative;
+      width: 2.25rem;
+      height: 2.25rem;
+      flex: 0 0 auto;
+    }
 
-/* Reduced motion */
-@media (prefers-reduced-motion: reduce){
-  *{transition:none !important}
-}
-</style>
-</head>
-<body>
-<header style="position:sticky;top:12px;z-index:70;">
-  <div class="container header-inner" role="navigation" aria-label="Navigație principală">
-    <div style="display:flex;align-items:center;gap:12px;">
-      <div class="brand">Florarie Târgovişte - Selenity</div>
-      <div class="small meta-rating" aria-hidden="false" title="Rating Google">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="M12 .587l3.668 7.431L23.3 9.75l-5.665 5.523L18.9 24 12 19.897 5.1 24l1.265-8.727L.7 9.75l7.632-1.732L12 .587z" fill="#f5b0c0"/></svg>
-        4.5 (17)
-      </div>
-    </div>
+    .brand-mark span {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 0.85rem;
+      height: 1.3rem;
+      border-radius: 100% 15% 100% 15%;
+      background: var(--blush);
+      transform-origin: 0 0;
+    }
 
-    <nav class="nav" aria-label="Meniu site">
-      <a href="#acasa">Acasă</a>
-      <a href="#catalog">Catalog</a>
-      <a href="#galerie">Galerie</a>
-      <a href="#contact">Contact</a>
-      <a class="cta-btn" href="tel:+40732204788" aria-label="Sună Florărie Selenity">Sună acum</a>
-      <button class="menu-btn" id="menuToggle" aria-label="Deschide meniul" aria-expanded="false" title="Meniu mobil" style="display:none">☰</button>
-    </nav>
-  </div>
+    .brand-mark span:nth-child(1) {
+      transform: rotate(0deg) translate(-50%, -100%);
+    }
 
-  <!-- Mobile nav panel -->
-  <div id="mobileNav" class="mobile-nav" hidden>
-    <div class="mobile-panel" role="dialog" aria-modal="true" aria-label="Meniu mobil">
-      <div style="display:flex;align-items:center;gap:12px">
-        <div class="brand">Selenity</div>
-        <button class="close-mobile" id="closeMobile" aria-label="Închide meniul">✕</button>
-      </div>
-      <nav>
-        <a href="#acasa" class="mobile-link">Acasă</a>
-        <a href="#catalog" class="mobile-link">Catalog</a>
-        <a href="#galerie" class="mobile-link">Galerie</a>
-        <a href="#contact" class="mobile-link">Contact</a>
-        <a href="tel:+40732204788" class="mobile-link">Sună: 0732 204 788</a>
-        <a href="https://selenity.ro/" target="_blank" rel="noopener noreferrer" class="mobile-link">Website oficial</a>
-      </nav>
-    </div>
-  </div>
-</header>
+    .brand-mark span:nth-child(2) {
+      transform: rotate(90deg) translate(-50%, -100%);
+    }
 
-<main id="acasa" class="container" style="padding-top:18px;">
-  <!-- HERO -->
-  <section class="hero" aria-labelledby="heroTitle">
-    <div class="hero-content">
-      <span class="kicker">Florarie • Târgoviște</span>
-      <h1 id="heroTitle">Aranjamente florale pentru momente care contează</h1>
-      <p class="lead">Fotografii reale ale aranjamentelor disponibile în magazin. Răsfoiți catalogul și contactați echipa pentru detalii despre disponibilitate și opțiuni.</p>
+    .brand-mark span:nth-child(3) {
+      transform: rotate(180deg) translate(-50%, -100%);
+    }
 
-      <div class="hero-ctas" role="group" aria-label="Acțiuni principale">
-        <a class="cta-btn" href="tel:+40732204788" aria-label="Sunați Florărie Selenity">Sună 0732 204 788</a>
-        <a class="btn-ghost" href="#catalog">Vezi catalog</a>
-        <a class="whatsapp-btn" href="https://wa.me/40735217053" target="_blank" rel="noopener noreferrer" aria-label="Deschide WhatsApp Choose IT">WhatsApp (demo)</a>
-      </div>
+    .brand-mark span:nth-child(4) {
+      transform: rotate(270deg) translate(-50%, -100%);
+    }
 
-      <div class="hero-benefits" aria-hidden="false">
-        <div class="benefit">Imagini detaliate ale aranjamentelor</div>
-        <div class="benefit">Contact rapid: apel sau WhatsApp (demo)</div>
-        <div class="benefit">Catalog vizual pentru alegere ușoară</div>
-        <div class="benefit">Verificați disponibilitatea telefonic</div>
-      </div>
-    </div>
+    .brand-mark::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 0.48rem;
+      height: 0.48rem;
+      border-radius: 50%;
+      background: var(--forest);
+      transform: translate(-50%, -50%);
+    }
 
-    <figure class="hero-figure" aria-hidden="false">
-      <img src="https://chooseit-demo-sites.vercel.app/demos/florarie-targoviste-selenity-targoviste/images/hero.webp" alt="Aranjament floral prezentat de Florăria Selenity, fotografie principală" width="900" height="700">
-    </figure>
-  </section>
+    .brand-name {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.5rem;
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
 
-  <!-- Catalog / Aranjamente -->
-  <section id="catalog" class="section" aria-labelledby="catalogTitle">
-    <h2 id="catalogTitle">Catalog — sugestii de aranjamente</h2>
-    <p class="lead-muted">Prezentăm în continuare categorii de aranjamente ilustrative. Pentru disponibilitate, prețuri și opțiuni personalizate, contactați echipa prin telefon sau WhatsApp.</p>
+    .desktop-nav {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
 
-    <div class="grid" role="list">
-      <article class="card" role="listitem" aria-labelledby="card1Title">
-        <img src="https://chooseit-demo-sites.vercel.app/demos/florarie-targoviste-selenity-targoviste/images/gallery-1.webp" alt="Buchet pastel cu flori mixte" loading="lazy">
-        <div class="card-body">
-          <h3 id="card1Title">Buchete de sezon</h3>
-          <p>Selecție vizuală cu flori potrivite pentru cadouri și ocazii personale. Contactați pentru opțiuni și disponibilitate.</p>
-          <div class="card-cta">
-            <a class="btn-ghost" href="tel:+40732204788">Sună pentru detalii</a>
-            <a class="small" href="#contact">Verifică contact</a>
-          </div>
-        </div>
-      </article>
+    .desktop-nav a {
+      position: relative;
+      color: #536057;
+      font-size: 0.9rem;
+      font-weight: 650;
+      text-decoration: none;
+    }
 
-      <article class="card" role="listitem" aria-labelledby="card2Title">
-        <img src="https://chooseit-demo-sites.vercel.app/demos/florarie-targoviste-selenity-targoviste/images/gallery-2.webp" alt="Aranjament floral decorativ pe suport" loading="lazy">
-        <div class="card-body">
-          <h3 id="card2Title">Aranjamente pentru evenimente</h3>
-          <p>Idei vizuale pentru mese și decoruri. Opțiunile exacte și configurarea pot fi stabilite telefonic.</p>
-          <div class="card-cta">
-            <a class="btn-ghost" href="tel:+40732204788">Solicită informații</a>
-            <a class="small" href="#galerie">Vezi galerie</a>
-          </div>
-        </div>
-      </article>
+    .desktop-nav a:not(.nav-call)::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: -0.35rem;
+      left: 0;
+      height: 1px;
+      background: var(--forest);
+      transform: scaleX(0);
+      transition: transform 180ms ease;
+    }
 
-      <article class="card" role="listitem" aria-labelledby="card3Title">
-        <img src="https://chooseit-demo-sites.vercel.app/demos/florarie-targoviste-selenity-targoviste/images/gallery-3.webp" alt="Buchet elegant cu tonuri calde" loading="lazy">
-        <div class="card-body">
-          <h3 id="card3Title">Buchete elegante</h3>
-          <p>Compoziții cu atenție la detaliu — imagini reprezentative. Contactați echipa pentru produse disponibile.</p>
-          <div class="card-cta">
-            <a class="btn-ghost" href="tel:+40732204788">Sună</a>
-            <a class="small" href="#contact">Contact</a>
-          </div>
-        </div>
-      </article>
+    .desktop-nav a:hover::after {
+      transform: scaleX(1);
+    }
 
-      <article class="card" role="listitem" aria-labelledby="card4Title">
-        <img src="https://chooseit-demo-sites.vercel.app/demos/florarie-targoviste-selenity-targoviste/images/gallery-4.webp" alt="Compoziție florală pe măsuță" loading="lazy">
-        <div class="card-body">
-          <h3 id="card4Title">Aranjamente pentru casă</h3>
-          <p>Aranjamente pentru decorul interior. Disponibilitatea și prețurile se stabilesc la cerere.</p>
-          <div class="card-cta">
-            <a class="btn-ghost" href="tel:+40732204788">Afla disponibilitate</a>
-            <a class="small" href="#galerie">Galerie</a>
-          </div>
-        </div>
-      </article>
+    .nav-call {
+      display: inline-flex;
+      min-height: 3.2rem;
+      align-items: center;
+      justify-content: center;
+      padding: 0.7rem 1.35rem;
+      color: #fff !important;
+      background: var(--forest);
+      border-radius: 999px;
+      transition: background 180ms ease, transform 180ms ease;
+    }
 
-      <article class="card" role="listitem" aria-labelledby="card5Title">
-        <img src="https://chooseit-demo-sites.vercel.app/demos/florarie-targoviste-selenity-targoviste/images/gallery-5.webp" alt="Compoziție florală cu accente roz" loading="lazy">
-        <div class="card-body">
-          <h3 id="card5Title">Cadouri & pachete speciale</h3>
-          <p>Pachete pentru ocazii speciale. Pentru opțiuni personalizate, discutați direct cu echipa.</p>
-          <div class="card-cta">
-            <a class="btn-ghost" href="tel:+40732204788">Contact rapid</a>
-            <a class="small" href="#contact">Contact</a>
-          </div>
-        </div>
-      </article>
+    .nav-call:hover {
+      background: var(--forest-dark);
+      transform: translateY(-1px);
+    }
 
-      <article class="card" role="listitem" aria-labelledby="card6Title">
-        <div style="height:160px;background:linear-gradient(180deg,#fff8f9,#fff);display:flex;align-items:center;justify-content:center">
-          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2s4 3 4 6-1.5 4-4 6-4-2-4-6 4-6 4-6z" fill="#f3b3c3"/><path d="M6 20c0-3 5-7 6-7s6 4 6 7v1H6v-1z" fill="#fcdfe2"/></svg>
-        </div>
-        <div class="card-body">
-          <h3 id="card6Title">Alte opțiuni</h3>
-          <p>Nu toate aranjamentele sunt afișate online. Pentru variante specifice, sunați sau trimiteți un mesaj.</p>
-          <div class="card-cta">
-            <a class="btn-ghost" href="tel:+40732204788">Sună</a>
-            <a class="small" href="https://selenity.ro/" target="_blank" rel="noopener noreferrer">Website</a>
-          </div>
-        </div>
-      </article>
-    </div>
-  </section>
+    .menu-toggle {
+      display: none;
+      width: 3rem;
+      height: 3rem;
+      align-items: center;
+      justify-content: center;
+      border: 0;
+      border-radius: 50%;
+      color: var(--forest);
+      background: var(--sage-light);
+      cursor: pointer;
+    }
 
-  <!-- About -->
-  <section id="despre" class="section" aria-labelledby="aboutTitle">
-    <div class="about-grid">
-      <div>
-        <h2 id="aboutTitle">Despre Florăria Selenity</h2>
-        <p class="lead-muted">Florarie locală în Târgoviște, axată pe prezentarea vizuală a aranjamentelor. Acest demo valorifică fotografiile reale ale produselor pentru a facilita alegerea. Pentru detalii despre comenzi, opțiuni și disponibilitate, contactați direct echipa.</p>
-        <p class="small">Site existent: <a href="http://selenity.ro/" target="_blank" rel="noopener noreferrer">selenity.ro</a></p>
-      </div>
-      <div style="border-radius:12px;overflow:hidden;box-shadow:var(--card-shadow)">
-        <img src="https://chooseit-demo-sites.vercel.app/demos/florarie-targoviste-selenity-targoviste/images/gallery-2.webp" alt="Detaliu aranjament floral din portofoliul Selenity" style="width:100%;height:100%;object-fit:cover;display:block" loading="lazy">
-      </div>
-    </div>
-  </section>
+    .menu-toggle svg {
+      width: 1.35rem;
+      height: 1.35rem;
+    }
 
-  <!-- Galerie -->
-  <section id="galerie" class="section" aria-labelledby="galleryTitle">
-    <h2 id="galleryTitle">Galerie foto</h2>
-    <p class="lead-muted">Selecție de fotografii realizate pentru a ilustra calitatea vizuală a aranjamentelor. Imaginile sunt reale și prezentate pentru referință.</p>
+    .mobile-menu {
+      display: none;
+    }
 
-    <div class="gallery" aria-hidden="false">
-      <div class="main">
-        <img src="https://chooseit-demo-sites.vercel.app/demos/florarie-targoviste-selenity-targoviste/images/gallery-1.webp" alt="Buchet pastel, vedere de ansamblu" loading="lazy" style="width:100%;height:100%;object-fit:cover">
-      </div>
-      <div class="stack">
-        <div class="item"><img src="https://chooseit-demo-sites.vercel.app/demos/florarie-targoviste-selenity-targoviste/images/gallery-3.webp" alt="Compoziție florală cu accente calde" loading="lazy"></div>
-        <div class="item"><img src="https://chooseit-demo-sites.vercel.app/demos/florarie-targoviste-selenity-targoviste/images/gallery-4.webp" alt="Aranjament decorativ pe suport" loading="lazy"></div>
-        <div class="item"><img src="https://chooseit-demo-sites.vercel.app/demos/florarie-targoviste-selenity-targoviste/images/gallery-5.webp" alt="Buchet cu flori proaspete, detaliu" loading="lazy"></div>
-      </div>
-    </div>
-  </section>
+    .hero {
+      position: relative;
+      min-height: 760px;
+      padding: 10.8rem 0 5.5rem;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 8% 14%, rgba(217, 169, 164, 0.2), transparent 28rem),
+        linear-gradient(120deg, var(--cream) 0 61%, #e7ece3 61% 100%);
+    }
 
-  <!-- Proces / Beneficii -->
-  <section id="proces" class="section" aria-labelledby="processTitle">
-    <h2 id="processTitle">Cum funcționează — 3 pași simpli</h2>
-    <div class="steps" role="list">
-      <div class="step" role="listitem" aria-labelledby="step1">
-        <h4 id="step1">1. Răsfoiți catalogul</h4>
-        <p>Explorați imaginile pentru a selecta un aranjament care vă place.</p>
-      </div>
-      <div class="step" role="listitem" aria-labelledby="step2">
-        <h4 id="step2">2. Contact rapid</h4>
-        <p>Sunați sau trimiteți mesaj prin WhatsApp (buton demo) pentru disponibilitate.</p>
-      </div>
-      <div class="step" role="listitem" aria-labelledby="step3">
-        <h4 id="step3">3. Preluare sau detalii</h4>
-        <p>Detaliile privind ridicarea sau alte opțiuni se stabilesc telefonic cu echipa.</p>
-      </div>
-    </div>
-  </section>
+    .hero::before {
+      content: "";
+      position: absolute;
+      right: -8rem;
+      bottom: -14rem;
+      width: 34rem;
+      height: 34rem;
+      border: 1px solid rgba(52, 76, 61, 0.12);
+      border-radius: 50%;
+    }
 
-  <!-- Locație & program -->
-  <section id="locatie" class="section" aria-labelledby="locationTitle">
-    <h2 id="locationTitle">Locație</h2>
-    <div class="location-card">
-      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
-        <div>
-          <strong>Adresa</strong>
-          <div class="small">Bulevardul Independenței 8, scara c, 130104 Târgoviște, România</div>
-        </div>
-        <div class="small">Program: Contactați echipa pentru confirmarea programului</div>
-      </div>
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.95fr);
+      align-items: center;
+      gap: clamp(3rem, 7vw, 7rem);
+    }
 
-      <div class="map-visual" aria-hidden="true" title="Hartă stilizată locație">
-        <!-- Simple SVG map-like visual (not an interactive map) -->
-        <svg viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Locație Selenity">
-          <rect x="0" y="0" width="200" height="140" rx="8" fill="#fff4f6"/>
-          <g transform="translate(30,10)">
-            <path d="M70 10c-14 0-26 11-26 24 0 18 26 42 26 42s26-24 26-42c0-13-12-24-26-24z" fill="#f7c9d2"/>
-            <circle cx="70" cy="46" r="8" fill="#fff"/>
-          </g>
-          <text x="12" y="125" font-size="10" fill="#b76a80">Sursa: adresă afișată (demo)</text>
-        </svg>
-      </div>
-    </div>
-  </section>
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      margin: 0 0 1.5rem;
+      color: var(--forest);
+      font-size: 0.74rem;
+      font-weight: 750;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
 
-  <!-- Contact -->
-  <section id="contact" class="section" aria-labelledby="contactTitle">
-    <h2 id="contactTitle">Contact & opțiuni</h2>
-    <div class="contact-strip">
-      <div class="contact-info">
-        <div style="font-weight:700">Florarie Târgoviște - Selenity</div>
-        <div class="small">Adresa: Bulevardul Independenței 8, scara c, 130104 Târgoviște</div>
-        <a href="tel:+40732204788" aria-label="Sună la 0732 204 788">0732 204 788</a>
-        <div class="small">Website: <a href="http://selenity.ro/" target="_blank" rel="noopener noreferrer">selenity.ro</a></div>
-      </div>
+    .eyebrow::before {
+      content: "";
+      width: 2.4rem;
+      height: 1px;
+      background: currentColor;
+    }
 
-      <div class="contact-ctas" role="group" aria-label="Acțiuni de contact">
-        <a class="cta-btn" href="tel:+40732204788" aria-label="Apel Florărie Selenity">Sună</a>
-        <a class="whatsapp-btn" href="https://wa.me/40735217053" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp demo">WhatsApp (demo)</a>
-        <a class="btn-ghost" href="#catalog">Vezi catalog</a>
-      </div>
-    </div>
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
 
-    <p class="small" style="margin-top:12px">Notă: butonul WhatsApp deschide o discuție demonstrativă gestionată de Choose IT, nu conversația directă cu afacerea.</p>
-  </section>
-</main>
+    h1 {
+      max-width: 760px;
+      margin-bottom: 1.5rem;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(3.5rem, 7vw, 6.9rem);
+      font-weight: 400;
+      line-height: 0.94;
+      letter-spacing: -0.065em;
+    }
 
-<footer role="contentinfo">
-  <div class="footer-inner">
-    <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:center">
-      <div class="small">0732 204 788</div>
-      <div class="small">Bulevardul Independenței 8, scara c, Târgoviște</div>
-      <div class="small">Rating Google: <strong>4.5</strong> (17 recenzii)</div>
-    </div>
+    h1 em {
+      display: block;
+      color: var(--forest);
+      font-weight: 400;
+    }
 
-    <div class="disclaimer" role="note">
-      Aceasta este o propunere demo realizată de Choose IT pentru Florarie Targoviste - Selenity. Nu este site-ul oficial al afacerii. <a href="https://chooseit.ro" target="_blank" rel="noopener noreferrer" style="text-decoration:underline;color:inherit;">https://chooseit.ro</a>
-    </div>
-  </div>
-</footer>
+    .hero-copy {
+      max-width: 34rem;
+      margin-bottom: 2rem;
+      color: var(--muted);
+      font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+    }
 
-<script>
-  // Mobile menu toggle (vanilla JS)
-  (function(){
-    const menuToggle = document.getElementById('menuToggle');
-    const mobileNav = document.getElementById('mobileNav');
-    const closeMobile = document.getElementById('closeMobile');
-    // Show menu button only on small screens
-    function updateMenuButton(){
-      const btn = document.querySelector('.menu-btn');
-      if(window.innerWidth <= 900){
-        btn.style.display = 'inline-flex';
-      } else {
-        btn.style.display = 'none';
-        mobileNav.hidden = true;
-        btn.setAttribute('aria-expanded','false');
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: 3.65rem;
+      align-items: center;
+      justify-content: center;
+      gap: 0.65rem;
+      padding: 0.85rem 1.4rem;
+      border: 1px solid var(--forest);
+      border-radius: 999px;
+      font-size: 0.92rem;
+      font-weight: 750;
+      text-decoration: none;
+      transition: transform 180ms ease, background 180ms ease, color 180ms ease;
+    }
+
+    .button svg {
+      width: 1.15rem;
+      height: 1.15rem;
+      flex: 0 0 auto;
+    }
+
+    .button-primary {
+      color: #fff;
+      background: var(--forest);
+    }
+
+    .button-secondary {
+      color: var(--forest);
+      background: transparent;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-primary:hover {
+      background: var(--forest-dark);
+    }
+
+    .button-secondary:hover {
+      color: #fff;
+      background: var(--forest);
+    }
+
+    .floral-stage {
+      position: relative;
+      min-height: 510px;
+      isolation: isolate;
+    }
+
+    .stage-frame {
+      position: absolute;
+      inset: 2.5rem 1rem 1.5rem 4rem;
+      overflow: hidden;
+      border: 1px solid rgba(52, 76, 61, 0.12);
+      border-radius: 48% 48% 2rem 2rem;
+      background: linear-gradient(155deg, #f8e8e4 0%, #ebd0cc 44%, #c8d3c2 100%);
+      box-shadow: var(--shadow);
+    }
+
+    .stage-frame::before {
+      content: "";
+      position: absolute;
+      inset: 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      border-radius: inherit;
+    }
+
+    .stem {
+      position: absolute;
+      z-index: 1;
+      width: 3px;
+      background: var(--forest);
+      border-radius: 999px;
+      transform-origin: bottom;
+    }
+
+    .stem::before,
+    .stem::after {
+      content: "";
+      position: absolute;
+      width: 2.8rem;
+      height: 1.3rem;
+      background: #6f866f;
+      border-radius: 100% 0 100% 0;
+    }
+
+    .stem::before {
+      left: -2.65rem;
+      top: 45%;
+      transform: rotate(18deg);
+    }
+
+    .stem::after {
+      left: 0.2rem;
+      top: 62%;
+      transform: scaleX(-1) rotate(15deg);
+    }
+
+    .stem-one {
+      left: 48%;
+      bottom: 3rem;
+      height: 18rem;
+      transform: rotate(-5deg);
+    }
+
+    .stem-two {
+      left: 32%;
+      bottom: 3.1rem;
+      height: 14rem;
+      transform: rotate(-18deg);
+    }
+
+    .stem-three {
+      left: 63%;
+      bottom: 3.2rem;
+      height: 15rem;
+      transform: rotate(17deg);
+    }
+
+    .flower {
+      position: absolute;
+      z-index: 3;
+      width: 9.5rem;
+      height: 9.5rem;
+    }
+
+    .flower span {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 3.4rem;
+      height: 5.1rem;
+      border-radius: 100% 18% 100% 25%;
+      background: #f7d8d4;
+      transform-origin: 0 0;
+      box-shadow: inset 0 0 20px rgba(148, 74, 82, 0.08);
+    }
+
+    .flower span:nth-child(1) {
+      transform: rotate(0deg) translate(-50%, -95%);
+    }
+
+    .flower span:nth-child(2) {
+      transform: rotate(60deg) translate(-50%, -95%);
+    }
+
+    .flower span:nth-child(3) {
+      transform: rotate(120deg) translate(-50%, -95%);
+    }
+
+    .flower span:nth-child(4) {
+      transform: rotate(180deg) translate(-50%, -95%);
+    }
+
+    .flower span:nth-child(5) {
+      transform: rotate(240deg) translate(-50%, -95%);
+    }
+
+    .flower span:nth-child(6) {
+      transform: rotate(300deg) translate(-50%, -95%);
+    }
+
+    .flower::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 1.9rem;
+      height: 1.9rem;
+      border-radius: 50%;
+      background: #b98578;
+      transform: translate(-50%, -50%);
+    }
+
+    .flower-main {
+      left: calc(48% - 4.7rem);
+      top: 4.2rem;
+    }
+
+    .flower-small {
+      width: 7rem;
+      height: 7rem;
+    }
+
+    .flower-small span {
+      width: 2.4rem;
+      height: 3.6rem;
+      background: #fff7f1;
+    }
+
+    .flower-left {
+      left: calc(24% - 2rem);
+      top: 10.7rem;
+      transform: rotate(-12deg);
+    }
+
+    .flower-right {
+      right: 14%;
+      top: 10rem;
+      transform: rotate(12deg);
+    }
+
+    .stage-label {
+      position: absolute;
+      right: -0.4rem;
+      bottom: 0;
+      z-index: 5;
+      width: 10.5rem;
+      padding: 1.2rem;
+      color: #fff;
+      background: var(--forest);
+      border-radius: 50% 50% 1rem 1rem;
+      text-align: center;
+      box-shadow: 0 18px 40px rgba(39, 55, 44, 0.18);
+    }
+
+    .stage-label strong {
+      display: block;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.55rem;
+      font-weight: 400;
+    }
+
+    .stage-label span {
+      display: block;
+      margin-top: 0.2rem;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .about {
+      padding: clamp(5.5rem, 9vw, 9rem) 0;
+      background: var(--paper);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.75fr 1.25fr;
+      gap: clamp(3rem, 9vw, 8rem);
+      align-items: start;
+    }
+
+    .section-number {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      color: var(--sage);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 5rem;
+      line-height: 1;
+    }
+
+    .section-number::after {
+      content: "";
+      width: min(9rem, 30vw);
+      height: 1px;
+      background: var(--line);
+    }
+
+    h2 {
+      margin-bottom: 1.5rem;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.55rem, 5vw, 4.7rem);
+      font-weight: 400;
+      line-height: 1.05;
+      letter-spacing: -0.045em;
+    }
+
+    .about-copy {
+      max-width: 43rem;
+      color: var(--muted);
+      font-size: 1.12rem;
+    }
+
+    .about-name {
+      display: inline-block;
+      margin-top: 2rem;
+      padding-top: 1.4rem;
+      border-top: 1px solid var(--line);
+      color: var(--forest);
+      font-size: 0.82rem;
+      font-weight: 750;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+    }
+
+    .reputation {
+      position: relative;
+      overflow: hidden;
+      color: #fff;
+      background: var(--forest-dark);
+    }
+
+    .reputation::after {
+      content: "S";
+      position: absolute;
+      right: -1rem;
+      bottom: -8.5rem;
+      color: rgba(255, 255, 255, 0.035);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 28rem;
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .rating-layout {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      min-height: 550px;
+      align-items: center;
+      gap: clamp(3rem, 8vw, 8rem);
+      padding-block: clamp(5rem, 8vw, 8rem);
+    }
+
+    .rating-value {
+      display: flex;
+      align-items: flex-end;
+      gap: 0.6rem;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    .rating-value strong {
+      font-size: clamp(7rem, 16vw, 13rem);
+      font-weight: 400;
+      line-height: 0.75;
+      letter-spacing: -0.08em;
+    }
+
+    .rating-value span {
+      padding-bottom: 0.55rem;
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 1.4rem;
+    }
+
+    .stars {
+      display: flex;
+      gap: 0.35rem;
+      margin: 2rem 0 0.8rem;
+      color: #e5b7ac;
+      font-size: 1.35rem;
+      letter-spacing: 0.08em;
+    }
+
+    .review-count {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.68);
+    }
+
+    .rating-copy h2 {
+      max-width: 9em;
+      margin-bottom: 1.3rem;
+    }
+
+    .rating-copy p {
+      max-width: 30rem;
+      margin-bottom: 2rem;
+      color: rgba(255, 255, 255, 0.68);
+      font-size: 1.05rem;
+    }
+
+    .text-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.45);
+      color: #fff;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .text-link svg {
+      width: 1rem;
+      height: 1rem;
+      transition: transform 180ms ease;
+    }
+
+    .text-link:hover svg {
+      transform: translate(3px, -3px);
+    }
+
+    .contact {
+      padding: clamp(5.5rem, 9vw, 9rem) 0;
+      background: var(--cream);
+    }
+
+    .contact-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 2rem;
+      margin-bottom: clamp(2.5rem, 5vw, 4.5rem);
+    }
+
+    .contact-heading h2 {
+      max-width: 11em;
+      margin-bottom: 0;
+    }
+
+    .contact-heading p {
+      max-width: 28rem;
+      margin-bottom: 0.5rem;
+      color: var(--muted);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-large);
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(2rem, 5vw, 4.8rem);
+    }
+
+    .detail {
+      padding: 1.6rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .detail:first-child {
+      padding-top: 0;
+    }
+
+    .detail:last-of-type {
+      border-bottom: 0;
+    }
+
+    .detail-label {
+      display: block;
+      margin-bottom: 0.55rem;
+      color: var(--sage);
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .detail a,
+    .detail address {
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.25rem, 2.3vw, 1.7rem);
+      font-style: normal;
+      line-height: 1.35;
+      text-decoration: none;
+    }
+
+    .detail a:hover {
+      color: var(--forest);
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.4rem;
+    }
+
+    .location-art {
+      position: relative;
+      min-height: 510px;
+      overflow: hidden;
+      background:
+        linear-gradient(90deg, transparent 49.7%, rgba(52, 76, 61, 0.1) 50%, transparent 50.3%),
+        linear-gradient(0deg, transparent 49.7%, rgba(52, 76, 61, 0.1) 50%, transparent 50.3%),
+        #dce5d8;
+      background-size: 7rem 7rem;
+    }
+
+    .location-art::before,
+    .location-art::after {
+      content: "";
+      position: absolute;
+      width: 150%;
+      height: 4.5rem;
+      background: rgba(255, 253, 249, 0.83);
+      box-shadow: 0 0 0 1px rgba(52, 76, 61, 0.08);
+    }
+
+    .location-art::before {
+      left: -25%;
+      top: 30%;
+      transform: rotate(-17deg);
+    }
+
+    .location-art::after {
+      left: -30%;
+      bottom: 18%;
+      transform: rotate(24deg);
+    }
+
+    .map-pin {
+      position: absolute;
+      left: 52%;
+      top: 48%;
+      z-index: 4;
+      width: 7rem;
+      height: 7rem;
+      border: 1rem solid rgba(255, 253, 249, 0.78);
+      border-radius: 50% 50% 50% 8%;
+      background: var(--blush);
+      box-shadow: 0 22px 45px rgba(39, 55, 44, 0.2);
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+
+    .map-pin::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 1.8rem;
+      height: 1.8rem;
+      border-radius: 50%;
+      background: var(--forest);
+      transform: translate(-50%, -50%);
+    }
+
+    .map-caption {
+      position: absolute;
+      left: 50%;
+      bottom: 2rem;
+      z-index: 5;
+      width: max-content;
+      max-width: calc(100% - 3rem);
+      padding: 0.9rem 1.2rem;
+      color: var(--forest-dark);
+      background: var(--paper);
+      border-radius: 999px;
+      box-shadow: 0 10px 30px rgba(39, 55, 44, 0.13);
+      font-size: 0.85rem;
+      font-weight: 750;
+      transform: translateX(-50%);
+    }
+
+    footer {
+      padding: 2.2rem 0;
+      color: rgba(255, 255, 255, 0.7);
+      background: var(--forest-dark);
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+
+    .footer-brand {
+      color: #fff;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.4rem;
+    }
+
+    .footer-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 1.5rem;
+      font-size: 0.83rem;
+    }
+
+    .footer-meta a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .footer-meta a:hover {
+      color: #fff;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 650ms ease, transform 650ms ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
       }
     }
-    updateMenuButton();
-    window.addEventListener('resize', updateMenuButton);
 
-    if(menuToggle){
-      menuToggle.addEventListener('click', function(){
-        const expanded = this.getAttribute('aria-expanded') === 'true';
-        this.setAttribute('aria-expanded', String(!expanded));
-        mobileNav.hidden = expanded;
-      });
+    @media (max-width: 900px) {
+      .desktop-nav {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+      }
+
+      .mobile-menu {
+        position: fixed;
+        inset: 0;
+        z-index: 45;
+        display: flex;
+        visibility: hidden;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1.6rem;
+        padding: 7rem 2rem 3rem;
+        background: var(--paper);
+        opacity: 0;
+        transform: translateY(-1rem);
+        transition: opacity 200ms ease, transform 200ms ease, visibility 200ms;
+      }
+
+      .mobile-menu.open {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .mobile-menu a {
+        color: var(--forest-dark);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 2rem;
+        text-decoration: none;
+      }
+
+      .mobile-menu .mobile-call {
+        margin-top: 1rem;
+        padding: 0.85rem 1.5rem;
+        color: #fff;
+        background: var(--forest);
+        border-radius: 999px;
+        font-family: Inter, "Segoe UI", Arial, sans-serif;
+        font-size: 1rem;
+        font-weight: 750;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 9.5rem;
+        background:
+          radial-gradient(circle at 10% 12%, rgba(217, 169, 164, 0.2), transparent 25rem),
+          linear-gradient(150deg, var(--cream) 0 70%, #e7ece3 70% 100%);
+      }
+
+      .hero-grid,
+      .about-grid,
+      .rating-layout,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-grid {
+        gap: 2.5rem;
+      }
+
+      .floral-stage {
+        min-height: 470px;
+      }
+
+      .stage-frame {
+        inset: 1rem 1.5rem 1.5rem;
+      }
+
+      .about-grid {
+        gap: 2rem;
+      }
+
+      .section-number {
+        font-size: 3.8rem;
+      }
+
+      .rating-layout {
+        gap: 4rem;
+      }
+
+      .contact-heading {
+        display: block;
+      }
+
+      .contact-heading p {
+        margin-top: 1.5rem;
+      }
+
+      .location-art {
+        min-height: 430px;
+      }
     }
-    if(closeMobile){
-      closeMobile.addEventListener('click', function(){
-        mobileNav.hidden = true;
-        const btn = document.getElementById('menuToggle');
-        if(btn) btn.setAttribute('aria-expanded','false');
-      });
+
+    @media (max-width: 600px) {
+      .container {
+        width: min(calc(100% - 2rem), var(--container));
+      }
+
+      .site-header {
+        padding-top: 0.7rem;
+      }
+
+      .nav-shell {
+        min-height: 4rem;
+        padding-left: 1rem;
+      }
+
+      .brand-name {
+        font-size: 1.3rem;
+      }
+
+      .brand-mark {
+        width: 2rem;
+        height: 2rem;
+      }
+
+      .hero {
+        padding: 8.4rem 0 4rem;
+      }
+
+      h1 {
+        font-size: clamp(3.2rem, 16vw, 4.7rem);
+      }
+
+      .hero-copy {
+        font-size: 1rem;
+      }
+
+      .hero-actions,
+      .contact-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .floral-stage {
+        min-height: 390px;
+      }
+
+      .stage-frame {
+        inset: 0.5rem 0 1.2rem;
+      }
+
+      .flower-main {
+        left: calc(48% - 4rem);
+        top: 3.8rem;
+        transform: scale(0.85);
+      }
+
+      .flower-left {
+        left: 10%;
+        top: 10.5rem;
+        transform: scale(0.82) rotate(-12deg);
+      }
+
+      .flower-right {
+        right: 7%;
+        top: 10rem;
+        transform: scale(0.82) rotate(12deg);
+      }
+
+      .stem-one {
+        height: 15rem;
+      }
+
+      .stem-two,
+      .stem-three {
+        height: 12rem;
+      }
+
+      .stage-label {
+        right: -0.2rem;
+        width: 8.7rem;
+      }
+
+      .stage-label strong {
+        font-size: 1.3rem;
+      }
+
+      .rating-value strong {
+        font-size: 7rem;
+      }
+
+      .rating-layout {
+        min-height: auto;
+      }
+
+      .contact-details {
+        padding: 2rem 1.35rem;
+      }
+
+      .detail a,
+      .detail address {
+        font-size: 1.2rem;
+      }
+
+      .location-art {
+        min-height: 350px;
+      }
+
+      .map-pin {
+        width: 5.5rem;
+        height: 5.5rem;
+        border-width: 0.75rem;
+      }
+
+      .map-caption {
+        white-space: normal;
+        text-align: center;
+      }
+
+      .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .footer-meta {
+        justify-content: flex-start;
+        gap: 0.8rem 1.3rem;
+      }
     }
-    // Close mobile nav when clicking a link
-    document.querySelectorAll('.mobile-panel a').forEach(a=>{
-      a.addEventListener('click',()=>{ mobileNav.hidden = true; const btn=document.getElementById('menuToggle'); if(btn) btn.setAttribute('aria-expanded','false'); });
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#continut">Sari la conținut</a>
+
+  <header class="site-header">
+    <div class="container">
+      <div class="nav-shell">
+        <a class="brand" href="#acasa" aria-label="Selenity — Acasă">
+          <span class="brand-mark" aria-hidden="true">
+            <span></span><span></span><span></span><span></span>
+          </span>
+          <span class="brand-name">Selenity</span>
+        </a>
+
+        <nav class="desktop-nav" aria-label="Navigație principală">
+          <a href="#despre">Despre</a>
+          <a href="#evaluare">Evaluare Google</a>
+          <a href="#contact">Contact și locație</a>
+          <a class="nav-call" href="tel:0732204788">Sună</a>
+        </nav>
+
+        <button class="menu-toggle" type="button" aria-label="Deschide meniul" aria-expanded="false" aria-controls="mobile-menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <path d="M4 8h16M4 16h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Navigație mobilă">
+    <a href="#acasa">Acasă</a>
+    <a href="#despre">Despre</a>
+    <a href="#evaluare">Evaluare Google</a>
+    <a href="#contact">Contact și locație</a>
+    <a class="mobile-call" href="tel:0732204788">Sună: 0732 204 788</a>
+  </nav>
+
+  <main id="continut">
+    <section class="hero" id="acasa">
+      <div class="container hero-grid">
+        <div class="hero-content reveal">
+          <p class="eyebrow">Florărie · Târgoviște</p>
+          <h1>Florarie Targoviste <em>Selenity</em></h1>
+          <p class="hero-copy">
+            Contact direct și acces rapid la locația florăriei din Târgoviște.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="tel:0732204788">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 16.9v3a2 2 0 0 1-2.18 2 19.75 19.75 0 0 1-8.63-3.07 19.45 19.45 0 0 1-6-6A19.75 19.75 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.63a2 2 0 0 1-.45 2.11L8 9.73a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.85.29 1.73.5 2.63.62A2 2 0 0 1 22 16.9z"></path>
+              </svg>
+              Sună pentru informații
+            </a>
+            <a class="button button-secondary" href="https://www.google.com/maps/place/?q=place_id:ChIJdWpu7XL3skARZTzN9uoqGvU" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0z"></path>
+                <circle cx="12" cy="10" r="2.5"></circle>
+              </svg>
+              Vezi locația
+            </a>
+          </div>
+        </div>
+
+        <div class="floral-stage reveal" aria-hidden="true">
+          <div class="stage-frame">
+            <span class="stem stem-one"></span>
+            <span class="stem stem-two"></span>
+            <span class="stem stem-three"></span>
+
+            <div class="flower flower-main">
+              <span></span><span></span><span></span>
+              <span></span><span></span><span></span>
+            </div>
+
+            <div class="flower flower-small flower-left">
+              <span></span><span></span><span></span>
+              <span></span><span></span><span></span>
+            </div>
+
+            <div class="flower flower-small flower-right">
+              <span></span><span></span><span></span>
+              <span></span><span></span><span></span>
+            </div>
+          </div>
+          <div class="stage-label">
+            <strong>Selenity</strong>
+            <span>Târgoviște</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="despre">
+      <div class="container about-grid">
+        <div class="section-number reveal" aria-hidden="true">01</div>
+        <div class="reveal">
+          <p class="eyebrow">Despre florărie</p>
+          <h2>Selenity, florărie în Târgoviște.</h2>
+          <p class="about-copy">
+            Pentru informații, poți contacta direct florăria la numărul afișat sau poți consulta adresa și traseul în Google Maps.
+          </p>
+          <span class="about-name">Florarie Targoviste - Selenity</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="reputation" id="evaluare">
+      <div class="container rating-layout">
+        <div class="reveal">
+          <div class="rating-value">
+            <strong>4,5</strong>
+            <span>/ 5</span>
+          </div>
+          <div class="stars" aria-label="Rating Google 4,5 din 5">★ ★ ★ ★ ★</div>
+          <p class="review-count">19 recenzii pe Google</p>
+        </div>
+
+        <div class="rating-copy reveal">
+          <p class="eyebrow">Evaluare Google</p>
+          <h2>Rating și recenzii, prezentate factual.</h2>
+          <p>
+            Profilul Google al florăriei afișează un rating de 4,5 din 5, calculat din 19 recenzii.
+          </p>
+          <a class="text-link" href="https://www.google.com/maps/place/?q=place_id:ChIJdWpu7XL3skARZTzN9uoqGvU" target="_blank" rel="noopener noreferrer">
+            Deschide profilul în Google Maps
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M7 17 17 7M7 7h10v10"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="contact-heading reveal">
+          <h2>Contact și locație</h2>
+          <p>
+            Folosește telefonul pentru informații sau deschide adresa direct în Google Maps.
+          </p>
+        </div>
+
+        <div class="contact-grid reveal">
+          <div class="contact-details">
+            <div class="detail">
+              <span class="detail-label">Telefon</span>
+              <a href="tel:0732204788" aria-label="Sună la 0732 204 788">0732 204 788</a>
+            </div>
+
+            <div class="detail">
+              <span class="detail-label">Adresă</span>
+              <address>
+                Bulevardul Independenței, bloc 8, scara C<br>
+                130104 Târgoviște, România
+              </address>
+            </div>
+
+            <div class="contact-actions">
+              <a class="button button-primary" href="tel:0732204788">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M22 16.9v3a2 2 0 0 1-2.18 2 19.75 19.75 0 0 1-8.63-3.07 19.45 19.45 0 0 1-6-6A19.75 19.75 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.63a2 2 0 0 1-.45 2.11L8 9.73a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.85.29 1.73.5 2.63.62A2 2 0 0 1 22 16.9z"></path>
+                </svg>
+                Sună
+              </a>
+              <a class="button button-secondary" href="https://www.google.com/maps/place/?q=place_id:ChIJdWpu7XL3skARZTzN9uoqGvU" target="_blank" rel="noopener noreferrer">
+                Deschide în Google Maps
+              </a>
+            </div>
+          </div>
+
+          <div class="location-art" aria-hidden="true">
+            <span class="map-pin"></span>
+            <span class="map-caption">Bulevardul Independenței · Târgoviște</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div class="footer-brand">Selenity</div>
+      <div class="footer-meta">
+        <span>Florărie · Târgoviște</span>
+        <a href="tel:0732204788">0732 204 788</a>
+        <a href="https://www.google.com/maps/place/?q=place_id:ChIJdWpu7XL3skARZTzN9uoqGvU" target="_blank" rel="noopener noreferrer">Google Maps</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const menuButton = document.querySelector('.menu-toggle');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const mobileLinks = mobileMenu.querySelectorAll('a');
+
+    function closeMenu() {
+      mobileMenu.classList.remove('open');
+      document.body.classList.remove('menu-open');
+      menuButton.setAttribute('aria-expanded', 'false');
+      menuButton.setAttribute('aria-label', 'Deschide meniul');
+    }
+
+    menuButton.addEventListener('click', function () {
+      const isOpen = mobileMenu.classList.toggle('open');
+      document.body.classList.toggle('menu-open', isOpen);
+      menuButton.setAttribute('aria-expanded', String(isOpen));
+      menuButton.setAttribute('aria-label', isOpen ? 'Închide meniul' : 'Deschide meniul');
     });
 
-    // Smooth scroll for internal links
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click', function(e){
-        const targetId = this.getAttribute('href').slice(1);
-        if(!targetId) return;
-        const target = document.getElementById(targetId);
-        if(target){
-          e.preventDefault();
-          target.scrollIntoView({behavior:'smooth', block:'start'});
-        }
-      });
+    mobileLinks.forEach(function (link) {
+      link.addEventListener('click', closeMenu);
     });
-  })();
-</script>
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') {
+        closeMenu();
+      }
+    });
+
+    const revealElements = document.querySelectorAll('.reveal');
+
+    if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      revealElements.forEach(function (element) {
+        observer.observe(element);
+      });
+    } else {
+      revealElements.forEach(function (element) {
+        element.classList.add('visible');
+      });
+    }
+  </script>
 </body>
 </html>

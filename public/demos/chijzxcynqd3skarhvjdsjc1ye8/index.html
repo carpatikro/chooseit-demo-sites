@@ -1,0 +1,1434 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Florăria BOUQUET Târgoviște | Contact și locație</title>
+  <meta name="description" content="Florăria BOUQUET din Târgoviște. Telefon: 0731 450 717. Adresă: Bulevardul Mircea cel Bătrân 10, Târgoviște.">
+  <meta name="theme-color" content="#304a3d">
+  <style>
+    :root {
+      --cream: #f6f0e6;
+      --cream-light: #fcf9f3;
+      --sage: #aebda7;
+      --sage-light: #dfe6da;
+      --forest: #304a3d;
+      --forest-dark: #1e3329;
+      --burgundy: #7b3244;
+      --rose: #c98992;
+      --ink: #262a26;
+      --muted: #676d67;
+      --line: rgba(48, 74, 61, 0.18);
+      --white: #ffffff;
+      --shadow: 0 24px 70px rgba(31, 51, 41, 0.12);
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: Inter, "Segoe UI", Arial, sans-serif;
+      --container: min(1180px, calc(100% - 48px));
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 96px;
+    }
+
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      background: var(--cream-light);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body.menu-open {
+      overflow: hidden;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid var(--rose);
+      outline-offset: 4px;
+    }
+
+    .container {
+      width: var(--container);
+      margin-inline: auto;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 20px;
+      color: var(--burgundy);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      line-height: 1.3;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      width: 34px;
+      height: 1px;
+      background: currentColor;
+      content: "";
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: 52px;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 22px;
+      border: 1px solid transparent;
+      border-radius: 2px;
+      font-size: 0.93rem;
+      font-weight: 700;
+      line-height: 1.2;
+      text-decoration: none;
+      transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease, transform 180ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-primary {
+      background: var(--forest);
+      color: var(--white);
+    }
+
+    .button-primary:hover {
+      background: var(--forest-dark);
+    }
+
+    .button-secondary {
+      border-color: rgba(48, 74, 61, 0.34);
+      background: transparent;
+      color: var(--forest);
+    }
+
+    .button-secondary:hover {
+      border-color: var(--forest);
+      background: rgba(48, 74, 61, 0.06);
+    }
+
+    .button-light {
+      border-color: rgba(255, 255, 255, 0.42);
+      background: var(--white);
+      color: var(--forest-dark);
+    }
+
+    .button-light:hover {
+      background: var(--cream);
+    }
+
+    .button-outline-light {
+      border-color: rgba(255, 255, 255, 0.42);
+      color: var(--white);
+    }
+
+    .button-outline-light:hover {
+      background: rgba(255, 255, 255, 0.09);
+    }
+
+    .icon {
+      width: 19px;
+      height: 19px;
+      flex: 0 0 auto;
+      fill: none;
+      stroke: currentColor;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 1.8;
+    }
+
+    .site-header {
+      position: absolute;
+      z-index: 20;
+      top: 0;
+      right: 0;
+      left: 0;
+      border-bottom: 1px solid rgba(48, 74, 61, 0.14);
+    }
+
+    .nav-wrap {
+      display: flex;
+      min-height: 88px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 13px;
+      color: var(--forest-dark);
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      position: relative;
+      display: grid;
+      width: 39px;
+      height: 39px;
+      flex: 0 0 auto;
+      place-items: center;
+      border: 1px solid rgba(48, 74, 61, 0.42);
+      border-radius: 50%;
+    }
+
+    .brand-mark::before,
+    .brand-mark::after {
+      position: absolute;
+      width: 11px;
+      height: 17px;
+      border: 1px solid var(--burgundy);
+      border-radius: 50% 50% 45% 55%;
+      content: "";
+    }
+
+    .brand-mark::before {
+      transform: rotate(-35deg) translate(-3px, -1px);
+    }
+
+    .brand-mark::after {
+      transform: rotate(35deg) translate(3px, -1px);
+    }
+
+    .brand-text {
+      display: grid;
+      line-height: 1;
+    }
+
+    .brand-name {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      letter-spacing: 0.07em;
+    }
+
+    .brand-city {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 0.64rem;
+      font-weight: 700;
+      letter-spacing: 0.19em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .nav-links a:not(.button) {
+      position: relative;
+      color: var(--forest-dark);
+      font-size: 0.88rem;
+      font-weight: 650;
+      text-decoration: none;
+    }
+
+    .nav-links a:not(.button)::after {
+      position: absolute;
+      right: 0;
+      bottom: -7px;
+      left: 0;
+      height: 1px;
+      background: var(--burgundy);
+      content: "";
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 180ms ease;
+    }
+
+    .nav-links a:not(.button):hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .nav-cta {
+      min-height: 44px;
+      padding: 11px 17px;
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 46px;
+      height: 46px;
+      padding: 0;
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--forest);
+      cursor: pointer;
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 21px;
+      height: 1px;
+      margin: 5px auto;
+      background: currentColor;
+      transition: transform 180ms ease, opacity 180ms ease;
+    }
+
+    .hero {
+      position: relative;
+      display: grid;
+      min-height: 760px;
+      align-items: center;
+      overflow: hidden;
+      padding: 150px 0 80px;
+      background:
+        radial-gradient(circle at 81% 20%, rgba(201, 137, 146, 0.17), transparent 25%),
+        linear-gradient(108deg, var(--cream-light) 0%, var(--cream) 58%, #e5eadd 100%);
+    }
+
+    .hero::before {
+      position: absolute;
+      top: 0;
+      right: -14%;
+      width: 52%;
+      height: 100%;
+      border-left: 1px solid rgba(48, 74, 61, 0.1);
+      border-radius: 50% 0 0 50%;
+      content: "";
+      transform: rotate(6deg);
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      align-items: center;
+      gap: 72px;
+      grid-template-columns: minmax(0, 1.04fr) minmax(380px, 0.76fr);
+    }
+
+    .hero-copy {
+      max-width: 700px;
+    }
+
+    .hero h1 {
+      max-width: 680px;
+      margin: 0;
+      color: var(--forest-dark);
+      font-family: var(--serif);
+      font-size: clamp(3.75rem, 7vw, 6.9rem);
+      font-weight: 400;
+      letter-spacing: -0.055em;
+      line-height: 0.89;
+    }
+
+    .hero h1 .accent {
+      display: block;
+      margin-left: 0.58em;
+      color: var(--burgundy);
+      font-style: italic;
+    }
+
+    .hero-lead {
+      max-width: 510px;
+      margin: 34px 0 0;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 34px;
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 500px;
+    }
+
+    .botanical-disc {
+      position: absolute;
+      top: 15px;
+      right: 0;
+      display: grid;
+      width: min(440px, 100%);
+      aspect-ratio: 1;
+      place-items: center;
+      border: 1px solid rgba(48, 74, 61, 0.22);
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 46% 45%, rgba(255, 255, 255, 0.88) 0 11%, transparent 12%),
+        radial-gradient(circle at 36% 34%, rgba(201, 137, 146, 0.38) 0 12%, transparent 13%),
+        radial-gradient(circle at 57% 35%, rgba(123, 50, 68, 0.18) 0 13%, transparent 14%),
+        radial-gradient(circle at 63% 52%, rgba(174, 189, 167, 0.65) 0 13%, transparent 14%),
+        radial-gradient(circle at 38% 59%, rgba(201, 137, 146, 0.26) 0 16%, transparent 17%),
+        rgba(255, 255, 255, 0.24);
+      box-shadow: inset 0 0 0 24px rgba(255, 255, 255, 0.12);
+    }
+
+    .botanical-disc::before,
+    .botanical-disc::after {
+      position: absolute;
+      border: 1px solid rgba(48, 74, 61, 0.24);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .botanical-disc::before {
+      inset: 28px;
+    }
+
+    .botanical-disc::after {
+      inset: 62px;
+      border-style: dashed;
+    }
+
+    .floral-art {
+      width: 68%;
+      height: 68%;
+      color: var(--forest);
+    }
+
+    .floral-art path,
+    .floral-art ellipse,
+    .floral-art circle {
+      fill: none;
+      stroke: currentColor;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 1.35;
+    }
+
+    .floral-art .rose-line {
+      stroke: var(--burgundy);
+    }
+
+    .floral-art .soft-line {
+      stroke: rgba(48, 74, 61, 0.62);
+    }
+
+    .address-note {
+      position: absolute;
+      right: 10px;
+      bottom: 6px;
+      width: 250px;
+      padding: 22px 24px;
+      border-left: 3px solid var(--burgundy);
+      background: var(--forest-dark);
+      color: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .address-note small {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--sage-light);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .address-note address {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-style: normal;
+      line-height: 1.45;
+    }
+
+    .intro {
+      padding: 128px 0;
+      background: var(--cream-light);
+    }
+
+    .intro-grid {
+      display: grid;
+      align-items: start;
+      gap: 90px;
+      grid-template-columns: 0.9fr 1.1fr;
+    }
+
+    .section-title {
+      margin: 0;
+      color: var(--forest-dark);
+      font-family: var(--serif);
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      font-weight: 400;
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+
+    .intro-copy {
+      padding-top: 12px;
+    }
+
+    .intro-copy p {
+      max-width: 600px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.17rem;
+      line-height: 1.8;
+    }
+
+    .facts {
+      display: grid;
+      margin-top: 48px;
+      border-top: 1px solid var(--line);
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .fact {
+      min-width: 0;
+      padding: 25px 20px 10px 0;
+    }
+
+    .fact + .fact {
+      padding-left: 25px;
+      border-left: 1px solid var(--line);
+    }
+
+    .fact-label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--burgundy);
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .fact-value {
+      color: var(--forest-dark);
+      font-family: var(--serif);
+      font-size: 1.12rem;
+      line-height: 1.4;
+    }
+
+    .rating-section {
+      position: relative;
+      overflow: hidden;
+      padding: 100px 0;
+      background: var(--forest);
+      color: var(--white);
+    }
+
+    .rating-section::before {
+      position: absolute;
+      top: -180px;
+      right: -90px;
+      width: 470px;
+      height: 470px;
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .rating-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      align-items: center;
+      gap: 70px;
+      grid-template-columns: 0.72fr 1.28fr;
+    }
+
+    .rating-number {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+    }
+
+    .rating-number strong {
+      font-family: var(--serif);
+      font-size: clamp(6rem, 12vw, 10rem);
+      font-weight: 400;
+      letter-spacing: -0.08em;
+      line-height: 0.75;
+    }
+
+    .rating-number span {
+      color: var(--sage-light);
+      font-size: 1rem;
+    }
+
+    .stars {
+      display: flex;
+      gap: 8px;
+      margin-top: 30px;
+      color: #e2bd86;
+      font-size: 1.42rem;
+      letter-spacing: 0.08em;
+    }
+
+    .rating-copy {
+      padding-left: 70px;
+      border-left: 1px solid rgba(255, 255, 255, 0.22);
+    }
+
+    .rating-copy .eyebrow {
+      color: #e2bd86;
+    }
+
+    .rating-copy h2 {
+      max-width: 600px;
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(2.4rem, 4.4vw, 4.2rem);
+      font-weight: 400;
+      letter-spacing: -0.035em;
+      line-height: 1.05;
+    }
+
+    .rating-copy p {
+      margin: 24px 0 0;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 1rem;
+    }
+
+    .location {
+      padding: 128px 0;
+      background: var(--cream);
+    }
+
+    .location-grid {
+      display: grid;
+      gap: 28px;
+      grid-template-columns: minmax(0, 1.08fr) minmax(330px, 0.72fr);
+    }
+
+    .location-panel {
+      position: relative;
+      min-height: 540px;
+      overflow: hidden;
+      padding: 68px;
+      background:
+        linear-gradient(rgba(48, 74, 61, 0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(48, 74, 61, 0.07) 1px, transparent 1px),
+        var(--sage-light);
+      background-size: 42px 42px;
+    }
+
+    .location-panel::before,
+    .location-panel::after {
+      position: absolute;
+      border: 1px solid rgba(123, 50, 68, 0.22);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .location-panel::before {
+      top: -90px;
+      right: -40px;
+      width: 340px;
+      height: 340px;
+    }
+
+    .location-panel::after {
+      right: 115px;
+      bottom: -130px;
+      width: 280px;
+      height: 280px;
+    }
+
+    .map-pin {
+      position: absolute;
+      top: 48%;
+      left: 66%;
+      display: grid;
+      width: 70px;
+      height: 70px;
+      place-items: center;
+      border-radius: 50% 50% 50% 0;
+      background: var(--burgundy);
+      color: var(--white);
+      box-shadow: 0 15px 36px rgba(123, 50, 68, 0.26);
+      transform: rotate(-45deg);
+    }
+
+    .map-pin .icon {
+      width: 26px;
+      height: 26px;
+      transform: rotate(45deg);
+    }
+
+    .location-content {
+      position: relative;
+      z-index: 2;
+      max-width: 460px;
+    }
+
+    .location-content h2 {
+      margin: 0;
+      color: var(--forest-dark);
+      font-family: var(--serif);
+      font-size: clamp(2.8rem, 5vw, 4.7rem);
+      font-weight: 400;
+      letter-spacing: -0.045em;
+      line-height: 0.98;
+    }
+
+    .location-address {
+      max-width: 390px;
+      margin: 30px 0 0;
+      color: var(--forest-dark);
+      font-size: 1.08rem;
+      font-style: normal;
+    }
+
+    .location-content .button {
+      margin-top: 34px;
+    }
+
+    .contact-card {
+      display: flex;
+      min-height: 540px;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 58px 48px;
+      background: var(--cream-light);
+      box-shadow: 0 18px 55px rgba(48, 74, 61, 0.08);
+    }
+
+    .contact-card h3 {
+      margin: 0;
+      color: var(--forest-dark);
+      font-family: var(--serif);
+      font-size: clamp(2.2rem, 4vw, 3.3rem);
+      font-weight: 400;
+      letter-spacing: -0.035em;
+      line-height: 1.05;
+    }
+
+    .contact-details {
+      margin: 45px 0;
+    }
+
+    .contact-label {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--muted);
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .phone-link {
+      display: inline-block;
+      color: var(--burgundy);
+      font-family: var(--serif);
+      font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+      line-height: 1.2;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 7px;
+    }
+
+    .contact-card .button {
+      width: 100%;
+    }
+
+    .closing {
+      position: relative;
+      overflow: hidden;
+      padding: 110px 0;
+      background: var(--burgundy);
+      color: var(--white);
+      text-align: center;
+    }
+
+    .closing::before,
+    .closing::after {
+      position: absolute;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .closing::before {
+      top: -160px;
+      left: -130px;
+      width: 430px;
+      height: 430px;
+    }
+
+    .closing::after {
+      right: -120px;
+      bottom: -210px;
+      width: 510px;
+      height: 510px;
+    }
+
+    .closing-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 770px;
+      margin-inline: auto;
+    }
+
+    .closing .eyebrow {
+      color: var(--cream);
+    }
+
+    .closing h2 {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 400;
+      letter-spacing: -0.045em;
+      line-height: 1;
+    }
+
+    .closing-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 38px;
+    }
+
+    .site-footer {
+      padding: 46px 0;
+      background: var(--forest-dark);
+      color: rgba(255, 255, 255, 0.76);
+    }
+
+    .footer-grid {
+      display: grid;
+      align-items: center;
+      gap: 30px;
+      grid-template-columns: 1fr auto;
+    }
+
+    .footer-brand {
+      color: var(--white);
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      letter-spacing: 0.05em;
+    }
+
+    .footer-details {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 10px 26px;
+      font-size: 0.85rem;
+    }
+
+    .footer-details a {
+      color: var(--white);
+      text-decoration-color: rgba(255, 255, 255, 0.35);
+      text-underline-offset: 4px;
+    }
+
+    .mobile-actions {
+      display: none;
+    }
+
+    @media (max-width: 960px) {
+      :root {
+        --container: min(100% - 36px, 760px);
+      }
+
+      .site-header {
+        position: absolute;
+      }
+
+      .menu-toggle {
+        display: block;
+        position: relative;
+        z-index: 31;
+      }
+
+      .menu-toggle[aria-expanded="true"] span:nth-child(1) {
+        transform: translateY(6px) rotate(45deg);
+      }
+
+      .menu-toggle[aria-expanded="true"] span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .menu-toggle[aria-expanded="true"] span:nth-child(3) {
+        transform: translateY(-6px) rotate(-45deg);
+      }
+
+      .nav-links {
+        position: fixed;
+        z-index: 30;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 26px;
+        padding: 110px 36px 50px;
+        background: var(--cream-light);
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-12px);
+        transition: opacity 180ms ease, transform 180ms ease;
+      }
+
+      .nav-links.open {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+      }
+
+      .nav-links a:not(.button) {
+        font-family: var(--serif);
+        font-size: 2rem;
+        font-weight: 400;
+      }
+
+      .nav-cta {
+        margin-top: 12px;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 145px 0 90px;
+      }
+
+      .hero-grid {
+        gap: 40px;
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        max-width: 650px;
+        font-size: clamp(3.7rem, 12vw, 6rem);
+      }
+
+      .hero-visual {
+        min-height: 430px;
+      }
+
+      .botanical-disc {
+        right: 8%;
+        width: 390px;
+      }
+
+      .address-note {
+        right: 2%;
+      }
+
+      .intro,
+      .location {
+        padding: 96px 0;
+      }
+
+      .intro-grid {
+        gap: 44px;
+        grid-template-columns: 1fr;
+      }
+
+      .facts {
+        margin-top: 38px;
+      }
+
+      .rating-grid {
+        gap: 50px;
+        grid-template-columns: 1fr;
+      }
+
+      .rating-copy {
+        padding: 45px 0 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.22);
+        border-left: 0;
+      }
+
+      .location-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .location-panel,
+      .contact-card {
+        min-height: 490px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      :root {
+        --container: calc(100% - 32px);
+      }
+
+      html {
+        scroll-padding-top: 80px;
+      }
+
+      body {
+        padding-bottom: 68px;
+      }
+
+      .nav-wrap {
+        min-height: 78px;
+      }
+
+      .brand-mark {
+        width: 35px;
+        height: 35px;
+      }
+
+      .brand-name {
+        font-size: 1.06rem;
+      }
+
+      .brand-city {
+        font-size: 0.57rem;
+      }
+
+      .hero {
+        padding: 125px 0 70px;
+      }
+
+      .hero h1 {
+        font-size: clamp(3.25rem, 17vw, 4.8rem);
+      }
+
+      .hero h1 .accent {
+        margin-left: 0.25em;
+      }
+
+      .hero-lead {
+        margin-top: 26px;
+        font-size: 1rem;
+      }
+
+      .hero-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .hero-visual {
+        min-height: 375px;
+        margin-top: 10px;
+      }
+
+      .botanical-disc {
+        right: -14%;
+        width: 340px;
+      }
+
+      .address-note {
+        right: auto;
+        bottom: 0;
+        left: 0;
+        width: min(270px, 85%);
+      }
+
+      .intro,
+      .location {
+        padding: 76px 0;
+      }
+
+      .section-title {
+        font-size: 2.8rem;
+      }
+
+      .intro-copy p {
+        font-size: 1.04rem;
+      }
+
+      .facts {
+        grid-template-columns: 1fr;
+      }
+
+      .fact {
+        padding: 22px 0;
+      }
+
+      .fact + .fact {
+        padding-left: 0;
+        border-top: 1px solid var(--line);
+        border-left: 0;
+      }
+
+      .rating-section {
+        padding: 76px 0;
+      }
+
+      .rating-number strong {
+        font-size: 7rem;
+      }
+
+      .rating-copy h2 {
+        font-size: 2.7rem;
+      }
+
+      .location-panel {
+        min-height: 500px;
+        padding: 44px 26px;
+      }
+
+      .map-pin {
+        top: auto;
+        bottom: 80px;
+        left: 64%;
+        width: 62px;
+        height: 62px;
+      }
+
+      .location-content h2 {
+        font-size: 3.15rem;
+      }
+
+      .contact-card {
+        min-height: 410px;
+        padding: 44px 28px;
+      }
+
+      .closing {
+        padding: 82px 0;
+      }
+
+      .closing-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-details {
+        justify-content: flex-start;
+      }
+
+      .mobile-actions {
+        position: fixed;
+        z-index: 40;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: grid;
+        min-height: 68px;
+        border-top: 1px solid rgba(255, 255, 255, 0.14);
+        background: var(--forest-dark);
+        box-shadow: 0 -10px 30px rgba(30, 51, 41, 0.18);
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .mobile-actions a {
+        display: flex;
+        min-width: 0;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 13px 10px;
+        color: var(--white);
+        font-size: 0.87rem;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .mobile-actions a + a {
+        border-left: 1px solid rgba(255, 255, 255, 0.16);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#acasa" aria-label="Florăria BOUQUET Târgoviște — Acasă">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-text">
+          <span class="brand-name">BOUQUET</span>
+          <span class="brand-city">Florărie · Târgoviște</span>
+        </span>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-label="Deschide meniul" aria-controls="main-navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="nav-links" id="main-navigation" aria-label="Navigație principală">
+        <a href="#despre">Despre</a>
+        <a href="#recenzii">Recenzii Google</a>
+        <a href="#locatie">Locație</a>
+        <a class="button button-primary nav-cta" href="tel:0731450717" aria-label="Sună Florăria BOUQUET la 0731 450 717">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.69 2.8a2 2 0 0 1-.45 2.11L8.08 9.9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.33 1.84.56 2.8.69A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+          Sună
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="acasa">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Florărie în Târgoviște</p>
+          <h1>Florăria <span class="accent">BOUQUET</span></h1>
+          <p class="hero-lead">
+            Bulevardul Mircea cel Bătrân 10, 130023 Târgoviște, România
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="tel:0731450717" aria-label="Sună la 0731 450 717">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.69 2.8a2 2 0 0 1-.45 2.11L8.08 9.9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.33 1.84.56 2.8.69A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+              Sună pentru informații
+            </a>
+            <a class="button button-secondary" href="https://www.google.com/maps/place/?q=place_id:ChIJZxcyNQD3skARHvJdsjC1ye8" target="_blank" rel="noopener noreferrer">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M21 10c0 7-9 12-9 12S3 17 3 10a9 9 0 1 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              Vezi locația
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="botanical-disc">
+            <svg class="floral-art" viewBox="0 0 300 300">
+              <path class="soft-line" d="M150 256c-2-53-2-105 0-158"></path>
+              <path d="M151 222c-37-12-55-42-61-75"></path>
+              <path d="M148 207c39-15 58-43 64-78"></path>
+              <path d="M117 183c-28 7-48-1-61-22 27-8 48-1 61 22z"></path>
+              <path d="M184 173c29 6 49-3 60-25-28-7-48 2-60 25z"></path>
+              <path d="M136 138c-23-11-35-29-34-54 25 10 36 29 34 54z"></path>
+              <path d="M168 128c22-12 33-31 30-56-24 12-34 31-30 56z"></path>
+              <path class="rose-line" d="M150 112c-26 1-47-18-47-42 0-20 16-36 36-36 5 0 9 1 13 3 5-9 15-15 27-15 18 0 32 14 32 32 0 27-25 55-61 58z"></path>
+              <path class="rose-line" d="M151 104c-22-12-31-29-26-50 15 2 25 9 30 21 4-16 14-26 31-31 7 23-4 44-35 60z"></path>
+              <path class="rose-line" d="M151 104c-5-22 1-41 18-55"></path>
+              <ellipse class="rose-line" cx="79" cy="117" rx="25" ry="31" transform="rotate(-35 79 117)"></ellipse>
+              <path class="rose-line" d="M67 120c10-9 20-12 31-8M76 93c0 17 7 31 21 42"></path>
+              <ellipse class="rose-line" cx="222" cy="105" rx="23" ry="29" transform="rotate(32 222 105)"></ellipse>
+              <path class="rose-line" d="M207 106c11-7 22-8 32-2M225 79c-3 17-11 29-26 39"></path>
+              <path class="soft-line" d="M150 255c-24-13-44-12-60 4M150 255c24-13 44-12 60 4"></path>
+            </svg>
+          </div>
+
+          <div class="address-note">
+            <small>Locație</small>
+            <address>Bulevardul Mircea cel Bătrân 10, Târgoviște</address>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="intro" id="despre">
+      <div class="container intro-grid">
+        <div>
+          <p class="eyebrow">Despre</p>
+          <h2 class="section-title">BOUQUET,<br>în Târgoviște</h2>
+        </div>
+
+        <div class="intro-copy">
+          <p>
+            Florăria BOUQUET este o florărie din Târgoviște, localizată pe Bulevardul Mircea cel Bătrân 10. Pentru informații, contactul telefonic este disponibil la numărul afișat mai jos.
+          </p>
+
+          <div class="facts" aria-label="Informații despre Florăria BOUQUET">
+            <div class="fact">
+              <span class="fact-label">Categorie</span>
+              <span class="fact-value">Florărie</span>
+            </div>
+            <div class="fact">
+              <span class="fact-label">Oraș</span>
+              <span class="fact-value">Târgoviște</span>
+            </div>
+            <div class="fact">
+              <span class="fact-label">Telefon</span>
+              <a class="fact-value" href="tel:0731450717">0731 450 717</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="rating-section" id="recenzii" aria-labelledby="rating-title">
+      <div class="container rating-grid">
+        <div>
+          <div class="rating-number">
+            <strong>5</strong>
+            <span>din 5</span>
+          </div>
+          <div class="stars" aria-label="Evaluare de 5 stele din 5">
+            <span aria-hidden="true">★★★★★</span>
+          </div>
+        </div>
+
+        <div class="rating-copy">
+          <p class="eyebrow">Evaluare Google</p>
+          <h2 id="rating-title">5 din 5, pe baza a 6 recenzii</h2>
+          <p>Datele de evaluare afișate provin din profilul Google al florăriei.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="location" id="locatie">
+      <div class="container location-grid">
+        <div class="location-panel">
+          <div class="location-content">
+            <p class="eyebrow">Contact și locație</p>
+            <h2>Găsește florăria</h2>
+            <address class="location-address">
+              Bulevardul Mircea cel Bătrân 10<br>
+              130023 Târgoviște, România
+            </address>
+            <a class="button button-primary" href="https://www.google.com/maps/place/?q=place_id:ChIJZxcyNQD3skARHvJdsjC1ye8" target="_blank" rel="noopener noreferrer">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M21 10c0 7-9 12-9 12S3 17 3 10a9 9 0 1 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              Deschide în Google Maps
+            </a>
+          </div>
+
+          <div class="map-pin" aria-hidden="true">
+            <svg class="icon" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+          </div>
+        </div>
+
+        <aside class="contact-card" aria-labelledby="contact-title">
+          <div>
+            <p class="eyebrow">Telefon</p>
+            <h3 id="contact-title">Contactează Florăria BOUQUET</h3>
+          </div>
+
+          <div class="contact-details">
+            <span class="contact-label">Număr de contact</span>
+            <a class="phone-link" href="tel:0731450717">0731 450 717</a>
+          </div>
+
+          <a class="button button-primary" href="tel:0731450717" aria-label="Sună Florăria BOUQUET la 0731 450 717">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.69 2.8a2 2 0 0 1-.45 2.11L8.08 9.9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.33 1.84.56 2.8.69A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+            Sună pentru informații
+          </a>
+        </aside>
+      </div>
+    </section>
+
+    <section class="closing" aria-labelledby="closing-title">
+      <div class="container closing-inner">
+        <p class="eyebrow">Florăria BOUQUET Târgoviște</p>
+        <h2 id="closing-title">Telefon și indicații de orientare</h2>
+        <div class="closing-actions">
+          <a class="button button-light" href="tel:0731450717">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.69 2.8a2 2 0 0 1-.45 2.11L8.08 9.9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.33 1.84.56 2.8.69A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+            0731 450 717
+          </a>
+          <a class="button button-outline-light" href="https://www.google.com/maps/place/?q=place_id:ChIJZxcyNQD3skARHvJdsjC1ye8" target="_blank" rel="noopener noreferrer">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M21 10c0 7-9 12-9 12S3 17 3 10a9 9 0 1 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            Vezi locația
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">Florăria BOUQUET Târgoviște</div>
+      <div class="footer-details">
+        <span>Bulevardul Mircea cel Bătrân 10</span>
+        <a href="tel:0731450717">0731 450 717</a>
+        <a href="https://www.google.com/maps/place/?q=place_id:ChIJZxcyNQD3skARHvJdsjC1ye8" target="_blank" rel="noopener noreferrer">Google Maps</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="mobile-actions" aria-label="Acțiuni rapide">
+    <a href="tel:0731450717" aria-label="Sună la 0731 450 717">
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.69 2.8a2 2 0 0 1-.45 2.11L8.08 9.9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.33 1.84.56 2.8.69A2 2 0 0 1 22 16.92z"></path>
+      </svg>
+      Sună
+    </a>
+    <a href="https://www.google.com/maps/place/?q=place_id:ChIJZxcyNQD3skARHvJdsjC1ye8" target="_blank" rel="noopener noreferrer">
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M21 10c0 7-9 12-9 12S3 17 3 10a9 9 0 1 1 18 0z"></path>
+        <circle cx="12" cy="10" r="3"></circle>
+      </svg>
+      Locație
+    </a>
+  </div>
+
+  <script>
+    const menuButton = document.querySelector('.menu-toggle');
+    const navigation = document.querySelector('.nav-links');
+    const navigationLinks = navigation.querySelectorAll('a');
+
+    function closeMenu() {
+      navigation.classList.remove('open');
+      menuButton.setAttribute('aria-expanded', 'false');
+      menuButton.setAttribute('aria-label', 'Deschide meniul');
+      document.body.classList.remove('menu-open');
+    }
+
+    menuButton.addEventListener('click', function () {
+      const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
+      menuButton.setAttribute('aria-expanded', String(!isOpen));
+      menuButton.setAttribute('aria-label', isOpen ? 'Deschide meniul' : 'Închide meniul');
+      navigation.classList.toggle('open', !isOpen);
+      document.body.classList.toggle('menu-open', !isOpen);
+    });
+
+    navigationLinks.forEach(function (link) {
+      link.addEventListener('click', closeMenu);
+    });
+
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 960) {
+        closeMenu();
+      }
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') {
+        closeMenu();
+        menuButton.focus();
+      }
+    });
+  </script>
+</body>
+</html>

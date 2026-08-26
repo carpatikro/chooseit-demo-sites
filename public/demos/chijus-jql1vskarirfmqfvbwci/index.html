@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marius Răducu — Fotograf de evenimente în Târgoviște</title>
+  <meta name="description" content="Marius Răducu, fotograf de evenimente în Târgoviște. Telefon: 0726 102 948. Adresă: Bulevardul Mircea cel Bătrân, Târgoviște.">
+  <meta name="theme-color" content="#171512">
+  <style>
+    :root {
+      --ink: #171512;
+      --ink-soft: #39342d;
+      --paper: #f4efe7;
+      --paper-light: #fbf8f3;
+      --warm: #b98452;
+      --warm-dark: #815b38;
+      --line: rgba(23, 21, 18, 0.16);
+      --white: #ffffff;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: Arial, Helvetica, sans-serif;
+      --container: 1180px;
+      --shadow: 0 24px 70px rgba(29, 23, 17, 0.14);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      color: var(--ink);
+      background: var(--paper-light);
+      font-family: var(--sans);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid var(--warm);
+      outline-offset: 4px;
+    }
+
+    .skip-link {
+      position: fixed;
+      top: 12px;
+      left: 12px;
+      z-index: 1000;
+      padding: 10px 16px;
+      color: var(--white);
+      background: var(--ink);
+      border-radius: 4px;
+      transform: translateY(-150%);
+      transition: transform 0.2s ease;
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    .container {
+      width: min(calc(100% - 48px), var(--container));
+      margin-inline: auto;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0 0 22px;
+      color: var(--warm-dark);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      line-height: 1.3;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      width: 34px;
+      height: 1px;
+      background: currentColor;
+      content: "";
+    }
+
+    .section-title {
+      max-width: 720px;
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(2.35rem, 5vw, 4.7rem);
+      font-weight: 400;
+      letter-spacing: -0.045em;
+      line-height: 0.98;
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: 52px;
+      align-items: center;
+      justify-content: center;
+      gap: 11px;
+      padding: 14px 22px;
+      border: 1px solid transparent;
+      border-radius: 2px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      line-height: 1.2;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-primary {
+      color: var(--white);
+      background: var(--ink);
+    }
+
+    .button-primary:hover {
+      background: var(--warm-dark);
+    }
+
+    .button-secondary {
+      color: var(--ink);
+      background: transparent;
+      border-color: var(--line);
+    }
+
+    .button-secondary:hover {
+      border-color: var(--ink);
+    }
+
+    .button-light {
+      color: var(--ink);
+      background: var(--paper-light);
+    }
+
+    .icon {
+      width: 18px;
+      height: 18px;
+      flex: 0 0 auto;
+      fill: none;
+      stroke: currentColor;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 1.8;
+    }
+
+    .site-header {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      z-index: 20;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .nav-wrap {
+      display: flex;
+      min-height: 88px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 40px;
+      height: 40px;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      font-family: var(--serif);
+      font-size: 0.95rem;
+    }
+
+    .brand-text {
+      display: grid;
+      gap: 2px;
+    }
+
+    .brand-name {
+      font-family: var(--serif);
+      font-size: 1rem;
+      letter-spacing: 0.02em;
+      line-height: 1;
+    }
+
+    .brand-role {
+      color: rgba(255, 255, 255, 0.64);
+      font-size: 0.61rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 34px;
+    }
+
+    .main-nav a {
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: color 0.2s ease;
+    }
+
+    .main-nav a:hover {
+      color: var(--white);
+    }
+
+    .main-nav .nav-phone {
+      padding: 11px 15px;
+      color: var(--white);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 46px;
+      height: 46px;
+      padding: 0;
+      color: var(--white);
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      cursor: pointer;
+    }
+
+    .menu-toggle span,
+    .menu-toggle::before,
+    .menu-toggle::after {
+      display: block;
+      width: 19px;
+      height: 1px;
+      margin: 5px auto;
+      background: currentColor;
+      content: "";
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .menu-toggle[aria-expanded="true"] span {
+      opacity: 0;
+    }
+
+    .menu-toggle[aria-expanded="true"]::before {
+      transform: translateY(6px) rotate(45deg);
+    }
+
+    .menu-toggle[aria-expanded="true"]::after {
+      transform: translateY(-6px) rotate(-45deg);
+    }
+
+    .hero {
+      position: relative;
+      display: grid;
+      min-height: 760px;
+      align-items: center;
+      overflow: hidden;
+      color: var(--white);
+      background:
+        radial-gradient(circle at 74% 40%, rgba(185, 132, 82, 0.19), transparent 29%),
+        linear-gradient(118deg, #181613 0%, #211d19 53%, #110f0d 100%);
+    }
+
+    .hero::before {
+      position: absolute;
+      inset: 0;
+      opacity: 0.11;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.23) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.23) 1px, transparent 1px);
+      background-size: 80px 80px;
+      mask-image: linear-gradient(to right, transparent, black 55%, black);
+      content: "";
+    }
+
+    .hero::after {
+      position: absolute;
+      right: -120px;
+      bottom: -220px;
+      width: 570px;
+      height: 570px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: minmax(0, 1.18fr) minmax(360px, 0.82fr);
+      align-items: center;
+      gap: 80px;
+      padding-top: 150px;
+      padding-bottom: 90px;
+    }
+
+    .hero-copy {
+      padding-top: 18px;
+    }
+
+    .hero .eyebrow {
+      color: #d9aa7c;
+    }
+
+    .hero h1 {
+      max-width: 790px;
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(4.3rem, 9.4vw, 8.8rem);
+      font-weight: 400;
+      letter-spacing: -0.065em;
+      line-height: 0.76;
+    }
+
+    .hero h1 span {
+      display: block;
+      margin-left: clamp(28px, 7vw, 110px);
+      color: #d5b18e;
+      font-style: italic;
+    }
+
+    .hero-description {
+      max-width: 470px;
+      margin: 42px 0 0;
+      padding-left: 25px;
+      color: rgba(255, 255, 255, 0.71);
+      border-left: 1px solid rgba(213, 177, 142, 0.7);
+      font-family: var(--serif);
+      font-size: clamp(1.14rem, 2vw, 1.42rem);
+      line-height: 1.5;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 36px;
+    }
+
+    .hero .button-primary {
+      color: var(--ink);
+      background: var(--paper-light);
+    }
+
+    .hero .button-primary:hover {
+      background: #dfc09f;
+    }
+
+    .hero .button-secondary {
+      color: var(--white);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .hero .button-secondary:hover {
+      border-color: var(--white);
+    }
+
+    .visual-frame {
+      position: relative;
+      width: min(100%, 420px);
+      aspect-ratio: 4 / 5;
+      justify-self: end;
+    }
+
+    .frame-outline {
+      position: absolute;
+      inset: 7% 6% 3% 9%;
+      border: 1px solid rgba(255, 255, 255, 0.24);
+    }
+
+    .frame-outline::before,
+    .frame-outline::after {
+      position: absolute;
+      width: 52px;
+      height: 52px;
+      content: "";
+    }
+
+    .frame-outline::before {
+      top: -13px;
+      left: -13px;
+      border-top: 2px solid #d5b18e;
+      border-left: 2px solid #d5b18e;
+    }
+
+    .frame-outline::after {
+      right: -13px;
+      bottom: -13px;
+      border-right: 2px solid #d5b18e;
+      border-bottom: 2px solid #d5b18e;
+    }
+
+    .aperture {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      display: grid;
+      width: 230px;
+      height: 230px;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .aperture::before,
+    .aperture::after {
+      position: absolute;
+      border-radius: 50%;
+      content: "";
+    }
+
+    .aperture::before {
+      width: 165px;
+      height: 165px;
+      border: 1px solid rgba(213, 177, 142, 0.58);
+    }
+
+    .aperture::after {
+      width: 78px;
+      height: 78px;
+      background: rgba(213, 177, 142, 0.11);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      box-shadow: 0 0 70px rgba(185, 132, 82, 0.2);
+    }
+
+    .aperture-lines {
+      position: absolute;
+      inset: 0;
+      animation: rotate 36s linear infinite;
+    }
+
+    .aperture-lines i {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 1px;
+      height: 114px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.28), transparent);
+      transform-origin: top;
+    }
+
+    .aperture-lines i:nth-child(1) { transform: rotate(0deg); }
+    .aperture-lines i:nth-child(2) { transform: rotate(60deg); }
+    .aperture-lines i:nth-child(3) { transform: rotate(120deg); }
+    .aperture-lines i:nth-child(4) { transform: rotate(180deg); }
+    .aperture-lines i:nth-child(5) { transform: rotate(240deg); }
+    .aperture-lines i:nth-child(6) { transform: rotate(300deg); }
+
+    .frame-index {
+      position: absolute;
+      right: 0;
+      bottom: 10%;
+      padding: 12px 5px;
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.17em;
+      writing-mode: vertical-rl;
+    }
+
+    .hero-rating {
+      position: absolute;
+      bottom: 8%;
+      left: 0;
+      display: grid;
+      gap: 2px;
+      padding: 15px 18px;
+      color: var(--ink);
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-rating strong {
+      font-family: var(--serif);
+      font-size: 1.55rem;
+      font-weight: 400;
+      line-height: 1;
+    }
+
+    .hero-rating span {
+      font-size: 0.64rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .profile {
+      position: relative;
+      padding: 130px 0;
+      background: var(--paper-light);
+    }
+
+    .profile-grid {
+      display: grid;
+      grid-template-columns: 0.82fr 1.18fr;
+      gap: clamp(70px, 10vw, 150px);
+      align-items: start;
+    }
+
+    .monogram-panel {
+      position: relative;
+      display: grid;
+      min-height: 440px;
+      place-items: center;
+      overflow: hidden;
+      color: var(--paper-light);
+      background: var(--warm-dark);
+    }
+
+    .monogram-panel::before {
+      position: absolute;
+      inset: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      content: "";
+    }
+
+    .monogram-panel::after {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 280px;
+      height: 280px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      content: "";
+    }
+
+    .monogram {
+      position: relative;
+      z-index: 1;
+      font-family: var(--serif);
+      font-size: clamp(6rem, 11vw, 9rem);
+      font-style: italic;
+      letter-spacing: -0.1em;
+      line-height: 1;
+    }
+
+    .panel-label {
+      position: absolute;
+      right: 41px;
+      bottom: 40px;
+      z-index: 1;
+      color: rgba(255,255,255,0.65);
+      font-size: 0.63rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .profile-copy {
+      padding-top: 24px;
+    }
+
+    .profile-copy .section-title {
+      margin-bottom: 38px;
+    }
+
+    .profile-text {
+      max-width: 590px;
+      margin: 0;
+      color: var(--ink-soft);
+      font-family: var(--serif);
+      font-size: clamp(1.18rem, 2.1vw, 1.55rem);
+      line-height: 1.58;
+    }
+
+    .facts {
+      display: grid;
+      margin-top: 58px;
+      border-top: 1px solid var(--line);
+    }
+
+    .fact-row {
+      display: grid;
+      grid-template-columns: 145px 1fr;
+      gap: 24px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .fact-label {
+      color: #796f64;
+      font-size: 0.69rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .fact-value {
+      font-size: 0.98rem;
+      font-weight: 700;
+    }
+
+    .google-section {
+      padding: 112px 0;
+      color: var(--white);
+      background: var(--ink);
+    }
+
+    .google-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 100px;
+      align-items: center;
+    }
+
+    .google-section .eyebrow {
+      color: #d9aa7c;
+    }
+
+    .google-section .section-title {
+      max-width: 520px;
+    }
+
+    .rating-composition {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 36px;
+      align-items: center;
+      padding: 22px 0 22px 54px;
+      border-left: 1px solid rgba(255, 255, 255, 0.19);
+    }
+
+    .rating-number {
+      font-family: var(--serif);
+      font-size: clamp(6.4rem, 12vw, 10rem);
+      letter-spacing: -0.08em;
+      line-height: 0.8;
+    }
+
+    .rating-detail {
+      display: grid;
+      gap: 12px;
+    }
+
+    .stars {
+      color: #d9aa7c;
+      font-size: 1.25rem;
+      letter-spacing: 0.16em;
+      line-height: 1;
+    }
+
+    .rating-detail strong {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      font-weight: 400;
+    }
+
+    .rating-detail span {
+      color: rgba(255, 255, 255, 0.57);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .contact {
+      position: relative;
+      padding: 130px 0;
+      overflow: hidden;
+      background: var(--paper);
+    }
+
+    .contact::after {
+      position: absolute;
+      top: -200px;
+      right: -150px;
+      width: 520px;
+      height: 520px;
+      border: 1px solid rgba(129, 91, 56, 0.16);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .contact-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 0.92fr 1.08fr;
+      gap: clamp(60px, 10vw, 150px);
+    }
+
+    .contact-intro .section-title {
+      margin-bottom: 30px;
+    }
+
+    .contact-intro p {
+      max-width: 440px;
+      margin: 0;
+      color: #665d53;
+      font-size: 1rem;
+    }
+
+    .contact-list {
+      display: grid;
+      border-top: 1px solid var(--line);
+    }
+
+    .contact-item {
+      display: grid;
+      grid-template-columns: 38px 1fr auto;
+      gap: 20px;
+      align-items: center;
+      padding: 27px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .contact-icon {
+      display: grid;
+      width: 38px;
+      height: 38px;
+      place-items: center;
+      color: var(--warm-dark);
+      border: 1px solid rgba(129, 91, 56, 0.32);
+      border-radius: 50%;
+    }
+
+    .contact-data {
+      display: grid;
+      gap: 4px;
+      min-width: 0;
+    }
+
+    .contact-data span {
+      color: #796f64;
+      font-size: 0.66rem;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .contact-data strong,
+    .contact-data address {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(1.1rem, 2vw, 1.35rem);
+      font-style: normal;
+      font-weight: 400;
+      line-height: 1.45;
+    }
+
+    .contact-link {
+      color: var(--warm-dark);
+      font-size: 0.69rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .contact-link:hover {
+      text-decoration: underline;
+      text-underline-offset: 5px;
+    }
+
+    .closing {
+      padding: 90px 0;
+      color: var(--white);
+      background: var(--warm-dark);
+    }
+
+    .closing-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 50px;
+    }
+
+    .closing h2 {
+      max-width: 680px;
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(2.3rem, 5vw, 4.4rem);
+      font-weight: 400;
+      letter-spacing: -0.045em;
+      line-height: 1;
+    }
+
+    .closing .button {
+      flex: 0 0 auto;
+    }
+
+    .site-footer {
+      padding: 32px 0;
+      color: rgba(255, 255, 255, 0.58);
+      background: #100e0c;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      font-size: 0.72rem;
+      letter-spacing: 0.05em;
+    }
+
+    .footer-name {
+      color: var(--white);
+      font-family: var(--serif);
+      font-size: 0.95rem;
+    }
+
+    .footer-link {
+      color: rgba(255, 255, 255, 0.68);
+      text-decoration: none;
+    }
+
+    .footer-link:hover {
+      color: var(--white);
+    }
+
+    @keyframes rotate {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @media (max-width: 920px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .main-nav {
+        position: absolute;
+        top: 88px;
+        right: 0;
+        left: 0;
+        display: none;
+        padding: 20px 24px 28px;
+        align-items: stretch;
+        flex-direction: column;
+        gap: 0;
+        background: #171512;
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: 0 22px 45px rgba(0, 0, 0, 0.25);
+      }
+
+      .main-nav.is-open {
+        display: flex;
+      }
+
+      .main-nav a {
+        padding: 14px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .main-nav .nav-phone {
+        margin-top: 14px;
+        padding: 14px 18px;
+        text-align: center;
+        border-bottom: 1px solid rgba(255,255,255,0.35);
+      }
+
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 54px;
+        padding-top: 160px;
+      }
+
+      .hero-copy {
+        max-width: 740px;
+      }
+
+      .visual-frame {
+        width: min(76vw, 430px);
+        justify-self: center;
+      }
+
+      .profile-grid,
+      .google-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-grid {
+        gap: 65px;
+      }
+
+      .monogram-panel {
+        width: min(100%, 570px);
+      }
+
+      .google-grid {
+        gap: 58px;
+      }
+
+      .rating-composition {
+        max-width: 610px;
+      }
+
+      .contact-grid {
+        gap: 60px;
+      }
+
+      .closing-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .container {
+        width: min(calc(100% - 32px), var(--container));
+      }
+
+      .nav-wrap {
+        min-height: 76px;
+      }
+
+      .brand-role {
+        display: none;
+      }
+
+      .main-nav {
+        top: 76px;
+      }
+
+      .hero {
+        min-height: 0;
+      }
+
+      .hero-inner {
+        gap: 42px;
+        padding-top: 134px;
+        padding-bottom: 70px;
+      }
+
+      .hero h1 {
+        font-size: clamp(3.8rem, 21vw, 6rem);
+        line-height: 0.82;
+      }
+
+      .hero h1 span {
+        margin-left: 22px;
+      }
+
+      .hero-description {
+        margin-top: 32px;
+        font-size: 1.08rem;
+      }
+
+      .hero-actions {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .hero-actions .button {
+        width: 100%;
+      }
+
+      .visual-frame {
+        width: 88vw;
+        max-width: 370px;
+      }
+
+      .aperture {
+        width: 190px;
+        height: 190px;
+      }
+
+      .aperture::before {
+        width: 138px;
+        height: 138px;
+      }
+
+      .aperture-lines i {
+        height: 94px;
+      }
+
+      .profile,
+      .contact {
+        padding: 88px 0;
+      }
+
+      .google-section {
+        padding: 84px 0;
+      }
+
+      .monogram-panel {
+        min-height: 350px;
+      }
+
+      .fact-row {
+        grid-template-columns: 1fr;
+        gap: 5px;
+        padding: 17px 0;
+      }
+
+      .rating-composition {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        padding: 30px 0 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.19);
+        border-left: 0;
+      }
+
+      .rating-number {
+        font-size: 7rem;
+      }
+
+      .contact-item {
+        grid-template-columns: 38px 1fr;
+        align-items: start;
+      }
+
+      .contact-link {
+        grid-column: 2;
+      }
+
+      .closing {
+        padding: 72px 0;
+      }
+
+      .closing .button {
+        width: 100%;
+      }
+
+      .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#continut">Sari la conținut</a>
+
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#acasa" aria-label="Marius Răducu, pagina principală">
+        <span class="brand-mark" aria-hidden="true">MR</span>
+        <span class="brand-text">
+          <span class="brand-name">Marius Răducu</span>
+          <span class="brand-role">Fotograf de evenimente</span>
+        </span>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navigatie" aria-label="Deschide meniul">
+        <span></span>
+      </button>
+
+      <nav class="main-nav" id="navigatie" aria-label="Navigație principală">
+        <a href="#despre">Despre</a>
+        <a href="#evaluare">Evaluare Google</a>
+        <a href="#contact">Contact</a>
+        <a class="nav-phone" href="tel:+40726102948">0726 102 948</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="continut">
+    <section class="hero" id="acasa" aria-labelledby="titlu-principal">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow">Fotograf de evenimente · Târgoviște</p>
+          <h1 id="titlu-principal">Marius <span>Răducu</span></h1>
+          <p class="hero-description">Activitate de fotografie de eveniment în Târgoviște.</p>
+
+          <div class="hero-actions">
+            <a class="button button-primary" href="tel:+40726102948">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.77 19.77 0 0 1-8.63-3.07 19.45 19.45 0 0 1-6-6A19.77 19.77 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.69 2.8a2 2 0 0 1-.45 2.11L8.08 9.9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.33 1.84.56 2.8.69A2 2 0 0 1 22 16.92z"/>
+              </svg>
+              Sună pentru informații
+            </a>
+            <a class="button button-secondary" href="https://www.google.com/maps/place/?q=place_id:ChIJuS_JQL1vskARiRfMQFvBWCI" target="_blank" rel="noopener noreferrer">
+              Vezi locația
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M7 17 17 7M7 7h10v10"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="visual-frame" aria-hidden="true">
+          <div class="frame-outline"></div>
+          <div class="aperture">
+            <div class="aperture-lines">
+              <i></i><i></i><i></i><i></i><i></i><i></i>
+            </div>
+          </div>
+          <span class="frame-index">TÂRGOVIȘTE · ROMÂNIA</span>
+          <div class="hero-rating">
+            <strong>5 / 5</strong>
+            <span>22 recenzii Google</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="profile" id="despre" aria-labelledby="titlu-despre">
+      <div class="container profile-grid">
+        <div class="monogram-panel" aria-hidden="true">
+          <span class="monogram">MR</span>
+          <span class="panel-label">Fotografie de eveniment</span>
+        </div>
+
+        <div class="profile-copy">
+          <p class="eyebrow">Profil</p>
+          <h2 class="section-title" id="titlu-despre">Marius Răducu</h2>
+          <p class="profile-text">Fotograf de evenimente cu activitate în Târgoviște. Pentru informații, contactul se poate face direct la numărul de telefon afișat.</p>
+
+          <div class="facts" aria-label="Informații despre activitate">
+            <div class="fact-row">
+              <span class="fact-label">Activitate</span>
+              <span class="fact-value">Fotograf de evenimente</span>
+            </div>
+            <div class="fact-row">
+              <span class="fact-label">Oraș</span>
+              <span class="fact-value">Târgoviște</span>
+            </div>
+            <div class="fact-row">
+              <span class="fact-label">Telefon</span>
+              <a class="fact-value" href="tel:+40726102948">0726 102 948</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="google-section" id="evaluare" aria-labelledby="titlu-evaluare">
+      <div class="container google-grid">
+        <div>
+          <p class="eyebrow">Evaluare publică</p>
+          <h2 class="section-title" id="titlu-evaluare">Evaluare Google</h2>
+        </div>
+
+        <div class="rating-composition" aria-label="Rating Google 5 din 5, bazat pe 22 de recenzii">
+          <div class="rating-number">5</div>
+          <div class="rating-detail">
+            <div class="stars" aria-hidden="true">★★★★★</div>
+            <strong>5 din 5</strong>
+            <span>22 de recenzii pe Google</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact" aria-labelledby="titlu-contact">
+      <div class="container contact-grid">
+        <div class="contact-intro">
+          <p class="eyebrow">Contact și locație</p>
+          <h2 class="section-title" id="titlu-contact">Informații directe</h2>
+          <p>Folosește numărul de telefon pentru informații sau deschide adresa în Google Maps.</p>
+        </div>
+
+        <div class="contact-list">
+          <div class="contact-item">
+            <span class="contact-icon" aria-hidden="true">
+              <svg class="icon" viewBox="0 0 24 24">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.77 19.77 0 0 1-8.63-3.07 19.45 19.45 0 0 1-6-6A19.77 19.77 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.69 2.8a2 2 0 0 1-.45 2.11L8.08 9.9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.33 1.84.56 2.8.69A2 2 0 0 1 22 16.92z"/>
+              </svg>
+            </span>
+            <div class="contact-data">
+              <span>Telefon</span>
+              <strong>0726 102 948</strong>
+            </div>
+            <a class="contact-link" href="tel:+40726102948">Sună</a>
+          </div>
+
+          <div class="contact-item">
+            <span class="contact-icon" aria-hidden="true">
+              <svg class="icon" viewBox="0 0 24 24">
+                <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0z"/>
+                <circle cx="12" cy="10" r="2.5"/>
+              </svg>
+            </span>
+            <div class="contact-data">
+              <span>Adresă</span>
+              <address>Bulevardul Mircea cel Bătrân, 130018 Târgoviște, România</address>
+            </div>
+            <a class="contact-link" href="https://www.google.com/maps/place/?q=place_id:ChIJuS_JQL1vskARiRfMQFvBWCI" target="_blank" rel="noopener noreferrer">Google Maps</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing" aria-labelledby="titlu-final">
+      <div class="container closing-inner">
+        <h2 id="titlu-final">Contactează-l direct pe Marius Răducu.</h2>
+        <a class="button button-light" href="tel:+40726102948">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.77 19.77 0 0 1-8.63-3.07 19.45 19.45 0 0 1-6-6A19.77 19.77 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.69 2.8a2 2 0 0 1-.45 2.11L8.08 9.9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.33 1.84.56 2.8.69A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          0726 102 948
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span class="footer-name">Marius Răducu</span>
+      <span>Fotograf de evenimente · Târgoviște</span>
+      <a class="footer-link" href="https://www.google.com/maps/place/?q=place_id:ChIJuS_JQL1vskARiRfMQFvBWCI" target="_blank" rel="noopener noreferrer">Deschide în Google Maps</a>
+    </div>
+  </footer>
+
+  <script>
+    const menuButton = document.querySelector(".menu-toggle");
+    const navigation = document.querySelector(".main-nav");
+
+    menuButton.addEventListener("click", function () {
+      const isOpen = menuButton.getAttribute("aria-expanded") === "true";
+      menuButton.setAttribute("aria-expanded", String(!isOpen));
+      menuButton.setAttribute("aria-label", isOpen ? "Deschide meniul" : "Închide meniul");
+      navigation.classList.toggle("is-open", !isOpen);
+    });
+
+    navigation.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        menuButton.setAttribute("aria-expanded", "false");
+        menuButton.setAttribute("aria-label", "Deschide meniul");
+        navigation.classList.remove("is-open");
+      });
+    });
+
+    window.addEventListener("resize", function () {
+      if (window.innerWidth > 920) {
+        menuButton.setAttribute("aria-expanded", "false");
+        menuButton.setAttribute("aria-label", "Deschide meniul");
+        navigation.classList.remove("is-open");
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,1540 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GDK GARAGE SERV | Service auto în Târgoviște</title>
+  <meta name="description" content="GDK GARAGE SERV, service auto în Târgoviște. Telefon: 0732 328 071. Adresă: Strada Cooperației 11, Târgoviște.">
+  <meta name="theme-color" content="#101214">
+
+  <style>
+    :root {
+      --bg: #0d0f11;
+      --bg-soft: #15181b;
+      --surface: #1b1f22;
+      --surface-light: #23282c;
+      --text: #f5f3ee;
+      --muted: #a7adb1;
+      --line: rgba(255, 255, 255, 0.12);
+      --line-strong: rgba(255, 255, 255, 0.2);
+      --accent: #f04a23;
+      --accent-dark: #c83212;
+      --accent-soft: rgba(240, 74, 35, 0.12);
+      --star: #ffb833;
+      --max-width: 1200px;
+      --radius: 4px;
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.32);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 92px;
+    }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      overflow-x: hidden;
+      color: var(--text);
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+        var(--bg);
+      background-size: 48px 48px;
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid rgba(240, 74, 35, 0.75);
+      outline-offset: 4px;
+    }
+
+    .skip-link {
+      position: fixed;
+      top: 12px;
+      left: 12px;
+      z-index: 1000;
+      padding: 10px 14px;
+      color: #fff;
+      background: var(--accent);
+      transform: translateY(-150%);
+      transition: transform 0.2s ease;
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    .container {
+      width: min(calc(100% - 48px), var(--max-width));
+      margin-inline: auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--line);
+      background: rgba(13, 15, 17, 0.93);
+      backdrop-filter: blur(16px);
+    }
+
+    .nav-shell {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 13px;
+      min-width: max-content;
+    }
+
+    .brand-mark {
+      position: relative;
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      border: 1px solid var(--line-strong);
+      background: var(--surface);
+      transform: skewX(-8deg);
+    }
+
+    .brand-mark::before,
+    .brand-mark::after {
+      content: "";
+      position: absolute;
+      background: var(--accent);
+    }
+
+    .brand-mark::before {
+      width: 21px;
+      height: 5px;
+      transform: rotate(-42deg);
+    }
+
+    .brand-mark::after {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      box-shadow: 0 0 0 4px rgba(240, 74, 35, 0.16);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .brand-name {
+      font-weight: 850;
+      font-size: 0.98rem;
+      letter-spacing: 0.055em;
+    }
+
+    .brand-category {
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .site-nav {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-block: 12px;
+      color: #d0d3d4;
+      font-size: 0.88rem;
+      font-weight: 650;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: 5px;
+      left: 0;
+      height: 2px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.2s ease;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a:focus-visible::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .nav-phone {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 0 17px;
+      color: #fff;
+      background: var(--accent);
+      font-size: 0.88rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .nav-phone:hover {
+      background: var(--accent-dark);
+      transform: translateY(-1px);
+    }
+
+    .nav-phone svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 46px;
+      height: 46px;
+      padding: 0;
+      border: 1px solid var(--line-strong);
+      color: #fff;
+      background: var(--surface);
+      cursor: pointer;
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      margin: 5px auto;
+      background: currentColor;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .menu-toggle[aria-expanded="true"] span:first-child {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .menu-toggle[aria-expanded="true"] span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle[aria-expanded="true"] span:last-child {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .hero {
+      position: relative;
+      min-height: calc(100vh - 79px);
+      min-height: calc(100svh - 79px);
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero::before {
+      content: "GDK";
+      position: absolute;
+      top: 50%;
+      right: -0.07em;
+      z-index: -1;
+      color: rgba(255, 255, 255, 0.022);
+      font-size: clamp(12rem, 30vw, 31rem);
+      font-weight: 950;
+      line-height: 0.7;
+      letter-spacing: -0.09em;
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 9%;
+      width: 1px;
+      height: 100%;
+      background: linear-gradient(transparent, rgba(240, 74, 35, 0.42), transparent);
+      transform: rotate(15deg);
+      transform-origin: top;
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      width: 100%;
+      display: grid;
+      grid-template-columns: minmax(0, 1.17fr) minmax(360px, 0.83fr);
+      align-items: center;
+      gap: clamp(48px, 8vw, 110px);
+      padding-block: clamp(72px, 10vw, 128px);
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      margin: 0 0 24px;
+      color: #d0d3d4;
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 44px;
+      height: 3px;
+      background: var(--accent);
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      max-width: 780px;
+      margin-bottom: 26px;
+      font-size: clamp(3.6rem, 8.4vw, 7.4rem);
+      font-weight: 950;
+      line-height: 0.83;
+      letter-spacing: -0.065em;
+      text-transform: uppercase;
+    }
+
+    h1 span {
+      display: block;
+      color: transparent;
+      -webkit-text-stroke: 1.5px rgba(245, 243, 238, 0.62);
+    }
+
+    .hero-copy {
+      max-width: 590px;
+      margin-bottom: 36px;
+      color: #b8bdc0;
+      font-size: clamp(1rem, 1.5vw, 1.16rem);
+    }
+
+    .hero-actions,
+    .location-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .button {
+      min-height: 52px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 0 22px;
+      border: 1px solid transparent;
+      font-size: 0.9rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-primary {
+      color: #fff;
+      background: var(--accent);
+    }
+
+    .button-primary:hover {
+      background: var(--accent-dark);
+    }
+
+    .button-secondary {
+      border-color: var(--line-strong);
+      background: rgba(255, 255, 255, 0.035);
+    }
+
+    .button-secondary:hover {
+      border-color: rgba(255, 255, 255, 0.35);
+      background: rgba(255, 255, 255, 0.075);
+    }
+
+    .button svg {
+      width: 19px;
+      height: 19px;
+      flex: 0 0 auto;
+    }
+
+    .hero-instrument {
+      position: relative;
+      min-height: 430px;
+      display: grid;
+      place-items: center;
+    }
+
+    .hero-instrument::before,
+    .hero-instrument::after {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+    }
+
+    .hero-instrument::before {
+      inset: 12% 3%;
+      border: 1px solid var(--line);
+      transform: skewY(-5deg);
+    }
+
+    .hero-instrument::after {
+      width: 78%;
+      height: 78%;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(240, 74, 35, 0.12), transparent 68%);
+      filter: blur(4px);
+    }
+
+    .gauge {
+      position: relative;
+      z-index: 2;
+      width: min(360px, 88vw);
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line-strong);
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at center, var(--bg-soft) 0 43%, transparent 43.5%),
+        repeating-conic-gradient(
+          from 225deg,
+          rgba(255, 255, 255, 0.46) 0deg 1deg,
+          transparent 1deg 8deg
+        ),
+        conic-gradient(
+          from 225deg,
+          rgba(255, 255, 255, 0.04) 0deg 250deg,
+          rgba(240, 74, 35, 0.8) 250deg 270deg,
+          transparent 270deg
+        );
+      box-shadow: var(--shadow), inset 0 0 0 18px rgba(0, 0, 0, 0.23);
+    }
+
+    .gauge::before {
+      content: "";
+      position: absolute;
+      inset: 13%;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+    }
+
+    .gauge::after {
+      content: "";
+      position: absolute;
+      width: 34%;
+      height: 3px;
+      left: 50%;
+      top: 50%;
+      background: linear-gradient(90deg, var(--accent), #ff805e);
+      box-shadow: 0 0 18px rgba(240, 74, 35, 0.55);
+      transform: rotate(-33deg);
+      transform-origin: left center;
+    }
+
+    .gauge-center {
+      position: relative;
+      z-index: 3;
+      width: 46%;
+      aspect-ratio: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--line-strong);
+      border-radius: 50%;
+      background: #111416;
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.5);
+      text-align: center;
+    }
+
+    .rating-number {
+      font-size: clamp(2.7rem, 5vw, 4rem);
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.055em;
+    }
+
+    .stars {
+      margin: 8px 0 6px;
+      color: var(--star);
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+    }
+
+    .rating-source {
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 750;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .gauge-tag {
+      position: absolute;
+      right: -14px;
+      bottom: 46px;
+      z-index: 4;
+      padding: 13px 17px;
+      border-left: 3px solid var(--accent);
+      background: #22272a;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .facts-strip {
+      border-bottom: 1px solid var(--line);
+      background: #111416;
+    }
+
+    .facts-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.45fr 0.85fr;
+    }
+
+    .fact {
+      min-height: 150px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 28px 34px;
+      border-right: 1px solid var(--line);
+    }
+
+    .fact:first-child {
+      padding-left: 0;
+    }
+
+    .fact:last-child {
+      padding-right: 0;
+      border-right: 0;
+    }
+
+    .fact-icon {
+      width: 46px;
+      height: 46px;
+      flex: 0 0 46px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      color: var(--accent);
+      background: var(--accent-soft);
+    }
+
+    .fact-icon svg {
+      width: 21px;
+      height: 21px;
+    }
+
+    .fact-label {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--muted);
+      font-size: 0.7rem;
+      font-weight: 750;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .fact-value {
+      color: var(--text);
+      font-size: 0.98rem;
+      font-weight: 750;
+      line-height: 1.45;
+    }
+
+    .fact-value a:hover {
+      color: var(--accent);
+    }
+
+    .section {
+      padding-block: clamp(82px, 10vw, 132px);
+    }
+
+    .profile {
+      position: relative;
+      overflow: hidden;
+      background: #f0eee8;
+      color: #17191a;
+    }
+
+    .profile::after {
+      content: "01";
+      position: absolute;
+      right: 4vw;
+      bottom: -0.2em;
+      color: rgba(16, 18, 20, 0.045);
+      font-size: clamp(13rem, 28vw, 25rem);
+      font-weight: 950;
+      line-height: 0.8;
+      letter-spacing: -0.1em;
+    }
+
+    .profile-grid {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 0.72fr 1.28fr;
+      gap: clamp(50px, 10vw, 130px);
+      align-items: start;
+    }
+
+    .section-index {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      color: #6e7477;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.17em;
+      text-transform: uppercase;
+    }
+
+    .section-index::before {
+      content: "";
+      width: 48px;
+      height: 3px;
+      background: var(--accent);
+    }
+
+    .section-title {
+      margin-bottom: 28px;
+      font-size: clamp(2.35rem, 5vw, 4.65rem);
+      font-weight: 900;
+      line-height: 0.98;
+      letter-spacing: -0.055em;
+      text-transform: uppercase;
+    }
+
+    .profile-copy {
+      max-width: 670px;
+      margin-bottom: 34px;
+      color: #555b5e;
+      font-size: clamp(1.05rem, 1.8vw, 1.28rem);
+    }
+
+    .profile-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 12px;
+      border: 1px solid rgba(16, 18, 20, 0.18);
+      color: #3e4345;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .profile-label::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px rgba(240, 74, 35, 0.13);
+    }
+
+    .location {
+      position: relative;
+      overflow: hidden;
+      background: var(--bg-soft);
+    }
+
+    .location-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(360px, 0.86fr);
+      gap: clamp(45px, 8vw, 100px);
+      align-items: center;
+    }
+
+    .location .section-index {
+      margin-bottom: 26px;
+      color: var(--muted);
+    }
+
+    .location-copy {
+      max-width: 580px;
+      margin-bottom: 34px;
+      color: var(--muted);
+      font-size: 1.04rem;
+    }
+
+    .address-block {
+      margin-bottom: 36px;
+      padding: 24px 0 24px 26px;
+      border-left: 3px solid var(--accent);
+    }
+
+    .address-label {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--muted);
+      font-size: 0.7rem;
+      font-weight: 750;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .address-text {
+      max-width: 530px;
+      margin: 0;
+      color: var(--text);
+      font-size: clamp(1.16rem, 2vw, 1.5rem);
+      font-weight: 750;
+      line-height: 1.42;
+    }
+
+    .map-visual {
+      position: relative;
+      min-height: 480px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(31deg, transparent 45%, rgba(255, 255, 255, 0.075) 46%, rgba(255, 255, 255, 0.075) 47%, transparent 48%),
+        linear-gradient(122deg, transparent 35%, rgba(255, 255, 255, 0.06) 36%, rgba(255, 255, 255, 0.06) 37%, transparent 38%),
+        linear-gradient(75deg, transparent 61%, rgba(255, 255, 255, 0.05) 62%, rgba(255, 255, 255, 0.05) 64%, transparent 65%),
+        #1b1f22;
+      background-size: 170px 190px, 210px 180px, 230px 250px, auto;
+      box-shadow: var(--shadow);
+    }
+
+    .map-visual::before,
+    .map-visual::after {
+      content: "";
+      position: absolute;
+      border: 1px solid rgba(255, 255, 255, 0.055);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .map-visual::before {
+      width: 430px;
+      height: 430px;
+      left: -215px;
+      top: -150px;
+    }
+
+    .map-visual::after {
+      width: 300px;
+      height: 300px;
+      right: -150px;
+      bottom: -120px;
+    }
+
+    .map-coordinate {
+      position: absolute;
+      top: 24px;
+      left: 24px;
+      color: #858c90;
+      font-size: 0.67rem;
+      font-weight: 750;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .map-pin {
+      position: absolute;
+      top: 48%;
+      left: 52%;
+      width: 78px;
+      height: 78px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(240, 74, 35, 0.55);
+      border-radius: 50%;
+      background: rgba(240, 74, 35, 0.08);
+      transform: translate(-50%, -50%);
+      box-shadow: 0 0 0 22px rgba(240, 74, 35, 0.04), 0 0 0 46px rgba(240, 74, 35, 0.025);
+    }
+
+    .map-pin::before {
+      content: "";
+      width: 18px;
+      height: 18px;
+      border-radius: 50% 50% 50% 0;
+      background: var(--accent);
+      transform: rotate(-45deg);
+      box-shadow: 0 8px 22px rgba(240, 74, 35, 0.45);
+    }
+
+    .map-pin::after {
+      content: "";
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #fff;
+    }
+
+    .map-card {
+      position: absolute;
+      right: 24px;
+      bottom: 24px;
+      left: 24px;
+      padding: 24px;
+      border-top: 3px solid var(--accent);
+      background: rgba(13, 15, 17, 0.94);
+      box-shadow: 0 16px 45px rgba(0, 0, 0, 0.3);
+    }
+
+    .map-card strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 1rem;
+      letter-spacing: 0.02em;
+    }
+
+    .map-card span {
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    .contact {
+      position: relative;
+      overflow: hidden;
+      color: #fff;
+      background: var(--accent);
+    }
+
+    .contact::before {
+      content: "";
+      position: absolute;
+      top: -100%;
+      right: 10%;
+      width: 1px;
+      height: 300%;
+      background: rgba(255, 255, 255, 0.22);
+      transform: rotate(28deg);
+    }
+
+    .contact::after {
+      content: "CALL";
+      position: absolute;
+      right: -0.03em;
+      bottom: -0.18em;
+      color: rgba(0, 0, 0, 0.07);
+      font-size: clamp(9rem, 24vw, 22rem);
+      font-weight: 950;
+      line-height: 0.8;
+      letter-spacing: -0.08em;
+    }
+
+    .contact-grid {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 55px;
+      align-items: end;
+    }
+
+    .contact-kicker {
+      margin-bottom: 18px;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .contact-title {
+      max-width: 730px;
+      margin-bottom: 0;
+      font-size: clamp(2.5rem, 6vw, 5.7rem);
+      font-weight: 950;
+      line-height: 0.9;
+      letter-spacing: -0.06em;
+      text-transform: uppercase;
+    }
+
+    .contact-panel {
+      padding: 28px;
+      border: 1px solid rgba(255, 255, 255, 0.34);
+      background: rgba(0, 0, 0, 0.13);
+    }
+
+    .contact-panel-label {
+      display: block;
+      margin-bottom: 8px;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.7rem;
+      font-weight: 750;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .contact-number {
+      display: block;
+      margin-bottom: 22px;
+      font-size: clamp(1.65rem, 3.6vw, 2.6rem);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.04em;
+    }
+
+    .contact-number:hover {
+      text-decoration: underline;
+      text-underline-offset: 6px;
+    }
+
+    .contact-button {
+      width: 100%;
+      color: #141617;
+      background: #fff;
+    }
+
+    .contact-button:hover {
+      background: #f2f0eb;
+    }
+
+    .site-footer {
+      padding: 34px 0 94px;
+      border-top: 1px solid var(--line);
+      background: #0a0c0d;
+    }
+
+    .footer-grid {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+
+    .footer-name {
+      margin-bottom: 5px;
+      font-size: 0.9rem;
+      font-weight: 850;
+      letter-spacing: 0.07em;
+    }
+
+    .footer-meta,
+    .footer-address {
+      margin: 0;
+      color: #7f868a;
+      font-size: 0.78rem;
+    }
+
+    .footer-address {
+      max-width: 420px;
+      text-align: right;
+    }
+
+    .mobile-call {
+      position: fixed;
+      right: 14px;
+      bottom: 14px;
+      left: 14px;
+      z-index: 90;
+      min-height: 54px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      color: #fff;
+      background: var(--accent);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.38);
+      font-size: 0.92rem;
+      font-weight: 850;
+    }
+
+    .mobile-call svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .hero-content,
+      .hero-instrument {
+        animation: reveal 0.7s ease both;
+      }
+
+      .hero-instrument {
+        animation-delay: 0.12s;
+      }
+
+      @keyframes reveal {
+        from {
+          opacity: 0;
+          transform: translateY(18px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    }
+
+    @media (max-width: 960px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .site-nav {
+        position: absolute;
+        top: calc(100% + 1px);
+        right: 0;
+        left: 0;
+        display: none;
+        padding: 22px 24px 26px;
+        border-bottom: 1px solid var(--line);
+        background: #111416;
+        box-shadow: 0 18px 35px rgba(0, 0, 0, 0.32);
+      }
+
+      .site-nav.is-open {
+        display: block;
+      }
+
+      .nav-links {
+        display: grid;
+        gap: 4px;
+        margin-bottom: 18px;
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 13px 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .nav-phone {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-grid,
+      .location-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-grid {
+        gap: 28px;
+        padding-top: 76px;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 3;
+      }
+
+      .hero-instrument {
+        min-height: 390px;
+      }
+
+      .facts-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .fact {
+        border-bottom: 1px solid var(--line);
+      }
+
+      .fact:first-child {
+        padding-left: 28px;
+      }
+
+      .fact:nth-child(2) {
+        border-right: 0;
+      }
+
+      .fact:last-child {
+        grid-column: 1 / -1;
+        padding-left: 28px;
+        border-bottom: 0;
+      }
+
+      .profile-grid {
+        grid-template-columns: 1fr;
+        gap: 38px;
+      }
+
+      .map-visual {
+        min-height: 430px;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+        align-items: start;
+      }
+
+      .contact-panel {
+        max-width: 520px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        width: min(calc(100% - 32px), var(--max-width));
+      }
+
+      .nav-shell {
+        min-height: 70px;
+      }
+
+      .brand-name {
+        font-size: 0.86rem;
+      }
+
+      .brand-category {
+        font-size: 0.61rem;
+      }
+
+      .hero::after {
+        right: -12%;
+      }
+
+      .hero-grid {
+        padding-block: 62px 54px;
+      }
+
+      h1 {
+        margin-bottom: 22px;
+        font-size: clamp(3.2rem, 18vw, 5rem);
+      }
+
+      .hero-copy {
+        margin-bottom: 28px;
+      }
+
+      .hero-actions,
+      .location-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .hero-instrument {
+        min-height: 340px;
+      }
+
+      .gauge {
+        width: min(310px, 88vw);
+      }
+
+      .gauge-tag {
+        right: -2px;
+        bottom: 24px;
+        padding: 11px 13px;
+        font-size: 0.68rem;
+      }
+
+      .facts-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .fact,
+      .fact:first-child,
+      .fact:last-child {
+        min-height: 118px;
+        grid-column: auto;
+        padding: 22px 0;
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .fact:last-child {
+        border-bottom: 0;
+      }
+
+      .section {
+        padding-block: 76px;
+      }
+
+      .section-title {
+        font-size: clamp(2.2rem, 12vw, 3.4rem);
+      }
+
+      .location-grid {
+        gap: 46px;
+      }
+
+      .address-block {
+        padding-left: 20px;
+      }
+
+      .map-visual {
+        min-height: 380px;
+      }
+
+      .map-card {
+        right: 16px;
+        bottom: 16px;
+        left: 16px;
+        padding: 20px;
+      }
+
+      .contact-grid {
+        gap: 38px;
+      }
+
+      .contact-panel {
+        padding: 23px;
+      }
+
+      .footer-grid {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .footer-address {
+        text-align: left;
+      }
+
+      .mobile-call {
+        display: flex;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AutoRepair",
+    "name": "GDK GARAGE SERV",
+    "telephone": "+40732328071",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Strada Cooperației 11",
+      "postalCode": "130086",
+      "addressLocality": "Târgoviște",
+      "addressCountry": "RO"
+    },
+    "hasMap": "https://www.google.com/maps/place/?q=place_id:ChIJw9xNTIL1skART4hQ8_nMVRU",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.5",
+      "bestRating": "5",
+      "reviewCount": "66"
+    }
+  }
+  </script>
+</head>
+
+<body>
+  <a class="skip-link" href="#continut">Sari la conținut</a>
+
+  <header class="site-header">
+    <div class="container nav-shell">
+      <a class="brand" href="#acasa" aria-label="GDK GARAGE SERV — Acasă">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-text">
+          <span class="brand-name">GDK GARAGE SERV</span>
+          <span class="brand-category">Service auto · Târgoviște</span>
+        </span>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navigatie-principala" aria-label="Deschide meniul">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="site-nav" id="navigatie-principala" aria-label="Navigație principală">
+        <ul class="nav-links">
+          <li><a href="#acasa">Acasă</a></li>
+          <li><a href="#profil">Profil</a></li>
+          <li><a href="#localizare">Localizare</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <a class="nav-phone" href="tel:+40732328071" aria-label="Sună la GDK GARAGE SERV, 0732 328 071">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+            <path d="M7.2 3.5 10 7.8 8.2 9.7c1.2 2.5 3.1 4.4 5.6 5.6l1.9-1.8 4.3 2.8-.6 3.2c-.2.8-.9 1.4-1.8 1.4C9.5 20.8 3 14.3 3 6.3c0-.9.6-1.6 1.4-1.8l2.8-1Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+          </svg>
+          0732 328 071
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="continut">
+    <section class="hero" id="acasa" aria-labelledby="titlu-principal">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <p class="eyebrow">Service auto · Târgoviște</p>
+          <h1 id="titlu-principal">GDK <span>Garage Serv</span></h1>
+          <p class="hero-copy">
+            Contact direct și acces rapid la adresa GDK GARAGE SERV din Târgoviște.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button button-primary" href="tel:+40732328071">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+                <path d="M7.2 3.5 10 7.8 8.2 9.7c1.2 2.5 3.1 4.4 5.6 5.6l1.9-1.8 4.3 2.8-.6 3.2c-.2.8-.9 1.4-1.8 1.4C9.5 20.8 3 14.3 3 6.3c0-.9.6-1.6 1.4-1.8l2.8-1Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              </svg>
+              Sună pentru informații
+            </a>
+
+            <a class="button button-secondary" href="https://www.google.com/maps/place/?q=place_id:ChIJw9xNTIL1skART4hQ8_nMVRU" target="_blank" rel="noopener noreferrer">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+                <path d="M12 21s6-5.4 6-11a6 6 0 1 0-12 0c0 5.6 6 11 6 11Z" stroke="currentColor" stroke-width="1.8"/>
+                <circle cx="12" cy="10" r="2.2" stroke="currentColor" stroke-width="1.8"/>
+              </svg>
+              Vezi locația
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-instrument" aria-label="Rating Google: 4.5 din 5, din 66 de recenzii">
+          <div class="gauge">
+            <div class="gauge-center">
+              <span class="rating-number">4.5</span>
+              <span class="stars" aria-hidden="true">★★★★<span style="opacity:.5">★</span></span>
+              <span class="rating-source">Rating Google</span>
+            </div>
+            <span class="gauge-tag">66 de recenzii</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="facts-strip" aria-label="Informații esențiale">
+      <div class="container facts-grid">
+        <div class="fact">
+          <span class="fact-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M4 17h16M6 17l1-6h10l1 6M8 11l1.2-3h5.6L16 11M7 17v2M17 17v2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="8.5" cy="15" r="1" fill="currentColor"/>
+              <circle cx="15.5" cy="15" r="1" fill="currentColor"/>
+            </svg>
+          </span>
+          <span>
+            <span class="fact-label">Categorie</span>
+            <span class="fact-value">Service auto</span>
+          </span>
+        </div>
+
+        <div class="fact">
+          <span class="fact-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M12 21s6-5.4 6-11a6 6 0 1 0-12 0c0 5.6 6 11 6 11Z" stroke="currentColor" stroke-width="1.8"/>
+              <circle cx="12" cy="10" r="2.2" stroke="currentColor" stroke-width="1.8"/>
+            </svg>
+          </span>
+          <span>
+            <span class="fact-label">Adresă</span>
+            <span class="fact-value">Strada Cooperației 11, 130086 Târgoviște</span>
+          </span>
+        </div>
+
+        <div class="fact">
+          <span class="fact-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M7.2 3.5 10 7.8 8.2 9.7c1.2 2.5 3.1 4.4 5.6 5.6l1.9-1.8 4.3 2.8-.6 3.2c-.2.8-.9 1.4-1.8 1.4C9.5 20.8 3 14.3 3 6.3c0-.9.6-1.6 1.4-1.8l2.8-1Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <span>
+            <span class="fact-label">Telefon</span>
+            <span class="fact-value"><a href="tel:+40732328071">0732 328 071</a></span>
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section profile" id="profil" aria-labelledby="titlu-profil">
+      <div class="container profile-grid">
+        <div>
+          <span class="section-index">01 · Profil</span>
+        </div>
+
+        <div>
+          <h2 class="section-title" id="titlu-profil">GDK GARAGE SERV</h2>
+          <p class="profile-copy">
+            GDK GARAGE SERV este un service auto din Târgoviște, cu sediul pe Strada Cooperației 11. Pentru informații suplimentare despre activitate, contactul se poate face direct la numărul afișat.
+          </p>
+          <span class="profile-label">Târgoviște, România</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section location" id="localizare" aria-labelledby="titlu-localizare">
+      <div class="container location-grid">
+        <div>
+          <span class="section-index">02 · Localizare</span>
+          <h2 class="section-title" id="titlu-localizare">Adresă și acces</h2>
+          <p class="location-copy">
+            Deschide adresa în Google Maps pentru indicații de orientare.
+          </p>
+
+          <div class="address-block">
+            <span class="address-label">GDK GARAGE SERV</span>
+            <p class="address-text">Strada Cooperației 11, 130086 Târgoviște, România</p>
+          </div>
+
+          <div class="location-actions">
+            <a class="button button-primary" href="https://www.google.com/maps/place/?q=place_id:ChIJw9xNTIL1skART4hQ8_nMVRU" target="_blank" rel="noopener noreferrer">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+                <path d="M12 21s6-5.4 6-11a6 6 0 1 0-12 0c0 5.6 6 11 6 11Z" stroke="currentColor" stroke-width="1.8"/>
+                <circle cx="12" cy="10" r="2.2" stroke="currentColor" stroke-width="1.8"/>
+              </svg>
+              Deschide în Google Maps
+            </a>
+          </div>
+        </div>
+
+        <a class="map-visual" href="https://www.google.com/maps/place/?q=place_id:ChIJw9xNTIL1skART4hQ8_nMVRU" target="_blank" rel="noopener noreferrer" aria-label="Deschide locația GDK GARAGE SERV în Google Maps">
+          <span class="map-coordinate">Târgoviște · Strada Cooperației</span>
+          <span class="map-pin" aria-hidden="true"></span>
+          <span class="map-card">
+            <strong>GDK GARAGE SERV</strong>
+            <span>Strada Cooperației 11, 130086 Târgoviște</span>
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact" aria-labelledby="titlu-contact">
+      <div class="container contact-grid">
+        <div>
+          <p class="contact-kicker">Contact direct</p>
+          <h2 class="contact-title" id="titlu-contact">Sună pentru informații</h2>
+        </div>
+
+        <div class="contact-panel">
+          <span class="contact-panel-label">Telefon GDK GARAGE SERV</span>
+          <a class="contact-number" href="tel:+40732328071">0732 328 071</a>
+          <a class="button contact-button" href="tel:+40732328071">
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+              <path d="M7.2 3.5 10 7.8 8.2 9.7c1.2 2.5 3.1 4.4 5.6 5.6l1.9-1.8 4.3 2.8-.6 3.2c-.2.8-.9 1.4-1.8 1.4C9.5 20.8 3 14.3 3 6.3c0-.9.6-1.6 1.4-1.8l2.8-1Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+            </svg>
+            Apelează
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <div class="footer-name">GDK GARAGE SERV</div>
+        <p class="footer-meta">Service auto · Târgoviște</p>
+      </div>
+      <p class="footer-address">Strada Cooperației 11, 130086 Târgoviște, România</p>
+    </div>
+  </footer>
+
+  <a class="mobile-call" href="tel:+40732328071" aria-label="Sună la GDK GARAGE SERV">
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+      <path d="M7.2 3.5 10 7.8 8.2 9.7c1.2 2.5 3.1 4.4 5.6 5.6l1.9-1.8 4.3 2.8-.6 3.2c-.2.8-.9 1.4-1.8 1.4C9.5 20.8 3 14.3 3 6.3c0-.9.6-1.6 1.4-1.8l2.8-1Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+    </svg>
+    Sună · 0732 328 071
+  </a>
+
+  <script>
+    const menuButton = document.querySelector('.menu-toggle');
+    const navigation = document.querySelector('.site-nav');
+    const navigationLinks = document.querySelectorAll('.nav-links a');
+
+    menuButton.addEventListener('click', function () {
+      const isOpen = this.getAttribute('aria-expanded') === 'true';
+      this.setAttribute('aria-expanded', String(!isOpen));
+      this.setAttribute('aria-label', isOpen ? 'Deschide meniul' : 'Închide meniul');
+      navigation.classList.toggle('is-open', !isOpen);
+    });
+
+    navigationLinks.forEach(function (link) {
+      link.addEventListener('click', function () {
+        menuButton.setAttribute('aria-expanded', 'false');
+        menuButton.setAttribute('aria-label', 'Deschide meniul');
+        navigation.classList.remove('is-open');
+      });
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') {
+        menuButton.setAttribute('aria-expanded', 'false');
+        menuButton.setAttribute('aria-label', 'Deschide meniul');
+        navigation.classList.remove('is-open');
+      }
+    });
+
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 960) {
+        menuButton.setAttribute('aria-expanded', 'false');
+        menuButton.setAttribute('aria-label', 'Deschide meniul');
+        navigation.classList.remove('is-open');
+      }
+    });
+  </script>
+</body>
+</html>

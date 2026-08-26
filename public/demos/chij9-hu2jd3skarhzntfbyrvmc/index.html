@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oglindă magică / Cabină foto — Fotograf evenimente în Târgoviște</title>
+  <meta name="description" content="Oglindă magică / Cabină foto, fotograf evenimente în Târgoviște. Telefon: 0774 421 629. Locație: Bulevardul Independenței, Târgoviște.">
+  <meta name="theme-color" content="#11100f">
+  <style>
+    :root {
+      --ink: #11100f;
+      --ink-soft: #1b1917;
+      --cream: #f5efe4;
+      --cream-deep: #e9ddca;
+      --gold: #c7a15a;
+      --gold-light: #ead39d;
+      --copper: #9f6549;
+      --white: #fffdf8;
+      --muted: #71695f;
+      --line: rgba(199, 161, 90, 0.3);
+      --shadow: 0 24px 70px rgba(17, 16, 15, 0.16);
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      background: var(--cream);
+      color: var(--ink);
+      font-family: var(--sans);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid var(--gold-light);
+      outline-offset: 4px;
+    }
+
+    .container {
+      width: min(calc(100% - 48px), var(--max));
+      margin-inline: auto;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0 0 18px;
+      color: var(--gold-light);
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.19em;
+      line-height: 1.4;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      width: 34px;
+      height: 1px;
+      background: currentColor;
+      content: "";
+    }
+
+    .eyebrow.dark {
+      color: var(--copper);
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: 52px;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border: 1px solid transparent;
+      padding: 13px 22px;
+      font-size: 0.93rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      transition: transform 180ms ease, background 180ms ease, color 180ms ease, border-color 180ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-primary {
+      background: var(--gold);
+      color: var(--ink);
+    }
+
+    .button-primary:hover {
+      background: var(--gold-light);
+    }
+
+    .button-outline {
+      border-color: rgba(255, 253, 248, 0.35);
+      color: var(--white);
+    }
+
+    .button-outline:hover {
+      border-color: var(--gold-light);
+      color: var(--gold-light);
+    }
+
+    .button-dark {
+      background: var(--ink);
+      color: var(--white);
+    }
+
+    .button-dark:hover {
+      background: var(--copper);
+    }
+
+    .icon {
+      width: 19px;
+      height: 19px;
+      flex: 0 0 auto;
+      fill: none;
+      stroke: currentColor;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 1.8;
+    }
+
+    .site-header {
+      position: absolute;
+      z-index: 20;
+      top: 0;
+      right: 0;
+      left: 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      color: var(--white);
+    }
+
+    .nav-wrap {
+      display: flex;
+      min-height: 88px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+
+    .brand {
+      display: inline-flex;
+      max-width: 330px;
+      align-items: center;
+      gap: 13px;
+      font-family: var(--serif);
+      font-size: 1.08rem;
+      line-height: 1.2;
+    }
+
+    .brand-mark {
+      position: relative;
+      width: 39px;
+      height: 39px;
+      flex: 0 0 auto;
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+    }
+
+    .brand-mark::before,
+    .brand-mark::after {
+      position: absolute;
+      border-radius: 50%;
+      content: "";
+    }
+
+    .brand-mark::before {
+      inset: 6px;
+      border: 1px solid rgba(234, 211, 157, 0.65);
+    }
+
+    .brand-mark::after {
+      top: 7px;
+      right: 7px;
+      width: 5px;
+      height: 5px;
+      background: var(--gold-light);
+      box-shadow: 0 0 12px var(--gold-light);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .nav-links > a:not(.nav-call) {
+      position: relative;
+      padding: 10px 0;
+      color: rgba(255, 253, 248, 0.78);
+      font-size: 0.87rem;
+      font-weight: 650;
+    }
+
+    .nav-links > a:not(.nav-call)::after {
+      position: absolute;
+      right: 0;
+      bottom: 4px;
+      left: 0;
+      height: 1px;
+      background: var(--gold);
+      content: "";
+      transform: scaleX(0);
+      transition: transform 180ms ease;
+    }
+
+    .nav-links > a:not(.nav-call):hover {
+      color: var(--white);
+    }
+
+    .nav-links > a:not(.nav-call):hover::after {
+      transform: scaleX(1);
+    }
+
+    .nav-call {
+      display: inline-flex;
+      min-height: 42px;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(234, 211, 157, 0.58);
+      padding: 8px 15px;
+      color: var(--gold-light);
+      font-size: 0.84rem;
+      font-weight: 750;
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 46px;
+      height: 46px;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      background: transparent;
+      color: var(--white);
+      cursor: pointer;
+    }
+
+    .menu-toggle svg {
+      width: 23px;
+      height: 23px;
+      stroke: currentColor;
+    }
+
+    .hero {
+      position: relative;
+      display: grid;
+      min-height: 790px;
+      align-items: center;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 80% 34%, rgba(199, 161, 90, 0.16), transparent 27%),
+        radial-gradient(circle at 12% 88%, rgba(159, 101, 73, 0.14), transparent 28%),
+        var(--ink);
+      color: var(--white);
+    }
+
+    .hero::before {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.023) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.023) 1px, transparent 1px);
+      background-size: 52px 52px;
+      content: "";
+      mask-image: linear-gradient(to right, black, transparent 70%);
+    }
+
+    .hero::after {
+      position: absolute;
+      right: -9vw;
+      bottom: -23vw;
+      width: 52vw;
+      height: 52vw;
+      border: 1px solid rgba(199, 161, 90, 0.13);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      align-items: center;
+      gap: 70px;
+      grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.72fr);
+      padding-top: 138px;
+      padding-bottom: 80px;
+    }
+
+    .hero-copy {
+      max-width: 720px;
+    }
+
+    .hero h1 {
+      max-width: 750px;
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(3.4rem, 6.4vw, 6.5rem);
+      font-weight: 400;
+      letter-spacing: -0.055em;
+      line-height: 0.92;
+    }
+
+    .hero h1 em {
+      display: block;
+      margin-top: 10px;
+      color: var(--gold-light);
+      font-weight: 400;
+    }
+
+    .hero-intro {
+      max-width: 540px;
+      margin: 30px 0 0;
+      color: rgba(255, 253, 248, 0.68);
+      font-size: 1.06rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 38px;
+    }
+
+    .hero-visual {
+      position: relative;
+      display: grid;
+      min-height: 520px;
+      place-items: center;
+    }
+
+    .mirror {
+      position: relative;
+      display: grid;
+      width: min(100%, 400px);
+      aspect-ratio: 0.75;
+      place-items: center;
+      border: 1px solid rgba(234, 211, 157, 0.65);
+      border-radius: 52% 52% 45% 45% / 38% 38% 62% 62%;
+      background:
+        radial-gradient(circle at 65% 22%, rgba(255, 255, 255, 0.15), transparent 11%),
+        linear-gradient(145deg, rgba(255, 255, 255, 0.09), rgba(199, 161, 90, 0.025) 46%, rgba(255, 255, 255, 0.02));
+      box-shadow:
+        inset 0 0 0 10px rgba(17, 16, 15, 0.65),
+        inset 0 0 0 11px rgba(199, 161, 90, 0.27),
+        0 35px 90px rgba(0, 0, 0, 0.36);
+    }
+
+    .mirror::before {
+      position: absolute;
+      inset: 22px;
+      border: 1px solid rgba(234, 211, 157, 0.3);
+      border-radius: inherit;
+      content: "";
+    }
+
+    .mirror::after {
+      position: absolute;
+      top: 11%;
+      right: 16%;
+      width: 2px;
+      height: 38%;
+      background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.55), transparent);
+      content: "";
+      transform: rotate(31deg);
+    }
+
+    .mirror-center {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+
+    .mirror-rating {
+      display: block;
+      color: var(--gold-light);
+      font-family: var(--serif);
+      font-size: 4.8rem;
+      line-height: 1;
+    }
+
+    .mirror-stars {
+      margin: 10px 0;
+      color: var(--gold);
+      font-size: 0.9rem;
+      letter-spacing: 0.3em;
+    }
+
+    .mirror-caption {
+      display: block;
+      color: rgba(255, 253, 248, 0.65);
+      font-size: 0.71rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .bulb {
+      position: absolute;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--gold-light);
+      box-shadow: 0 0 16px 5px rgba(234, 211, 157, 0.25);
+      animation: glow 3.2s ease-in-out infinite;
+    }
+
+    .bulb.one { top: 7%; left: 8%; }
+    .bulb.two { top: 31%; right: -3%; animation-delay: 0.7s; }
+    .bulb.three { right: 5%; bottom: 14%; animation-delay: 1.3s; }
+    .bulb.four { bottom: 4%; left: 14%; animation-delay: 1.8s; }
+    .bulb.five { top: 46%; left: -5%; animation-delay: 2.4s; }
+
+    @keyframes glow {
+      0%, 100% { opacity: 0.55; transform: scale(0.85); }
+      50% { opacity: 1; transform: scale(1.1); }
+    }
+
+    .scroll-note {
+      position: absolute;
+      z-index: 3;
+      bottom: 26px;
+      left: 50%;
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      color: rgba(255, 255, 255, 0.42);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      transform: translateX(-50%);
+    }
+
+    .scroll-note::before {
+      width: 38px;
+      height: 1px;
+      background: var(--gold);
+      content: "";
+    }
+
+    .profile {
+      position: relative;
+      padding: 125px 0;
+      overflow: hidden;
+    }
+
+    .profile::after {
+      position: absolute;
+      top: 80px;
+      right: -130px;
+      width: 370px;
+      height: 370px;
+      border: 1px solid rgba(159, 101, 73, 0.15);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .profile-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      align-items: start;
+      gap: 90px;
+      grid-template-columns: 0.72fr 1.28fr;
+    }
+
+    .section-number {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      color: var(--copper);
+      font-family: var(--serif);
+      font-size: 4rem;
+      line-height: 1;
+    }
+
+    .section-number::after {
+      width: 80px;
+      height: 1px;
+      background: var(--copper);
+      content: "";
+    }
+
+    .profile-copy h2 {
+      max-width: 780px;
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(2.5rem, 5vw, 4.65rem);
+      font-weight: 400;
+      letter-spacing: -0.045em;
+      line-height: 1.02;
+    }
+
+    .profile-copy > p {
+      max-width: 660px;
+      margin: 30px 0 0;
+      color: var(--muted);
+      font-size: 1.06rem;
+    }
+
+    .facts {
+      display: grid;
+      margin-top: 50px;
+      border-top: 1px solid rgba(17, 16, 15, 0.16);
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .fact {
+      padding: 23px 24px 20px 0;
+      border-bottom: 1px solid rgba(17, 16, 15, 0.16);
+    }
+
+    .fact:nth-child(odd) {
+      border-right: 1px solid rgba(17, 16, 15, 0.16);
+    }
+
+    .fact:nth-child(even) {
+      padding-left: 24px;
+    }
+
+    .fact-label {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--muted);
+      font-size: 0.7rem;
+      font-weight: 750;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .fact-value {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+    }
+
+    .rating-section {
+      position: relative;
+      padding: 110px 0;
+      overflow: hidden;
+      background: var(--ink-soft);
+      color: var(--white);
+    }
+
+    .rating-section::before {
+      position: absolute;
+      top: -180px;
+      left: 50%;
+      width: 620px;
+      height: 620px;
+      border: 1px solid rgba(199, 161, 90, 0.12);
+      border-radius: 50%;
+      content: "";
+      transform: translateX(-50%);
+    }
+
+    .rating-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      align-items: center;
+      gap: 60px;
+      grid-template-columns: 1fr auto 1fr;
+    }
+
+    .rating-title h2 {
+      max-width: 450px;
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(2.6rem, 4.8vw, 4.8rem);
+      font-weight: 400;
+      letter-spacing: -0.045em;
+      line-height: 1;
+    }
+
+    .rating-orb {
+      display: grid;
+      width: 230px;
+      height: 230px;
+      place-items: center;
+      border: 1px solid rgba(234, 211, 157, 0.53);
+      border-radius: 50%;
+      box-shadow: inset 0 0 0 13px var(--ink-soft), inset 0 0 0 14px rgba(199, 161, 90, 0.17);
+      text-align: center;
+    }
+
+    .rating-orb strong {
+      display: block;
+      color: var(--gold-light);
+      font-family: var(--serif);
+      font-size: 5.7rem;
+      font-weight: 400;
+      line-height: 0.88;
+    }
+
+    .rating-orb span {
+      color: var(--gold);
+      font-size: 0.76rem;
+      letter-spacing: 0.25em;
+    }
+
+    .rating-detail {
+      max-width: 330px;
+      justify-self: end;
+    }
+
+    .rating-detail strong {
+      display: block;
+      margin-bottom: 13px;
+      color: var(--gold-light);
+      font-family: var(--serif);
+      font-size: 2rem;
+      font-weight: 400;
+    }
+
+    .rating-detail p {
+      margin: 0;
+      color: rgba(255, 253, 248, 0.62);
+    }
+
+    .rating-detail a {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-top: 24px;
+      border-bottom: 1px solid var(--gold);
+      padding-bottom: 5px;
+      color: var(--white);
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+
+    .contact {
+      padding: 125px 0;
+      background:
+        radial-gradient(circle at 90% 15%, rgba(199, 161, 90, 0.18), transparent 21%),
+        var(--white);
+    }
+
+    .contact-grid {
+      display: grid;
+      gap: 80px;
+      grid-template-columns: 0.9fr 1.1fr;
+    }
+
+    .contact-heading h2 {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(3rem, 5.6vw, 5.6rem);
+      font-weight: 400;
+      letter-spacing: -0.055em;
+      line-height: 0.96;
+    }
+
+    .contact-heading p {
+      max-width: 430px;
+      margin: 26px 0 0;
+      color: var(--muted);
+    }
+
+    .contact-panel {
+      border-top: 1px solid var(--ink);
+    }
+
+    .contact-row {
+      display: grid;
+      align-items: center;
+      gap: 22px;
+      border-bottom: 1px solid rgba(17, 16, 15, 0.16);
+      padding: 28px 0;
+      grid-template-columns: 42px 1fr auto;
+    }
+
+    .contact-icon {
+      display: grid;
+      width: 42px;
+      height: 42px;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      color: var(--copper);
+    }
+
+    .contact-label {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 750;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .contact-value {
+      font-family: var(--serif);
+      font-size: 1.18rem;
+      line-height: 1.4;
+    }
+
+    .row-link {
+      color: var(--copper);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .row-link:hover {
+      color: var(--ink);
+    }
+
+    .contact-cta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+      margin-top: 38px;
+      padding: 30px;
+      background: var(--cream-deep);
+    }
+
+    .contact-cta p {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      line-height: 1.3;
+    }
+
+    .site-footer {
+      padding: 38px 0;
+      background: var(--ink);
+      color: rgba(255, 253, 248, 0.6);
+    }
+
+    .footer-grid {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+
+    .footer-brand {
+      color: var(--white);
+      font-family: var(--serif);
+      font-size: 1.05rem;
+    }
+
+    .footer-meta {
+      font-size: 0.77rem;
+    }
+
+    .footer-links {
+      display: flex;
+      align-items: center;
+      gap: 23px;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    .footer-links a:hover {
+      color: var(--gold-light);
+    }
+
+    @media (max-width: 950px) {
+      .menu-toggle {
+        display: inline-flex;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 88px;
+        right: 24px;
+        left: 24px;
+        display: none;
+        align-items: stretch;
+        gap: 0;
+        border: 1px solid rgba(199, 161, 90, 0.3);
+        padding: 13px;
+        background: var(--ink-soft);
+        box-shadow: var(--shadow);
+        flex-direction: column;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links > a:not(.nav-call) {
+        padding: 14px 12px;
+      }
+
+      .nav-links > a:not(.nav-call)::after {
+        display: none;
+      }
+
+      .nav-call {
+        justify-content: center;
+        margin-top: 7px;
+      }
+
+      .hero-grid {
+        gap: 35px;
+        grid-template-columns: 1fr 0.66fr;
+      }
+
+      .hero-visual {
+        min-height: 440px;
+      }
+
+      .profile-grid {
+        gap: 45px;
+        grid-template-columns: 0.4fr 1.6fr;
+      }
+
+      .rating-grid {
+        grid-template-columns: 1fr 190px;
+      }
+
+      .rating-orb {
+        width: 190px;
+        height: 190px;
+      }
+
+      .rating-detail {
+        max-width: 100%;
+        justify-self: start;
+        grid-column: 1 / -1;
+      }
+
+      .contact-grid {
+        gap: 50px;
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .container {
+        width: min(calc(100% - 32px), var(--max));
+      }
+
+      .nav-wrap {
+        min-height: 74px;
+      }
+
+      .brand {
+        max-width: 240px;
+        font-size: 0.93rem;
+      }
+
+      .brand-mark {
+        width: 34px;
+        height: 34px;
+      }
+
+      .nav-links {
+        top: 74px;
+        right: 16px;
+        left: 16px;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-grid {
+        display: flex;
+        gap: 55px;
+        padding-top: 128px;
+        padding-bottom: 90px;
+        flex-direction: column;
+      }
+
+      .hero h1 {
+        font-size: clamp(3.2rem, 16vw, 5rem);
+      }
+
+      .hero-intro {
+        font-size: 0.98rem;
+      }
+
+      .hero-actions {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .hero-visual {
+        width: 100%;
+        min-height: auto;
+      }
+
+      .mirror {
+        width: min(82vw, 330px);
+      }
+
+      .mirror-rating {
+        font-size: 4rem;
+      }
+
+      .scroll-note {
+        display: none;
+      }
+
+      .profile,
+      .contact {
+        padding: 82px 0;
+      }
+
+      .profile-grid {
+        gap: 30px;
+        grid-template-columns: 1fr;
+      }
+
+      .section-number {
+        font-size: 2.7rem;
+      }
+
+      .profile-copy h2 {
+        font-size: clamp(2.45rem, 12vw, 3.6rem);
+      }
+
+      .facts {
+        grid-template-columns: 1fr;
+      }
+
+      .fact,
+      .fact:nth-child(even) {
+        padding: 20px 0;
+      }
+
+      .fact:nth-child(odd) {
+        border-right: 0;
+      }
+
+      .rating-section {
+        padding: 82px 0;
+      }
+
+      .rating-grid {
+        gap: 38px;
+        grid-template-columns: 1fr;
+      }
+
+      .rating-title h2 {
+        font-size: clamp(2.6rem, 13vw, 4rem);
+      }
+
+      .rating-orb {
+        width: 190px;
+        height: 190px;
+        justify-self: start;
+      }
+
+      .rating-detail {
+        grid-column: auto;
+      }
+
+      .contact-heading h2 {
+        font-size: clamp(3.1rem, 15vw, 4.7rem);
+      }
+
+      .contact-row {
+        align-items: start;
+        grid-template-columns: 42px 1fr;
+      }
+
+      .row-link {
+        margin-left: 64px;
+        grid-column: 1 / -1;
+      }
+
+      .contact-value {
+        overflow-wrap: anywhere;
+      }
+
+      .contact-cta {
+        align-items: stretch;
+        padding: 24px;
+        flex-direction: column;
+      }
+
+      .footer-grid {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .footer-links {
+        flex-wrap: wrap;
+      }
+    }
+
+    @media (max-width: 390px) {
+      .brand {
+        max-width: 205px;
+        font-size: 0.82rem;
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+      }
+
+      .mirror {
+        width: 84vw;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#acasa" aria-label="Oglindă magică / Cabină foto — Acasă">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>Oglindă magică / Cabină foto</span>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-label="Deschide meniul" aria-expanded="false" aria-controls="main-navigation">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16"></path>
+        </svg>
+      </button>
+
+      <nav class="nav-links" id="main-navigation" aria-label="Navigație principală">
+        <a href="#profil">Profil</a>
+        <a href="#recenzii">Recenzii Google</a>
+        <a href="#contact">Contact</a>
+        <a class="nav-call" href="tel:0774421629" aria-label="Sună la 0774 421 629">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M22 16.9v3a2 2 0 0 1-2.18 2 19.76 19.76 0 0 1-8.63-3.07 19.4 19.4 0 0 1-6-6A19.76 19.76 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.63a2 2 0 0 1-.45 2.11L8 9.73a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.85.29 1.73.5 2.63.62A2 2 0 0 1 22 16.9z"></path>
+          </svg>
+          0774 421 629
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="acasa">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Fotograf evenimente · Târgoviște</p>
+          <h1>Oglindă magică <em>/ Cabină foto</em></h1>
+          <p class="hero-intro">Pentru informații, contactează direct Oglindă magică / Cabină foto sau consultă locația din Google Maps.</p>
+
+          <div class="hero-actions">
+            <a class="button button-primary" href="tel:0774421629">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M22 16.9v3a2 2 0 0 1-2.18 2 19.76 19.76 0 0 1-8.63-3.07 19.4 19.4 0 0 1-6-6A19.76 19.76 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.63a2 2 0 0 1-.45 2.11L8 9.73a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.85.29 1.73.5 2.63.62A2 2 0 0 1 22 16.9z"></path>
+              </svg>
+              Sună pentru informații
+            </a>
+            <a class="button button-outline" href="https://www.google.com/maps/place/?q=place_id:ChIJ9_hU2JD3skARhznTfbyRvMc" target="_blank" rel="noopener noreferrer">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0z"></path>
+                <circle cx="12" cy="10" r="2.5"></circle>
+              </svg>
+              Vezi locația
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-label="Rating Google 5 din 12 recenzii">
+          <div class="mirror">
+            <span class="bulb one" aria-hidden="true"></span>
+            <span class="bulb two" aria-hidden="true"></span>
+            <span class="bulb three" aria-hidden="true"></span>
+            <span class="bulb four" aria-hidden="true"></span>
+            <span class="bulb five" aria-hidden="true"></span>
+            <div class="mirror-center">
+              <strong class="mirror-rating">5</strong>
+              <div class="mirror-stars" aria-hidden="true">★★★★★</div>
+              <span class="mirror-caption">12 recenzii Google</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="scroll-note" aria-hidden="true">Informații verificate</div>
+    </section>
+
+    <section class="profile" id="profil">
+      <div class="container profile-grid">
+        <div class="section-number" aria-hidden="true">01</div>
+
+        <div class="profile-copy">
+          <p class="eyebrow dark">Profil local</p>
+          <h2>Fotograf evenimente în Târgoviște</h2>
+          <p>Oglindă magică / Cabină foto este o companie operațională, listată în categoria fotograf evenimente.</p>
+
+          <div class="facts" aria-label="Informații despre companie">
+            <div class="fact">
+              <span class="fact-label">Nume</span>
+              <span class="fact-value">Oglindă magică / Cabină foto</span>
+            </div>
+            <div class="fact">
+              <span class="fact-label">Categorie</span>
+              <span class="fact-value">Fotograf evenimente</span>
+            </div>
+            <div class="fact">
+              <span class="fact-label">Oraș</span>
+              <span class="fact-value">Târgoviște</span>
+            </div>
+            <div class="fact">
+              <span class="fact-label">Status</span>
+              <span class="fact-value">Operațional</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="rating-section" id="recenzii">
+      <div class="container rating-grid">
+        <div class="rating-title">
+          <p class="eyebrow">Evaluare publică</p>
+          <h2>Rating afișat pe Google</h2>
+        </div>
+
+        <div class="rating-orb" aria-label="Rating Google 5">
+          <div>
+            <strong>5</strong>
+            <span aria-hidden="true">★★★★★</span>
+          </div>
+        </div>
+
+        <div class="rating-detail">
+          <strong>12 recenzii Google</strong>
+          <p>Ratingul și numărul de recenzii sunt afișate conform profilului Google al companiei.</p>
+          <a href="https://www.google.com/maps/place/?q=place_id:ChIJ9_hU2JD3skARhznTfbyRvMc" target="_blank" rel="noopener noreferrer">
+            Deschide profilul Google
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M7 17 17 7M7 7h10v10"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container contact-grid">
+        <div class="contact-heading">
+          <p class="eyebrow dark">Contact și locație</p>
+          <h2>Informații directe</h2>
+          <p>Folosește numărul de telefon pentru detalii sau deschide adresa în Google Maps.</p>
+        </div>
+
+        <div>
+          <div class="contact-panel">
+            <div class="contact-row">
+              <span class="contact-icon" aria-hidden="true">
+                <svg class="icon" viewBox="0 0 24 24">
+                  <path d="M22 16.9v3a2 2 0 0 1-2.18 2 19.76 19.76 0 0 1-8.63-3.07 19.4 19.4 0 0 1-6-6A19.76 19.76 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.63a2 2 0 0 1-.45 2.11L8 9.73a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.85.29 1.73.5 2.63.62A2 2 0 0 1 22 16.9z"></path>
+                </svg>
+              </span>
+              <div>
+                <span class="contact-label">Telefon</span>
+                <a class="contact-value" href="tel:0774421629">0774 421 629</a>
+              </div>
+              <a class="row-link" href="tel:0774421629">Sună</a>
+            </div>
+
+            <div class="contact-row">
+              <span class="contact-icon" aria-hidden="true">
+                <svg class="icon" viewBox="0 0 24 24">
+                  <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0z"></path>
+                  <circle cx="12" cy="10" r="2.5"></circle>
+                </svg>
+              </span>
+              <div>
+                <span class="contact-label">Adresă</span>
+                <address class="contact-value" style="font-style: normal;">Bulevardul Independenței, 130104 Târgoviște, România</address>
+              </div>
+              <a class="row-link" href="https://www.google.com/maps/place/?q=place_id:ChIJ9_hU2JD3skARhznTfbyRvMc" target="_blank" rel="noopener noreferrer">Hartă</a>
+            </div>
+          </div>
+
+          <div class="contact-cta">
+            <p>Ai nevoie de informații?</p>
+            <a class="button button-dark" href="tel:0774421629">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M22 16.9v3a2 2 0 0 1-2.18 2 19.76 19.76 0 0 1-8.63-3.07 19.4 19.4 0 0 1-6-6A19.76 19.76 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.63a2 2 0 0 1-.45 2.11L8 9.73a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.85.29 1.73.5 2.63.62A2 2 0 0 1 22 16.9z"></path>
+              </svg>
+              Contactează-ne
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <div class="footer-brand">Oglindă magică / Cabină foto</div>
+        <div class="footer-meta">Fotograf evenimente · Târgoviște</div>
+      </div>
+      <div class="footer-links">
+        <a href="tel:0774421629">0774 421 629</a>
+        <a href="https://www.google.com/maps/place/?q=place_id:ChIJ9_hU2JD3skARhznTfbyRvMc" target="_blank" rel="noopener noreferrer">Google Maps</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const menuButton = document.querySelector('.menu-toggle');
+    const navigation = document.querySelector('.nav-links');
+
+    menuButton.addEventListener('click', function () {
+      const isOpen = navigation.classList.toggle('open');
+      menuButton.setAttribute('aria-expanded', String(isOpen));
+      menuButton.setAttribute('aria-label', isOpen ? 'Închide meniul' : 'Deschide meniul');
+    });
+
+    navigation.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        navigation.classList.remove('open');
+        menuButton.setAttribute('aria-expanded', 'false');
+        menuButton.setAttribute('aria-label', 'Deschide meniul');
+      });
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && navigation.classList.contains('open')) {
+        navigation.classList.remove('open');
+        menuButton.setAttribute('aria-expanded', 'false');
+        menuButton.setAttribute('aria-label', 'Deschide meniul');
+        menuButton.focus();
+      }
+    });
+  </script>
+</body>
+</html>

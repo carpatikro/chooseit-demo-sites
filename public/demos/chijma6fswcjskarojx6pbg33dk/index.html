@@ -1,0 +1,1887 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vulcanizare Auto Gaesti | Service auto în Găești</title>
+  <meta name="description" content="Vulcanizare Auto Gaesti, service auto în Găești. Telefon: 0762 360 128. Adresă: Strada 1 Decembrie 191, Găești.">
+  <meta name="theme-color" content="#101820">
+  <style>
+    :root {
+      --navy-950: #081018;
+      --navy-900: #101820;
+      --navy-850: #16212b;
+      --navy-800: #1b2935;
+      --slate-700: #3d4a55;
+      --slate-500: #697681;
+      --slate-300: #b7c0c7;
+      --slate-200: #d8dde1;
+      --slate-100: #edf0f2;
+      --white: #ffffff;
+      --orange: #f26a21;
+      --orange-dark: #cf4f0d;
+      --orange-soft: #fff0e7;
+      --blue: #2f6f9f;
+      --blue-soft: #eaf3f8;
+      --yellow: #f4b942;
+      --container: 1180px;
+      --radius-sm: 10px;
+      --radius-md: 18px;
+      --radius-lg: 30px;
+      --shadow: 0 18px 45px rgba(8, 16, 24, 0.12);
+      --transition: 180ms ease;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 92px;
+    }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      overflow-x: hidden;
+      background: var(--white);
+      color: var(--navy-900);
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body.menu-open {
+      overflow: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    svg {
+      display: block;
+    }
+
+    :focus-visible {
+      outline: 3px solid rgba(242, 106, 33, 0.55);
+      outline-offset: 4px;
+    }
+
+    .skip-link {
+      position: fixed;
+      top: 12px;
+      left: 12px;
+      z-index: 1000;
+      padding: 10px 16px;
+      border-radius: 8px;
+      background: var(--white);
+      color: var(--navy-900);
+      font-weight: 800;
+      transform: translateY(-160%);
+      transition: transform var(--transition);
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    .container {
+      width: min(calc(100% - 40px), var(--container));
+      margin-inline: auto;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 16px;
+      color: var(--orange);
+      font-size: 0.76rem;
+      font-weight: 900;
+      letter-spacing: 0.15em;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      width: 30px;
+      height: 3px;
+      background: currentColor;
+      content: "";
+    }
+
+    .section-heading {
+      max-width: 720px;
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      color: var(--navy-900);
+      font-size: clamp(2rem, 4vw, 3.7rem);
+      font-weight: 900;
+      letter-spacing: -0.055em;
+      line-height: 1.02;
+    }
+
+    .section-heading p:last-child {
+      max-width: 610px;
+      margin: 22px 0 0;
+      color: var(--slate-500);
+      font-size: 1.05rem;
+    }
+
+    .button {
+      min-height: 52px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 11px;
+      padding: 13px 21px;
+      border: 1px solid transparent;
+      border-radius: var(--radius-sm);
+      font-size: 0.96rem;
+      font-weight: 850;
+      line-height: 1;
+      transition:
+        background-color var(--transition),
+        border-color var(--transition),
+        color var(--transition),
+        transform var(--transition);
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-primary {
+      background: var(--orange);
+      color: var(--white);
+      box-shadow: 0 12px 28px rgba(242, 106, 33, 0.25);
+    }
+
+    .button-primary:hover {
+      background: var(--orange-dark);
+    }
+
+    .button-secondary {
+      border-color: rgba(255, 255, 255, 0.25);
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--white);
+    }
+
+    .button-secondary:hover {
+      border-color: rgba(255, 255, 255, 0.5);
+      background: rgba(255, 255, 255, 0.11);
+    }
+
+    .button-dark {
+      background: var(--navy-900);
+      color: var(--white);
+    }
+
+    .button-dark:hover {
+      background: var(--navy-800);
+    }
+
+    .button svg {
+      width: 19px;
+      height: 19px;
+      flex: 0 0 auto;
+    }
+
+    .site-header {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--white);
+    }
+
+    .header-inner {
+      min-height: 84px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 13px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 43px;
+      height: 43px;
+      position: relative;
+      flex: 0 0 auto;
+      border: 6px solid var(--orange);
+      border-radius: 50%;
+    }
+
+    .brand-mark::before,
+    .brand-mark::after {
+      position: absolute;
+      inset: -8px 9px;
+      background: var(--navy-900);
+      content: "";
+      transform: rotate(42deg);
+    }
+
+    .brand-mark::after {
+      transform: rotate(-42deg);
+    }
+
+    .brand-mark span {
+      position: absolute;
+      inset: 8px;
+      z-index: 1;
+      border-radius: 50%;
+      background: var(--orange);
+    }
+
+    .brand-copy {
+      display: grid;
+      line-height: 1.05;
+    }
+
+    .brand-copy strong {
+      font-size: 0.95rem;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-copy small {
+      margin-top: 5px;
+      color: var(--slate-300);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .desktop-nav {
+      display: flex;
+      align-items: center;
+      gap: 31px;
+      margin-left: auto;
+    }
+
+    .desktop-nav a:not(.header-call) {
+      position: relative;
+      color: #dbe1e5;
+      font-size: 0.9rem;
+      font-weight: 750;
+    }
+
+    .desktop-nav a:not(.header-call)::after {
+      width: 0;
+      height: 2px;
+      position: absolute;
+      right: 0;
+      bottom: -9px;
+      left: 0;
+      margin: auto;
+      background: var(--orange);
+      content: "";
+      transition: width var(--transition);
+    }
+
+    .desktop-nav a:not(.header-call):hover::after {
+      width: 100%;
+    }
+
+    .header-call {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 10px 16px;
+      border-radius: 9px;
+      background: var(--orange);
+      color: var(--white);
+      font-size: 0.88rem;
+      font-weight: 900;
+    }
+
+    .header-call svg {
+      width: 17px;
+      height: 17px;
+    }
+
+    .menu-button {
+      width: 46px;
+      height: 46px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 9px;
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--white);
+      cursor: pointer;
+    }
+
+    .menu-button svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .mobile-menu {
+      display: none;
+    }
+
+    .hero {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      background:
+        linear-gradient(112deg, rgba(8, 16, 24, 0.99) 0%, rgba(16, 24, 32, 0.97) 49%, rgba(23, 38, 50, 0.94) 100%);
+      color: var(--white);
+    }
+
+    .hero::before {
+      width: 62%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      right: -20%;
+      z-index: -1;
+      background:
+        repeating-linear-gradient(
+          125deg,
+          transparent 0,
+          transparent 29px,
+          rgba(255, 255, 255, 0.025) 30px,
+          rgba(255, 255, 255, 0.025) 32px
+        );
+      content: "";
+      transform: skewX(-12deg);
+    }
+
+    .hero::after {
+      width: 520px;
+      height: 520px;
+      position: absolute;
+      right: -190px;
+      bottom: -300px;
+      z-index: -1;
+      border: 90px solid rgba(242, 106, 33, 0.06);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .hero-inner {
+      min-height: 760px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(390px, 0.74fr);
+      align-items: center;
+      gap: clamp(50px, 8vw, 105px);
+      padding-top: 138px;
+      padding-bottom: 90px;
+    }
+
+    .hero-copy {
+      max-width: 730px;
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      margin: 0 0 22px;
+      color: #c7d0d6;
+      font-size: 0.82rem;
+      font-weight: 850;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .hero-kicker::before {
+      width: 9px;
+      height: 9px;
+      border: 3px solid var(--orange);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .hero h1 {
+      max-width: 740px;
+      margin: 0;
+      font-size: clamp(3rem, 6.6vw, 6rem);
+      font-weight: 950;
+      letter-spacing: -0.07em;
+      line-height: 0.91;
+    }
+
+    .hero h1 span {
+      display: block;
+      color: var(--orange);
+    }
+
+    .hero-lead {
+      max-width: 570px;
+      margin: 30px 0 0;
+      color: #bdc7ce;
+      font-size: clamp(1.02rem, 2vw, 1.18rem);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 36px;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 25px;
+      margin: 38px 0 0;
+      padding: 24px 0 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      color: #d2d9de;
+      font-size: 0.92rem;
+    }
+
+    .hero-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .hero-meta svg {
+      width: 18px;
+      height: 18px;
+      color: var(--orange);
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 465px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .technical-frame {
+      width: min(100%, 430px);
+      aspect-ratio: 0.92;
+      position: relative;
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      border-radius: 26px;
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        rgba(255, 255, 255, 0.025);
+      background-size: 24px 24px;
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.28);
+    }
+
+    .technical-frame::before,
+    .technical-frame::after {
+      width: 50px;
+      height: 5px;
+      position: absolute;
+      background: var(--orange);
+      content: "";
+    }
+
+    .technical-frame::before {
+      top: -3px;
+      left: 34px;
+    }
+
+    .technical-frame::after {
+      right: 34px;
+      bottom: -3px;
+    }
+
+    .tire {
+      width: 270px;
+      height: 270px;
+      position: absolute;
+      top: 42%;
+      left: 50%;
+      border: 38px solid #263640;
+      border-radius: 50%;
+      background: radial-gradient(circle, #111b23 0 25%, #5f6d76 26% 30%, #17232c 31% 100%);
+      box-shadow:
+        inset 0 0 0 4px #101820,
+        inset 0 0 0 11px #3a4953,
+        0 34px 55px rgba(0, 0, 0, 0.35);
+      transform: translate(-50%, -50%);
+    }
+
+    .tire::before {
+      position: absolute;
+      inset: -39px;
+      border: 9px dashed #101820;
+      border-radius: 50%;
+      content: "";
+      transform: rotate(9deg);
+    }
+
+    .tire::after {
+      position: absolute;
+      inset: 51px;
+      border: 12px solid #83909a;
+      border-radius: 50%;
+      background:
+        conic-gradient(
+          from 0deg,
+          #aab3b9 0deg 15deg,
+          #2f3e47 15deg 45deg,
+          #aab3b9 45deg 60deg,
+          #2f3e47 60deg 90deg,
+          #aab3b9 90deg 105deg,
+          #2f3e47 105deg 135deg,
+          #aab3b9 135deg 150deg,
+          #2f3e47 150deg 180deg,
+          #aab3b9 180deg 195deg,
+          #2f3e47 195deg 225deg,
+          #aab3b9 225deg 240deg,
+          #2f3e47 240deg 270deg,
+          #aab3b9 270deg 285deg,
+          #2f3e47 285deg 315deg,
+          #aab3b9 315deg 330deg,
+          #2f3e47 330deg 360deg
+        );
+      box-shadow: inset 0 0 0 17px #24323b;
+      content: "";
+    }
+
+    .wheel-cap {
+      width: 48px;
+      height: 48px;
+      position: absolute;
+      top: 42%;
+      left: 50%;
+      z-index: 2;
+      border: 8px solid #56656f;
+      border-radius: 50%;
+      background: var(--orange);
+      transform: translate(-50%, -50%);
+    }
+
+    .visual-label {
+      position: absolute;
+      right: -19px;
+      bottom: 34px;
+      z-index: 3;
+      padding: 17px 20px;
+      border-left: 4px solid var(--orange);
+      border-radius: 3px 12px 12px 3px;
+      background: var(--white);
+      color: var(--navy-900);
+      box-shadow: var(--shadow);
+    }
+
+    .visual-label strong {
+      display: block;
+      font-size: 1.05rem;
+      line-height: 1.2;
+    }
+
+    .visual-label span {
+      display: block;
+      margin-top: 4px;
+      color: var(--slate-500);
+      font-size: 0.78rem;
+      font-weight: 750;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+
+    .quick-strip {
+      position: relative;
+      z-index: 4;
+      margin-top: -1px;
+      background: var(--white);
+      box-shadow: 0 13px 40px rgba(8, 16, 24, 0.1);
+    }
+
+    .quick-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.9fr 0.8fr;
+    }
+
+    .quick-item {
+      min-height: 136px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 30px clamp(22px, 3vw, 40px);
+      border-right: 1px solid var(--slate-200);
+    }
+
+    .quick-item:last-child {
+      border-right: 0;
+    }
+
+    .quick-icon {
+      width: 50px;
+      height: 50px;
+      display: grid;
+      flex: 0 0 auto;
+      place-items: center;
+      border-radius: 14px;
+      background: var(--blue-soft);
+      color: var(--blue);
+    }
+
+    .quick-item:first-child .quick-icon {
+      background: var(--orange-soft);
+      color: var(--orange);
+    }
+
+    .quick-icon svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .quick-copy {
+      min-width: 0;
+    }
+
+    .quick-copy small {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--slate-500);
+      font-size: 0.72rem;
+      font-weight: 850;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .quick-copy strong,
+    .quick-copy a {
+      color: var(--navy-900);
+      font-size: clamp(0.96rem, 1.5vw, 1.1rem);
+      font-weight: 900;
+      line-height: 1.3;
+    }
+
+    .quick-copy a:hover {
+      color: var(--orange-dark);
+    }
+
+    .about {
+      padding: 130px 0;
+      background:
+        linear-gradient(90deg, transparent 0 49.9%, rgba(16, 24, 32, 0.04) 50%, transparent 50.1%);
+    }
+
+    .about-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      align-items: center;
+      gap: clamp(55px, 9vw, 125px);
+    }
+
+    .about-index {
+      position: relative;
+      min-height: 450px;
+      overflow: hidden;
+      border-radius: var(--radius-lg);
+      background: var(--navy-900);
+      color: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .about-index::after {
+      width: 310px;
+      height: 310px;
+      position: absolute;
+      right: -155px;
+      bottom: -165px;
+      border: 62px solid rgba(242, 106, 33, 0.14);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .index-top {
+      padding: 39px 40px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .index-number {
+      color: var(--orange);
+      font-size: clamp(4.8rem, 10vw, 8rem);
+      font-weight: 950;
+      letter-spacing: -0.09em;
+      line-height: 0.82;
+    }
+
+    .index-label {
+      display: block;
+      margin-top: 22px;
+      color: #c3ccd2;
+      font-size: 0.78rem;
+      font-weight: 850;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .index-details {
+      display: grid;
+      gap: 0;
+      padding: 14px 40px 34px;
+    }
+
+    .index-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 18px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+    }
+
+    .index-row:last-child {
+      border-bottom: 0;
+    }
+
+    .index-row span {
+      color: #9da9b1;
+      font-size: 0.87rem;
+    }
+
+    .index-row strong {
+      text-align: right;
+      font-size: 0.91rem;
+    }
+
+    .about-copy .section-heading {
+      max-width: 620px;
+    }
+
+    .facts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 38px;
+    }
+
+    .fact {
+      min-height: 125px;
+      padding: 24px;
+      border: 1px solid var(--slate-200);
+      border-radius: 16px;
+      background: var(--white);
+    }
+
+    .fact svg {
+      width: 24px;
+      height: 24px;
+      margin-bottom: 18px;
+      color: var(--orange);
+    }
+
+    .fact small {
+      display: block;
+      color: var(--slate-500);
+      font-size: 0.72rem;
+      font-weight: 850;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .fact strong {
+      display: block;
+      margin-top: 4px;
+      font-size: 1.04rem;
+    }
+
+    .reputation {
+      padding: 110px 0;
+      overflow: hidden;
+      background: var(--slate-100);
+    }
+
+    .rating-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+      overflow: hidden;
+      border-radius: var(--radius-lg);
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .rating-score {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(42px, 7vw, 80px);
+      overflow: hidden;
+      background: var(--blue);
+      color: var(--white);
+    }
+
+    .rating-score::after {
+      position: absolute;
+      right: -40px;
+      bottom: -90px;
+      color: rgba(255, 255, 255, 0.07);
+      content: "★";
+      font-size: 280px;
+      line-height: 1;
+      transform: rotate(-8deg);
+    }
+
+    .score-label {
+      position: relative;
+      z-index: 1;
+      color: #dcebf4;
+      font-size: 0.77rem;
+      font-weight: 850;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .score {
+      position: relative;
+      z-index: 1;
+      margin-top: 12px;
+      font-size: clamp(5.8rem, 12vw, 9.5rem);
+      font-weight: 950;
+      letter-spacing: -0.1em;
+      line-height: 0.86;
+    }
+
+    .stars {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      gap: 5px;
+      margin-top: 28px;
+      color: var(--yellow);
+      font-size: 1.35rem;
+      letter-spacing: 0.08em;
+    }
+
+    .rating-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(45px, 8vw, 90px);
+    }
+
+    .rating-content h2 {
+      max-width: 580px;
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      font-weight: 950;
+      letter-spacing: -0.055em;
+      line-height: 1.02;
+    }
+
+    .rating-content p {
+      max-width: 540px;
+      margin: 23px 0 0;
+      color: var(--slate-500);
+      font-size: 1.05rem;
+    }
+
+    .review-count {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 32px;
+      color: var(--navy-900);
+      font-weight: 900;
+    }
+
+    .review-count::before {
+      width: 40px;
+      height: 4px;
+      background: var(--orange);
+      content: "";
+    }
+
+    .location {
+      padding: 130px 0;
+      background: var(--white);
+    }
+
+    .location-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.12fr) minmax(360px, 0.88fr);
+      gap: 28px;
+    }
+
+    .map-visual {
+      min-height: 550px;
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      border-radius: var(--radius-lg);
+      background-color: #dfe5e8;
+      background-image:
+        linear-gradient(28deg, transparent 35%, rgba(255, 255, 255, 0.92) 36% 42%, transparent 43%),
+        linear-gradient(116deg, transparent 40%, rgba(255, 255, 255, 0.88) 41% 47%, transparent 48%),
+        linear-gradient(8deg, transparent 62%, rgba(255, 255, 255, 0.82) 63% 68%, transparent 69%),
+        linear-gradient(78deg, transparent 18%, rgba(190, 202, 208, 0.65) 19% 20%, transparent 21%);
+      box-shadow: inset 0 0 0 1px rgba(16, 24, 32, 0.06);
+    }
+
+    .map-visual::before,
+    .map-visual::after {
+      position: absolute;
+      z-index: -1;
+      border-radius: 50%;
+      background: rgba(93, 138, 111, 0.17);
+      content: "";
+    }
+
+    .map-visual::before {
+      width: 300px;
+      height: 210px;
+      top: -75px;
+      left: -50px;
+    }
+
+    .map-visual::after {
+      width: 270px;
+      height: 250px;
+      right: -40px;
+      bottom: -70px;
+    }
+
+    .street-name {
+      position: absolute;
+      top: 35%;
+      left: 14%;
+      padding: 4px 10px;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.82);
+      color: var(--slate-700);
+      font-size: 0.7rem;
+      font-weight: 800;
+      transform: rotate(28deg);
+    }
+
+    .map-pin {
+      width: 80px;
+      height: 80px;
+      position: absolute;
+      top: 47%;
+      left: 48%;
+      display: grid;
+      place-items: center;
+      border: 9px solid rgba(255, 255, 255, 0.93);
+      border-radius: 50% 50% 50% 10%;
+      background: var(--orange);
+      color: var(--white);
+      box-shadow: 0 18px 35px rgba(8, 16, 24, 0.25);
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+
+    .map-pin svg {
+      width: 29px;
+      height: 29px;
+      transform: rotate(45deg);
+    }
+
+    .map-caption {
+      position: absolute;
+      right: 25px;
+      bottom: 25px;
+      left: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 22px;
+      border-radius: 15px;
+      background: rgba(255, 255, 255, 0.96);
+      box-shadow: 0 15px 38px rgba(8, 16, 24, 0.16);
+    }
+
+    .map-caption strong {
+      display: block;
+      font-size: 1rem;
+    }
+
+    .map-caption span {
+      display: block;
+      margin-top: 3px;
+      color: var(--slate-500);
+      font-size: 0.84rem;
+    }
+
+    .map-caption a {
+      flex: 0 0 auto;
+    }
+
+    .contact-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: clamp(36px, 5vw, 58px);
+      border-radius: var(--radius-lg);
+      background: var(--navy-900);
+      color: var(--white);
+    }
+
+    .contact-card .eyebrow {
+      margin-bottom: 20px;
+    }
+
+    .contact-card h2 {
+      margin: 0;
+      font-size: clamp(2.2rem, 4.5vw, 4rem);
+      font-weight: 950;
+      letter-spacing: -0.06em;
+      line-height: 0.98;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 0;
+      margin: 42px 0;
+    }
+
+    .contact-row {
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 15px;
+      padding: 22px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.11);
+    }
+
+    .contact-row:first-child {
+      border-top: 1px solid rgba(255, 255, 255, 0.11);
+    }
+
+    .contact-row svg {
+      width: 22px;
+      height: 22px;
+      margin-top: 3px;
+      color: var(--orange);
+    }
+
+    .contact-row small {
+      display: block;
+      margin-bottom: 5px;
+      color: #9eabb4;
+      font-size: 0.72rem;
+      font-weight: 850;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .contact-row strong,
+    .contact-row a {
+      color: var(--white);
+      font-size: 1rem;
+      font-weight: 800;
+      line-height: 1.45;
+    }
+
+    .contact-row a:hover {
+      color: #ffc6a6;
+    }
+
+    .contact-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 11px;
+    }
+
+    .contact-actions .button-secondary {
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .site-footer {
+      padding: 52px 0 100px;
+      border-top: 1px solid var(--slate-200);
+      background: var(--white);
+    }
+
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 1.2fr auto;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .footer-brand {
+      color: var(--navy-900);
+    }
+
+    .footer-brand .brand-mark::before,
+    .footer-brand .brand-mark::after {
+      background: var(--white);
+    }
+
+    .footer-brand .brand-copy small {
+      color: var(--slate-500);
+    }
+
+    .footer-meta {
+      text-align: right;
+      color: var(--slate-500);
+      font-size: 0.85rem;
+    }
+
+    .footer-meta p {
+      margin: 3px 0;
+    }
+
+    .mobile-action-bar {
+      display: none;
+    }
+
+    @media (max-width: 1020px) {
+      .desktop-nav {
+        display: none;
+      }
+
+      .menu-button {
+        display: inline-flex;
+      }
+
+      .mobile-menu {
+        position: fixed;
+        inset: 84px 0 auto;
+        z-index: 99;
+        display: block;
+        visibility: hidden;
+        padding: 16px 20px 24px;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        background: var(--navy-900);
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-12px);
+        transition:
+          opacity var(--transition),
+          transform var(--transition),
+          visibility var(--transition);
+      }
+
+      .mobile-menu.open {
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+      }
+
+      .mobile-menu nav {
+        display: grid;
+        gap: 4px;
+      }
+
+      .mobile-menu a {
+        padding: 14px 6px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+        color: var(--white);
+        font-weight: 800;
+      }
+
+      .mobile-menu .mobile-call {
+        justify-content: center;
+        margin-top: 12px;
+        padding: 15px;
+        border: 0;
+        border-radius: 9px;
+        background: var(--orange);
+        text-align: center;
+      }
+
+      .hero-inner {
+        min-height: auto;
+        grid-template-columns: 1fr;
+        gap: 45px;
+        padding-top: 160px;
+        padding-bottom: 80px;
+      }
+
+      .hero-copy {
+        max-width: 770px;
+      }
+
+      .hero-visual {
+        min-height: 410px;
+      }
+
+      .technical-frame {
+        max-width: 470px;
+      }
+
+      .quick-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .quick-item:first-child {
+        grid-column: 1 / -1;
+        border-bottom: 1px solid var(--slate-200);
+      }
+
+      .quick-item:nth-child(2) {
+        border-right: 1px solid var(--slate-200);
+      }
+
+      .about-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .about-index {
+        min-height: auto;
+      }
+
+      .rating-panel {
+        grid-template-columns: 0.85fr 1.15fr;
+      }
+
+      .location-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-card {
+        min-height: 540px;
+      }
+    }
+
+    @media (max-width: 720px) {
+      html {
+        scroll-padding-top: 76px;
+      }
+
+      .container {
+        width: min(calc(100% - 28px), var(--container));
+      }
+
+      .site-header {
+        position: absolute;
+      }
+
+      .header-inner {
+        min-height: 76px;
+      }
+
+      .brand-copy strong {
+        max-width: 185px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .brand-mark {
+        width: 38px;
+        height: 38px;
+      }
+
+      .mobile-menu {
+        inset: 76px 0 auto;
+      }
+
+      .hero-inner {
+        gap: 40px;
+        padding-top: 128px;
+        padding-bottom: 66px;
+      }
+
+      .hero h1 {
+        font-size: clamp(3rem, 14.5vw, 4.5rem);
+      }
+
+      .hero-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .hero-actions .button {
+        width: 100%;
+      }
+
+      .hero-meta {
+        display: grid;
+        gap: 12px;
+      }
+
+      .hero-visual {
+        min-height: 350px;
+      }
+
+      .technical-frame {
+        width: calc(100% - 12px);
+      }
+
+      .tire {
+        width: 210px;
+        height: 210px;
+        border-width: 30px;
+      }
+
+      .tire::before {
+        inset: -31px;
+      }
+
+      .tire::after {
+        inset: 37px;
+        border-width: 9px;
+        box-shadow: inset 0 0 0 13px #24323b;
+      }
+
+      .wheel-cap {
+        width: 39px;
+        height: 39px;
+      }
+
+      .visual-label {
+        right: -7px;
+        bottom: 24px;
+      }
+
+      .quick-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .quick-item {
+        min-height: 110px;
+        border-right: 0;
+        border-bottom: 1px solid var(--slate-200);
+      }
+
+      .quick-item:first-child {
+        grid-column: auto;
+      }
+
+      .quick-item:last-child {
+        border-bottom: 0;
+      }
+
+      .about,
+      .location {
+        padding: 90px 0;
+      }
+
+      .about {
+        background: var(--white);
+      }
+
+      .index-top {
+        padding: 32px 28px;
+      }
+
+      .index-details {
+        padding: 10px 28px 28px;
+      }
+
+      .facts {
+        grid-template-columns: 1fr;
+      }
+
+      .reputation {
+        padding: 80px 0;
+      }
+
+      .rating-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .rating-score,
+      .rating-content {
+        padding: 42px 30px;
+      }
+
+      .score {
+        font-size: 7rem;
+      }
+
+      .map-visual {
+        min-height: 480px;
+      }
+
+      .map-caption {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .map-caption .button {
+        width: 100%;
+      }
+
+      .contact-card {
+        min-height: auto;
+        padding: 38px 26px;
+      }
+
+      .contact-actions {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-meta {
+        text-align: left;
+      }
+
+      .site-footer {
+        padding-bottom: 110px;
+      }
+
+      .mobile-action-bar {
+        position: fixed;
+        right: 10px;
+        bottom: 10px;
+        left: 10px;
+        z-index: 90;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        padding: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 15px;
+        background: rgba(8, 16, 24, 0.95);
+        box-shadow: 0 15px 40px rgba(8, 16, 24, 0.3);
+        backdrop-filter: blur(12px);
+      }
+
+      .mobile-action-bar a {
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        border-radius: 9px;
+        color: var(--white);
+        font-size: 0.87rem;
+        font-weight: 900;
+      }
+
+      .mobile-action-bar a:first-child {
+        background: var(--orange);
+      }
+
+      .mobile-action-bar a:last-child {
+        border: 1px solid rgba(255, 255, 255, 0.22);
+      }
+
+      .mobile-action-bar svg {
+        width: 18px;
+        height: 18px;
+      }
+    }
+
+    @media (max-width: 390px) {
+      .brand-copy small {
+        display: none;
+      }
+
+      .brand-copy strong {
+        max-width: 174px;
+        font-size: 0.88rem;
+      }
+
+      .hero h1 {
+        font-size: 2.9rem;
+      }
+
+      .technical-frame {
+        aspect-ratio: 0.9;
+      }
+
+      .tire {
+        width: 185px;
+        height: 185px;
+        border-width: 26px;
+      }
+
+      .visual-label {
+        padding: 14px 15px;
+      }
+
+      .contact-row {
+        grid-template-columns: 34px 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#continut">Sari la conținut</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#acasa" aria-label="Vulcanizare Auto Gaesti — Acasă">
+        <span class="brand-mark" aria-hidden="true"><span></span></span>
+        <span class="brand-copy">
+          <strong>Vulcanizare Auto Gaesti</strong>
+          <small>Service auto · Găești</small>
+        </span>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Navigație principală">
+        <a href="#acasa">Acasă</a>
+        <a href="#informatii">Informații</a>
+        <a href="#recenzii">Recenzii Google</a>
+        <a href="#localizare">Localizare</a>
+        <a class="header-call" href="tel:0762360128" aria-label="Sună la 0762 360 128">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+            <path d="M7.2 3.5 9.3 8l-2.2 1.7a15.2 15.2 0 0 0 7.2 7.2l1.7-2.2 4.5 2.1-.7 3.2a2 2 0 0 1-2 1.5C9.3 21 3 14.7 2.5 6.2a2 2 0 0 1 1.5-2l3.2-.7Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+          </svg>
+          0762 360 128
+        </a>
+      </nav>
+
+      <button class="menu-button" type="button" aria-label="Deschide meniul" aria-expanded="false" aria-controls="mobile-menu">
+        <svg class="menu-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none">
+          <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="mobile-menu" id="mobile-menu">
+      <nav aria-label="Navigație mobilă">
+        <a href="#acasa">Acasă</a>
+        <a href="#informatii">Informații</a>
+        <a href="#recenzii">Recenzii Google</a>
+        <a href="#localizare">Localizare</a>
+        <a class="mobile-call" href="tel:0762360128">Sună: 0762 360 128</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="continut">
+    <section class="hero" id="acasa">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <p class="hero-kicker">Service auto în Găești</p>
+          <h1>Vulcanizare <span>Auto Gaesti</span></h1>
+          <p class="hero-lead">
+            Contact direct și acces rapid către locația din Strada 1 Decembrie 191, Găești.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button button-primary" href="tel:0762360128" aria-label="Sună la Vulcanizare Auto Gaesti">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+                <path d="M7.2 3.5 9.3 8l-2.2 1.7a15.2 15.2 0 0 0 7.2 7.2l1.7-2.2 4.5 2.1-.7 3.2a2 2 0 0 1-2 1.5C9.3 21 3 14.7 2.5 6.2a2 2 0 0 1 1.5-2l3.2-.7Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              </svg>
+              Sună pentru informații
+            </a>
+            <a class="button button-secondary" href="https://www.google.com/maps/place/?q=place_id:ChIJMa6FSwCJskARojX6pBG33Dk" target="_blank" rel="noopener noreferrer">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+                <path d="M12 21s6-5.1 6-12a6 6 0 1 0-12 0c0 6.9 6 12 6 12Z" stroke="currentColor" stroke-width="1.8"/>
+                <circle cx="12" cy="9" r="2.2" stroke="currentColor" stroke-width="1.8"/>
+              </svg>
+              Vezi locația
+            </a>
+          </div>
+
+          <div class="hero-meta" aria-label="Informații esențiale">
+            <span>
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+                <path d="M12 21s6-5.1 6-12a6 6 0 1 0-12 0c0 6.9 6 12 6 12Z" stroke="currentColor" stroke-width="1.8"/>
+                <circle cx="12" cy="9" r="2.2" stroke="currentColor" stroke-width="1.8"/>
+              </svg>
+              Găești, România
+            </span>
+            <span>
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+                <path d="m12 3 2.7 5.5 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1-4.4-4.3 6.1-.9L12 3Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              </svg>
+              4,7 din 24 de recenzii Google
+            </span>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="technical-frame">
+            <div class="tire"></div>
+            <div class="wheel-cap"></div>
+            <div class="visual-label">
+              <strong>Găești</strong>
+              <span>Service auto</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <aside class="quick-strip" aria-label="Date de contact">
+      <div class="container quick-grid">
+        <div class="quick-item">
+          <span class="quick-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M12 21s6-5.1 6-12a6 6 0 1 0-12 0c0 6.9 6 12 6 12Z" stroke="currentColor" stroke-width="1.8"/>
+              <circle cx="12" cy="9" r="2.2" stroke="currentColor" stroke-width="1.8"/>
+            </svg>
+          </span>
+          <span class="quick-copy">
+            <small>Adresă</small>
+            <strong>Strada 1 Decembrie 191, Găești</strong>
+          </span>
+        </div>
+
+        <div class="quick-item">
+          <span class="quick-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M7.2 3.5 9.3 8l-2.2 1.7a15.2 15.2 0 0 0 7.2 7.2l1.7-2.2 4.5 2.1-.7 3.2a2 2 0 0 1-2 1.5C9.3 21 3 14.7 2.5 6.2a2 2 0 0 1 1.5-2l3.2-.7Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <span class="quick-copy">
+            <small>Telefon</small>
+            <a href="tel:0762360128">0762 360 128</a>
+          </span>
+        </div>
+
+        <div class="quick-item">
+          <span class="quick-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="m12 3 2.7 5.5 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1-4.4-4.3 6.1-.9L12 3Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <span class="quick-copy">
+            <small>Google</small>
+            <strong>4,7 · 24 recenzii</strong>
+          </span>
+        </div>
+      </div>
+    </aside>
+
+    <section class="about" id="informatii">
+      <div class="container about-layout">
+        <div class="about-index" aria-label="Informații despre companie">
+          <div class="index-top">
+            <div class="index-number">191</div>
+            <span class="index-label">Strada 1 Decembrie</span>
+          </div>
+          <div class="index-details">
+            <div class="index-row">
+              <span>Localitate</span>
+              <strong>Găești</strong>
+            </div>
+            <div class="index-row">
+              <span>Cod poștal</span>
+              <strong>135200</strong>
+            </div>
+            <div class="index-row">
+              <span>Status</span>
+              <strong>Operațional</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-copy">
+          <div class="section-heading">
+            <p class="eyebrow">Despre business</p>
+            <h2>Informații clare pentru contact și localizare.</h2>
+            <p>
+              Vulcanizare Auto Gaesti este un business din categoria service auto, cu locația în Găești. Pentru detalii despre activitate, folosește numărul de contact.
+            </p>
+          </div>
+
+          <div class="facts">
+            <div class="fact">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+                <path d="M5 17h14M7 17l1-5h8l1 5M9 12l1-4h4l1 4M7 17v2M17 17v2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="8.5" cy="16.5" r="1" fill="currentColor"/>
+                <circle cx="15.5" cy="16.5" r="1" fill="currentColor"/>
+              </svg>
+              <small>Categorie</small>
+              <strong>Service auto</strong>
+            </div>
+
+            <div class="fact">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+                <path d="M12 21s6-5.1 6-12a6 6 0 1 0-12 0c0 6.9 6 12 6 12Z" stroke="currentColor" stroke-width="1.8"/>
+                <circle cx="12" cy="9" r="2.2" stroke="currentColor" stroke-width="1.8"/>
+              </svg>
+              <small>Oraș</small>
+              <strong>Găești</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="reputation" id="recenzii">
+      <div class="container">
+        <div class="rating-panel">
+          <div class="rating-score">
+            <span class="score-label">Rating Google</span>
+            <strong class="score">4,7</strong>
+            <div class="stars" aria-label="Rating 4,7 din 5">★★★★★</div>
+          </div>
+
+          <div class="rating-content">
+            <p class="eyebrow">Evaluare publică</p>
+            <h2>Rating afișat pe Google</h2>
+            <p>
+              Evaluarea disponibilă pentru Vulcanizare Auto Gaesti este de 4,7 din 5.
+            </p>
+            <div class="review-count">24 de recenzii Google</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="location" id="localizare">
+      <div class="container location-layout">
+        <div class="map-visual" aria-label="Reprezentare grafică pentru localizarea din Găești">
+          <span class="street-name">Strada 1 Decembrie</span>
+
+          <span class="map-pin" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/>
+              <path d="M12 3v3M12 18v3M3 12h3M18 12h3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </span>
+
+          <div class="map-caption">
+            <div>
+              <strong>Vulcanizare Auto Gaesti</strong>
+              <span>Strada 1 Decembrie 191, 135200 Găești</span>
+            </div>
+            <a class="button button-dark" href="https://www.google.com/maps/place/?q=place_id:ChIJMa6FSwCJskARojX6pBG33Dk" target="_blank" rel="noopener noreferrer">
+              Deschide harta
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <div>
+            <p class="eyebrow">Contact și localizare</p>
+            <h2>Datele esențiale.</h2>
+
+            <div class="contact-list">
+              <div class="contact-row">
+                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+                  <path d="M7.2 3.5 9.3 8l-2.2 1.7a15.2 15.2 0 0 0 7.2 7.2l1.7-2.2 4.5 2.1-.7 3.2a2 2 0 0 1-2 1.5C9.3 21 3 14.7 2.5 6.2a2 2 0 0 1 1.5-2l3.2-.7Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                </svg>
+                <div>
+                  <small>Telefon</small>
+                  <a href="tel:0762360128">0762 360 128</a>
+                </div>
+              </div>
+
+              <div class="contact-row">
+                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 21s6-5.1 6-12a6 6 0 1 0-12 0c0 6.9 6 12 6 12Z" stroke="currentColor" stroke-width="1.8"/>
+                  <circle cx="12" cy="9" r="2.2" stroke="currentColor" stroke-width="1.8"/>
+                </svg>
+                <div>
+                  <small>Adresă</small>
+                  <strong>Strada 1 Decembrie 191, 135200 Găești, România</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-actions">
+            <a class="button button-primary" href="tel:0762360128">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+                <path d="M7.2 3.5 9.3 8l-2.2 1.7a15.2 15.2 0 0 0 7.2 7.2l1.7-2.2 4.5 2.1-.7 3.2a2 2 0 0 1-2 1.5C9.3 21 3 14.7 2.5 6.2a2 2 0 0 1 1.5-2l3.2-.7Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              </svg>
+              Sună
+            </a>
+            <a class="button button-secondary" href="https://www.google.com/maps/place/?q=place_id:ChIJMa6FSwCJskARojX6pBG33Dk" target="_blank" rel="noopener noreferrer">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+                <path d="M12 21s6-5.1 6-12a6 6 0 1 0-12 0c0 6.9 6 12 6 12Z" stroke="currentColor" stroke-width="1.8"/>
+                <circle cx="12" cy="9" r="2.2" stroke="currentColor" stroke-width="1.8"/>
+              </svg>
+              Google Maps
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a class="brand footer-brand" href="#acasa" aria-label="Vulcanizare Auto Gaesti — Înapoi sus">
+        <span class="brand-mark" aria-hidden="true"><span></span></span>
+        <span class="brand-copy">
+          <strong>Vulcanizare Auto Gaesti</strong>
+          <small>Service auto · Găești</small>
+        </span>
+      </a>
+
+      <div class="footer-meta">
+        <p>Strada 1 Decembrie 191, 135200 Găești</p>
+        <p>Telefon: <a href="tel:0762360128">0762 360 128</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="mobile-action-bar" aria-label="Acțiuni rapide">
+    <a href="tel:0762360128" aria-label="Sună la 0762 360 128">
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+        <path d="M7.2 3.5 9.3 8l-2.2 1.7a15.2 15.2 0 0 0 7.2 7.2l1.7-2.2 4.5 2.1-.7 3.2a2 2 0 0 1-2 1.5C9.3 21 3 14.7 2.5 6.2a2 2 0 0 1 1.5-2l3.2-.7Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+      </svg>
+      Sună
+    </a>
+    <a href="https://www.google.com/maps/place/?q=place_id:ChIJMa6FSwCJskARojX6pBG33Dk" target="_blank" rel="noopener noreferrer">
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+        <path d="M12 21s6-5.1 6-12a6 6 0 1 0-12 0c0 6.9 6 12 6 12Z" stroke="currentColor" stroke-width="1.8"/>
+        <circle cx="12" cy="9" r="2.2" stroke="currentColor" stroke-width="1.8"/>
+      </svg>
+      Locație
+    </a>
+  </div>
+
+  <script>
+    const menuButton = document.querySelector('.menu-button');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const mobileLinks = mobileMenu.querySelectorAll('a');
+
+    function closeMenu() {
+      mobileMenu.classList.remove('open');
+      menuButton.setAttribute('aria-expanded', 'false');
+      menuButton.setAttribute('aria-label', 'Deschide meniul');
+      document.body.classList.remove('menu-open');
+    }
+
+    menuButton.addEventListener('click', function () {
+      const isOpen = mobileMenu.classList.toggle('open');
+      menuButton.setAttribute('aria-expanded', String(isOpen));
+      menuButton.setAttribute('aria-label', isOpen ? 'Închide meniul' : 'Deschide meniul');
+      document.body.classList.toggle('menu-open', isOpen);
+    });
+
+    mobileLinks.forEach(function (link) {
+      link.addEventListener('click', closeMenu);
+    });
+
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 1020) {
+        closeMenu();
+      }
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') {
+        closeMenu();
+      }
+    });
+  </script>
+</body>
+</html>

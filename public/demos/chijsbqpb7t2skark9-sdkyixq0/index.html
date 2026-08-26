@@ -1,0 +1,1518 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Flowers — Florărie în Târgoviște</title>
+  <meta name="description" content="Happy Flowers, florărie în Târgoviște. Telefon: 0724 473 343. Locație: Strada Nicolae Bălcescu, Târgoviște, România.">
+  <meta name="theme-color" content="#254f3d">
+  <style>
+    :root {
+      --forest: #254f3d;
+      --forest-dark: #17372a;
+      --sage: #91a88f;
+      --sage-light: #dce7da;
+      --cream: #faf7f0;
+      --paper: #fffdf9;
+      --blush: #e9c5c0;
+      --rose: #b86c73;
+      --gold: #b89457;
+      --ink: #22302a;
+      --muted: #657069;
+      --line: rgba(37, 79, 61, 0.16);
+      --shadow: 0 24px 70px rgba(31, 64, 49, 0.12);
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      --container: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: var(--sans);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body.menu-open {
+      overflow: hidden;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    :focus-visible {
+      outline: 3px solid rgba(184, 148, 87, 0.65);
+      outline-offset: 4px;
+    }
+
+    .skip-link {
+      position: fixed;
+      top: 12px;
+      left: 12px;
+      z-index: 1000;
+      padding: 10px 16px;
+      color: #fff;
+      background: var(--forest-dark);
+      border-radius: 6px;
+      transform: translateY(-150%);
+      transition: transform 0.2s ease;
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    .container {
+      width: min(calc(100% - 48px), var(--container));
+      margin-inline: auto;
+    }
+
+    .site-header {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 100;
+      background: rgba(255, 253, 249, 0.92);
+      border-bottom: 1px solid transparent;
+      backdrop-filter: blur(16px);
+      transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .site-header.scrolled {
+      border-color: var(--line);
+      box-shadow: 0 8px 35px rgba(23, 55, 42, 0.07);
+    }
+
+    .nav-wrap {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--forest-dark);
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      position: relative;
+      width: 35px;
+      height: 35px;
+      flex: 0 0 auto;
+    }
+
+    .brand-mark span {
+      position: absolute;
+      width: 14px;
+      height: 20px;
+      left: 11px;
+      top: 1px;
+      background: var(--blush);
+      border-radius: 100% 0 100% 0;
+      transform-origin: 7px 16px;
+    }
+
+    .brand-mark span:nth-child(2) {
+      transform: rotate(90deg);
+    }
+
+    .brand-mark span:nth-child(3) {
+      transform: rotate(180deg);
+    }
+
+    .brand-mark span:nth-child(4) {
+      transform: rotate(270deg);
+    }
+
+    .brand-mark::after {
+      content: "";
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      left: 14px;
+      top: 14px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    .brand-text {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      position: relative;
+      color: #3f4d46;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .nav-links a:not(.nav-call)::after {
+      content: "";
+      position: absolute;
+      height: 1px;
+      inset: auto 0 -7px;
+      background: var(--forest);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.25s ease;
+    }
+
+    .nav-links a:not(.nav-call):hover::after,
+    .nav-links a:not(.nav-call):focus-visible::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .nav-call {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 11px 17px;
+      color: #fff !important;
+      background: var(--forest);
+      border-radius: 3px;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .nav-call:hover {
+      background: var(--forest-dark);
+      transform: translateY(-1px);
+    }
+
+    .menu-button {
+      display: none;
+      width: 46px;
+      height: 46px;
+      padding: 0;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .menu-button span {
+      display: block;
+      width: 21px;
+      height: 2px;
+      margin: 5px auto;
+      background: var(--forest);
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 790px;
+      display: flex;
+      align-items: center;
+      padding: 150px 0 90px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 8% 30%, rgba(233, 197, 192, 0.27), transparent 24%),
+        linear-gradient(112deg, var(--paper) 0%, var(--cream) 58%, #edf2e9 100%);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 520px;
+      height: 520px;
+      top: -230px;
+      right: -130px;
+      border: 1px solid rgba(37, 79, 61, 0.12);
+      border-radius: 50%;
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(380px, 0.92fr);
+      align-items: center;
+      gap: 70px;
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      margin: 0 0 24px;
+      color: var(--forest);
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.19em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    h1,
+    h2,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      max-width: 720px;
+      margin-bottom: 27px;
+      color: var(--forest-dark);
+      font-family: var(--serif);
+      font-size: clamp(4rem, 7.4vw, 7rem);
+      font-weight: 400;
+      line-height: 0.92;
+      letter-spacing: -0.055em;
+    }
+
+    h1 span {
+      display: block;
+      margin-top: 12px;
+      color: var(--rose);
+      font-style: italic;
+      font-size: 0.53em;
+      letter-spacing: -0.025em;
+    }
+
+    .hero-copy {
+      max-width: 560px;
+      margin-bottom: 36px;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .hero-copy strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .button {
+      min-height: 54px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 11px;
+      padding: 14px 22px;
+      border: 1px solid var(--forest);
+      border-radius: 3px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
+
+    .button-primary {
+      color: #fff;
+      background: var(--forest);
+    }
+
+    .button-primary:hover {
+      background: var(--forest-dark);
+      transform: translateY(-2px);
+    }
+
+    .button-secondary {
+      color: var(--forest);
+      background: transparent;
+    }
+
+    .button-secondary:hover {
+      color: #fff;
+      background: var(--forest);
+      transform: translateY(-2px);
+    }
+
+    .button svg,
+    .nav-call svg {
+      width: 18px;
+      height: 18px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .botanical-art {
+      position: relative;
+      width: min(100%, 480px);
+      aspect-ratio: 0.86;
+      margin-left: auto;
+    }
+
+    .art-frame {
+      position: absolute;
+      inset: 7% 6% 4% 12%;
+      overflow: hidden;
+      border: 1px solid rgba(37, 79, 61, 0.18);
+      border-radius: 48% 48% 4px 4px;
+      background:
+        radial-gradient(circle at 65% 28%, rgba(255, 255, 255, 0.85), transparent 27%),
+        linear-gradient(150deg, #dce8d9, #f1e8df 72%);
+      box-shadow: var(--shadow);
+    }
+
+    .art-frame::before {
+      content: "";
+      position: absolute;
+      width: 330px;
+      height: 330px;
+      left: -120px;
+      bottom: -135px;
+      border-radius: 50%;
+      background: rgba(37, 79, 61, 0.12);
+    }
+
+    .stem {
+      position: absolute;
+      z-index: 2;
+      width: 2px;
+      height: 58%;
+      left: 52%;
+      bottom: 8%;
+      background: var(--forest);
+      transform-origin: bottom;
+    }
+
+    .stem-a {
+      transform: rotate(-19deg);
+    }
+
+    .stem-b {
+      transform: rotate(12deg);
+    }
+
+    .stem-c {
+      height: 49%;
+      transform: rotate(31deg);
+    }
+
+    .leaf {
+      position: absolute;
+      z-index: 3;
+      width: 61px;
+      height: 29px;
+      border-radius: 100% 0 100% 0;
+      background: #6e8a70;
+    }
+
+    .leaf-a {
+      left: 30%;
+      top: 52%;
+      transform: rotate(18deg);
+    }
+
+    .leaf-b {
+      right: 25%;
+      top: 58%;
+      transform: rotate(165deg);
+      background: #8fa58a;
+    }
+
+    .leaf-c {
+      left: 37%;
+      top: 68%;
+      transform: rotate(205deg);
+      background: #50705b;
+    }
+
+    .flower {
+      position: absolute;
+      z-index: 4;
+      width: 145px;
+      height: 145px;
+    }
+
+    .flower span {
+      position: absolute;
+      width: 55%;
+      height: 55%;
+      left: 22.5%;
+      top: 4%;
+      border-radius: 55% 45% 55% 45%;
+      background: var(--blush);
+      transform-origin: 50% 83%;
+      box-shadow: inset 5px 5px 15px rgba(255, 255, 255, 0.25);
+    }
+
+    .flower span:nth-child(2) {
+      transform: rotate(72deg);
+    }
+
+    .flower span:nth-child(3) {
+      transform: rotate(144deg);
+    }
+
+    .flower span:nth-child(4) {
+      transform: rotate(216deg);
+    }
+
+    .flower span:nth-child(5) {
+      transform: rotate(288deg);
+    }
+
+    .flower::after {
+      content: "";
+      position: absolute;
+      width: 29%;
+      height: 29%;
+      left: 35.5%;
+      top: 35.5%;
+      border-radius: 50%;
+      background: #c29d62;
+      box-shadow: 0 0 0 8px rgba(194, 157, 98, 0.15);
+    }
+
+    .flower-main {
+      top: 18%;
+      left: 25%;
+      transform: rotate(-8deg);
+    }
+
+    .flower-small {
+      width: 100px;
+      height: 100px;
+      top: 37%;
+      right: 10%;
+      transform: rotate(13deg);
+    }
+
+    .flower-small span {
+      background: #f4eee5;
+    }
+
+    .flower-bud {
+      width: 82px;
+      height: 82px;
+      top: 27%;
+      left: 7%;
+      transform: rotate(-24deg);
+    }
+
+    .flower-bud span {
+      background: #bf7780;
+    }
+
+    .art-note {
+      position: absolute;
+      z-index: 7;
+      right: 0;
+      bottom: 10%;
+      width: 182px;
+      padding: 20px 22px;
+      color: #fff;
+      background: var(--forest);
+      box-shadow: 0 15px 40px rgba(23, 55, 42, 0.22);
+    }
+
+    .art-note small {
+      display: block;
+      margin-bottom: 4px;
+      color: rgba(255, 255, 255, 0.68);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .art-note strong {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      font-weight: 400;
+    }
+
+    .section {
+      padding: 115px 0;
+    }
+
+    .intro {
+      background: var(--paper);
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: clamp(60px, 10vw, 150px);
+      align-items: start;
+    }
+
+    .section-index {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      color: var(--rose);
+      font-size: 0.73rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .section-index::after {
+      content: "";
+      width: 70px;
+      height: 1px;
+      background: var(--line);
+    }
+
+    h2 {
+      margin-bottom: 28px;
+      color: var(--forest-dark);
+      font-family: var(--serif);
+      font-size: clamp(2.5rem, 4.5vw, 4.4rem);
+      font-weight: 400;
+      line-height: 1.06;
+      letter-spacing: -0.045em;
+    }
+
+    .intro-text {
+      max-width: 700px;
+      color: var(--muted);
+      font-size: 1.13rem;
+    }
+
+    .intro-text strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .fact-row {
+      margin-top: 48px;
+      padding-top: 28px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+      border-top: 1px solid var(--line);
+    }
+
+    .fact-label {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .fact-value {
+      color: var(--forest-dark);
+      font-family: var(--serif);
+      font-size: 1.25rem;
+    }
+
+    .reputation {
+      position: relative;
+      overflow: hidden;
+      color: #fff;
+      background: var(--forest-dark);
+    }
+
+    .reputation::before {
+      content: "";
+      position: absolute;
+      width: 520px;
+      height: 520px;
+      top: -260px;
+      right: -140px;
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: 50%;
+    }
+
+    .reputation::after {
+      content: "";
+      position: absolute;
+      width: 310px;
+      height: 310px;
+      right: 20px;
+      bottom: -230px;
+      border: 70px solid rgba(255, 255, 255, 0.025);
+      border-radius: 50%;
+    }
+
+    .rating-layout {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 70px;
+    }
+
+    .rating-copy .eyebrow {
+      color: #c9d7c7;
+    }
+
+    .rating-copy h2 {
+      margin-bottom: 0;
+      color: #fff;
+    }
+
+    .rating-score {
+      min-width: 250px;
+      padding: 0 60px;
+      text-align: center;
+      border-right: 1px solid rgba(255, 255, 255, 0.15);
+      border-left: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .score {
+      display: block;
+      font-family: var(--serif);
+      font-size: 6.4rem;
+      font-weight: 400;
+      line-height: 0.95;
+      letter-spacing: -0.07em;
+    }
+
+    .stars {
+      margin-top: 16px;
+      color: #e0ba73;
+      font-size: 1.2rem;
+      letter-spacing: 0.12em;
+    }
+
+    .rating-meta {
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .rating-meta strong {
+      display: block;
+      margin-bottom: 8px;
+      color: #fff;
+      font-family: var(--serif);
+      font-size: 1.8rem;
+      font-weight: 400;
+    }
+
+    .location {
+      position: relative;
+      background:
+        linear-gradient(rgba(37, 79, 61, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(37, 79, 61, 0.035) 1px, transparent 1px),
+        var(--cream);
+      background-size: 44px 44px;
+    }
+
+    .location-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(380px, 0.8fr);
+      gap: 80px;
+      align-items: center;
+    }
+
+    .address {
+      max-width: 660px;
+      margin-bottom: 38px;
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+
+    .address span {
+      display: block;
+      margin-top: 8px;
+      color: var(--ink);
+      font-family: var(--serif);
+      font-size: 1.42rem;
+      line-height: 1.4;
+    }
+
+    .map-art {
+      position: relative;
+      min-height: 430px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: #eef1e9;
+      box-shadow: var(--shadow);
+    }
+
+    .map-art::before,
+    .map-art::after {
+      content: "";
+      position: absolute;
+      width: 150%;
+      height: 52px;
+      left: -25%;
+      top: 31%;
+      background: var(--paper);
+      border-top: 1px solid rgba(37, 79, 61, 0.13);
+      border-bottom: 1px solid rgba(37, 79, 61, 0.13);
+      transform: rotate(-18deg);
+    }
+
+    .map-art::after {
+      top: 63%;
+      height: 38px;
+      transform: rotate(28deg);
+    }
+
+    .map-road {
+      position: absolute;
+      width: 38px;
+      height: 130%;
+      top: -15%;
+      left: 34%;
+      z-index: 2;
+      background: rgba(255, 253, 249, 0.92);
+      border-right: 1px solid rgba(37, 79, 61, 0.12);
+      border-left: 1px solid rgba(37, 79, 61, 0.12);
+      transform: rotate(9deg);
+    }
+
+    .map-block {
+      position: absolute;
+      border: 1px solid rgba(37, 79, 61, 0.09);
+      background: rgba(145, 168, 143, 0.17);
+    }
+
+    .block-a {
+      width: 115px;
+      height: 80px;
+      top: 35px;
+      left: 25px;
+      transform: rotate(-5deg);
+    }
+
+    .block-b {
+      width: 140px;
+      height: 95px;
+      top: 38px;
+      right: 30px;
+      transform: rotate(8deg);
+    }
+
+    .block-c {
+      width: 120px;
+      height: 90px;
+      right: 35px;
+      bottom: 30px;
+      transform: rotate(-7deg);
+    }
+
+    .map-pin {
+      position: absolute;
+      z-index: 5;
+      width: 72px;
+      height: 72px;
+      left: 50%;
+      top: 48%;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      background: var(--rose);
+      border: 8px solid rgba(255, 255, 255, 0.82);
+      border-radius: 50% 50% 50% 6px;
+      box-shadow: 0 16px 30px rgba(67, 45, 45, 0.2);
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+
+    .map-pin svg {
+      width: 27px;
+      height: 27px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.5;
+      transform: rotate(45deg);
+    }
+
+    .map-label {
+      position: absolute;
+      z-index: 6;
+      left: 50%;
+      top: calc(48% + 65px);
+      padding: 9px 14px;
+      color: var(--forest-dark);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      font-family: var(--serif);
+      white-space: nowrap;
+      transform: translateX(-50%);
+    }
+
+    .contact {
+      padding: 90px 0;
+      background: var(--paper);
+    }
+
+    .contact-panel {
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 50px;
+      padding: clamp(42px, 7vw, 78px);
+      background: #e7eee3;
+    }
+
+    .contact-panel::after {
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      right: -100px;
+      top: -135px;
+      border: 55px solid rgba(37, 79, 61, 0.055);
+      border-radius: 50%;
+    }
+
+    .contact-panel h2 {
+      max-width: 620px;
+      margin-bottom: 14px;
+    }
+
+    .contact-panel p {
+      margin-bottom: 0;
+      color: var(--muted);
+    }
+
+    .phone-link {
+      position: relative;
+      z-index: 2;
+      display: inline-flex;
+      align-items: center;
+      gap: 17px;
+      padding: 20px 24px;
+      color: #fff;
+      background: var(--forest);
+      text-decoration: none;
+      white-space: nowrap;
+      box-shadow: 0 15px 35px rgba(37, 79, 61, 0.18);
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .phone-link:hover {
+      background: var(--forest-dark);
+      transform: translateY(-2px);
+    }
+
+    .phone-link svg {
+      width: 23px;
+      height: 23px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.6;
+    }
+
+    .phone-link small {
+      display: block;
+      color: rgba(255, 255, 255, 0.68);
+      font-size: 0.66rem;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .phone-link strong {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      font-weight: 400;
+    }
+
+    .site-footer {
+      padding: 35px 0;
+      color: rgba(255, 255, 255, 0.65);
+      background: #122c21;
+    }
+
+    .footer-grid {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .footer-brand {
+      color: #fff;
+      font-family: var(--serif);
+      font-size: 1.2rem;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .footer-links a {
+      font-size: 0.84rem;
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      color: #fff;
+    }
+
+    .mobile-actions {
+      display: none;
+    }
+
+    @media (max-width: 920px) {
+      .menu-button {
+        display: block;
+        z-index: 102;
+      }
+
+      .menu-button[aria-expanded="true"] span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+
+      .menu-button[aria-expanded="true"] span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .menu-button[aria-expanded="true"] span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
+
+      .nav-links {
+        position: fixed;
+        inset: 0;
+        z-index: 101;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 28px;
+        padding: 90px 10vw;
+        background: var(--paper);
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+      }
+
+      .nav-links.open {
+        transform: translateX(0);
+      }
+
+      .nav-links a {
+        font-family: var(--serif);
+        font-size: 1.7rem;
+        font-weight: 400;
+      }
+
+      .nav-links .nav-call {
+        font-family: var(--sans);
+        font-size: 1rem;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr 0.76fr;
+        gap: 35px;
+      }
+
+      h1 {
+        font-size: clamp(3.7rem, 10vw, 5.5rem);
+      }
+
+      .rating-layout {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .rating-score {
+        order: 3;
+        grid-column: 1 / -1;
+        padding: 40px 0 0;
+        border: 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.15);
+      }
+
+      .location-grid {
+        gap: 45px;
+      }
+
+      .contact-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .phone-link {
+        width: fit-content;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .container {
+        width: min(calc(100% - 32px), var(--container));
+      }
+
+      .nav-wrap {
+        min-height: 68px;
+      }
+
+      .hero {
+        padding: 118px 0 68px;
+      }
+
+      .hero-grid,
+      .intro-grid,
+      .rating-layout,
+      .location-grid {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: clamp(3.6rem, 18vw, 5.4rem);
+      }
+
+      .hero-copy {
+        font-size: 1rem;
+      }
+
+      .botanical-art {
+        width: min(100%, 400px);
+        margin: 25px auto 0;
+      }
+
+      .art-note {
+        right: 2px;
+      }
+
+      .section {
+        padding: 78px 0;
+      }
+
+      .intro-grid {
+        gap: 34px;
+      }
+
+      .fact-row {
+        grid-template-columns: 1fr;
+      }
+
+      .rating-layout {
+        gap: 35px;
+      }
+
+      .rating-score {
+        order: initial;
+        grid-column: auto;
+        padding: 32px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.15);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      }
+
+      .score {
+        font-size: 5.5rem;
+      }
+
+      .location-grid {
+        gap: 45px;
+      }
+
+      .map-art {
+        min-height: 350px;
+      }
+
+      .contact {
+        padding: 60px 0 95px;
+      }
+
+      .contact-panel {
+        padding: 40px 25px;
+      }
+
+      .phone-link {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .footer-grid {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .site-footer {
+        padding-bottom: 100px;
+      }
+
+      .mobile-actions {
+        position: fixed;
+        z-index: 90;
+        inset: auto 0 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+        background: rgba(255, 253, 249, 0.96);
+        border-top: 1px solid var(--line);
+        backdrop-filter: blur(14px);
+      }
+
+      .mobile-actions a {
+        min-height: 48px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        color: var(--forest);
+        font-size: 0.84rem;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .mobile-actions a:first-child {
+        color: #fff;
+        background: var(--forest);
+      }
+
+      .mobile-actions svg {
+        width: 18px;
+        height: 18px;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 1.8;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .actions {
+        display: grid;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .botanical-art {
+        aspect-ratio: 0.82;
+      }
+
+      .flower-main {
+        left: 20%;
+      }
+
+      .art-note {
+        width: 165px;
+        padding: 16px 18px;
+      }
+
+      .map-label {
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#continut">Sari la conținut</a>
+
+  <header class="site-header" id="header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#acasa" aria-label="Happy Flowers — Acasă">
+        <span class="brand-mark" aria-hidden="true">
+          <span></span><span></span><span></span><span></span>
+        </span>
+        <span class="brand-text">Happy Flowers</span>
+      </a>
+
+      <button class="menu-button" type="button" aria-label="Deschide meniul" aria-controls="navigatie" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="nav-links" id="navigatie" aria-label="Navigație principală">
+        <a href="#acasa">Acasă</a>
+        <a href="#despre">Despre</a>
+        <a href="#recenzii">Recenzii Google</a>
+        <a href="#locatie">Locație</a>
+        <a class="nav-call" href="tel:0724473343" aria-label="Sună la Happy Flowers, 0724 473 343">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.8a2 2 0 0 1-.45 2.11L8.07 9.9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.32 1.84.55 2.8.68A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+          Sună
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="continut">
+    <section class="hero" id="acasa">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">Florărie · Târgoviște</p>
+          <h1>Happy<br>Flowers<span>în Târgoviște</span></h1>
+          <p class="hero-copy">
+            Florărie situată pe <strong>Strada Nicolae Bălcescu</strong>. Pentru informații, poți contacta direct Happy Flowers sau poți deschide locația în Google Maps.
+          </p>
+          <div class="actions">
+            <a class="button button-primary" href="tel:0724473343" aria-label="Sună la Happy Flowers, 0724 473 343">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.8a2 2 0 0 1-.45 2.11L8.07 9.9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.32 1.84.55 2.8.68A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+              Sună pentru informații
+            </a>
+            <a class="button button-secondary" href="https://www.google.com/maps/place/?q=place_id:ChIJsbqpb7T2skARK9_SDKYiXQ0" target="_blank" rel="noopener noreferrer" aria-label="Vezi locația Happy Flowers în Google Maps">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0z"></path>
+                <circle cx="12" cy="10" r="2.5"></circle>
+              </svg>
+              Vezi locația
+            </a>
+          </div>
+        </div>
+
+        <div class="botanical-art" aria-hidden="true">
+          <div class="art-frame">
+            <span class="stem stem-a"></span>
+            <span class="stem stem-b"></span>
+            <span class="stem stem-c"></span>
+            <span class="leaf leaf-a"></span>
+            <span class="leaf leaf-b"></span>
+            <span class="leaf leaf-c"></span>
+            <div class="flower flower-main">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div class="flower flower-small">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div class="flower flower-bud">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+          </div>
+          <div class="art-note">
+            <small>Locație</small>
+            <strong>Târgoviște</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section intro" id="despre">
+      <div class="container intro-grid">
+        <div>
+          <span class="section-index">01 · Despre</span>
+        </div>
+        <div>
+          <h2>Happy Flowers</h2>
+          <p class="intro-text">
+            <strong>Happy Flowers este o florărie din Târgoviște</strong>, cu locația pe Strada Nicolae Bălcescu. Telefonul și indicațiile de orientare sunt disponibile mai jos pentru contact direct.
+          </p>
+          <div class="fact-row">
+            <div>
+              <span class="fact-label">Categorie</span>
+              <span class="fact-value">Florărie</span>
+            </div>
+            <div>
+              <span class="fact-label">Oraș</span>
+              <span class="fact-value">Târgoviște</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reputation" id="recenzii">
+      <div class="container rating-layout">
+        <div class="rating-copy">
+          <p class="eyebrow">Evaluare publică</p>
+          <h2>Rating Google</h2>
+        </div>
+
+        <div class="rating-score" aria-label="Rating Google 4,5">
+          <span class="score">4,5</span>
+          <div class="stars" aria-hidden="true">★★★★½</div>
+        </div>
+
+        <div class="rating-meta">
+          <strong>10 recenzii</strong>
+          <span>Conform profilului Google al companiei.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section location" id="locatie">
+      <div class="container location-grid">
+        <div>
+          <p class="eyebrow">Contact și locație</p>
+          <h2>Găsește Happy Flowers în Târgoviște</h2>
+          <p class="address">
+            Adresa florăriei:
+            <span>Strada Nicolae Bălcescu,<br>Târgoviște, România</span>
+          </p>
+          <div class="actions">
+            <a class="button button-primary" href="https://www.google.com/maps/place/?q=place_id:ChIJsbqpb7T2skARK9_SDKYiXQ0" target="_blank" rel="noopener noreferrer" aria-label="Deschide locația Happy Flowers în Google Maps">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0z"></path>
+                <circle cx="12" cy="10" r="2.5"></circle>
+              </svg>
+              Deschide în Google Maps
+            </a>
+          </div>
+        </div>
+
+        <div class="map-art" aria-label="Reprezentare grafică a locației Happy Flowers">
+          <span class="map-road"></span>
+          <span class="map-block block-a"></span>
+          <span class="map-block block-b"></span>
+          <span class="map-block block-c"></span>
+          <span class="map-pin">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0z"></path>
+              <circle cx="12" cy="10" r="2.5"></circle>
+            </svg>
+          </span>
+          <span class="map-label">Happy Flowers</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="contact-panel">
+          <div>
+            <p class="eyebrow">Contact direct</p>
+            <h2>Ai nevoie de informații?</h2>
+            <p>Contactează telefonic Happy Flowers.</p>
+          </div>
+          <a class="phone-link" href="tel:0724473343" aria-label="Sună la Happy Flowers, 0724 473 343">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.8a2 2 0 0 1-.45 2.11L8.07 9.9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.32 1.84.55 2.8.68A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+            <span>
+              <small>Telefon</small>
+              <strong>0724 473 343</strong>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <span class="footer-brand">Happy Flowers</span>
+      <nav class="footer-links" aria-label="Navigație subsol">
+        <a href="tel:0724473343">0724 473 343</a>
+        <a href="https://www.google.com/maps/place/?q=place_id:ChIJsbqpb7T2skARK9_SDKYiXQ0" target="_blank" rel="noopener noreferrer">Google Maps</a>
+      </nav>
+    </div>
+  </footer>
+
+  <div class="mobile-actions" aria-label="Acțiuni rapide">
+    <a href="tel:0724473343" aria-label="Sună la Happy Flowers">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.8a2 2 0 0 1-.45 2.11L8.07 9.9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.32 1.84.55 2.8.68A2 2 0 0 1 22 16.92z"></path>
+      </svg>
+      Sună
+    </a>
+    <a href="https://www.google.com/maps/place/?q=place_id:ChIJsbqpb7T2skARK9_SDKYiXQ0" target="_blank" rel="noopener noreferrer" aria-label="Vezi Happy Flowers în Google Maps">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0z"></path>
+        <circle cx="12" cy="10" r="2.5"></circle>
+      </svg>
+      Locație
+    </a>
+  </div>
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Florist",
+      "name": "Happy Flowers",
+      "telephone": "0724 473 343",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Strada Nicolae Bălcescu",
+        "addressLocality": "Târgoviște",
+        "addressCountry": "RO"
+      },
+      "hasMap": "https://www.google.com/maps/place/?q=place_id:ChIJsbqpb7T2skARK9_SDKYiXQ0",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.5",
+        "reviewCount": "10"
+      }
+    }
+  </script>
+
+  <script>
+    const header = document.getElementById("header");
+    const menuButton = document.querySelector(".menu-button");
+    const navigation = document.getElementById("navigatie");
+    const menuLinks = navigation.querySelectorAll("a");
+
+    function updateHeader() {
+      header.classList.toggle("scrolled", window.scrollY > 12);
+    }
+
+    function closeMenu() {
+      navigation.classList.remove("open");
+      menuButton.setAttribute("aria-expanded", "false");
+      menuButton.setAttribute("aria-label", "Deschide meniul");
+      document.body.classList.remove("menu-open");
+    }
+
+    menuButton.addEventListener("click", function () {
+      const isOpen = navigation.classList.toggle("open");
+      menuButton.setAttribute("aria-expanded", String(isOpen));
+      menuButton.setAttribute("aria-label", isOpen ? "Închide meniul" : "Deschide meniul");
+      document.body.classList.toggle("menu-open", isOpen);
+    });
+
+    menuLinks.forEach(function (link) {
+      link.addEventListener("click", closeMenu);
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") {
+        closeMenu();
+      }
+    });
+
+    window.addEventListener("scroll", updateHeader, { passive: true });
+    updateHeader();
+  </script>
+</body>
+</html>

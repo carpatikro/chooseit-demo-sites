@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>M Beauty Salon | Salon beauty în Târgoviște</title>
+  <meta name="description" content="M Beauty Salon din Târgoviște. Contact direct la 0768 869 363 și localizare pe Google Maps.">
+  <style>
+    :root {
+      --ivory: #f8f4ef;
+      --paper: #fffdf9;
+      --ink: #302a28;
+      --muted: #756b66;
+      --warm: #a46f60;
+      --warm-dark: #785045;
+      --blush: #ead8d1;
+      --sand: #d8c4b4;
+      --line: rgba(48, 42, 40, 0.14);
+      --white: #ffffff;
+      --shadow: 0 24px 70px rgba(73, 51, 43, 0.12);
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: Inter, "Segoe UI", Arial, sans-serif;
+      --container: min(1180px, calc(100% - 48px));
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      overflow-x: hidden;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body.menu-open {
+      overflow: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid rgba(164, 111, 96, 0.45);
+      outline-offset: 4px;
+    }
+
+    .skip-link {
+      position: fixed;
+      top: 12px;
+      left: 12px;
+      z-index: 999;
+      padding: 10px 16px;
+      border-radius: 4px;
+      background: var(--ink);
+      color: var(--white);
+      transform: translateY(-150%);
+      transition: transform 180ms ease;
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    .container {
+      width: var(--container);
+      margin-inline: auto;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0 0 20px;
+      color: var(--warm-dark);
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      line-height: 1.3;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      width: 30px;
+      height: 1px;
+      background: currentColor;
+      content: "";
+    }
+
+    .section-title {
+      max-width: 720px;
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(2.35rem, 5vw, 4.8rem);
+      font-weight: 400;
+      letter-spacing: -0.045em;
+      line-height: 0.98;
+    }
+
+    .site-header {
+      position: absolute;
+      inset: 0 0 auto;
+      z-index: 20;
+      border-bottom: 1px solid rgba(48, 42, 40, 0.09);
+    }
+
+    .nav {
+      display: flex;
+      min-height: 84px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+
+    .brand {
+      position: relative;
+      z-index: 30;
+      display: inline-flex;
+      align-items: center;
+      gap: 13px;
+      font-family: var(--serif);
+      font-size: 1.17rem;
+      letter-spacing: -0.02em;
+      line-height: 1;
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 38px;
+      height: 38px;
+      place-items: center;
+      border: 1px solid var(--warm);
+      border-radius: 50%;
+      color: var(--warm-dark);
+      font-family: var(--serif);
+      font-size: 1.05rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 34px;
+    }
+
+    .nav-links a {
+      position: relative;
+      color: #544b47;
+      font-size: 0.86rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+
+    .nav-links a:not(.nav-cta)::after {
+      position: absolute;
+      right: 0;
+      bottom: -8px;
+      left: 0;
+      height: 1px;
+      background: var(--warm);
+      content: "";
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 220ms ease;
+    }
+
+    .nav-links a:not(.nav-cta):hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .nav-cta {
+      display: inline-flex;
+      min-height: 46px;
+      align-items: center;
+      justify-content: center;
+      padding: 0 22px;
+      border: 1px solid var(--ink);
+      transition: background 180ms ease, color 180ms ease;
+    }
+
+    .nav-cta:hover {
+      background: var(--ink);
+      color: var(--white);
+    }
+
+    .menu-toggle {
+      position: relative;
+      z-index: 30;
+      display: none;
+      width: 46px;
+      height: 46px;
+      padding: 0;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: transparent;
+      color: var(--ink);
+      cursor: pointer;
+    }
+
+    .menu-toggle span,
+    .menu-toggle::before,
+    .menu-toggle::after {
+      position: absolute;
+      left: 13px;
+      width: 18px;
+      height: 1px;
+      background: currentColor;
+      content: "";
+      transition: transform 200ms ease, opacity 200ms ease;
+    }
+
+    .menu-toggle::before {
+      top: 16px;
+    }
+
+    .menu-toggle span {
+      top: 22px;
+    }
+
+    .menu-toggle::after {
+      top: 28px;
+    }
+
+    .menu-toggle[aria-expanded="true"]::before {
+      top: 22px;
+      transform: rotate(45deg);
+    }
+
+    .menu-toggle[aria-expanded="true"] span {
+      opacity: 0;
+    }
+
+    .menu-toggle[aria-expanded="true"]::after {
+      top: 22px;
+      transform: rotate(-45deg);
+    }
+
+    .hero {
+      position: relative;
+      min-height: 760px;
+      overflow: hidden;
+      background:
+        linear-gradient(90deg, rgba(255, 253, 249, 0) 49.9%, rgba(48, 42, 40, 0.08) 50%, rgba(255, 253, 249, 0) 50.1%),
+        var(--ivory);
+    }
+
+    .hero::before {
+      position: absolute;
+      top: 120px;
+      right: -130px;
+      width: 480px;
+      height: 480px;
+      border: 1px solid rgba(164, 111, 96, 0.25);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .hero-inner {
+      position: relative;
+      display: grid;
+      min-height: 760px;
+      padding-top: 84px;
+      grid-template-columns: 1.08fr 0.92fr;
+      align-items: center;
+      gap: clamp(50px, 7vw, 105px);
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 2;
+      padding: 84px 0 58px;
+    }
+
+    .hero h1 {
+      max-width: 720px;
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(4rem, 8vw, 7.8rem);
+      font-weight: 400;
+      letter-spacing: -0.065em;
+      line-height: 0.83;
+    }
+
+    .hero h1 span {
+      display: block;
+      margin-left: clamp(25px, 6vw, 100px);
+      color: var(--warm-dark);
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    .hero-intro {
+      max-width: 500px;
+      margin: 42px 0 0;
+      color: var(--muted);
+      font-size: clamp(1rem, 1.5vw, 1.13rem);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+      margin-top: 34px;
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: 54px;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 0 24px;
+      border: 1px solid var(--ink);
+      font-size: 0.87rem;
+      font-weight: 700;
+      letter-spacing: 0.025em;
+      transition: transform 180ms ease, background 180ms ease, color 180ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-primary {
+      background: var(--ink);
+      color: var(--white);
+    }
+
+    .button-primary:hover {
+      background: var(--warm-dark);
+      border-color: var(--warm-dark);
+    }
+
+    .button-secondary {
+      background: transparent;
+      color: var(--ink);
+    }
+
+    .button-secondary:hover {
+      background: var(--white);
+    }
+
+    .button svg {
+      width: 17px;
+      height: 17px;
+      flex: 0 0 auto;
+    }
+
+    .hero-art {
+      position: relative;
+      min-height: 540px;
+    }
+
+    .art-frame {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: min(390px, 82%);
+      aspect-ratio: 0.72;
+      overflow: hidden;
+      border-radius: 48% 48% 6px 6px;
+      background: linear-gradient(145deg, #d8bdb2 0%, #f1e4dc 45%, #c09383 100%);
+      box-shadow: var(--shadow);
+      transform: translate(-50%, -50%);
+    }
+
+    .art-frame::before {
+      position: absolute;
+      top: 17%;
+      right: -15%;
+      width: 78%;
+      aspect-ratio: 1;
+      border: 1px solid rgba(255, 255, 255, 0.72);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .art-frame::after {
+      position: absolute;
+      bottom: -13%;
+      left: -15%;
+      width: 85%;
+      aspect-ratio: 1;
+      border-radius: 48% 52% 44% 56%;
+      background: rgba(255, 250, 245, 0.5);
+      content: "";
+      transform: rotate(25deg);
+    }
+
+    .art-line {
+      position: absolute;
+      z-index: 1;
+      top: 10%;
+      left: 14%;
+      width: 1px;
+      height: 80%;
+      background: rgba(101, 70, 60, 0.28);
+      transform: rotate(25deg);
+    }
+
+    .art-monogram {
+      position: absolute;
+      z-index: 2;
+      right: 9%;
+      bottom: 11%;
+      color: rgba(85, 55, 46, 0.72);
+      font-family: var(--serif);
+      font-size: clamp(4.5rem, 8vw, 7rem);
+      font-style: italic;
+      letter-spacing: -0.09em;
+      line-height: 1;
+    }
+
+    .art-note {
+      position: absolute;
+      z-index: 3;
+      bottom: 8%;
+      left: -18px;
+      padding: 14px 18px;
+      border-left: 2px solid var(--warm);
+      background: rgba(255, 253, 249, 0.94);
+      box-shadow: 0 12px 40px rgba(73, 51, 43, 0.1);
+      color: var(--muted);
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .about {
+      position: relative;
+      padding: clamp(95px, 13vw, 170px) 0;
+      background: var(--paper);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: clamp(60px, 10vw, 150px);
+      align-items: start;
+    }
+
+    .about-index {
+      color: var(--warm);
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-style: italic;
+    }
+
+    .about-copy p {
+      max-width: 610px;
+      margin: 34px 0 0;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .fact-row {
+      display: grid;
+      margin-top: 62px;
+      padding-top: 28px;
+      border-top: 1px solid var(--line);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 26px;
+    }
+
+    .fact-label {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--warm-dark);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .fact-value {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+    }
+
+    .reputation {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(85px, 10vw, 130px) 0;
+      background: var(--ink);
+      color: var(--white);
+    }
+
+    .reputation::after {
+      position: absolute;
+      top: -180px;
+      right: -120px;
+      width: 530px;
+      height: 530px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .rating-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: end;
+      gap: 60px;
+    }
+
+    .reputation .eyebrow {
+      color: var(--sand);
+    }
+
+    .reputation .section-title {
+      max-width: 650px;
+    }
+
+    .rating-card {
+      display: grid;
+      min-width: 310px;
+      padding: 34px;
+      border: 1px solid rgba(255, 255, 255, 0.17);
+      background: rgba(255, 255, 255, 0.035);
+      grid-template-columns: auto 1fr;
+      gap: 25px;
+      align-items: center;
+    }
+
+    .rating-number {
+      font-family: var(--serif);
+      font-size: clamp(4rem, 7vw, 6.3rem);
+      letter-spacing: -0.08em;
+      line-height: 0.8;
+    }
+
+    .stars {
+      position: relative;
+      width: max-content;
+      color: rgba(255, 255, 255, 0.24);
+      font-size: 1.05rem;
+      letter-spacing: 0.18em;
+      line-height: 1;
+    }
+
+    .stars-fill {
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 94%;
+      overflow: hidden;
+      color: #d9b39f;
+      white-space: nowrap;
+    }
+
+    .rating-meta {
+      margin-top: 10px;
+      color: rgba(255, 255, 255, 0.66);
+      font-size: 0.86rem;
+    }
+
+    .rating-source {
+      margin-top: 4px;
+      color: rgba(255, 255, 255, 0.45);
+      font-size: 0.76rem;
+    }
+
+    .contact {
+      padding: clamp(95px, 13vw, 170px) 0;
+      background: var(--ivory);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(360px, 1.1fr);
+      gap: clamp(55px, 9vw, 130px);
+      align-items: start;
+    }
+
+    .contact-intro {
+      max-width: 460px;
+      margin: 30px 0 0;
+      color: var(--muted);
+    }
+
+    .contact-list {
+      border-top: 1px solid var(--line);
+    }
+
+    .contact-item {
+      display: grid;
+      min-height: 116px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--line);
+      grid-template-columns: 130px 1fr auto;
+      gap: 22px;
+      align-items: center;
+    }
+
+    .contact-label {
+      color: var(--warm-dark);
+      font-size: 0.71rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .contact-value {
+      font-family: var(--serif);
+      font-size: clamp(1.15rem, 2vw, 1.55rem);
+      line-height: 1.35;
+    }
+
+    .contact-action {
+      display: grid;
+      width: 44px;
+      height: 44px;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      transition: background 180ms ease, color 180ms ease, transform 180ms ease;
+    }
+
+    .contact-action:hover {
+      background: var(--ink);
+      color: var(--white);
+      transform: translateX(3px);
+    }
+
+    .contact-action svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .closing {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(80px, 10vw, 125px) 0;
+      background: var(--blush);
+      text-align: center;
+    }
+
+    .closing::before,
+    .closing::after {
+      position: absolute;
+      width: 250px;
+      height: 400px;
+      border: 1px solid rgba(120, 80, 69, 0.22);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .closing::before {
+      top: -220px;
+      left: -90px;
+      transform: rotate(35deg);
+    }
+
+    .closing::after {
+      right: -90px;
+      bottom: -245px;
+      transform: rotate(-35deg);
+    }
+
+    .closing-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .closing h2 {
+      max-width: 750px;
+      margin: 0 auto;
+      font-family: var(--serif);
+      font-size: clamp(2.6rem, 6vw, 5.6rem);
+      font-weight: 400;
+      letter-spacing: -0.05em;
+      line-height: 0.98;
+    }
+
+    .closing p {
+      margin: 22px 0 30px;
+      color: #685b56;
+    }
+
+    .site-footer {
+      padding: 32px 0;
+      background: var(--paper);
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .footer-name {
+      font-family: var(--serif);
+      font-size: 1.08rem;
+    }
+
+    .footer-meta {
+      color: var(--muted);
+      font-size: 0.8rem;
+      text-align: right;
+    }
+
+    .mobile-call {
+      display: none;
+    }
+
+    @media (max-width: 900px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        position: fixed;
+        inset: 0;
+        z-index: 25;
+        display: flex;
+        padding: 120px 28px 50px;
+        background: var(--ivory);
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: center;
+        gap: 8px;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-12px);
+        transition: opacity 180ms ease, transform 180ms ease;
+      }
+
+      .nav-links.open {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+      }
+
+      .nav-links a {
+        padding: 14px 0;
+        font-family: var(--serif);
+        font-size: 1.8rem;
+        font-weight: 400;
+      }
+
+      .nav-links .nav-cta {
+        margin-top: 20px;
+        font-family: var(--sans);
+        font-size: 0.9rem;
+      }
+
+      .hero,
+      .hero-inner {
+        min-height: auto;
+      }
+
+      .hero-inner {
+        padding-top: 140px;
+        padding-bottom: 78px;
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+
+      .hero-copy {
+        padding: 20px 0 0;
+      }
+
+      .hero h1 {
+        max-width: 650px;
+      }
+
+      .hero-art {
+        min-height: 460px;
+      }
+
+      .art-frame {
+        width: min(360px, 72%);
+      }
+
+      .art-note {
+        left: 7%;
+      }
+
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-grid {
+        gap: 30px;
+      }
+
+      .rating-grid {
+        grid-template-columns: 1fr;
+        align-items: start;
+      }
+
+      .rating-card {
+        min-width: 0;
+        max-width: 430px;
+      }
+    }
+
+    @media (max-width: 620px) {
+      :root {
+        --container: min(100% - 32px, 1180px);
+      }
+
+      .site-header {
+        position: absolute;
+      }
+
+      .nav {
+        min-height: 72px;
+      }
+
+      .brand {
+        font-size: 1rem;
+      }
+
+      .brand-mark {
+        width: 34px;
+        height: 34px;
+      }
+
+      .hero-inner {
+        padding-top: 112px;
+        padding-bottom: 60px;
+      }
+
+      .hero h1 {
+        font-size: clamp(3.25rem, 18vw, 5.2rem);
+      }
+
+      .hero h1 span {
+        margin-left: 20px;
+      }
+
+      .hero-intro {
+        margin-top: 30px;
+      }
+
+      .hero-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .hero-art {
+        min-height: 380px;
+      }
+
+      .art-frame {
+        width: min(270px, 76%);
+      }
+
+      .art-note {
+        bottom: 4%;
+        left: 0;
+        font-size: 0.68rem;
+      }
+
+      .section-title {
+        font-size: clamp(2.4rem, 13vw, 3.5rem);
+      }
+
+      .fact-row {
+        margin-top: 42px;
+        grid-template-columns: 1fr;
+      }
+
+      .rating-grid {
+        gap: 38px;
+      }
+
+      .rating-card {
+        padding: 27px 22px;
+        grid-template-columns: auto 1fr;
+      }
+
+      .rating-number {
+        font-size: 4.2rem;
+      }
+
+      .contact-grid {
+        gap: 45px;
+      }
+
+      .contact-item {
+        min-height: 0;
+        grid-template-columns: 1fr auto;
+        gap: 9px 18px;
+      }
+
+      .contact-label {
+        grid-column: 1 / -1;
+      }
+
+      .contact-value {
+        font-size: 1.17rem;
+      }
+
+      .footer-inner {
+        padding-bottom: 64px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+
+      .footer-meta {
+        text-align: left;
+      }
+
+      .mobile-call {
+        position: fixed;
+        right: 16px;
+        bottom: 16px;
+        left: 16px;
+        z-index: 18;
+        display: flex;
+        min-height: 54px;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        background: var(--ink);
+        box-shadow: 0 14px 35px rgba(48, 42, 40, 0.27);
+        color: var(--white);
+        font-size: 0.9rem;
+        font-weight: 700;
+      }
+
+      .mobile-call svg {
+        width: 18px;
+        height: 18px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#continut">Sari la conținut</a>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#acasa" aria-label="M Beauty Salon — Acasă">
+        <span class="brand-mark" aria-hidden="true">M</span>
+        <span>M Beauty Salon</span>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-label="Deschide meniul" aria-controls="navigatie" aria-expanded="false">
+        <span></span>
+      </button>
+
+      <nav class="nav-links" id="navigatie" aria-label="Navigație principală">
+        <a href="#acasa">Acasă</a>
+        <a href="#salon">Despre salon</a>
+        <a href="#rating">Rating Google</a>
+        <a href="#contact">Contact și locație</a>
+        <a class="nav-cta" href="tel:0768869363">Sună</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="continut">
+    <section class="hero" id="acasa" aria-labelledby="hero-title">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow">Salon beauty · Târgoviște</p>
+          <h1 id="hero-title">M Beauty <span>Salon</span></h1>
+          <p class="hero-intro">
+            Contact direct și informații despre locația M Beauty Salon din Târgoviște.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="tel:0768869363">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <path d="M6.6 3.5 9.2 7l-1.8 2.2a14.5 14.5 0 0 0 7.4 7.4l2.2-1.8 3.5 2.6-.8 3.1c-.2.8-.9 1.3-1.7 1.3A15.8 15.8 0 0 1 2.2 6c0-.8.5-1.5 1.3-1.7l3.1-.8Z"/>
+              </svg>
+              Sună pentru informații
+            </a>
+            <a class="button button-secondary" href="https://www.google.com/maps/place/?q=place_id:ChIJwRR-erD3skARAG5il-d4gog" target="_blank" rel="noopener noreferrer">
+              Vezi locația
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <path d="M5 12h14M14 7l5 5-5 5"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-art" aria-hidden="true">
+          <div class="art-frame">
+            <span class="art-line"></span>
+            <span class="art-monogram">M</span>
+          </div>
+          <span class="art-note">Târgoviște · România</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="salon" aria-labelledby="about-title">
+      <div class="container about-grid">
+        <div>
+          <span class="about-index">01 / Salon</span>
+        </div>
+        <div class="about-copy">
+          <p class="eyebrow">M Beauty Salon</p>
+          <h2 class="section-title" id="about-title">Salon beauty în Târgoviște.</h2>
+          <p>
+            M Beauty Salon poate fi contactat direct prin telefon, iar adresa poate fi deschisă în Google Maps pentru orientare.
+          </p>
+
+          <div class="fact-row" aria-label="Informații despre salon">
+            <div>
+              <span class="fact-label">Categorie</span>
+              <span class="fact-value">Salon beauty</span>
+            </div>
+            <div>
+              <span class="fact-label">Oraș</span>
+              <span class="fact-value">Târgoviște</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="reputation" id="rating" aria-labelledby="rating-title">
+      <div class="container rating-grid">
+        <div>
+          <p class="eyebrow">Evaluare publică</p>
+          <h2 class="section-title" id="rating-title">Ratingul afișat pe Google</h2>
+        </div>
+
+        <div class="rating-card" aria-label="Rating Google 4,7 din 5, bazat pe 42 de recenzii">
+          <div class="rating-number">4,7</div>
+          <div>
+            <div class="stars" aria-hidden="true">
+              ★★★★★
+              <span class="stars-fill">★★★★★</span>
+            </div>
+            <div class="rating-meta">42 de recenzii</div>
+            <div class="rating-source">Sursă: Google</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <div class="container contact-grid">
+        <div>
+          <p class="eyebrow">Contact și locație</p>
+          <h2 class="section-title" id="contact-title">Informații utile</h2>
+          <p class="contact-intro">
+            Pentru detalii, contactează direct M Beauty Salon sau deschide adresa în Google Maps.
+          </p>
+        </div>
+
+        <div class="contact-list">
+          <div class="contact-item">
+            <span class="contact-label">Telefon</span>
+            <a class="contact-value" href="tel:0768869363" aria-label="Sună la 0768 869 363">0768 869 363</a>
+            <a class="contact-action" href="tel:0768869363" aria-label="Sună M Beauty Salon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <path d="M6.6 3.5 9.2 7l-1.8 2.2a14.5 14.5 0 0 0 7.4 7.4l2.2-1.8 3.5 2.6-.8 3.1c-.2.8-.9 1.3-1.7 1.3A15.8 15.8 0 0 1 2.2 6c0-.8.5-1.5 1.3-1.7l3.1-.8Z"/>
+              </svg>
+            </a>
+          </div>
+
+          <div class="contact-item">
+            <span class="contact-label">Adresă</span>
+            <span class="contact-value">Strada General Matei Vlădescu, 137395 Târgoviște, România</span>
+            <a class="contact-action" href="https://www.google.com/maps/place/?q=place_id:ChIJwRR-erD3skARAG5il-d4gog" target="_blank" rel="noopener noreferrer" aria-label="Deschide locația M Beauty Salon în Google Maps">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <path d="M12 21s6-5.6 6-12A6 6 0 1 0 6 9c0 6.4 6 12 6 12Z"/>
+                <circle cx="12" cy="9" r="2.2"/>
+              </svg>
+            </a>
+          </div>
+
+          <div class="contact-item">
+            <span class="contact-label">Localizare</span>
+            <a class="contact-value" href="https://www.google.com/maps/place/?q=place_id:ChIJwRR-erD3skARAG5il-d4gog" target="_blank" rel="noopener noreferrer">Deschide în Google Maps</a>
+            <a class="contact-action" href="https://www.google.com/maps/place/?q=place_id:ChIJwRR-erD3skARAG5il-d4gog" target="_blank" rel="noopener noreferrer" aria-label="Vezi locația pe Google Maps">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <path d="M5 12h14M14 7l5 5-5 5"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing" aria-labelledby="closing-title">
+      <div class="container closing-content">
+        <h2 id="closing-title">M Beauty Salon</h2>
+        <p>Salon beauty · Târgoviște</p>
+        <a class="button button-primary" href="tel:0768869363">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+            <path d="M6.6 3.5 9.2 7l-1.8 2.2a14.5 14.5 0 0 0 7.4 7.4l2.2-1.8 3.5 2.6-.8 3.1c-.2.8-.9 1.3-1.7 1.3A15.8 15.8 0 0 1 2.2 6c0-.8.5-1.5 1.3-1.7l3.1-.8Z"/>
+          </svg>
+          Contactează-ne
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-name">M Beauty Salon</div>
+      <div class="footer-meta">Strada General Matei Vlădescu, 137395 Târgoviște, România</div>
+    </div>
+  </footer>
+
+  <a class="mobile-call" href="tel:0768869363" aria-label="Sună M Beauty Salon la 0768 869 363">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+      <path d="M6.6 3.5 9.2 7l-1.8 2.2a14.5 14.5 0 0 0 7.4 7.4l2.2-1.8 3.5 2.6-.8 3.1c-.2.8-.9 1.3-1.7 1.3A15.8 15.8 0 0 1 2.2 6c0-.8.5-1.5 1.3-1.7l3.1-.8Z"/>
+    </svg>
+    Sună · 0768 869 363
+  </a>
+
+  <script>
+    (function () {
+      const toggle = document.querySelector(".menu-toggle");
+      const navigation = document.querySelector(".nav-links");
+      const links = navigation.querySelectorAll("a");
+
+      function closeMenu() {
+        toggle.setAttribute("aria-expanded", "false");
+        toggle.setAttribute("aria-label", "Deschide meniul");
+        navigation.classList.remove("open");
+        document.body.classList.remove("menu-open");
+      }
+
+      toggle.addEventListener("click", function () {
+        const isOpen = toggle.getAttribute("aria-expanded") === "true";
+        toggle.setAttribute("aria-expanded", String(!isOpen));
+        toggle.setAttribute("aria-label", isOpen ? "Deschide meniul" : "Închide meniul");
+        navigation.classList.toggle("open", !isOpen);
+        document.body.classList.toggle("menu-open", !isOpen);
+      });
+
+      links.forEach(function (link) {
+        link.addEventListener("click", closeMenu);
+      });
+
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+          closeMenu();
+        }
+      });
+
+      window.addEventListener("resize", function () {
+        if (window.innerWidth > 900) {
+          closeMenu();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

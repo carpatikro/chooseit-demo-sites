@@ -1,0 +1,1641 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>INTERVET S.R.L. | Cabinet veterinar în Târgoviște</title>
+  <meta name="description" content="INTERVET S.R.L., cabinet veterinar în Târgoviște. Telefon: 0245 620 909. Adresă: Strada George Enescu 14, Târgoviște.">
+  <meta name="theme-color" content="#164b4b">
+  <style>
+    :root {
+      --ink: #173638;
+      --ink-soft: #506668;
+      --teal: #164b4b;
+      --teal-dark: #0d3738;
+      --teal-light: #dceceb;
+      --cream: #f7f4ec;
+      --warm-white: #fffdf8;
+      --sage: #9eb5a4;
+      --gold: #c68f45;
+      --line: rgba(23, 54, 56, 0.14);
+      --shadow: 0 24px 70px rgba(13, 55, 56, 0.12);
+      --radius-lg: 32px;
+      --radius-md: 20px;
+      --container: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 96px;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--warm-white);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body.menu-open {
+      overflow: hidden;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid rgba(198, 143, 69, 0.6);
+      outline-offset: 4px;
+    }
+
+    svg {
+      display: block;
+    }
+
+    .container {
+      width: min(calc(100% - 40px), var(--container));
+      margin-inline: auto;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 20px;
+      color: var(--teal);
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      line-height: 1.3;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      width: 28px;
+      height: 1px;
+      background: var(--gold);
+      content: "";
+    }
+
+    .site-header {
+      position: sticky;
+      z-index: 100;
+      top: 0;
+      border-bottom: 1px solid rgba(23, 54, 56, 0.08);
+      background: rgba(255, 253, 248, 0.92);
+      backdrop-filter: blur(16px);
+    }
+
+    .nav-wrap {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--teal-dark);
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      width: 43px;
+      height: 43px;
+      position: relative;
+      flex: 0 0 auto;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      border-radius: 50% 50% 44% 56% / 54% 44% 56% 46%;
+      color: white;
+      background: var(--teal);
+      transform: rotate(-5deg);
+    }
+
+    .brand-mark svg {
+      width: 23px;
+      height: 23px;
+      transform: rotate(5deg);
+    }
+
+    .brand-name {
+      display: block;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.17rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      line-height: 1.05;
+    }
+
+    .brand-type {
+      display: block;
+      margin-top: 4px;
+      color: var(--ink-soft);
+      font-size: 0.69rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .desktop-nav {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .desktop-nav a {
+      position: relative;
+      color: var(--ink-soft);
+      font-size: 0.91rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .desktop-nav a:not(.nav-call)::after {
+      position: absolute;
+      right: 0;
+      bottom: -7px;
+      left: 0;
+      height: 2px;
+      background: var(--gold);
+      content: "";
+      transform: scaleX(0);
+      transition: transform 180ms ease;
+    }
+
+    .desktop-nav a:not(.nav-call):hover::after {
+      transform: scaleX(1);
+    }
+
+    .nav-call {
+      min-height: 45px;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 0 18px;
+      border-radius: 999px;
+      color: white !important;
+      background: var(--teal);
+      box-shadow: 0 10px 28px rgba(22, 75, 75, 0.18);
+      transition: background 180ms ease, transform 180ms ease;
+    }
+
+    .nav-call:hover {
+      background: var(--teal-dark);
+      transform: translateY(-1px);
+    }
+
+    .menu-toggle {
+      width: 46px;
+      height: 46px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      color: var(--teal);
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .menu-toggle svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .mobile-menu {
+      display: none;
+    }
+
+    .hero {
+      position: relative;
+      min-height: calc(100svh - 82px);
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 85% 13%, rgba(158, 181, 164, 0.22), transparent 28%),
+        linear-gradient(115deg, var(--warm-white) 0%, var(--cream) 100%);
+    }
+
+    .hero::before {
+      position: absolute;
+      top: 10%;
+      left: -110px;
+      width: 230px;
+      height: 230px;
+      border: 1px solid rgba(22, 75, 75, 0.12);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .hero-grid {
+      width: 100%;
+      display: grid;
+      grid-template-columns: minmax(0, 1.03fr) minmax(390px, 0.82fr);
+      align-items: center;
+      gap: clamp(50px, 8vw, 110px);
+      padding-block: 74px 84px;
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero h1 {
+      max-width: 790px;
+      margin: 0;
+      color: var(--teal-dark);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(3.4rem, 7.2vw, 7rem);
+      font-weight: 400;
+      letter-spacing: -0.055em;
+      line-height: 0.91;
+    }
+
+    .hero h1 span {
+      display: block;
+      margin-top: 18px;
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+      font-size: clamp(1.18rem, 2.2vw, 1.72rem);
+      font-weight: 650;
+      letter-spacing: -0.025em;
+      line-height: 1.25;
+    }
+
+    .hero-lead {
+      max-width: 590px;
+      margin: 28px 0 0;
+      color: var(--ink-soft);
+      font-size: clamp(1rem, 1.5vw, 1.14rem);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 36px;
+    }
+
+    .button {
+      min-height: 54px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 0 23px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      font-size: 0.94rem;
+      font-weight: 800;
+      text-decoration: none;
+      transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+    }
+
+    .button svg {
+      width: 19px;
+      height: 19px;
+    }
+
+    .button-primary {
+      color: white;
+      background: var(--teal);
+      box-shadow: 0 15px 35px rgba(22, 75, 75, 0.2);
+    }
+
+    .button-primary:hover {
+      background: var(--teal-dark);
+      transform: translateY(-2px);
+    }
+
+    .button-secondary {
+      border-color: rgba(23, 54, 56, 0.2);
+      color: var(--teal);
+      background: rgba(255, 255, 255, 0.52);
+    }
+
+    .button-secondary:hover {
+      border-color: var(--teal);
+      background: white;
+      transform: translateY(-2px);
+    }
+
+    .hero-note {
+      display: flex;
+      align-items: flex-start;
+      gap: 11px;
+      margin-top: 29px;
+      color: var(--ink-soft);
+      font-size: 0.88rem;
+    }
+
+    .hero-note svg {
+      width: 18px;
+      height: 18px;
+      flex: 0 0 auto;
+      margin-top: 3px;
+      color: var(--gold);
+    }
+
+    .hero-art {
+      position: relative;
+      min-height: 550px;
+      display: grid;
+      place-items: center;
+    }
+
+    .art-orbit {
+      position: absolute;
+      width: min(38vw, 500px);
+      aspect-ratio: 1;
+      border: 1px solid rgba(22, 75, 75, 0.13);
+      border-radius: 50%;
+    }
+
+    .art-orbit::before,
+    .art-orbit::after {
+      position: absolute;
+      border-radius: 50%;
+      content: "";
+    }
+
+    .art-orbit::before {
+      top: 19%;
+      right: -7px;
+      width: 12px;
+      height: 12px;
+      background: var(--gold);
+      box-shadow: 0 0 0 9px rgba(198, 143, 69, 0.12);
+    }
+
+    .art-orbit::after {
+      bottom: 7%;
+      left: 10%;
+      width: 8px;
+      height: 8px;
+      background: var(--teal);
+    }
+
+    .art-panel {
+      width: min(100%, 420px);
+      aspect-ratio: 0.82;
+      position: relative;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      border-radius: 48% 48% 42% 42% / 38% 38% 58% 58%;
+      color: var(--teal);
+      background:
+        linear-gradient(145deg, rgba(255,255,255,0.7), rgba(220,236,235,0.65)),
+        var(--teal-light);
+      box-shadow: var(--shadow);
+      transform: rotate(2deg);
+    }
+
+    .art-panel::before {
+      position: absolute;
+      top: -16%;
+      right: -25%;
+      width: 76%;
+      aspect-ratio: 1;
+      border: 1px solid rgba(22, 75, 75, 0.17);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .art-panel::after {
+      position: absolute;
+      bottom: -18%;
+      left: -21%;
+      width: 65%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: rgba(158, 181, 164, 0.26);
+      content: "";
+    }
+
+    .animal-line {
+      position: relative;
+      z-index: 2;
+      width: 73%;
+      height: auto;
+      transform: rotate(-2deg);
+    }
+
+    .art-badge {
+      position: absolute;
+      z-index: 4;
+      right: -12px;
+      bottom: 58px;
+      width: 124px;
+      height: 124px;
+      display: grid;
+      place-content: center;
+      border: 7px solid var(--warm-white);
+      border-radius: 50%;
+      color: white;
+      text-align: center;
+      background: var(--teal);
+      box-shadow: 0 18px 38px rgba(13, 55, 56, 0.23);
+    }
+
+    .art-badge strong {
+      display: block;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 2rem;
+      line-height: 1;
+    }
+
+    .art-badge span {
+      display: block;
+      margin-top: 5px;
+      font-size: 0.67rem;
+      font-weight: 750;
+      letter-spacing: 0.04em;
+      line-height: 1.25;
+    }
+
+    .fact-strip {
+      position: relative;
+      z-index: 3;
+      margin-top: -28px;
+    }
+
+    .fact-strip-inner {
+      display: grid;
+      grid-template-columns: 1.05fr 1.3fr 0.85fr;
+      border: 1px solid rgba(23, 54, 56, 0.09);
+      border-radius: 22px;
+      background: white;
+      box-shadow: 0 20px 55px rgba(13, 55, 56, 0.09);
+    }
+
+    .fact {
+      min-height: 108px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 22px 28px;
+    }
+
+    .fact + .fact {
+      border-left: 1px solid var(--line);
+    }
+
+    .fact-icon {
+      width: 42px;
+      height: 42px;
+      flex: 0 0 auto;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--teal);
+      background: var(--teal-light);
+    }
+
+    .fact-icon svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .fact-label {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--ink-soft);
+      font-size: 0.69rem;
+      font-weight: 800;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+    }
+
+    .fact-value {
+      display: block;
+      color: var(--ink);
+      font-size: 0.94rem;
+      font-weight: 760;
+      line-height: 1.4;
+    }
+
+    .section {
+      padding-block: clamp(90px, 11vw, 150px);
+    }
+
+    .about {
+      overflow: hidden;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: clamp(60px, 10vw, 150px);
+      align-items: start;
+    }
+
+    .section-number {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      color: var(--gold);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1rem;
+      font-style: italic;
+    }
+
+    .section-number::after {
+      width: 76px;
+      height: 1px;
+      background: var(--line);
+      content: "";
+    }
+
+    .about-title {
+      max-width: 650px;
+      margin: 18px 0 0;
+      color: var(--teal-dark);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.5rem, 5vw, 4.9rem);
+      font-weight: 400;
+      letter-spacing: -0.045em;
+      line-height: 1.04;
+    }
+
+    .about-copy {
+      padding-top: 50px;
+    }
+
+    .about-copy p {
+      max-width: 610px;
+      margin: 0;
+      color: var(--ink-soft);
+      font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+      line-height: 1.8;
+    }
+
+    .about-copy strong {
+      color: var(--ink);
+      font-weight: 750;
+    }
+
+    .identity-line {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 38px;
+      padding-top: 28px;
+      border-top: 1px solid var(--line);
+    }
+
+    .identity-item small {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--ink-soft);
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+    }
+
+    .identity-item span {
+      font-weight: 760;
+    }
+
+    .rating-section {
+      color: white;
+      background: var(--teal-dark);
+    }
+
+    .rating-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      align-items: center;
+      gap: clamp(50px, 10vw, 130px);
+    }
+
+    .rating-section .eyebrow {
+      color: #d8e7e3;
+    }
+
+    .rating-section h2 {
+      max-width: 680px;
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.5rem, 5vw, 5rem);
+      font-weight: 400;
+      letter-spacing: -0.045em;
+      line-height: 1.04;
+    }
+
+    .rating-section h2 em {
+      color: #c7d8cf;
+      font-weight: 400;
+    }
+
+    .rating-card {
+      position: relative;
+      padding: clamp(30px, 5vw, 52px);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: var(--radius-lg);
+      background: rgba(255,255,255,0.06);
+    }
+
+    .rating-number {
+      display: flex;
+      align-items: flex-end;
+      gap: 10px;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    .rating-number strong {
+      color: white;
+      font-size: clamp(4.8rem, 9vw, 8rem);
+      font-weight: 400;
+      letter-spacing: -0.07em;
+      line-height: 0.82;
+    }
+
+    .rating-number span {
+      padding-bottom: 10px;
+      color: #b9cfca;
+      font-size: 1.1rem;
+    }
+
+    .stars {
+      display: flex;
+      gap: 5px;
+      margin-top: 27px;
+      color: #e0ad63;
+    }
+
+    .stars svg {
+      width: 23px;
+      height: 23px;
+    }
+
+    .stars .partial-star {
+      opacity: 0.46;
+    }
+
+    .review-count {
+      margin: 20px 0 0;
+      color: #d8e7e3;
+      font-size: 0.96rem;
+      font-weight: 700;
+    }
+
+    .location {
+      background: var(--cream);
+    }
+
+    .location-head {
+      max-width: 760px;
+      margin-bottom: 55px;
+    }
+
+    .location h2 {
+      margin: 0;
+      color: var(--teal-dark);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.7rem, 5vw, 5rem);
+      font-weight: 400;
+      letter-spacing: -0.045em;
+      line-height: 1;
+    }
+
+    .location-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      overflow: hidden;
+      border: 1px solid rgba(23, 54, 56, 0.1);
+      border-radius: var(--radius-lg);
+      background: white;
+      box-shadow: 0 25px 70px rgba(13, 55, 56, 0.08);
+    }
+
+    .contact-panel {
+      padding: clamp(35px, 6vw, 72px);
+    }
+
+    .contact-block + .contact-block {
+      margin-top: 36px;
+      padding-top: 36px;
+      border-top: 1px solid var(--line);
+    }
+
+    .contact-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+      color: var(--ink-soft);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .contact-label svg {
+      width: 17px;
+      height: 17px;
+      color: var(--gold);
+    }
+
+    .address {
+      max-width: 510px;
+      margin: 0;
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.4rem, 2.8vw, 2rem);
+      line-height: 1.35;
+    }
+
+    .phone-link {
+      display: inline-block;
+      color: var(--teal);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.7rem, 3.4vw, 2.7rem);
+      line-height: 1.15;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 8px;
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 38px;
+    }
+
+    .map-visual {
+      min-height: 520px;
+      position: relative;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      background:
+        linear-gradient(33deg, transparent 46%, rgba(22,75,75,0.12) 47%, rgba(22,75,75,0.12) 49%, transparent 50%) 0 0 / 150px 150px,
+        linear-gradient(145deg, transparent 43%, rgba(22,75,75,0.1) 44%, rgba(22,75,75,0.1) 47%, transparent 48%) 0 0 / 210px 180px,
+        #dce8df;
+    }
+
+    .map-visual::before,
+    .map-visual::after {
+      position: absolute;
+      content: "";
+      background: rgba(255,255,255,0.66);
+      transform: rotate(-22deg);
+    }
+
+    .map-visual::before {
+      width: 150%;
+      height: 34px;
+    }
+
+    .map-visual::after {
+      width: 30px;
+      height: 150%;
+      transform: rotate(28deg);
+    }
+
+    .map-pin {
+      position: relative;
+      z-index: 3;
+      width: 106px;
+      height: 106px;
+      display: grid;
+      place-items: center;
+      border: 10px solid rgba(255,255,255,0.82);
+      border-radius: 52% 48% 50% 50%;
+      color: white;
+      background: var(--teal);
+      box-shadow: 0 18px 45px rgba(13, 55, 56, 0.28);
+      transform: rotate(45deg);
+    }
+
+    .map-pin svg {
+      width: 42px;
+      height: 42px;
+      transform: rotate(-45deg);
+    }
+
+    .map-caption {
+      position: absolute;
+      z-index: 4;
+      right: 25px;
+      bottom: 25px;
+      left: 25px;
+      padding: 19px 22px;
+      border: 1px solid rgba(23, 54, 56, 0.1);
+      border-radius: 16px;
+      color: var(--ink);
+      background: rgba(255,253,248,0.93);
+      box-shadow: 0 12px 30px rgba(13,55,56,0.1);
+      backdrop-filter: blur(10px);
+    }
+
+    .map-caption strong {
+      display: block;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.15rem;
+    }
+
+    .map-caption span {
+      color: var(--ink-soft);
+      font-size: 0.88rem;
+    }
+
+    .final-cta {
+      position: relative;
+      overflow: hidden;
+      color: white;
+      background: var(--teal);
+    }
+
+    .final-cta::before {
+      position: absolute;
+      top: -220px;
+      right: -120px;
+      width: 500px;
+      height: 500px;
+      border: 1px solid rgba(255,255,255,0.13);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .final-cta::after {
+      position: absolute;
+      bottom: -290px;
+      left: -140px;
+      width: 540px;
+      height: 540px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.035);
+      content: "";
+    }
+
+    .cta-inner {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 50px;
+      padding-block: clamp(74px, 10vw, 120px);
+    }
+
+    .final-cta h2 {
+      max-width: 760px;
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.5rem, 5vw, 5rem);
+      font-weight: 400;
+      letter-spacing: -0.045em;
+      line-height: 1.04;
+    }
+
+    .final-cta p {
+      margin: 20px 0 0;
+      color: #d5e4e1;
+      font-size: 1.02rem;
+    }
+
+    .cta-call {
+      min-width: 215px;
+      min-height: 62px;
+      color: var(--teal-dark);
+      background: white;
+    }
+
+    .cta-call:hover {
+      background: var(--cream);
+      transform: translateY(-2px);
+    }
+
+    .site-footer {
+      color: #c9dcda;
+      background: #092f30;
+    }
+
+    .footer-inner {
+      min-height: 128px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+      padding-block: 28px;
+    }
+
+    .footer-brand {
+      color: white;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+    }
+
+    .footer-meta {
+      margin-top: 4px;
+      font-size: 0.83rem;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 22px;
+    }
+
+    .footer-links a {
+      color: #d7e5e3;
+      font-size: 0.86rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      color: white;
+      text-decoration: underline;
+      text-underline-offset: 5px;
+    }
+
+    .mobile-action-bar {
+      display: none;
+    }
+
+    @media (max-width: 960px) {
+      .desktop-nav {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+      }
+
+      .mobile-menu {
+        position: fixed;
+        z-index: 90;
+        inset: 82px 0 0;
+        display: flex;
+        flex-direction: column;
+        padding: 38px 20px;
+        visibility: hidden;
+        opacity: 0;
+        background: var(--warm-white);
+        transform: translateY(-10px);
+        transition: opacity 180ms ease, transform 180ms ease, visibility 180ms;
+      }
+
+      .mobile-menu.open {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .mobile-menu a {
+        padding: 19px 4px;
+        border-bottom: 1px solid var(--line);
+        color: var(--teal-dark);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 1.55rem;
+        text-decoration: none;
+      }
+
+      .mobile-menu .button {
+        margin-top: 28px;
+        color: white;
+        font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+        font-size: 0.95rem;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 55px;
+        padding-block: 70px 95px;
+      }
+
+      .hero-copy {
+        max-width: 720px;
+      }
+
+      .hero-art {
+        min-height: 460px;
+      }
+
+      .art-orbit {
+        width: min(80vw, 470px);
+      }
+
+      .art-panel {
+        width: min(80%, 390px);
+      }
+
+      .art-badge {
+        right: max(5%, calc(50% - 230px));
+      }
+
+      .fact-strip-inner {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .fact:last-child {
+        grid-column: 1 / -1;
+        border-top: 1px solid var(--line);
+        border-left: 0;
+      }
+
+      .about-grid,
+      .rating-grid,
+      .location-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-copy {
+        padding-top: 0;
+      }
+
+      .rating-card {
+        max-width: 500px;
+      }
+
+      .map-visual {
+        min-height: 430px;
+      }
+
+      .cta-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-call {
+        width: fit-content;
+      }
+    }
+
+    @media (max-width: 620px) {
+      html {
+        scroll-padding-top: 76px;
+      }
+
+      body {
+        padding-bottom: 72px;
+      }
+
+      .container {
+        width: min(calc(100% - 28px), var(--container));
+      }
+
+      .nav-wrap {
+        min-height: 74px;
+      }
+
+      .brand-mark {
+        width: 39px;
+        height: 39px;
+      }
+
+      .brand-name {
+        font-size: 1.05rem;
+      }
+
+      .brand-type {
+        font-size: 0.62rem;
+      }
+
+      .mobile-menu {
+        inset: 74px 0 0;
+      }
+
+      .hero-grid {
+        padding-block: 55px 76px;
+      }
+
+      .hero h1 {
+        font-size: clamp(3.15rem, 17vw, 4.6rem);
+      }
+
+      .hero h1 span {
+        margin-top: 15px;
+        font-size: 1.12rem;
+      }
+
+      .hero-lead {
+        margin-top: 23px;
+      }
+
+      .hero-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+        margin-top: 30px;
+      }
+
+      .hero-actions .button {
+        width: 100%;
+      }
+
+      .hero-art {
+        min-height: 390px;
+      }
+
+      .art-panel {
+        width: min(88%, 325px);
+        border-radius: 44% 44% 40% 40% / 36% 36% 56% 56%;
+      }
+
+      .art-badge {
+        right: 0;
+        bottom: 30px;
+        width: 105px;
+        height: 105px;
+        border-width: 6px;
+      }
+
+      .art-badge strong {
+        font-size: 1.7rem;
+      }
+
+      .fact-strip {
+        margin-top: -20px;
+      }
+
+      .fact-strip-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .fact {
+        min-height: 94px;
+        padding: 19px 21px;
+      }
+
+      .fact + .fact,
+      .fact:last-child {
+        grid-column: auto;
+        border-top: 1px solid var(--line);
+        border-left: 0;
+      }
+
+      .section {
+        padding-block: 80px;
+      }
+
+      .about-title {
+        font-size: 2.75rem;
+      }
+
+      .about-copy p {
+        font-size: 1.04rem;
+        line-height: 1.72;
+      }
+
+      .identity-line {
+        grid-template-columns: 1fr;
+      }
+
+      .rating-section h2,
+      .location h2,
+      .final-cta h2 {
+        font-size: 2.75rem;
+      }
+
+      .location-head {
+        margin-bottom: 35px;
+      }
+
+      .location-grid {
+        border-radius: 24px;
+      }
+
+      .contact-panel {
+        padding: 34px 24px;
+      }
+
+      .contact-actions {
+        display: grid;
+      }
+
+      .contact-actions .button {
+        width: 100%;
+      }
+
+      .map-visual {
+        min-height: 360px;
+      }
+
+      .map-pin {
+        width: 88px;
+        height: 88px;
+      }
+
+      .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .footer-links {
+        justify-content: flex-start;
+      }
+
+      .mobile-action-bar {
+        position: fixed;
+        z-index: 110;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        height: 72px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        border-top: 1px solid rgba(23,54,56,0.12);
+        background: rgba(255,253,248,0.97);
+        box-shadow: 0 -10px 30px rgba(13,55,56,0.08);
+        backdrop-filter: blur(14px);
+      }
+
+      .mobile-action-bar a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 9px;
+        color: var(--teal);
+        font-size: 0.86rem;
+        font-weight: 800;
+        text-decoration: none;
+      }
+
+      .mobile-action-bar a + a {
+        border-left: 1px solid var(--line);
+      }
+
+      .mobile-action-bar svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#acasa" aria-label="INTERVET S.R.L. — Acasă">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span>
+          <span class="brand-name">INTERVET S.R.L.</span>
+          <span class="brand-type">Cabinet veterinar</span>
+        </span>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Navigație principală">
+        <a href="#cabinet">Despre cabinet</a>
+        <a href="#recenzii">Recenzii Google</a>
+        <a href="#contact">Contact și localizare</a>
+        <a class="nav-call" href="tel:0245620909" aria-label="Sună la 0245 620 909">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M8.3 3.5 10 7.4a1.7 1.7 0 0 1-.4 1.9l-1.2 1.1a14.2 14.2 0 0 0 5.2 5.2l1.1-1.2a1.7 1.7 0 0 1 1.9-.4l3.9 1.7a1.7 1.7 0 0 1 1 1.7V20a2 2 0 0 1-2 2C9.8 22 2 14.2 2 4.5a2 2 0 0 1 2-2h2.6a1.7 1.7 0 0 1 1.7 1Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+          </svg>
+          0245 620 909
+        </a>
+      </nav>
+
+      <button class="menu-toggle" type="button" aria-label="Deschide meniul" aria-expanded="false" aria-controls="mobile-menu">
+        <svg class="menu-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+
+    <nav class="mobile-menu" id="mobile-menu" aria-label="Navigație mobilă">
+      <a href="#acasa">Acasă</a>
+      <a href="#cabinet">Despre cabinet</a>
+      <a href="#recenzii">Recenzii Google</a>
+      <a href="#contact">Contact și localizare</a>
+      <a class="button button-primary" href="tel:0245620909">Sună la 0245 620 909</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="acasa">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Cabinet veterinar · Târgoviște</p>
+          <h1>
+            INTERVET
+            <span>S.R.L. · Târgoviște</span>
+          </h1>
+          <p class="hero-lead">
+            Contact telefonic și acces direct la localizarea cabinetului din Strada George Enescu 14.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button button-primary" href="tel:0245620909" aria-label="Sună la INTERVET S.R.L., 0245 620 909">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M8.3 3.5 10 7.4a1.7 1.7 0 0 1-.4 1.9l-1.2 1.1a14.2 14.2 0 0 0 5.2 5.2l1.1-1.2a1.7 1.7 0 0 1 1.9-.4l3.9 1.7a1.7 1.7 0 0 1 1 1.7V20a2 2 0 0 1-2 2C9.8 22 2 14.2 2 4.5a2 2 0 0 1 2-2h2.6a1.7 1.7 0 0 1 1.7 1Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              </svg>
+              Sună pentru informații
+            </a>
+            <a class="button button-secondary" href="https://www.google.com/maps/place/?q=place_id:ChIJq7Rkpp71skARTJsAxDSaF4o" target="_blank" rel="noopener noreferrer" aria-label="Deschide locația INTERVET S.R.L. în Google Maps">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z" stroke="currentColor" stroke-width="1.8"/>
+                <circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="1.8"/>
+              </svg>
+              Vezi locația
+            </a>
+          </div>
+
+          <div class="hero-note">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M12 22s8-7 8-12A8 8 0 1 0 4 10c0 5 8 12 8 12Z" stroke="currentColor" stroke-width="1.8"/>
+              <circle cx="12" cy="10" r="2.4" stroke="currentColor" stroke-width="1.8"/>
+            </svg>
+            <span>Strada George Enescu 14, 010306 Târgoviște, România</span>
+          </div>
+        </div>
+
+        <div class="hero-art" aria-hidden="true">
+          <div class="art-orbit"></div>
+          <div class="art-panel">
+            <svg class="animal-line" viewBox="0 0 340 390" fill="none">
+              <path d="M83 127 54 68l67 31c16-8 33-12 51-12 22 0 42 6 60 17l58-36-18 70c15 21 23 47 23 75 0 69-55 125-123 125S49 282 49 213c0-33 13-63 34-86Z" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M110 197c9-8 21-8 30 0M204 197c9-8 21-8 30 0" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+              <path d="M162 224c7-5 14-5 21 0-3 8-7 12-11 12s-8-4-10-12Z" fill="currentColor"/>
+              <path d="M172 236v16M172 252c-10 10-21 11-32 3M172 252c10 10 21 11 32 3" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+              <path d="M111 232 64 220M108 247l-50 4M233 232l47-12M236 247l50 4" stroke="currentColor" stroke-width="3" stroke-linecap="round" opacity=".55"/>
+              <path d="M145 292c17 9 36 9 54 0" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+              <circle cx="125" cy="197" r="4" fill="currentColor"/>
+              <circle cx="219" cy="197" r="4" fill="currentColor"/>
+            </svg>
+          </div>
+          <div class="art-badge">
+            <strong>4.4</strong>
+            <span>100 recenzii<br>Google</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="fact-strip">
+      <div class="container">
+        <div class="fact-strip-inner">
+          <div class="fact">
+            <span class="fact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M12 22s8-7 8-12A8 8 0 1 0 4 10c0 5 8 12 8 12Z" stroke="currentColor" stroke-width="1.8"/>
+                <circle cx="12" cy="10" r="2.3" stroke="currentColor" stroke-width="1.8"/>
+              </svg>
+            </span>
+            <span>
+              <span class="fact-label">Oraș</span>
+              <span class="fact-value">Târgoviște</span>
+            </span>
+          </div>
+
+          <div class="fact">
+            <span class="fact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M8.3 3.5 10 7.4a1.7 1.7 0 0 1-.4 1.9l-1.2 1.1a14.2 14.2 0 0 0 5.2 5.2l1.1-1.2a1.7 1.7 0 0 1 1.9-.4l3.9 1.7a1.7 1.7 0 0 1 1 1.7V20a2 2 0 0 1-2 2C9.8 22 2 14.2 2 4.5a2 2 0 0 1 2-2h2.6a1.7 1.7 0 0 1 1.7 1Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <span>
+              <span class="fact-label">Telefon</span>
+              <span class="fact-value">0245 620 909</span>
+            </span>
+          </div>
+
+          <div class="fact">
+            <span class="fact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="m12 3 2.7 5.5 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1-4.4-4.3 6.1-.9L12 3Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <span>
+              <span class="fact-label">Google</span>
+              <span class="fact-value">4.4 · 100 recenzii</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="section about" id="cabinet">
+      <div class="container about-grid">
+        <div>
+          <div class="section-number">01</div>
+          <p class="eyebrow">Despre cabinet</p>
+          <h2 class="about-title">Cabinet veterinar în Târgoviște</h2>
+        </div>
+
+        <div class="about-copy">
+          <p>
+            <strong>INTERVET S.R.L.</strong> este un cabinet veterinar din Târgoviște, cu sediul pe Strada George Enescu 14. Pentru informații, cabinetul poate fi contactat telefonic la numărul afișat.
+          </p>
+
+          <div class="identity-line">
+            <div class="identity-item">
+              <small>Denumire</small>
+              <span>INTERVET S.R.L.</span>
+            </div>
+            <div class="identity-item">
+              <small>Categorie</small>
+              <span>Cabinet veterinar</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section rating-section" id="recenzii">
+      <div class="container rating-grid">
+        <div>
+          <p class="eyebrow">Evaluare publică</p>
+          <h2>Ratingul afișat pe <em>Google</em></h2>
+        </div>
+
+        <div class="rating-card" aria-label="Rating Google 4.4 din 5, din 100 de recenzii">
+          <div class="rating-number">
+            <strong>4.4</strong>
+            <span>/ 5</span>
+          </div>
+          <div class="stars" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.8 2.85 5.77 6.37.93-4.61 4.49 1.09 6.34L12 17.34l-5.7 2.99 1.09-6.34L2.78 9.5l6.37-.93L12 2.8Z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.8 2.85 5.77 6.37.93-4.61 4.49 1.09 6.34L12 17.34l-5.7 2.99 1.09-6.34L2.78 9.5l6.37-.93L12 2.8Z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.8 2.85 5.77 6.37.93-4.61 4.49 1.09 6.34L12 17.34l-5.7 2.99 1.09-6.34L2.78 9.5l6.37-.93L12 2.8Z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.8 2.85 5.77 6.37.93-4.61 4.49 1.09 6.34L12 17.34l-5.7 2.99 1.09-6.34L2.78 9.5l6.37-.93L12 2.8Z"/></svg>
+            <svg class="partial-star" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.8 2.85 5.77 6.37.93-4.61 4.49 1.09 6.34L12 17.34l-5.7 2.99 1.09-6.34L2.78 9.5l6.37-.93L12 2.8Z"/></svg>
+          </div>
+          <p class="review-count">100 recenzii Google</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section location" id="contact">
+      <div class="container">
+        <div class="location-head">
+          <p class="eyebrow">Contact și localizare</p>
+          <h2>Datele cabinetului</h2>
+        </div>
+
+        <div class="location-grid">
+          <div class="contact-panel">
+            <div class="contact-block">
+              <div class="contact-label">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z" stroke="currentColor" stroke-width="1.8"/>
+                  <circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="1.8"/>
+                </svg>
+                Adresă
+              </div>
+              <p class="address">Strada George Enescu 14, 010306 Târgoviște, România</p>
+            </div>
+
+            <div class="contact-block">
+              <div class="contact-label">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M8.3 3.5 10 7.4a1.7 1.7 0 0 1-.4 1.9l-1.2 1.1a14.2 14.2 0 0 0 5.2 5.2l1.1-1.2a1.7 1.7 0 0 1 1.9-.4l3.9 1.7a1.7 1.7 0 0 1 1 1.7V20a2 2 0 0 1-2 2C9.8 22 2 14.2 2 4.5a2 2 0 0 1 2-2h2.6a1.7 1.7 0 0 1 1.7 1Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                </svg>
+                Telefon
+              </div>
+              <a class="phone-link" href="tel:0245620909">0245 620 909</a>
+            </div>
+
+            <div class="contact-actions">
+              <a class="button button-primary" href="tel:0245620909">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M8.3 3.5 10 7.4a1.7 1.7 0 0 1-.4 1.9l-1.2 1.1a14.2 14.2 0 0 0 5.2 5.2l1.1-1.2a1.7 1.7 0 0 1 1.9-.4l3.9 1.7a1.7 1.7 0 0 1 1 1.7V20a2 2 0 0 1-2 2C9.8 22 2 14.2 2 4.5a2 2 0 0 1 2-2h2.6a1.7 1.7 0 0 1 1.7 1Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                </svg>
+                Sună
+              </a>
+              <a class="button button-secondary" href="https://www.google.com/maps/place/?q=place_id:ChIJq7Rkpp71skARTJsAxDSaF4o" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z" stroke="currentColor" stroke-width="1.8"/>
+                  <circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="1.8"/>
+                </svg>
+                Deschide în Google Maps
+              </a>
+            </div>
+          </div>
+
+          <div class="map-visual" aria-hidden="true">
+            <div class="map-pin">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="map-caption">
+              <strong>INTERVET S.R.L.</strong>
+              <span>Strada George Enescu 14, Târgoviște</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta" aria-labelledby="cta-title">
+      <div class="container cta-inner">
+        <div>
+          <h2 id="cta-title">Contactează INTERVET S.R.L.</h2>
+          <p>Pentru informații, sună la numărul cabinetului.</p>
+        </div>
+        <a class="button cta-call" href="tel:0245620909" aria-label="Sună la 0245 620 909">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M8.3 3.5 10 7.4a1.7 1.7 0 0 1-.4 1.9l-1.2 1.1a14.2 14.2 0 0 0 5.2 5.2l1.1-1.2a1.7 1.7 0 0 1 1.9-.4l3.9 1.7a1.7 1.7 0 0 1 1 1.7V20a2 2 0 0 1-2 2C9.8 22 2 14.2 2 4.5a2 2 0 0 1 2-2h2.6a1.7 1.7 0 0 1 1.7 1Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+          </svg>
+          0245 620 909
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <div class="footer-brand">INTERVET S.R.L.</div>
+        <div class="footer-meta">Cabinet veterinar · Târgoviște</div>
+      </div>
+      <nav class="footer-links" aria-label="Linkuri subsol">
+        <a href="tel:0245620909">0245 620 909</a>
+        <a href="https://www.google.com/maps/place/?q=place_id:ChIJq7Rkpp71skARTJsAxDSaF4o" target="_blank" rel="noopener noreferrer">Google Maps</a>
+        <a href="#acasa">Sus</a>
+      </nav>
+    </div>
+  </footer>
+
+  <div class="mobile-action-bar" aria-label="Acțiuni rapide">
+    <a href="tel:0245620909" aria-label="Sună la INTERVET S.R.L.">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M8.3 3.5 10 7.4a1.7 1.7 0 0 1-.4 1.9l-1.2 1.1a14.2 14.2 0 0 0 5.2 5.2l1.1-1.2a1.7 1.7 0 0 1 1.9-.4l3.9 1.7a1.7 1.7 0 0 1 1 1.7V20a2 2 0 0 1-2 2C9.8 22 2 14.2 2 4.5a2 2 0 0 1 2-2h2.6a1.7 1.7 0 0 1 1.7 1Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+      </svg>
+      Sună
+    </a>
+    <a href="https://www.google.com/maps/place/?q=place_id:ChIJq7Rkpp71skARTJsAxDSaF4o" target="_blank" rel="noopener noreferrer" aria-label="Deschide locația în Google Maps">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z" stroke="currentColor" stroke-width="1.8"/>
+        <circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="1.8"/>
+      </svg>
+      Locație
+    </a>
+  </div>
+
+  <script>
+    const menuButton = document.querySelector('.menu-toggle');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const mobileLinks = mobileMenu.querySelectorAll('a');
+
+    function closeMenu() {
+      mobileMenu.classList.remove('open');
+      document.body.classList.remove('menu-open');
+      menuButton.setAttribute('aria-expanded', 'false');
+      menuButton.setAttribute('aria-label', 'Deschide meniul');
+    }
+
+    menuButton.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      document.body.classList.toggle('menu-open', isOpen);
+      menuButton.setAttribute('aria-expanded', String(isOpen));
+      menuButton.setAttribute('aria-label', isOpen ? 'Închide meniul' : 'Deschide meniul');
+    });
+
+    mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 960) closeMenu();
+    });
+
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') closeMenu();
+    });
+  </script>
+</body>
+</html>

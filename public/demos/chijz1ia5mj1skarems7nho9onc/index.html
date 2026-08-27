@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elysee Studio Târgoviște | Salon beauty</title>
+  <meta name="description" content="Elysee Studio Târgoviște — salon beauty situat pe Str. Colonel Dumitru Băltărețu nr. 48. Telefon: 0729 556 773.">
+  <meta name="theme-color" content="#f5f0ea">
+  <style>
+    :root {
+      --ink: #281f21;
+      --ink-soft: #62575a;
+      --paper: #f6f2ed;
+      --paper-deep: #ebe3dc;
+      --white: #fffdfb;
+      --accent: #7b3f50;
+      --accent-dark: #562836;
+      --line: rgba(40, 31, 33, 0.14);
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: Inter, "Helvetica Neue", Arial, sans-serif;
+      --container: 1180px;
+      --shadow: 0 24px 70px rgba(58, 39, 43, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body.menu-open {
+      overflow: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid rgba(123, 63, 80, 0.38);
+      outline-offset: 4px;
+    }
+
+    .skip-link {
+      position: fixed;
+      top: 12px;
+      left: 12px;
+      z-index: 1000;
+      padding: 10px 16px;
+      background: var(--ink);
+      color: var(--white);
+      transform: translateY(-150%);
+      transition: transform 0.2s ease;
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    .container {
+      width: min(calc(100% - 48px), var(--container));
+      margin-inline: auto;
+    }
+
+    .site-header {
+      position: absolute;
+      inset: 0 0 auto;
+      z-index: 20;
+      border-bottom: 1px solid rgba(40, 31, 33, 0.1);
+    }
+
+    .nav {
+      min-height: 92px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 13px;
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: 0.015em;
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 42px;
+      height: 42px;
+      place-items: center;
+      border: 1px solid var(--accent);
+      border-radius: 50%;
+      color: var(--accent);
+      font-size: 0.84rem;
+      font-style: italic;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 34px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links a {
+      position: relative;
+      color: var(--ink-soft);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .nav-links a:not(.nav-call)::after {
+      position: absolute;
+      right: 0;
+      bottom: -8px;
+      left: 0;
+      height: 1px;
+      background: var(--accent);
+      content: "";
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.25s ease;
+    }
+
+    .nav-links a:not(.nav-call):hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .nav-call {
+      padding: 12px 20px;
+      border: 1px solid var(--ink);
+      color: var(--ink) !important;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .nav-call:hover {
+      background: var(--ink);
+      color: var(--white) !important;
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 46px;
+      height: 46px;
+      padding: 0;
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--ink);
+      cursor: pointer;
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 20px;
+      height: 1px;
+      margin: 5px auto;
+      background: currentColor;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 760px;
+      padding: 170px 0 94px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 88% 14%, rgba(123, 63, 80, 0.09), transparent 30%),
+        linear-gradient(105deg, var(--paper) 0 62%, var(--paper-deep) 62% 100%);
+    }
+
+    .hero::before {
+      position: absolute;
+      top: 92px;
+      right: -125px;
+      width: 430px;
+      height: 430px;
+      border: 1px solid rgba(123, 63, 80, 0.18);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .hero::after {
+      position: absolute;
+      bottom: 0;
+      left: 52%;
+      width: 1px;
+      height: 100px;
+      background: var(--accent);
+      content: "";
+      opacity: 0.35;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.72fr);
+      align-items: center;
+      gap: clamp(50px, 8vw, 120px);
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin: 0 0 25px;
+      color: var(--accent);
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      width: 44px;
+      height: 1px;
+      flex: 0 0 auto;
+      background: currentColor;
+      content: "";
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      max-width: 760px;
+      margin-bottom: 27px;
+      font-family: var(--serif);
+      font-size: clamp(4rem, 8vw, 7.2rem);
+      font-weight: 400;
+      line-height: 0.88;
+      letter-spacing: -0.065em;
+    }
+
+    h1 span {
+      display: block;
+      margin-top: 15px;
+      color: var(--accent);
+      font-size: 0.48em;
+      font-style: italic;
+      letter-spacing: -0.035em;
+    }
+
+    .hero-address {
+      max-width: 520px;
+      margin-bottom: 35px;
+      color: var(--ink-soft);
+      font-size: clamp(1rem, 1.4vw, 1.16rem);
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: 52px;
+      align-items: center;
+      justify-content: center;
+      gap: 11px;
+      padding: 14px 22px;
+      border: 1px solid var(--accent);
+      background: var(--accent);
+      color: var(--white);
+      font-size: 0.84rem;
+      font-weight: 800;
+      letter-spacing: 0.045em;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .button:hover {
+      border-color: var(--accent-dark);
+      background: var(--accent-dark);
+      transform: translateY(-2px);
+    }
+
+    .button.secondary {
+      border-color: var(--line);
+      background: transparent;
+      color: var(--ink);
+    }
+
+    .button.secondary:hover {
+      border-color: var(--ink);
+      background: var(--ink);
+      color: var(--white);
+    }
+
+    .button svg,
+    .text-link svg {
+      width: 18px;
+      height: 18px;
+      flex: 0 0 auto;
+    }
+
+    .hero-art {
+      position: relative;
+      min-height: 465px;
+    }
+
+    .art-frame {
+      position: absolute;
+      inset: 10px 40px 10px 20px;
+      overflow: hidden;
+      border-radius: 49% 49% 10px 10px;
+      background:
+        linear-gradient(140deg, rgba(255,255,255,0.7), rgba(255,255,255,0.08)),
+        #d8c7c2;
+      box-shadow: var(--shadow);
+    }
+
+    .art-frame::before {
+      position: absolute;
+      top: -18%;
+      left: -24%;
+      width: 105%;
+      height: 105%;
+      border: 1px solid rgba(86, 40, 54, 0.28);
+      border-radius: 50%;
+      content: "";
+      transform: rotate(-21deg);
+    }
+
+    .art-frame::after {
+      position: absolute;
+      right: -20%;
+      bottom: -20%;
+      width: 92%;
+      height: 92%;
+      border-radius: 50% 48% 43% 57%;
+      background: rgba(123, 63, 80, 0.18);
+      content: "";
+    }
+
+    .botanical {
+      position: absolute;
+      z-index: 2;
+      right: 12%;
+      bottom: 9%;
+      width: 50%;
+      height: 70%;
+      border-left: 2px solid rgba(86, 40, 54, 0.45);
+      border-radius: 50%;
+      transform: rotate(16deg);
+    }
+
+    .leaf {
+      position: absolute;
+      width: 70px;
+      height: 30px;
+      border: 1px solid rgba(86, 40, 54, 0.4);
+      border-radius: 100% 0 100% 0;
+    }
+
+    .leaf.one {
+      top: 24%;
+      left: -4px;
+      transform: rotate(-29deg);
+    }
+
+    .leaf.two {
+      top: 44%;
+      left: -57px;
+      transform: scaleX(-1) rotate(-20deg);
+    }
+
+    .leaf.three {
+      top: 61%;
+      left: 0;
+      transform: rotate(-36deg) scale(0.8);
+    }
+
+    .monogram {
+      position: absolute;
+      z-index: 3;
+      top: 43%;
+      left: 48%;
+      color: rgba(86, 40, 54, 0.82);
+      font-family: var(--serif);
+      font-size: clamp(5rem, 9vw, 8rem);
+      font-style: italic;
+      letter-spacing: -0.16em;
+      line-height: 1;
+      transform: translate(-50%, -50%);
+    }
+
+    .rating-card {
+      position: absolute;
+      z-index: 5;
+      right: 0;
+      bottom: 0;
+      width: 220px;
+      padding: 22px 24px;
+      background: var(--white);
+      box-shadow: 0 15px 40px rgba(40, 31, 33, 0.12);
+    }
+
+    .stars {
+      margin-bottom: 8px;
+      color: var(--accent);
+      font-size: 0.88rem;
+      letter-spacing: 0.14em;
+    }
+
+    .rating-row {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+
+    .rating-number {
+      font-family: var(--serif);
+      font-size: 2.4rem;
+      line-height: 1;
+    }
+
+    .rating-label {
+      color: var(--ink-soft);
+      font-size: 0.78rem;
+      line-height: 1.35;
+    }
+
+    .intro {
+      padding: 126px 0;
+      background: var(--white);
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 0.6fr 1.4fr;
+      gap: clamp(50px, 10vw, 150px);
+      align-items: start;
+    }
+
+    .section-index {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      color: var(--accent);
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .section-index::after {
+      width: 80px;
+      height: 1px;
+      background: currentColor;
+      content: "";
+      opacity: 0.6;
+    }
+
+    .intro h2,
+    .location-copy h2,
+    .reputation h2 {
+      margin-bottom: 25px;
+      font-family: var(--serif);
+      font-size: clamp(2.5rem, 5vw, 4.7rem);
+      font-weight: 400;
+      line-height: 1.02;
+      letter-spacing: -0.045em;
+    }
+
+    .intro-copy {
+      max-width: 720px;
+    }
+
+    .intro-copy > p {
+      max-width: 610px;
+      margin-bottom: 34px;
+      color: var(--ink-soft);
+      font-size: 1.08rem;
+    }
+
+    .identity-line {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .identity-item {
+      padding: 24px 24px 24px 0;
+    }
+
+    .identity-item + .identity-item {
+      padding-left: 30px;
+      border-left: 1px solid var(--line);
+    }
+
+    .identity-item small {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--ink-soft);
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .identity-item strong {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      font-weight: 400;
+    }
+
+    .reputation {
+      position: relative;
+      padding: 112px 0;
+      overflow: hidden;
+      background: var(--ink);
+      color: var(--white);
+    }
+
+    .reputation::before {
+      position: absolute;
+      top: -190px;
+      right: -120px;
+      width: 520px;
+      height: 520px;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .reputation-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .reputation .eyebrow {
+      color: #cfaeba;
+    }
+
+    .reputation h2 {
+      max-width: 650px;
+      margin-bottom: 18px;
+    }
+
+    .reputation p {
+      margin-bottom: 0;
+      color: rgba(255, 253, 251, 0.68);
+    }
+
+    .rating-display {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .rating-large {
+      font-family: var(--serif);
+      font-size: clamp(5rem, 10vw, 8.5rem);
+      line-height: 0.8;
+      letter-spacing: -0.06em;
+    }
+
+    .rating-meta {
+      padding-left: 28px;
+      border-left: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .rating-meta .stars {
+      color: #d9b7c2;
+    }
+
+    .rating-meta strong {
+      display: block;
+      font-size: 0.96rem;
+    }
+
+    .rating-meta span {
+      color: rgba(255, 253, 251, 0.62);
+      font-size: 0.84rem;
+    }
+
+    .location {
+      padding: 126px 0;
+    }
+
+    .location-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.87fr) minmax(380px, 1.13fr);
+      gap: clamp(50px, 9vw, 120px);
+      align-items: center;
+    }
+
+    .location-copy address {
+      max-width: 510px;
+      margin: 0 0 24px;
+      color: var(--ink-soft);
+      font-size: 1.06rem;
+      font-style: normal;
+    }
+
+    .phone-label {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--ink-soft);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .phone-link {
+      display: inline-block;
+      margin-bottom: 34px;
+      font-family: var(--serif);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      line-height: 1.1;
+      transition: color 0.2s ease;
+    }
+
+    .phone-link:hover {
+      color: var(--accent);
+    }
+
+    .map-card {
+      position: relative;
+      min-height: 480px;
+      overflow: hidden;
+      background: #e7ddd5;
+      box-shadow: var(--shadow);
+    }
+
+    .map-card::before,
+    .map-card::after,
+    .road {
+      position: absolute;
+      background: rgba(255,255,255,0.74);
+      content: "";
+    }
+
+    .map-card::before {
+      top: -15%;
+      left: 36%;
+      width: 34px;
+      height: 140%;
+      transform: rotate(21deg);
+    }
+
+    .map-card::after {
+      top: 53%;
+      left: -10%;
+      width: 120%;
+      height: 28px;
+      transform: rotate(-12deg);
+    }
+
+    .road.one {
+      top: -20%;
+      left: 72%;
+      width: 16px;
+      height: 140%;
+      transform: rotate(-35deg);
+    }
+
+    .road.two {
+      top: 22%;
+      left: -5%;
+      width: 110%;
+      height: 12px;
+      transform: rotate(28deg);
+    }
+
+    .map-grid {
+      position: absolute;
+      inset: 0;
+      opacity: 0.18;
+      background-image:
+        linear-gradient(rgba(40,31,33,0.3) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(40,31,33,0.3) 1px, transparent 1px);
+      background-size: 74px 74px;
+    }
+
+    .pin {
+      position: absolute;
+      z-index: 3;
+      top: 45%;
+      left: 52%;
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      border-radius: 50% 50% 50% 0;
+      background: var(--accent);
+      box-shadow: 0 15px 32px rgba(86,40,54,0.28);
+      color: var(--white);
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+
+    .pin svg {
+      width: 24px;
+      height: 24px;
+      transform: rotate(45deg);
+    }
+
+    .map-caption {
+      position: absolute;
+      z-index: 4;
+      right: 24px;
+      bottom: 24px;
+      left: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 22px 24px;
+      background: var(--white);
+    }
+
+    .map-caption span {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+    }
+
+    .text-link {
+      display: inline-flex;
+      flex: 0 0 auto;
+      align-items: center;
+      gap: 8px;
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .contact-band {
+      padding: 82px 0;
+      background: var(--accent);
+      color: var(--white);
+    }
+
+    .contact-band-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 50px;
+    }
+
+    .contact-band h2 {
+      max-width: 650px;
+      margin-bottom: 8px;
+      font-family: var(--serif);
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      font-weight: 400;
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+    }
+
+    .contact-band p {
+      margin-bottom: 0;
+      color: rgba(255,255,255,0.72);
+    }
+
+    .contact-band .button {
+      flex: 0 0 auto;
+      border-color: var(--white);
+      background: var(--white);
+      color: var(--accent-dark);
+    }
+
+    .contact-band .button:hover {
+      background: transparent;
+      color: var(--white);
+    }
+
+    footer {
+      padding: 34px 0;
+      background: var(--ink);
+      color: rgba(255,255,255,0.62);
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+      font-size: 0.82rem;
+    }
+
+    .footer-name {
+      color: var(--white);
+      font-family: var(--serif);
+      font-size: 1rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-links a:hover {
+      color: var(--white);
+    }
+
+    .mobile-call {
+      display: none;
+    }
+
+    @media (max-width: 900px) {
+      .nav {
+        min-height: 78px;
+      }
+
+      .menu-toggle {
+        display: block;
+        z-index: 3;
+      }
+
+      .menu-toggle[aria-expanded="true"] span:first-child {
+        transform: translateY(6px) rotate(45deg);
+      }
+
+      .menu-toggle[aria-expanded="true"] span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .menu-toggle[aria-expanded="true"] span:last-child {
+        transform: translateY(-6px) rotate(-45deg);
+      }
+
+      .nav-links {
+        position: fixed;
+        inset: 0;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 26px;
+        padding: 90px 32px 40px;
+        background: var(--paper);
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-16px);
+        transition: opacity 0.25s ease, transform 0.25s ease;
+      }
+
+      .nav-links.open {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+      }
+
+      .nav-links a {
+        font-family: var(--serif);
+        font-size: 1.8rem;
+        font-weight: 400;
+        letter-spacing: -0.02em;
+        text-transform: none;
+      }
+
+      .nav-call {
+        margin-top: 10px;
+        font-family: var(--sans) !important;
+        font-size: 0.85rem !important;
+        font-weight: 800 !important;
+        letter-spacing: 0.06em !important;
+        text-transform: uppercase !important;
+      }
+
+      .hero {
+        padding-top: 135px;
+        background: linear-gradient(160deg, var(--paper) 0 73%, var(--paper-deep) 73%);
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 70px;
+      }
+
+      .hero-copy {
+        position: relative;
+        z-index: 2;
+      }
+
+      .hero-art {
+        width: min(100%, 520px);
+        min-height: 440px;
+        margin-inline: auto;
+      }
+
+      .intro-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .reputation-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .rating-display {
+        justify-self: start;
+      }
+
+      .location-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .map-card {
+        min-height: 430px;
+      }
+
+      .contact-band-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        width: min(calc(100% - 36px), var(--container));
+      }
+
+      .brand {
+        font-size: 0.92rem;
+      }
+
+      .brand-mark {
+        width: 38px;
+        height: 38px;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 122px 0 68px;
+      }
+
+      .hero::before {
+        width: 260px;
+        height: 260px;
+      }
+
+      h1 {
+        font-size: clamp(3.35rem, 18vw, 5.2rem);
+      }
+
+      .hero-address {
+        margin-bottom: 28px;
+      }
+
+      .actions {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .hero-art {
+        min-height: 365px;
+      }
+
+      .art-frame {
+        right: 18px;
+        left: 0;
+      }
+
+      .rating-card {
+        right: 0;
+        width: 190px;
+        padding: 18px 20px;
+      }
+
+      .intro,
+      .location {
+        padding: 82px 0;
+      }
+
+      .intro h2,
+      .location-copy h2,
+      .reputation h2 {
+        font-size: clamp(2.4rem, 12vw, 3.4rem);
+      }
+
+      .identity-line {
+        grid-template-columns: 1fr;
+      }
+
+      .identity-item + .identity-item {
+        padding-left: 0;
+        border-top: 1px solid var(--line);
+        border-left: 0;
+      }
+
+      .reputation {
+        padding: 82px 0;
+      }
+
+      .rating-display {
+        gap: 18px;
+      }
+
+      .rating-large {
+        font-size: 5.4rem;
+      }
+
+      .rating-meta {
+        padding-left: 18px;
+      }
+
+      .map-card {
+        min-height: 390px;
+      }
+
+      .map-caption {
+        right: 16px;
+        bottom: 16px;
+        left: 16px;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 11px;
+        padding: 18px;
+      }
+
+      .contact-band {
+        padding: 68px 0;
+      }
+
+      .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .mobile-call {
+        position: fixed;
+        z-index: 15;
+        right: 16px;
+        bottom: 16px;
+        display: inline-flex;
+        width: 58px;
+        height: 58px;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: var(--accent);
+        box-shadow: 0 12px 30px rgba(86, 40, 54, 0.3);
+        color: var(--white);
+      }
+
+      .mobile-call svg {
+        width: 23px;
+        height: 23px;
+      }
+
+      footer {
+        padding-bottom: 96px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#continut">Sari la conținut</a>
+
+  <header class="site-header">
+    <nav class="nav container" aria-label="Navigație principală">
+      <a class="brand" href="#acasa" aria-label="Elysee Studio Târgoviște, acasă">
+        <span class="brand-mark" aria-hidden="true">ES</span>
+        <span>Elysee Studio<br>Târgoviște</span>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Deschide meniul">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-links" id="nav-menu">
+        <li><a href="#acasa">Acasă</a></li>
+        <li><a href="#despre">Despre salon</a></li>
+        <li><a href="#recenzii">Rating Google</a></li>
+        <li><a href="#contact">Contact și locație</a></li>
+        <li><a class="nav-call" href="tel:0729556773">Sună</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="continut">
+    <section class="hero" id="acasa">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Salon beauty · Târgoviște</p>
+          <h1>Elysee Studio <span>Târgoviște</span></h1>
+          <p class="hero-address">Str. Colonel Dumitru Băltărețu nr. 48, 130022 Târgoviște, România</p>
+          <div class="actions">
+            <a class="button" href="tel:0729556773">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.69 2.8a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.28-1.28a2 2 0 0 1 2.11-.45c.9.33 1.84.56 2.8.69A2 2 0 0 1 22 16.92z"/>
+              </svg>
+              Sună pentru informații
+            </a>
+            <a class="button secondary" href="https://www.google.com/maps/place/?q=place_id:ChIJz1ia5Mj1skAREms7nhO9oNc" target="_blank" rel="noopener noreferrer">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M21 10c0 7-9 12-9 12S3 17 3 10a9 9 0 1 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+              Vezi locația
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-art" aria-hidden="true">
+          <div class="art-frame">
+            <div class="botanical">
+              <span class="leaf one"></span>
+              <span class="leaf two"></span>
+              <span class="leaf three"></span>
+            </div>
+            <div class="monogram">ES</div>
+          </div>
+          <div class="rating-card">
+            <div class="stars">★★★★☆</div>
+            <div class="rating-row">
+              <strong class="rating-number">4,4</strong>
+              <span class="rating-label">din 27 de<br>recenzii Google</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="intro" id="despre">
+      <div class="container intro-grid">
+        <div class="section-index">01 · Identitate</div>
+        <div class="intro-copy">
+          <h2>Salon beauty în Târgoviște</h2>
+          <p>Elysee Studio Târgoviște poate fi contactat direct prin telefon și găsit la adresa de pe Str. Colonel Dumitru Băltărețu nr. 48.</p>
+          <div class="identity-line">
+            <div class="identity-item">
+              <small>Categorie</small>
+              <strong>Salon beauty</strong>
+            </div>
+            <div class="identity-item">
+              <small>Oraș</small>
+              <strong>Târgoviște</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="reputation" id="recenzii">
+      <div class="container reputation-grid">
+        <div>
+          <p class="eyebrow">Evaluare publică</p>
+          <h2>Ratingul Elysee Studio pe Google</h2>
+          <p>Evaluare afișată pe baza celor 27 de recenzii Google.</p>
+        </div>
+        <div class="rating-display" aria-label="Rating Google 4,4 din 27 de recenzii">
+          <strong class="rating-large">4,4</strong>
+          <div class="rating-meta">
+            <div class="stars" aria-hidden="true">★★★★☆</div>
+            <strong>Rating Google</strong>
+            <span>27 de recenzii</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="location" id="contact">
+      <div class="container location-grid">
+        <div class="location-copy">
+          <p class="eyebrow">Contact și locație</p>
+          <h2>Informații directe</h2>
+          <address>Str. Colonel Dumitru Băltărețu nr. 48<br>130022 Târgoviște, România</address>
+          <span class="phone-label">Telefon</span>
+          <a class="phone-link" href="tel:0729556773">0729 556 773</a>
+          <div class="actions">
+            <a class="button" href="tel:0729556773">Sună</a>
+            <a class="button secondary" href="https://www.google.com/maps/place/?q=place_id:ChIJz1ia5Mj1skAREms7nhO9oNc" target="_blank" rel="noopener noreferrer">Deschide în Google Maps</a>
+          </div>
+        </div>
+
+        <a class="map-card" href="https://www.google.com/maps/place/?q=place_id:ChIJz1ia5Mj1skAREms7nhO9oNc" target="_blank" rel="noopener noreferrer" aria-label="Deschide locația Elysee Studio Târgoviște în Google Maps">
+          <span class="map-grid" aria-hidden="true"></span>
+          <span class="road one" aria-hidden="true"></span>
+          <span class="road two" aria-hidden="true"></span>
+          <span class="pin" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <circle cx="12" cy="12" r="4"/>
+            </svg>
+          </span>
+          <span class="map-caption">
+            <span>Elysee Studio Târgoviște</span>
+            <span class="text-link">
+              Vezi locația
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M5 12h14M13 6l6 6-6 6"/>
+              </svg>
+            </span>
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <section class="contact-band" aria-labelledby="contact-title">
+      <div class="container contact-band-inner">
+        <div>
+          <h2 id="contact-title">Contactează Elysee Studio</h2>
+          <p>Pentru informații, sună la 0729 556 773.</p>
+        </div>
+        <a class="button" href="tel:0729556773">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.69 2.8a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.28-1.28a2 2 0 0 1 2.11-.45c.9.33 1.84.56 2.8.69A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          0729 556 773
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span class="footer-name">Elysee Studio Târgoviște</span>
+      <div class="footer-links">
+        <a href="tel:0729556773">0729 556 773</a>
+        <a href="https://www.google.com/maps/place/?q=place_id:ChIJz1ia5Mj1skAREms7nhO9oNc" target="_blank" rel="noopener noreferrer">Google Maps</a>
+      </div>
+    </div>
+  </footer>
+
+  <a class="mobile-call" href="tel:0729556773" aria-label="Sună Elysee Studio Târgoviște">
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.69 2.8a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.28-1.28a2 2 0 0 1 2.11-.45c.9.33 1.84.56 2.8.69A2 2 0 0 1 22 16.92z"/>
+    </svg>
+  </a>
+
+  <script>
+    const menuButton = document.querySelector(".menu-toggle");
+    const navMenu = document.querySelector(".nav-links");
+
+    menuButton.addEventListener("click", () => {
+      const isOpen = menuButton.getAttribute("aria-expanded") === "true";
+      menuButton.setAttribute("aria-expanded", String(!isOpen));
+      menuButton.setAttribute("aria-label", isOpen ? "Deschide meniul" : "Închide meniul");
+      navMenu.classList.toggle("open", !isOpen);
+      document.body.classList.toggle("menu-open", !isOpen);
+    });
+
+    navMenu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        menuButton.setAttribute("aria-expanded", "false");
+        menuButton.setAttribute("aria-label", "Deschide meniul");
+        navMenu.classList.remove("open");
+        document.body.classList.remove("menu-open");
+      });
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 900) {
+        menuButton.setAttribute("aria-expanded", "false");
+        menuButton.setAttribute("aria-label", "Deschide meniul");
+        navMenu.classList.remove("open");
+        document.body.classList.remove("menu-open");
+      }
+    });
+  </script>
+</body>
+</html>

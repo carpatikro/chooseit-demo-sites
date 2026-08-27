@@ -1,0 +1,1499 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ICIBAN Garage | Detailing auto în Târgoviște</title>
+  <meta name="description" content="ICIBAN Garage — detailing auto în Târgoviște. Bulevardul Unirii 16. Telefon: 0720 227 199.">
+  <meta name="theme-color" content="#0a0c0f">
+  <meta name="color-scheme" content="dark">
+  <meta property="og:title" content="ICIBAN Garage | Detailing auto în Târgoviște">
+  <meta property="og:description" content="Contact și localizare pentru ICIBAN Garage, Bulevardul Unirii 16, Târgoviște.">
+  <meta property="og:type" content="website">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "ICIBAN Garage",
+    "description": "Detailing auto în Târgoviște.",
+    "telephone": "+40720227199",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Bulevardul Unirii 16",
+      "addressLocality": "Târgoviște",
+      "addressCountry": "RO"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4",
+      "bestRating": "5",
+      "reviewCount": "8"
+    },
+    "hasMap": "https://www.google.com/maps/place/?q=place_id:ChIJz18T8Qr1skARz16Jb9MRimk"
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg: #080a0d;
+      --bg-elevated: #101318;
+      --bg-soft: #15191f;
+      --line: rgba(255, 255, 255, 0.11);
+      --line-strong: rgba(255, 255, 255, 0.2);
+      --text: #f4f5f7;
+      --muted: #a5abb4;
+      --subtle: #727985;
+      --accent: #d7ff33;
+      --accent-dark: #101500;
+      --white: #ffffff;
+      --max-width: 1240px;
+      --radius: 4px;
+      --shadow: 0 28px 80px rgba(0, 0, 0, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 96px;
+    }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      overflow-x: hidden;
+      background:
+        radial-gradient(circle at 80% 0%, rgba(215, 255, 51, 0.055), transparent 28rem),
+        var(--bg);
+      color: var(--text);
+      font-family: Inter, "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body.menu-open {
+      overflow: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 4px;
+    }
+
+    .skip-link {
+      position: fixed;
+      z-index: 1000;
+      top: 12px;
+      left: 12px;
+      padding: 10px 16px;
+      transform: translateY(-150%);
+      background: var(--accent);
+      color: var(--accent-dark);
+      font-weight: 800;
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    .container {
+      width: min(calc(100% - 48px), var(--max-width));
+      margin-inline: auto;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 22px;
+      color: var(--accent);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      line-height: 1.3;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      width: 28px;
+      height: 2px;
+      content: "";
+      background: currentColor;
+    }
+
+    .site-header {
+      position: relative;
+      z-index: 100;
+      border-bottom: 1px solid var(--line);
+      background: rgba(8, 10, 13, 0.86);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .header-inner {
+      display: flex;
+      min-height: 84px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 13px;
+      flex-shrink: 0;
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 42px;
+      height: 42px;
+      place-items: center;
+      border: 1px solid var(--line-strong);
+      background:
+        linear-gradient(135deg, transparent 45%, rgba(215, 255, 51, 0.16) 46%, rgba(215, 255, 51, 0.16) 54%, transparent 55%),
+        var(--bg-soft);
+      color: var(--accent);
+      font-size: 0.77rem;
+      font-weight: 900;
+      letter-spacing: -0.06em;
+    }
+
+    .brand-copy {
+      display: grid;
+      line-height: 1;
+    }
+
+    .brand-name {
+      font-size: 0.98rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .brand-category {
+      margin-top: 7px;
+      color: var(--subtle);
+      font-size: 0.66rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .desktop-nav {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .desktop-nav > a:not(.header-call) {
+      position: relative;
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .desktop-nav > a:not(.header-call)::after {
+      position: absolute;
+      right: 0;
+      bottom: -8px;
+      left: 0;
+      height: 2px;
+      content: "";
+      transform: scaleX(0);
+      transform-origin: right;
+      background: var(--accent);
+      transition: transform 180ms ease;
+    }
+
+    .desktop-nav > a:not(.header-call):hover {
+      color: var(--white);
+    }
+
+    .desktop-nav > a:not(.header-call):hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .header-call,
+    .button {
+      display: inline-flex;
+      min-height: 48px;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 0 20px;
+      border: 1px solid transparent;
+      border-radius: var(--radius);
+      font-size: 0.82rem;
+      font-weight: 850;
+      letter-spacing: 0.03em;
+      line-height: 1.2;
+      transition:
+        background-color 180ms ease,
+        border-color 180ms ease,
+        color 180ms ease,
+        transform 180ms ease;
+    }
+
+    .header-call,
+    .button-primary {
+      background: var(--accent);
+      color: var(--accent-dark);
+    }
+
+    .header-call:hover,
+    .button-primary:hover {
+      background: #e2ff70;
+      transform: translateY(-2px);
+    }
+
+    .button-secondary {
+      border-color: var(--line-strong);
+      background: transparent;
+      color: var(--white);
+    }
+
+    .button-secondary:hover {
+      border-color: rgba(215, 255, 51, 0.65);
+      background: rgba(215, 255, 51, 0.06);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .button svg,
+    .header-call svg {
+      width: 17px;
+      height: 17px;
+      flex: 0 0 auto;
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 46px;
+      height: 46px;
+      padding: 0;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--bg-elevated);
+      color: var(--white);
+      cursor: pointer;
+    }
+
+    .menu-toggle span,
+    .menu-toggle::before,
+    .menu-toggle::after {
+      display: block;
+      width: 19px;
+      height: 2px;
+      content: "";
+      background: currentColor;
+      transition: transform 180ms ease, opacity 180ms ease;
+    }
+
+    .menu-toggle span {
+      margin: 4px 0;
+    }
+
+    .menu-toggle[aria-expanded="true"] span {
+      opacity: 0;
+    }
+
+    .menu-toggle[aria-expanded="true"]::before {
+      transform: translateY(6px) rotate(45deg);
+    }
+
+    .menu-toggle[aria-expanded="true"]::after {
+      transform: translateY(-6px) rotate(-45deg);
+    }
+
+    .mobile-menu {
+      display: none;
+    }
+
+    .hero {
+      position: relative;
+      min-height: calc(100svh - 85px);
+      overflow: hidden;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero::before {
+      position: absolute;
+      inset: 0;
+      content: "";
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+      background-size: 76px 76px;
+      mask-image: linear-gradient(to right, black, transparent 75%);
+    }
+
+    .hero-inner {
+      position: relative;
+      display: grid;
+      min-height: calc(100svh - 85px);
+      grid-template-columns: minmax(0, 1.05fr) minmax(390px, 0.78fr);
+      align-items: center;
+      gap: clamp(48px, 7vw, 110px);
+      padding-block: 80px;
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero h1 {
+      max-width: 780px;
+      margin: 0;
+      font-size: clamp(3.7rem, 8.2vw, 7.4rem);
+      font-weight: 900;
+      letter-spacing: -0.075em;
+      line-height: 0.84;
+      text-transform: uppercase;
+    }
+
+    .hero h1 span {
+      display: block;
+      margin-left: 0.55em;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(244, 245, 247, 0.7);
+    }
+
+    .hero-intro {
+      max-width: 520px;
+      margin: 38px 0 0;
+      padding-left: 20px;
+      border-left: 2px solid var(--accent);
+      color: var(--muted);
+      font-size: clamp(1rem, 1.5vw, 1.17rem);
+    }
+
+    .hero-intro strong {
+      color: var(--white);
+      font-weight: 750;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 36px;
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 530px;
+      isolation: isolate;
+    }
+
+    .visual-frame {
+      position: absolute;
+      inset: 0 0 34px 36px;
+      overflow: hidden;
+      border: 1px solid var(--line-strong);
+      background:
+        linear-gradient(155deg, rgba(255, 255, 255, 0.055), transparent 42%),
+        #0c0f13;
+      box-shadow: var(--shadow);
+    }
+
+    .visual-frame::before {
+      position: absolute;
+      inset: 0;
+      content: "";
+      background:
+        repeating-linear-gradient(
+          135deg,
+          transparent 0,
+          transparent 14px,
+          rgba(255, 255, 255, 0.018) 15px,
+          rgba(255, 255, 255, 0.018) 16px
+        );
+    }
+
+    .visual-frame::after {
+      position: absolute;
+      right: -25%;
+      bottom: -25%;
+      width: 430px;
+      height: 430px;
+      border: 1px solid rgba(215, 255, 51, 0.13);
+      border-radius: 50%;
+      box-shadow:
+        0 0 0 52px rgba(215, 255, 51, 0.025),
+        0 0 0 104px rgba(215, 255, 51, 0.018);
+      content: "";
+    }
+
+    .visual-index {
+      position: absolute;
+      top: 28px;
+      right: 30px;
+      color: var(--subtle);
+      font-size: 0.66rem;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .vehicle-line {
+      position: absolute;
+      z-index: 2;
+      top: 48%;
+      left: 50%;
+      width: 82%;
+      transform: translate(-50%, -50%);
+      color: rgba(244, 245, 247, 0.88);
+    }
+
+    .visual-type {
+      position: absolute;
+      z-index: 3;
+      bottom: 36px;
+      left: 34px;
+    }
+
+    .visual-type strong {
+      display: block;
+      color: var(--accent);
+      font-size: clamp(2.5rem, 5vw, 4.7rem);
+      font-weight: 900;
+      letter-spacing: -0.07em;
+      line-height: 0.85;
+      text-transform: uppercase;
+    }
+
+    .visual-type span {
+      display: block;
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+
+    .address-tag {
+      position: absolute;
+      z-index: 5;
+      right: -18px;
+      bottom: 0;
+      display: grid;
+      width: 210px;
+      min-height: 126px;
+      grid-template-columns: 48px 1fr;
+      gap: 14px;
+      align-items: center;
+      padding: 20px;
+      border-left: 4px solid var(--accent);
+      background: var(--white);
+      color: #0c0e10;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+    }
+
+    .address-number {
+      font-size: 2.45rem;
+      font-weight: 900;
+      letter-spacing: -0.08em;
+      line-height: 1;
+    }
+
+    .address-copy {
+      font-size: 0.75rem;
+      font-weight: 800;
+      line-height: 1.45;
+    }
+
+    .address-copy small {
+      display: block;
+      margin-top: 4px;
+      color: #59606a;
+      font-size: 0.67rem;
+      font-weight: 700;
+    }
+
+    .section {
+      position: relative;
+      padding-block: clamp(80px, 10vw, 140px);
+    }
+
+    .section-heading {
+      max-width: 720px;
+      margin: 0;
+      font-size: clamp(2.25rem, 5vw, 4.4rem);
+      font-weight: 850;
+      letter-spacing: -0.055em;
+      line-height: 1;
+    }
+
+    .about {
+      background: #0d1014;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(240px, 0.65fr) minmax(0, 1.35fr);
+      gap: clamp(50px, 9vw, 140px);
+      align-items: start;
+    }
+
+    .section-number {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      color: var(--subtle);
+      font-size: 0.7rem;
+      font-weight: 850;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .section-number span {
+      color: var(--accent);
+    }
+
+    .section-number::after {
+      width: min(140px, 40%);
+      height: 1px;
+      content: "";
+      background: var(--line-strong);
+    }
+
+    .about-content p {
+      max-width: 700px;
+      margin: 28px 0 0;
+      color: var(--muted);
+      font-size: clamp(1.02rem, 1.65vw, 1.25rem);
+    }
+
+    .fact-row {
+      display: grid;
+      margin-top: 56px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .fact {
+      min-height: 145px;
+      padding: 28px;
+      border-right: 1px solid var(--line);
+    }
+
+    .fact:last-child {
+      border-right: 0;
+    }
+
+    .fact-label {
+      display: block;
+      margin-bottom: 15px;
+      color: var(--subtle);
+      font-size: 0.67rem;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .fact-value {
+      display: block;
+      color: var(--white);
+      font-size: clamp(1rem, 1.8vw, 1.3rem);
+      font-weight: 800;
+      line-height: 1.35;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .status::before {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 5px rgba(215, 255, 51, 0.1);
+      content: "";
+    }
+
+    .rating-section {
+      overflow: hidden;
+      background: var(--accent);
+      color: var(--accent-dark);
+    }
+
+    .rating-section::after {
+      position: absolute;
+      top: -65%;
+      right: -8%;
+      color: rgba(8, 10, 13, 0.06);
+      content: "4";
+      font-size: 38rem;
+      font-weight: 950;
+      letter-spacing: -0.12em;
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .rating-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: clamp(50px, 10vw, 150px);
+      align-items: end;
+    }
+
+    .rating-score {
+      display: flex;
+      align-items: flex-end;
+      gap: 10px;
+      font-size: clamp(6rem, 14vw, 12rem);
+      font-weight: 950;
+      letter-spacing: -0.105em;
+      line-height: 0.75;
+    }
+
+    .rating-score small {
+      padding-bottom: 12px;
+      font-size: clamp(1.3rem, 3vw, 2.2rem);
+      letter-spacing: -0.04em;
+    }
+
+    .rating-content .eyebrow {
+      color: var(--accent-dark);
+    }
+
+    .rating-content h2 {
+      max-width: 590px;
+      margin: 0;
+      font-size: clamp(2.2rem, 4.8vw, 4.2rem);
+      letter-spacing: -0.06em;
+      line-height: 1;
+    }
+
+    .stars {
+      display: flex;
+      gap: 8px;
+      margin-top: 30px;
+      font-size: 1.55rem;
+      line-height: 1;
+    }
+
+    .stars .empty {
+      opacity: 0.27;
+    }
+
+    .review-count {
+      margin: 16px 0 0;
+      font-weight: 750;
+    }
+
+    .location {
+      background:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+        linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+        var(--bg);
+      background-size: 64px 64px;
+    }
+
+    .location-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(400px, 1.1fr);
+      gap: clamp(50px, 9vw, 130px);
+      align-items: center;
+    }
+
+    .location-copy p {
+      max-width: 510px;
+      margin: 28px 0 0;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .location-copy .button {
+      margin-top: 34px;
+    }
+
+    .location-panel {
+      position: relative;
+      min-height: 460px;
+      overflow: hidden;
+      border: 1px solid var(--line-strong);
+      background: #11151a;
+      box-shadow: var(--shadow);
+    }
+
+    .location-panel::before {
+      position: absolute;
+      top: -100px;
+      right: -120px;
+      width: 430px;
+      height: 430px;
+      border: 1px solid rgba(215, 255, 51, 0.18);
+      border-radius: 50%;
+      box-shadow:
+        0 0 0 60px rgba(215, 255, 51, 0.025),
+        0 0 0 120px rgba(215, 255, 51, 0.015);
+      content: "";
+    }
+
+    .location-label {
+      position: absolute;
+      top: 28px;
+      left: 30px;
+      color: var(--subtle);
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .pin {
+      position: absolute;
+      top: 42%;
+      left: 24%;
+      width: 72px;
+      height: 72px;
+      transform: rotate(45deg);
+      border-radius: 50% 50% 50% 8px;
+      background: var(--accent);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    }
+
+    .pin::after {
+      position: absolute;
+      top: 23px;
+      left: 23px;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: #11151a;
+      content: "";
+    }
+
+    .location-address {
+      position: absolute;
+      right: 36px;
+      bottom: 38px;
+      left: 36px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line-strong);
+    }
+
+    .location-address strong {
+      display: block;
+      max-width: 390px;
+      font-size: clamp(1.4rem, 3vw, 2.25rem);
+      letter-spacing: -0.045em;
+      line-height: 1.12;
+    }
+
+    .location-address span {
+      display: block;
+      margin-top: 8px;
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .contact {
+      border-top: 1px solid var(--line);
+      background: #0d1014;
+    }
+
+    .contact-card {
+      display: grid;
+      overflow: hidden;
+      border: 1px solid var(--line-strong);
+      grid-template-columns: 1.1fr 0.9fr;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-main {
+      padding: clamp(36px, 6vw, 76px);
+      background: var(--bg-soft);
+    }
+
+    .contact-main h2 {
+      max-width: 630px;
+      margin: 0;
+      font-size: clamp(2.4rem, 5.3vw, 5rem);
+      letter-spacing: -0.065em;
+      line-height: 0.95;
+    }
+
+    .contact-main p {
+      max-width: 510px;
+      margin: 25px 0 0;
+      color: var(--muted);
+    }
+
+    .phone-link {
+      display: inline-block;
+      margin-top: 42px;
+      color: var(--accent);
+      font-size: clamp(1.8rem, 4.6vw, 3.8rem);
+      font-weight: 900;
+      letter-spacing: -0.055em;
+      line-height: 1;
+    }
+
+    .phone-link:hover {
+      color: #e5ff7d;
+    }
+
+    .contact-side {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 60px;
+      padding: clamp(36px, 6vw, 76px);
+      background: var(--accent);
+      color: var(--accent-dark);
+    }
+
+    .contact-side-label {
+      font-size: 0.69rem;
+      font-weight: 900;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .contact-side address {
+      max-width: 320px;
+      font-size: clamp(1.3rem, 2.6vw, 2rem);
+      font-style: normal;
+      font-weight: 850;
+      letter-spacing: -0.04em;
+      line-height: 1.2;
+    }
+
+    .contact-side .button {
+      align-self: flex-start;
+      border-color: rgba(8, 10, 13, 0.35);
+      color: var(--accent-dark);
+    }
+
+    .contact-side .button:hover {
+      border-color: var(--accent-dark);
+      background: rgba(8, 10, 13, 0.08);
+      color: var(--accent-dark);
+    }
+
+    .site-footer {
+      padding-block: 34px;
+      border-top: 1px solid var(--line);
+      background: var(--bg);
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 26px;
+    }
+
+    .footer-copy {
+      color: var(--subtle);
+      font-size: 0.75rem;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 750;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+
+    .mobile-actions {
+      display: none;
+    }
+
+    @media (max-width: 980px) {
+      .desktop-nav {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: grid;
+      }
+
+      .mobile-menu {
+        position: fixed;
+        z-index: 90;
+        inset: 85px 0 0;
+        display: flex;
+        visibility: hidden;
+        flex-direction: column;
+        gap: 8px;
+        padding: 32px 24px;
+        transform: translateY(-14px);
+        opacity: 0;
+        background: rgba(8, 10, 13, 0.98);
+        transition: opacity 180ms ease, transform 180ms ease, visibility 180ms ease;
+      }
+
+      .mobile-menu.open {
+        visibility: visible;
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      .mobile-menu a {
+        padding: 17px 4px;
+        border-bottom: 1px solid var(--line);
+        font-size: 1.15rem;
+        font-weight: 800;
+      }
+
+      .mobile-menu .button {
+        margin-top: 18px;
+        border-bottom: 0;
+      }
+
+      .hero,
+      .hero-inner {
+        min-height: auto;
+      }
+
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 66px;
+        padding-block: 80px 96px;
+      }
+
+      .hero h1 {
+        max-width: 700px;
+      }
+
+      .hero-visual {
+        min-height: 500px;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .rating-grid {
+        grid-template-columns: 1fr;
+        gap: 70px;
+      }
+
+      .rating-score {
+        order: 2;
+      }
+
+      .rating-section::after {
+        top: auto;
+        right: -8%;
+        bottom: -28%;
+        font-size: 29rem;
+      }
+
+      .location-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .location-panel {
+        min-height: 430px;
+      }
+
+      .contact-card {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .container {
+        width: min(calc(100% - 32px), var(--max-width));
+      }
+
+      .site-header {
+        position: sticky;
+        top: 0;
+      }
+
+      .header-inner {
+        min-height: 74px;
+      }
+
+      .brand-mark {
+        width: 38px;
+        height: 38px;
+      }
+
+      .brand-name {
+        font-size: 0.87rem;
+      }
+
+      .brand-category {
+        font-size: 0.58rem;
+      }
+
+      .mobile-menu {
+        inset: 75px 0 0;
+      }
+
+      .hero-inner {
+        padding-block: 66px 80px;
+      }
+
+      .hero h1 {
+        font-size: clamp(3.15rem, 17vw, 5.25rem);
+      }
+
+      .hero h1 span {
+        margin-left: 0.3em;
+      }
+
+      .hero-intro {
+        margin-top: 30px;
+      }
+
+      .hero-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .hero-actions .button {
+        width: 100%;
+      }
+
+      .hero-visual {
+        min-height: 395px;
+      }
+
+      .visual-frame {
+        inset: 0 0 28px 0;
+      }
+
+      .vehicle-line {
+        top: 43%;
+        width: 88%;
+      }
+
+      .visual-type {
+        bottom: 32px;
+        left: 22px;
+      }
+
+      .address-tag {
+        right: -6px;
+        width: 190px;
+        min-height: 110px;
+        padding: 16px;
+      }
+
+      .section {
+        padding-block: 82px;
+      }
+
+      .fact-row {
+        grid-template-columns: 1fr;
+      }
+
+      .fact {
+        min-height: auto;
+        padding: 25px 0;
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .fact:last-child {
+        border-bottom: 0;
+      }
+
+      .rating-score {
+        font-size: 7.5rem;
+      }
+
+      .rating-section::after {
+        font-size: 19rem;
+      }
+
+      .location-panel {
+        min-height: 390px;
+      }
+
+      .pin {
+        top: 30%;
+        left: 18%;
+        width: 58px;
+        height: 58px;
+      }
+
+      .pin::after {
+        top: 19px;
+        left: 19px;
+        width: 20px;
+        height: 20px;
+      }
+
+      .location-address {
+        right: 24px;
+        bottom: 28px;
+        left: 24px;
+      }
+
+      .contact-main,
+      .contact-side {
+        padding: 34px 26px;
+      }
+
+      .contact-side {
+        gap: 42px;
+      }
+
+      .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .mobile-actions {
+        position: fixed;
+        z-index: 80;
+        right: 12px;
+        bottom: 12px;
+        left: 12px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        padding: 7px;
+        border: 1px solid var(--line-strong);
+        background: rgba(8, 10, 13, 0.92);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.55);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+      }
+
+      .mobile-actions .button {
+        min-height: 50px;
+        padding-inline: 12px;
+      }
+
+      .site-footer {
+        padding-bottom: 112px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#continut">Sari la conținut</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#acasa" aria-label="ICIBAN Garage — Acasă">
+        <span class="brand-mark" aria-hidden="true">IG</span>
+        <span class="brand-copy">
+          <span class="brand-name">ICIBAN Garage</span>
+          <span class="brand-category">Detailing auto</span>
+        </span>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Navigație principală">
+        <a href="#despre">Despre</a>
+        <a href="#rating">Rating Google</a>
+        <a href="#locatie">Locație</a>
+        <a href="#contact">Contact</a>
+        <a class="header-call" href="tel:0720227199" aria-label="Sună la 0720 227 199">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+            <path d="M7.1 3.8 9.4 8c.3.6.2 1.3-.3 1.7l-1.2 1a14.1 14.1 0 0 0 5.4 5.4l1-1.2c.4-.5 1.1-.6 1.7-.3l4.2 2.3c.6.3.9 1 .7 1.7l-.5 2c-.2.8-.9 1.4-1.8 1.4C9.4 22 2 14.6 2 5.4c0-.9.6-1.6 1.4-1.8l2-.5c.7-.2 1.4.1 1.7.7Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+          </svg>
+          Sună
+        </a>
+      </nav>
+
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Deschide meniul">
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Navigație mobilă">
+    <a href="#despre">Despre</a>
+    <a href="#rating">Rating Google</a>
+    <a href="#locatie">Locație</a>
+    <a href="#contact">Contact</a>
+    <a class="button button-primary" href="tel:0720227199">Sună la 0720 227 199</a>
+  </nav>
+
+  <main id="continut">
+    <section class="hero" id="acasa">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow">Detailing auto · Târgoviște</p>
+          <h1>ICIBAN <span>Garage</span></h1>
+          <p class="hero-intro">
+            <strong>Detailing auto în Târgoviște</strong>, cu sediul pe Bulevardul Unirii 16.
+            Pentru informații, contactează direct ICIBAN Garage.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button button-primary" href="tel:0720227199" aria-label="Sună la ICIBAN Garage, 0720 227 199">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+                <path d="M7.1 3.8 9.4 8c.3.6.2 1.3-.3 1.7l-1.2 1a14.1 14.1 0 0 0 5.4 5.4l1-1.2c.4-.5 1.1-.6 1.7-.3l4.2 2.3c.6.3.9 1 .7 1.7l-.5 2c-.2.8-.9 1.4-1.8 1.4C9.4 22 2 14.6 2 5.4c0-.9.6-1.6 1.4-1.8l2-.5c.7-.2 1.4.1 1.7.7Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              </svg>
+              Sună pentru informații
+            </a>
+
+            <a class="button button-secondary" href="https://www.google.com/maps/place/?q=place_id:ChIJz18T8Qr1skARz16Jb9MRimk" target="_blank" rel="noopener noreferrer" aria-label="Vezi ICIBAN Garage în Google Maps">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+                <path d="M12 21s7-6.1 7-12a7 7 0 1 0-14 0c0 5.9 7 12 7 12Z" stroke="currentColor" stroke-width="1.8"/>
+                <circle cx="12" cy="9" r="2.5" stroke="currentColor" stroke-width="1.8"/>
+              </svg>
+              Vezi locația
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="visual-frame">
+            <span class="visual-index">ICB / 01</span>
+
+            <svg class="vehicle-line" viewBox="0 0 640 250" fill="none">
+              <path d="M55 159c16-8 34-17 49-24l55-62c13-15 31-24 51-25l172-7c26-1 50 8 69 25l57 51 74 21c16 5 27 19 27 36v17H567" stroke="currentColor" stroke-width="3"/>
+              <path d="M50 191H92M182 191h278M552 191h52M148 76l39 58h267l-48-68M288 48l-6 86M111 135h421M82 159h66M524 138l-17 29" stroke="currentColor" stroke-width="2" opacity=".48"/>
+              <circle cx="137" cy="189" r="43" stroke="currentColor" stroke-width="3"/>
+              <circle cx="137" cy="189" r="19" stroke="currentColor" stroke-width="2" opacity=".55"/>
+              <circle cx="507" cy="189" r="43" stroke="currentColor" stroke-width="3"/>
+              <circle cx="507" cy="189" r="19" stroke="currentColor" stroke-width="2" opacity=".55"/>
+              <path d="M203 155h34M408 155h31" stroke="#d7ff33" stroke-width="4"/>
+            </svg>
+
+            <div class="visual-type">
+              <strong>Auto</strong>
+              <span>Detailing · Târgoviște</span>
+            </div>
+          </div>
+
+          <div class="address-tag">
+            <span class="address-number">16</span>
+            <span class="address-copy">
+              Bulevardul Unirii
+              <small>Târgoviște, România</small>
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section about" id="despre">
+      <div class="container about-grid">
+        <div>
+          <div class="section-number"><span>01</span> Despre business</div>
+        </div>
+
+        <div class="about-content">
+          <p class="eyebrow">ICIBAN Garage</p>
+          <h2 class="section-heading">Detailing auto în Târgoviște.</h2>
+          <p>
+            ICIBAN Garage activează în categoria detailing auto și poate fi contactat telefonic
+            sau găsit la adresa din Bulevardul Unirii 16.
+          </p>
+
+          <div class="fact-row">
+            <div class="fact">
+              <span class="fact-label">Categorie</span>
+              <span class="fact-value">Detailing auto</span>
+            </div>
+            <div class="fact">
+              <span class="fact-label">Oraș</span>
+              <span class="fact-value">Târgoviște</span>
+            </div>
+            <div class="fact">
+              <span class="fact-label">Status</span>
+              <span class="fact-value status">Operațional</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section rating-section" id="rating" aria-labelledby="rating-title">
+      <div class="container rating-grid">
+        <div class="rating-score" aria-label="Rating 4 din 5">
+          4<small>/ 5</small>
+        </div>
+
+        <div class="rating-content">
+          <p class="eyebrow">Rating Google</p>
+          <h2 id="rating-title">Evaluare publică disponibilă pe Google.</h2>
+          <div class="stars" aria-hidden="true">
+            <span>★</span>
+            <span>★</span>
+            <span>★</span>
+            <span>★</span>
+            <span class="empty">★</span>
+          </div>
+          <p class="review-count">8 recenzii Google</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section location" id="locatie">
+      <div class="container location-grid">
+        <div class="location-copy">
+          <p class="eyebrow">Contact și localizare</p>
+          <h2 class="section-heading">Bulevardul Unirii 16, Târgoviște.</h2>
+          <p>
+            Folosește Google Maps pentru traseu și detalii de localizare.
+          </p>
+
+          <a class="button button-primary" href="https://www.google.com/maps/place/?q=place_id:ChIJz18T8Qr1skARz16Jb9MRimk" target="_blank" rel="noopener noreferrer" aria-label="Deschide locația ICIBAN Garage în Google Maps">
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+              <path d="M12 21s7-6.1 7-12a7 7 0 1 0-14 0c0 5.9 7 12 7 12Z" stroke="currentColor" stroke-width="1.8"/>
+              <circle cx="12" cy="9" r="2.5" stroke="currentColor" stroke-width="1.8"/>
+            </svg>
+            Deschide în Google Maps
+          </a>
+        </div>
+
+        <div class="location-panel" aria-label="Adresa ICIBAN Garage">
+          <span class="location-label">Târgoviște · România</span>
+          <span class="pin" aria-hidden="true"></span>
+
+          <div class="location-address">
+            <strong>Bulevardul Unirii 16</strong>
+            <span>ICIBAN Garage</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact">
+      <div class="container">
+        <div class="contact-card">
+          <div class="contact-main">
+            <p class="eyebrow">Contact direct</p>
+            <h2>Informații despre ICIBAN Garage.</h2>
+            <p>Folosește numărul de telefon pentru a contacta direct businessul.</p>
+            <a class="phone-link" href="tel:0720227199" aria-label="Sună la 0720 227 199">0720 227 199</a>
+          </div>
+
+          <div class="contact-side">
+            <span class="contact-side-label">Adresă</span>
+            <address>
+              Bulevardul Unirii 16<br>
+              Târgoviște, România
+            </address>
+            <a class="button button-secondary" href="https://www.google.com/maps/place/?q=place_id:ChIJz18T8Qr1skARz16Jb9MRimk" target="_blank" rel="noopener noreferrer">
+              Vezi locația
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+                <path d="m9 5 7 7-7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-copy">© <span id="year"></span> ICIBAN Garage · Detailing auto · Târgoviște</div>
+      <div class="footer-links">
+        <a href="tel:0720227199">0720 227 199</a>
+        <a href="https://www.google.com/maps/place/?q=place_id:ChIJz18T8Qr1skARz16Jb9MRimk" target="_blank" rel="noopener noreferrer">Google Maps</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="mobile-actions" aria-label="Acțiuni rapide">
+    <a class="button button-primary" href="tel:0720227199" aria-label="Sună la ICIBAN Garage">
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+        <path d="M7.1 3.8 9.4 8c.3.6.2 1.3-.3 1.7l-1.2 1a14.1 14.1 0 0 0 5.4 5.4l1-1.2c.4-.5 1.1-.6 1.7-.3l4.2 2.3c.6.3.9 1 .7 1.7l-.5 2c-.2.8-.9 1.4-1.8 1.4C9.4 22 2 14.6 2 5.4c0-.9.6-1.6 1.4-1.8l2-.5c.7-.2 1.4.1 1.7.7Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+      </svg>
+      Sună
+    </a>
+
+    <a class="button button-secondary" href="https://www.google.com/maps/place/?q=place_id:ChIJz18T8Qr1skARz16Jb9MRimk" target="_blank" rel="noopener noreferrer" aria-label="Vezi locația în Google Maps">
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+        <path d="M12 21s7-6.1 7-12a7 7 0 1 0-14 0c0 5.9 7 12 7 12Z" stroke="currentColor" stroke-width="1.8"/>
+        <circle cx="12" cy="9" r="2.5" stroke="currentColor" stroke-width="1.8"/>
+      </svg>
+      Locație
+    </a>
+  </div>
+
+  <script>
+    const menuButton = document.querySelector(".menu-toggle");
+    const mobileMenu = document.querySelector(".mobile-menu");
+    const mobileLinks = mobileMenu.querySelectorAll("a");
+
+    function closeMenu() {
+      menuButton.setAttribute("aria-expanded", "false");
+      menuButton.setAttribute("aria-label", "Deschide meniul");
+      mobileMenu.classList.remove("open");
+      document.body.classList.remove("menu-open");
+    }
+
+    menuButton.addEventListener("click", function () {
+      const isOpen = menuButton.getAttribute("aria-expanded") === "true";
+      menuButton.setAttribute("aria-expanded", String(!isOpen));
+      menuButton.setAttribute("aria-label", isOpen ? "Deschide meniul" : "Închide meniul");
+      mobileMenu.classList.toggle("open", !isOpen);
+      document.body.classList.toggle("menu-open", !isOpen);
+    });
+
+    mobileLinks.forEach(function (link) {
+      link.addEventListener("click", closeMenu);
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") {
+        closeMenu();
+      }
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

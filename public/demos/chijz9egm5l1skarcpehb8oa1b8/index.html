@@ -1,0 +1,1427 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HEXA Service &amp; Piese Auto | Târgoviște</title>
+  <meta name="description" content="HEXA Service & Piese Auto din Târgoviște. Telefon: 0724 257 519. Adresă: Calea București 105, 137455 Târgoviște, România.">
+  <meta name="theme-color" content="#10161d">
+  <style>
+    :root {
+      --navy: #10161d;
+      --navy-soft: #18212b;
+      --graphite: #252d35;
+      --steel: #9ba5ae;
+      --paper: #f4f3ef;
+      --white: #ffffff;
+      --orange: #f15a24;
+      --orange-dark: #cb4314;
+      --line-dark: rgba(255, 255, 255, 0.12);
+      --line-light: #d9d9d4;
+      --text: #182028;
+      --muted: #626b73;
+      --container: 1180px;
+      --shadow: 0 24px 70px rgba(11, 17, 23, 0.16);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      overflow-x: hidden;
+      color: var(--text);
+      background: var(--paper);
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body.menu-open {
+      overflow: hidden;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid rgba(241, 90, 36, 0.65);
+      outline-offset: 4px;
+    }
+
+    .container {
+      width: min(calc(100% - 40px), var(--container));
+      margin-inline: auto;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 20px;
+      color: var(--orange);
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      width: 30px;
+      height: 2px;
+      content: "";
+      background: currentColor;
+    }
+
+    .section-title {
+      max-width: 760px;
+      margin: 0;
+      font-size: clamp(2.2rem, 5vw, 4.4rem);
+      font-weight: 800;
+      letter-spacing: -0.055em;
+      line-height: 0.98;
+    }
+
+    .site-header {
+      position: fixed;
+      z-index: 50;
+      top: 0;
+      left: 0;
+      width: 100%;
+      border-bottom: 1px solid var(--line-dark);
+      color: var(--white);
+      background: rgba(16, 22, 29, 0.92);
+      backdrop-filter: blur(16px);
+    }
+
+    .navbar {
+      display: flex;
+      min-height: 78px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 13px;
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      position: relative;
+      display: grid;
+      width: 42px;
+      height: 46px;
+      place-items: center;
+      color: var(--white);
+      font-size: 1.08rem;
+      font-weight: 900;
+      letter-spacing: -0.08em;
+      background: var(--orange);
+      clip-path: polygon(25% 0, 75% 0, 100% 22%, 100% 78%, 75% 100%, 25% 100%, 0 78%, 0 22%);
+    }
+
+    .brand-mark::after {
+      position: absolute;
+      inset: 5px;
+      border: 1px solid rgba(255, 255, 255, 0.42);
+      content: "";
+      clip-path: inherit;
+    }
+
+    .brand-name {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.05;
+    }
+
+    .brand-name strong {
+      font-size: 1.03rem;
+      letter-spacing: 0.04em;
+    }
+
+    .brand-name span {
+      margin-top: 5px;
+      color: #adb6be;
+      font-size: 0.66rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .desktop-nav {
+      display: flex;
+      align-items: center;
+      gap: 34px;
+    }
+
+    .desktop-nav a {
+      color: #d9dee2;
+      font-size: 0.88rem;
+      font-weight: 650;
+      text-decoration: none;
+      transition: color 180ms ease;
+    }
+
+    .desktop-nav a:hover {
+      color: var(--white);
+    }
+
+    .header-call {
+      display: inline-flex;
+      min-height: 44px;
+      align-items: center;
+      gap: 9px;
+      padding: 0 18px;
+      color: var(--white) !important;
+      background: var(--orange);
+      transition: background 180ms ease, transform 180ms ease;
+    }
+
+    .header-call:hover {
+      background: var(--orange-dark);
+      transform: translateY(-1px);
+    }
+
+    .header-call svg {
+      width: 17px;
+      height: 17px;
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 46px;
+      height: 46px;
+      padding: 0;
+      border: 1px solid var(--line-dark);
+      color: var(--white);
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      margin: 5px auto;
+      background: currentColor;
+      transition: transform 180ms ease, opacity 180ms ease;
+    }
+
+    .mobile-panel {
+      display: none;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 760px;
+      overflow: hidden;
+      color: var(--white);
+      background:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        var(--navy);
+      background-size: 64px 64px;
+    }
+
+    .hero::before {
+      position: absolute;
+      top: 78px;
+      right: -8vw;
+      width: 52vw;
+      height: 100%;
+      content: "";
+      background: linear-gradient(145deg, rgba(241, 90, 36, 0.12), transparent 60%);
+      clip-path: polygon(26% 0, 100% 0, 100% 100%, 0 100%);
+    }
+
+    .hero::after {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 38%;
+      height: 8px;
+      content: "";
+      background: var(--orange);
+    }
+
+    .hero-layout {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      min-height: 760px;
+      padding-top: 148px;
+      padding-bottom: 82px;
+      align-items: center;
+      grid-template-columns: minmax(0, 1.15fr) minmax(360px, 0.85fr);
+      gap: 70px;
+    }
+
+    .hero-copy {
+      max-width: 720px;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(3.5rem, 8.2vw, 7.7rem);
+      font-weight: 900;
+      letter-spacing: -0.075em;
+      line-height: 0.82;
+      text-transform: uppercase;
+    }
+
+    .hero h1 span {
+      display: block;
+      color: var(--orange);
+    }
+
+    .hero-subtitle {
+      display: flex;
+      max-width: 610px;
+      align-items: flex-start;
+      gap: 18px;
+      margin: 34px 0 0;
+      color: #c9d0d6;
+      font-size: clamp(1rem, 2vw, 1.22rem);
+      line-height: 1.65;
+    }
+
+    .hero-subtitle::before {
+      flex: 0 0 auto;
+      width: 3px;
+      height: 54px;
+      margin-top: 5px;
+      content: "";
+      background: var(--orange);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+      margin-top: 38px;
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: 54px;
+      align-items: center;
+      justify-content: center;
+      gap: 11px;
+      padding: 0 24px;
+      border: 1px solid transparent;
+      font-size: 0.9rem;
+      font-weight: 800;
+      letter-spacing: 0.015em;
+      text-decoration: none;
+      transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button svg {
+      width: 19px;
+      height: 19px;
+    }
+
+    .button-primary {
+      color: var(--white);
+      background: var(--orange);
+    }
+
+    .button-primary:hover {
+      background: var(--orange-dark);
+    }
+
+    .button-outline {
+      border-color: rgba(255, 255, 255, 0.28);
+      color: var(--white);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .button-outline:hover {
+      border-color: rgba(255, 255, 255, 0.55);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .hero-visual {
+      position: relative;
+      display: grid;
+      min-height: 460px;
+      place-items: center;
+    }
+
+    .technical-ring {
+      position: relative;
+      display: grid;
+      width: min(37vw, 430px);
+      aspect-ratio: 1;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      background:
+        repeating-conic-gradient(from 0deg, rgba(255,255,255,0.16) 0deg 1deg, transparent 1deg 12deg),
+        radial-gradient(circle, transparent 0 44%, rgba(255, 255, 255, 0.06) 44.5% 45.5%, transparent 46% 60%, rgba(241, 90, 36, 0.18) 60.5% 61.5%, transparent 62%);
+      box-shadow: 0 0 90px rgba(0, 0, 0, 0.25);
+    }
+
+    .technical-ring::before,
+    .technical-ring::after {
+      position: absolute;
+      border-radius: 50%;
+      content: "";
+    }
+
+    .technical-ring::before {
+      inset: 16%;
+      border: 14px solid var(--navy-soft);
+      box-shadow:
+        inset 0 0 0 2px rgba(255, 255, 255, 0.1),
+        0 0 0 2px rgba(255, 255, 255, 0.06);
+    }
+
+    .technical-ring::after {
+      inset: 34%;
+      border: 2px solid var(--orange);
+      background: var(--navy);
+      box-shadow: 0 0 36px rgba(241, 90, 36, 0.22);
+    }
+
+    .visual-core {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+
+    .visual-core strong {
+      display: block;
+      font-size: clamp(3rem, 6vw, 5rem);
+      font-weight: 900;
+      letter-spacing: -0.08em;
+      line-height: 1;
+    }
+
+    .visual-core span {
+      display: block;
+      margin-top: 10px;
+      color: var(--steel);
+      font-size: 0.67rem;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .tech-label {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #aab3bb;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .tech-label::before {
+      width: 32px;
+      height: 1px;
+      content: "";
+      background: var(--orange);
+    }
+
+    .tech-label-one {
+      top: 8%;
+      right: 0;
+    }
+
+    .tech-label-two {
+      bottom: 10%;
+      left: 0;
+    }
+
+    .facts-strip {
+      position: relative;
+      z-index: 3;
+      margin-top: -1px;
+      color: var(--white);
+      background: var(--navy-soft);
+      border-top: 1px solid var(--line-dark);
+    }
+
+    .facts-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1.25fr;
+    }
+
+    .fact {
+      min-height: 150px;
+      padding: 30px 34px;
+      border-right: 1px solid var(--line-dark);
+    }
+
+    .fact:first-child {
+      border-left: 1px solid var(--line-dark);
+    }
+
+    .fact-label {
+      display: block;
+      margin-bottom: 10px;
+      color: #8e9aa4;
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .fact strong {
+      display: block;
+      font-size: clamp(1.65rem, 3vw, 2.35rem);
+      font-weight: 850;
+      letter-spacing: -0.04em;
+      line-height: 1.1;
+    }
+
+    .fact-address strong {
+      max-width: 340px;
+      font-size: 1.12rem;
+      line-height: 1.42;
+    }
+
+    .about {
+      position: relative;
+      padding: 130px 0;
+      overflow: hidden;
+    }
+
+    .about::after {
+      position: absolute;
+      top: 80px;
+      right: -120px;
+      width: 350px;
+      height: 350px;
+      border: 1px solid var(--line-light);
+      border-radius: 50%;
+      content: "";
+      box-shadow:
+        0 0 0 44px var(--paper),
+        0 0 0 45px var(--line-light),
+        0 0 0 94px var(--paper),
+        0 0 0 95px var(--line-light);
+      opacity: 0.8;
+    }
+
+    .about-grid {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 110px;
+    }
+
+    .about-index {
+      display: flex;
+      min-height: 320px;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 34px;
+      color: var(--white);
+      background:
+        linear-gradient(135deg, transparent 0 72%, rgba(241, 90, 36, 0.18) 72%),
+        var(--navy);
+      box-shadow: var(--shadow);
+    }
+
+    .about-index-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #8e9aa4;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .about-index-top::after {
+      width: 68px;
+      height: 2px;
+      content: "";
+      background: var(--orange);
+    }
+
+    .about-index strong {
+      display: block;
+      font-size: clamp(3.7rem, 8vw, 6.8rem);
+      font-weight: 900;
+      letter-spacing: -0.08em;
+      line-height: 0.8;
+    }
+
+    .about-index span {
+      display: block;
+      margin-top: 18px;
+      color: #b8c0c6;
+      font-size: 0.8rem;
+      font-weight: 750;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .about-content {
+      padding-top: 14px;
+    }
+
+    .about-content .section-title {
+      max-width: 620px;
+    }
+
+    .about-copy {
+      max-width: 670px;
+      margin: 34px 0 0;
+      color: var(--muted);
+      font-size: 1.11rem;
+      line-height: 1.85;
+    }
+
+    .about-details {
+      display: grid;
+      margin-top: 46px;
+      border-top: 1px solid var(--line-light);
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .about-detail {
+      padding: 25px 28px 0 0;
+    }
+
+    .about-detail + .about-detail {
+      padding-left: 28px;
+      border-left: 1px solid var(--line-light);
+    }
+
+    .about-detail span {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--orange);
+      font-size: 0.68rem;
+      font-weight: 850;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .about-detail strong {
+      font-size: 1.05rem;
+    }
+
+    .reviews {
+      padding: 115px 0;
+      color: var(--white);
+      background: var(--graphite);
+    }
+
+    .reviews-grid {
+      display: grid;
+      align-items: end;
+      grid-template-columns: 1fr 0.9fr;
+      gap: 100px;
+    }
+
+    .reviews .section-title {
+      max-width: 650px;
+    }
+
+    .reviews-text {
+      max-width: 580px;
+      margin: 27px 0 0;
+      color: #b8c0c6;
+      font-size: 1rem;
+    }
+
+    .rating-panel {
+      position: relative;
+      padding: 42px 44px;
+      border-top: 5px solid var(--orange);
+      background: var(--navy);
+    }
+
+    .rating-panel::after {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 65px;
+      height: 65px;
+      content: "";
+      background: linear-gradient(135deg, transparent 50%, var(--orange) 50%);
+    }
+
+    .rating-caption {
+      color: #8e9aa4;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .rating-number {
+      display: flex;
+      margin: 13px 0 18px;
+      align-items: flex-end;
+      gap: 14px;
+    }
+
+    .rating-number strong {
+      font-size: clamp(4.8rem, 10vw, 7.5rem);
+      font-weight: 900;
+      letter-spacing: -0.08em;
+      line-height: 0.85;
+    }
+
+    .rating-symbol {
+      margin-bottom: 5px;
+      color: var(--orange);
+      font-size: 2.1rem;
+      line-height: 1;
+    }
+
+    .rating-reviews {
+      color: #d7dde1;
+      font-size: 1rem;
+    }
+
+    .location {
+      padding: 130px 0;
+    }
+
+    .location-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 40px;
+      margin-bottom: 52px;
+    }
+
+    .location-layout {
+      display: grid;
+      overflow: hidden;
+      color: var(--white);
+      background: var(--navy);
+      box-shadow: var(--shadow);
+      grid-template-columns: 1.08fr 0.92fr;
+    }
+
+    .map-visual {
+      position: relative;
+      min-height: 470px;
+      overflow: hidden;
+      background:
+        linear-gradient(30deg, transparent 46%, rgba(255, 255, 255, 0.07) 47% 48%, transparent 49%),
+        linear-gradient(120deg, transparent 40%, rgba(255, 255, 255, 0.06) 41% 43%, transparent 44%),
+        linear-gradient(165deg, transparent 53%, rgba(241, 90, 36, 0.25) 54% 55%, transparent 56%),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        var(--navy-soft);
+      background-size: auto, auto, auto, 40px 40px, 40px 40px, auto;
+    }
+
+    .map-visual::before {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 220px;
+      height: 220px;
+      border: 1px solid rgba(241, 90, 36, 0.4);
+      border-radius: 50%;
+      content: "";
+      transform: translate(-50%, -50%);
+      box-shadow:
+        0 0 0 45px rgba(241, 90, 36, 0.05),
+        0 0 0 90px rgba(241, 90, 36, 0.025);
+    }
+
+    .map-pin {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      display: grid;
+      width: 68px;
+      height: 68px;
+      place-items: center;
+      border-radius: 50% 50% 50% 0;
+      color: var(--white);
+      background: var(--orange);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      transform: translate(-50%, -65%) rotate(-45deg);
+    }
+
+    .map-pin svg {
+      width: 26px;
+      height: 26px;
+      transform: rotate(45deg);
+    }
+
+    .map-coordinate {
+      position: absolute;
+      right: 26px;
+      bottom: 22px;
+      color: #8e9aa4;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.66rem;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .contact-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 60px;
+      border-left: 1px solid var(--line-dark);
+    }
+
+    .contact-row {
+      padding: 25px 0;
+      border-bottom: 1px solid var(--line-dark);
+    }
+
+    .contact-row:first-of-type {
+      padding-top: 0;
+    }
+
+    .contact-row span {
+      display: block;
+      margin-bottom: 8px;
+      color: #8e9aa4;
+      font-size: 0.69rem;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .contact-row a,
+    .contact-row address {
+      color: var(--white);
+      font-size: clamp(1.08rem, 2vw, 1.35rem);
+      font-style: normal;
+      font-weight: 750;
+      line-height: 1.5;
+      text-decoration: none;
+    }
+
+    .contact-row a:hover {
+      color: var(--orange);
+    }
+
+    .contact-card .button {
+      align-self: flex-start;
+      margin-top: 34px;
+    }
+
+    .closing {
+      position: relative;
+      overflow: hidden;
+      padding: 90px 0;
+      color: var(--white);
+      background: var(--orange);
+    }
+
+    .closing::after {
+      position: absolute;
+      top: -150px;
+      right: 5%;
+      width: 420px;
+      height: 420px;
+      border: 80px solid rgba(16, 22, 29, 0.1);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .closing-layout {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 50px;
+    }
+
+    .closing h2 {
+      max-width: 690px;
+      margin: 0;
+      font-size: clamp(2.2rem, 5vw, 4.4rem);
+      font-weight: 900;
+      letter-spacing: -0.055em;
+      line-height: 1;
+    }
+
+    .closing .button {
+      flex: 0 0 auto;
+      color: var(--white);
+      background: var(--navy);
+    }
+
+    .closing .button:hover {
+      background: var(--navy-soft);
+    }
+
+    .site-footer {
+      padding: 34px 0;
+      color: #9ba5ae;
+      background: #0b1015;
+    }
+
+    .footer-layout {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .footer-layout p {
+      margin: 0;
+      font-size: 0.82rem;
+    }
+
+    .footer-link {
+      color: #d6dce0;
+      font-size: 0.8rem;
+      font-weight: 750;
+      text-decoration: none;
+    }
+
+    .footer-link:hover {
+      color: var(--orange);
+    }
+
+    @media (max-width: 980px) {
+      .desktop-nav {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .menu-toggle[aria-expanded="true"] span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+
+      .menu-toggle[aria-expanded="true"] span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .menu-toggle[aria-expanded="true"] span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
+
+      .mobile-panel {
+        position: fixed;
+        z-index: 49;
+        top: 78px;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        padding: 30px 20px;
+        flex-direction: column;
+        gap: 4px;
+        color: var(--white);
+        background: var(--navy);
+        transform: translateX(100%);
+        transition: transform 220ms ease;
+      }
+
+      .mobile-panel.open {
+        transform: translateX(0);
+      }
+
+      .mobile-panel a {
+        padding: 18px 10px;
+        border-bottom: 1px solid var(--line-dark);
+        font-size: 1.15rem;
+        font-weight: 750;
+        text-decoration: none;
+      }
+
+      .mobile-panel .mobile-call {
+        display: inline-flex;
+        margin-top: 20px;
+        align-items: center;
+        justify-content: center;
+        color: var(--white);
+        background: var(--orange);
+      }
+
+      .hero-layout {
+        min-height: auto;
+        padding-top: 160px;
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .hero-visual {
+        min-height: 390px;
+      }
+
+      .technical-ring {
+        width: min(70vw, 390px);
+      }
+
+      .facts-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .fact-address {
+        grid-column: 1 / -1;
+      }
+
+      .about-grid,
+      .reviews-grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+      }
+
+      .about-index {
+        min-height: 250px;
+      }
+
+      .location-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-card {
+        border-top: 1px solid var(--line-dark);
+        border-left: 0;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .container {
+        width: min(calc(100% - 32px), var(--container));
+      }
+
+      .navbar {
+        min-height: 70px;
+      }
+
+      .brand-mark {
+        width: 38px;
+        height: 42px;
+      }
+
+      .brand-name strong {
+        font-size: 0.9rem;
+      }
+
+      .brand-name span {
+        font-size: 0.57rem;
+      }
+
+      .mobile-panel {
+        top: 70px;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-layout {
+        padding-top: 130px;
+        padding-bottom: 58px;
+      }
+
+      .hero h1 {
+        font-size: clamp(3.2rem, 18vw, 5.1rem);
+        line-height: 0.85;
+      }
+
+      .hero-subtitle {
+        font-size: 0.98rem;
+      }
+
+      .hero-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .hero-visual {
+        min-height: 320px;
+      }
+
+      .technical-ring {
+        width: min(86vw, 315px);
+      }
+
+      .tech-label {
+        font-size: 0.58rem;
+      }
+
+      .facts-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .fact {
+        min-height: auto;
+        padding: 25px 24px;
+        border-bottom: 1px solid var(--line-dark);
+        border-left: 1px solid var(--line-dark);
+      }
+
+      .fact-address {
+        grid-column: auto;
+      }
+
+      .about,
+      .reviews,
+      .location {
+        padding: 90px 0;
+      }
+
+      .about-grid {
+        gap: 48px;
+      }
+
+      .about-index {
+        min-height: 220px;
+        padding: 28px;
+      }
+
+      .about-copy {
+        font-size: 1rem;
+      }
+
+      .about-details {
+        grid-template-columns: 1fr;
+      }
+
+      .about-detail {
+        padding: 22px 0;
+      }
+
+      .about-detail + .about-detail {
+        padding: 22px 0;
+        border-top: 1px solid var(--line-light);
+        border-left: 0;
+      }
+
+      .rating-panel {
+        padding: 34px 28px;
+      }
+
+      .location-heading {
+        display: block;
+      }
+
+      .map-visual {
+        min-height: 340px;
+      }
+
+      .contact-card {
+        padding: 40px 26px;
+      }
+
+      .contact-card .button {
+        align-self: stretch;
+      }
+
+      .closing {
+        padding: 74px 0;
+      }
+
+      .closing-layout {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .footer-layout {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container navbar">
+      <a class="brand" href="#acasa" aria-label="HEXA Service &amp; Piese Auto - Acasă">
+        <span class="brand-mark" aria-hidden="true">H</span>
+        <span class="brand-name">
+          <strong>HEXA</strong>
+          <span>Service &amp; Piese Auto</span>
+        </span>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Navigație principală">
+        <a href="#acasa">Acasă</a>
+        <a href="#despre">Despre</a>
+        <a href="#evaluare">Evaluare Google</a>
+        <a href="#contact">Contact</a>
+        <a class="header-call" href="tel:0724257519" aria-label="Sună la HEXA Service &amp; Piese Auto">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+            <path d="M7.4 3.5 10 8.1 7.8 10c1.1 2.5 3.1 4.5 5.6 5.6l1.9-2.2 4.6 2.6-.6 3.2c-.2 1-1.1 1.7-2.1 1.7C9.4 20.9 3.1 14.6 3.1 6.8c0-1 .7-1.9 1.7-2.1l2.6-.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+          </svg>
+          0724 257 519
+        </a>
+      </nav>
+
+      <button class="menu-toggle" type="button" aria-label="Deschide meniul" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="mobile-panel" id="mobile-menu" aria-label="Navigație mobilă">
+    <a href="#acasa">Acasă</a>
+    <a href="#despre">Despre</a>
+    <a href="#evaluare">Evaluare Google</a>
+    <a href="#contact">Contact și localizare</a>
+    <a class="mobile-call" href="tel:0724257519">Sună: 0724 257 519</a>
+  </nav>
+
+  <main>
+    <section class="hero" id="acasa">
+      <div class="container hero-layout">
+        <div class="hero-copy">
+          <p class="eyebrow">Service auto · Târgoviște</p>
+          <h1>HEXA <span>Service</span></h1>
+          <p class="hero-subtitle">
+            HEXA Service &amp; Piese Auto, cu locația pe Calea București 105, Târgoviște.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button button-primary" href="tel:0724257519">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+                <path d="M7.4 3.5 10 8.1 7.8 10c1.1 2.5 3.1 4.5 5.6 5.6l1.9-2.2 4.6 2.6-.6 3.2c-.2 1-1.1 1.7-2.1 1.7C9.4 20.9 3.1 14.6 3.1 6.8c0-1 .7-1.9 1.7-2.1l2.6-.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              </svg>
+              Sună pentru informații
+            </a>
+            <a class="button button-outline" href="https://www.google.com/maps/place/?q=place_id:ChIJz9egm5L1skARcpEhB8oA1b8" target="_blank" rel="noopener noreferrer">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+                <path d="M20 10c0 5.6-8 11-8 11S4 15.6 4 10a8 8 0 1 1 16 0Z" stroke="currentColor" stroke-width="1.8"/>
+                <circle cx="12" cy="10" r="2.7" stroke="currentColor" stroke-width="1.8"/>
+              </svg>
+              Vezi locația
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="technical-ring">
+            <div class="visual-core">
+              <strong>H</strong>
+              <span>Târgoviște</span>
+            </div>
+          </div>
+          <span class="tech-label tech-label-one">HEXA / AUTO</span>
+          <span class="tech-label tech-label-two">Calea București 105</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="facts-strip" aria-label="Informații principale">
+      <div class="container facts-grid">
+        <div class="fact">
+          <span class="fact-label">Rating Google</span>
+          <strong>4,3</strong>
+        </div>
+        <div class="fact">
+          <span class="fact-label">Recenzii Google</span>
+          <strong>169</strong>
+        </div>
+        <div class="fact fact-address">
+          <span class="fact-label">Locație</span>
+          <strong>Calea București 105, Târgoviște</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="despre">
+      <div class="container about-grid">
+        <div class="about-index" aria-hidden="true">
+          <div class="about-index-top">Identificare</div>
+          <div>
+            <strong>H.</strong>
+            <span>Service &amp; Piese Auto</span>
+          </div>
+        </div>
+
+        <div class="about-content">
+          <p class="eyebrow">Despre HEXA</p>
+          <h2 class="section-title">Service auto în Târgoviște.</h2>
+          <p class="about-copy">
+            HEXA Service &amp; Piese Auto este un service auto din Târgoviște. Pentru informații directe despre activitate, compania poate fi contactată telefonic sau găsită la adresa indicată.
+          </p>
+
+          <div class="about-details">
+            <div class="about-detail">
+              <span>Categorie</span>
+              <strong>Service auto</strong>
+            </div>
+            <div class="about-detail">
+              <span>Oraș</span>
+              <strong>Târgoviște</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="reviews" id="evaluare">
+      <div class="container reviews-grid">
+        <div>
+          <p class="eyebrow">Evaluare publică</p>
+          <h2 class="section-title">Ratingul Google, afișat clar.</h2>
+          <p class="reviews-text">
+            Evaluarea publică disponibilă pentru HEXA Service &amp; Piese Auto însumează 169 de recenzii Google.
+          </p>
+        </div>
+
+        <div class="rating-panel" aria-label="Rating Google 4,3 din 169 de recenzii">
+          <span class="rating-caption">Rating Google</span>
+          <div class="rating-number">
+            <strong>4,3</strong>
+            <span class="rating-symbol" aria-hidden="true">★</span>
+          </div>
+          <div class="rating-reviews">169 de recenzii Google</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="location" id="contact">
+      <div class="container">
+        <div class="location-heading">
+          <div>
+            <p class="eyebrow">Contact și localizare</p>
+            <h2 class="section-title">Date directe pentru contact.</h2>
+          </div>
+        </div>
+
+        <div class="location-layout">
+          <div class="map-visual" aria-hidden="true">
+            <div class="map-pin">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M20 10c0 5.6-8 11-8 11S4 15.6 4 10a8 8 0 1 1 16 0Z" stroke="currentColor" stroke-width="1.8"/>
+                <circle cx="12" cy="10" r="2.7" stroke="currentColor" stroke-width="1.8"/>
+              </svg>
+            </div>
+            <span class="map-coordinate">Târgoviște · România</span>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-row">
+              <span>Telefon</span>
+              <a href="tel:0724257519">0724 257 519</a>
+            </div>
+
+            <div class="contact-row">
+              <span>Adresă</span>
+              <address>Calea București 105, 137455 Târgoviște, România</address>
+            </div>
+
+            <a class="button button-primary" href="https://www.google.com/maps/place/?q=place_id:ChIJz9egm5L1skARcpEhB8oA1b8" target="_blank" rel="noopener noreferrer">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+                <path d="M20 10c0 5.6-8 11-8 11S4 15.6 4 10a8 8 0 1 1 16 0Z" stroke="currentColor" stroke-width="1.8"/>
+                <circle cx="12" cy="10" r="2.7" stroke="currentColor" stroke-width="1.8"/>
+              </svg>
+              Deschide în Google Maps
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing" aria-labelledby="closing-title">
+      <div class="container closing-layout">
+        <h2 id="closing-title">Contactează HEXA Service &amp; Piese Auto.</h2>
+        <a class="button" href="tel:0724257519">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+            <path d="M7.4 3.5 10 8.1 7.8 10c1.1 2.5 3.1 4.5 5.6 5.6l1.9-2.2 4.6 2.6-.6 3.2c-.2 1-1.1 1.7-2.1 1.7C9.4 20.9 3.1 14.6 3.1 6.8c0-1 .7-1.9 1.7-2.1l2.6-.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+          </svg>
+          0724 257 519
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-layout">
+      <p>HEXA Service &amp; Piese Auto · Târgoviște</p>
+      <a class="footer-link" href="https://www.google.com/maps/place/?q=place_id:ChIJz9egm5L1skARcpEhB8oA1b8" target="_blank" rel="noopener noreferrer">Calea București 105</a>
+    </div>
+  </footer>
+
+  <script>
+    const menuButton = document.querySelector('.menu-toggle');
+    const mobileMenu = document.querySelector('.mobile-panel');
+    const mobileLinks = mobileMenu.querySelectorAll('a');
+
+    function closeMenu() {
+      menuButton.setAttribute('aria-expanded', 'false');
+      menuButton.setAttribute('aria-label', 'Deschide meniul');
+      mobileMenu.classList.remove('open');
+      document.body.classList.remove('menu-open');
+    }
+
+    menuButton.addEventListener('click', function () {
+      const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
+      menuButton.setAttribute('aria-expanded', String(!isOpen));
+      menuButton.setAttribute('aria-label', isOpen ? 'Deschide meniul' : 'Închide meniul');
+      mobileMenu.classList.toggle('open', !isOpen);
+      document.body.classList.toggle('menu-open', !isOpen);
+    });
+
+    mobileLinks.forEach(function (link) {
+      link.addEventListener('click', closeMenu);
+    });
+
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 980) {
+        closeMenu();
+      }
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') {
+        closeMenu();
+      }
+    });
+  </script>
+</body>
+</html>
